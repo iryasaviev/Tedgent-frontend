@@ -7,11 +7,11 @@ class LeftMenu {
     }
 
     openOrClose(menu) {
-        this.body.classList.toggle('left_menu-active');
+        this.body.classList.toggle('sidebar-active');
     }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     let leftMenu = new LeftMenu();
-    leftMenu.menu.getElementsByClassName('left_menu-hd--btn')[0].onclick = () => leftMenu.openOrClose();
+    leftMenu.menu.getElementsByClassName('sidebar_hd--btn')[0].onclick = () => leftMenu.openOrClose();
 });
