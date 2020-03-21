@@ -22,17 +22,19 @@ body {
 .btn:focus {
   opacity: 0.8;
   background: #f2f4f5;
-  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.132),
-    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
   opacity: 0.9;
   background: #f2f4f5;
-  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.132),
-    0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
+    0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:active {
   opacity: 1;
+  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
+    0 0.6px 1.8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*
