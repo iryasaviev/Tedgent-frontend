@@ -35,6 +35,9 @@ body {
   background: rgba(20, 28, 36, 0.8);
 }
 
+.cnt_hd--title {
+  color: #8e8e8e;
+}
 .cnt_bd--test:hover {
   color: #ddd;
   background: #1e3144;
