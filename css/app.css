@@ -108,9 +108,7 @@ Left menu
 }
 .sidebar_bd {
   width: 100%;
-  padding: 0 10px;
-
-  padding-top: 20px;
+  padding: 10px 10px 0 10px;
   flex-direction: column;
 }
 .sidebar_bd--photo {
@@ -137,6 +135,23 @@ Left menu
 .sidebar-active .sidebar_bd--photo img {
   max-width: 140px;
   max-height: 140px;
+}
+
+.sidebar_bd--name {
+  height: 40px;
+  font-size: 14px;
+  overflow: hidden;
+  font-weight: 600;
+  margin: 10px 0 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  transition: 0.03s;
+  visibility: hidden;
+}
+.sidebar-active .sidebar_bd--name {
+  visibility: visible;
 }
 
 .sidebar_bd--btns {
