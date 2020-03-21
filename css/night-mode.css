@@ -1,0 +1,41 @@
+body {
+  background: #141c24;
+  color: #3f91d4;
+}
+
+.btn,
+.sidebar,
+.cnt_bd--test {
+  background: #1e3144;
+  border-color: #141c24;
+}
+
+.btn {
+  color: #ddd;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #141c24;
+  color: #3f91d4;
+}
+
+.sidebar_hd--btn span {
+  background: #ddd;
+}
+.sidebar_hd--btn:hover span {
+  background: #3f91d4;
+}
+.sidebar_hd--inp {
+  color: #fff;
+  background: #141c24;
+  border-color: #1e3144;
+}
+.sidebar_hd--inp:focus {
+  background: rgba(20, 28, 36, 0.8);
+}
+
+.cnt_bd--test:hover {
+  color: #ddd;
+  background: #1e3144;
+}
