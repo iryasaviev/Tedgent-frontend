@@ -16,25 +16,26 @@ body {
   outline: none;
   cursor: pointer;
   transition: 0.1s;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
   border-radius: 4px;
   display: flex;
 }
 .btn:focus {
-  opacity: 0.8;
   background: #f2f4f5;
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
-  opacity: 0.9;
   background: #f2f4f5;
   box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
     0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:active {
-  opacity: 1;
-  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
-    0 0.6px 1.8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
 
 /*
@@ -55,6 +56,12 @@ Left menu
   box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
     0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
   transition: 0.14s;
+  -webkit-transition-property: max-width;
+  -moz-transition-property: max-width;
+  -o-transition-property: max-width;
+  transition-property: max-width;
+  /* -webkit-transform: translateX(-100%);
+          transform: translateX(-100%); */
 }
 .sidebar-active .sidebar {
   box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
@@ -113,7 +120,7 @@ Left menu
   padding: 10px 10px 0 10px;
   flex-direction: column;
 }
-.sidebar_bd--photo {
+.sidebar_bd-photo {
   overflow: hidden;
   width: 100%;
   max-width: 38px;
@@ -121,11 +128,11 @@ Left menu
   margin: 0 auto;
   transition: 0.14s;
 }
-.sidebar-active .sidebar_bd--photo {
+.sidebar-active .sidebar_bd-photo {
   max-width: 140px;
   max-height: 140px;
 }
-.sidebar_bd--photo img {
+.sidebar_bd-photo img {
   width: 100%;
   height: 100%;
   max-height: 38px;
@@ -134,7 +141,7 @@ Left menu
   transition: 0.14s;
   border: 1px solid #ddd;
 }
-.sidebar-active .sidebar_bd--photo img {
+.sidebar-active .sidebar_bd-photo img {
   max-width: 140px;
   max-height: 140px;
 }
@@ -156,11 +163,11 @@ Left menu
   visibility: visible;
 }
 
-.sidebar_bd--btns {
+.sidebar_bd-btns {
   margin-top: 20px;
   flex-direction: column;
 }
-.sidebar_bd--btn {
+.sidebar_bd-btn {
   height: 40px;
   width: 100%;
   padding: 12px 13px;
@@ -168,13 +175,13 @@ Left menu
   overflow: hidden;
   font-size: 13px;
 }
-.sidebar_bd--btn .icon {
+.sidebar_bd-btn .icon {
   margin-right: 14px;
 }
-.sidebar-active .sidebar_bd--btn .icon {
+.sidebar-active .sidebar_bd-btn .icon {
   margin-right: 10px;
 }
-.sidebar_bd--btn .txt {
+.sidebar_bd-btn .txt {
   height: 14px;
   overflow: hidden;
 }
