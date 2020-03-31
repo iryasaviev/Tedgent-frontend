@@ -128,7 +128,7 @@ Left menu
   margin: 0 auto;
   transition: 0.14s;
 }
-.sidebar-active .sidebar_bd--photo {
+.sidebar-active .sidebar_bd-photo {
   max-width: 120px;
   max-height: 120px;
 }
@@ -141,7 +141,7 @@ Left menu
   transition: 0.14s;
   border: 1px solid #ddd;
 }
-.sidebar-active .sidebar_bd--photo img {
+.sidebar-active .sidebar_bd-photo img {
   max-width: 120px;
   max-height: 120px;
 }
