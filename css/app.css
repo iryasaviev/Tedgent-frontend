@@ -15,11 +15,10 @@ body {
   border: none;
   outline: none;
   cursor: pointer;
-  transition: 0.1s;
-  -webkit-transition-property: background;
-  -moz-transition-property: background;
-  -o-transition-property: background;
-  transition-property: background;
+  -webkit-transition-property: box-shadow;
+  -moz-transition-property: box-shadow;
+  -o-transition-property: box-shadow;
+  transition-property: box-shadow;
   border-radius: 4px;
   display: flex;
 }
@@ -165,12 +164,11 @@ Left menu
 
 .sidebar_bd-btns {
   margin-top: 20px;
-  flex-direction: column;
 }
 .sidebar_bd-btn {
   height: 40px;
   width: 100%;
-  padding: 12px 13px;
+  padding: 13px;
   margin: 5px 0 10px;
   overflow: hidden;
   font-size: 13px;
@@ -230,7 +228,6 @@ Body content
 .cnt_bd--test {
   width: 100%;
   height: 100px;
-  transition: 0.1s;
   padding: 18px 14px;
   border-radius: 4px;
   background: #fff;
