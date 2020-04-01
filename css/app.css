@@ -54,7 +54,7 @@ Left menu
   border-right: 1px solid #ddd;
   box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
     0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-  transition: 0.14s;
+  transition: 0.11s;
   -webkit-transition-property: max-width;
   -moz-transition-property: max-width;
   -o-transition-property: max-width;
@@ -63,8 +63,6 @@ Left menu
           transform: translateX(-100%); */
 }
 .sidebar-active .sidebar {
-  box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
-    0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
   max-width: 240px;
 }
 .sidebar_hd {
@@ -125,7 +123,7 @@ Left menu
   max-width: 38px;
   height: 120px;
   margin: 0 auto;
-  transition: 0.14s;
+  transition: 0.11s;
 }
 .sidebar-active .sidebar_bd-photo {
   max-width: 120px;
@@ -137,7 +135,7 @@ Left menu
   max-height: 38px;
   max-width: 38px;
   border-radius: 50%;
-  transition: 0.14s;
+  transition: 0.11s;
   border: 1px solid #ddd;
 }
 .sidebar-active .sidebar_bd-photo img {
@@ -201,7 +199,7 @@ Body content
   margin: 0 auto;
   display: flex;
   max-width: 1180px;
-  transition: 0.14s;
+  transition: 0.11s;
   flex-direction: column;
 }
 .sidebar-active .cnt {
@@ -222,12 +220,12 @@ Body content
 .cnt_bd {
   padding: 20px 10px;
 }
-.cnt_bd--tests {
+.cnt_bd-tests {
   width: 100%;
   height: 100%;
   flex-direction: column;
 }
-.cnt_bd--test {
+.cnt_bd-tests--item {
   width: 100%;
   height: 100px;
   padding: 18px 14px;
@@ -242,11 +240,11 @@ Body content
   -moz-user-select: none;
   -moz-user-select: none;
 }
-.cnt_bd--test:hover {
+.cnt_bd-tests--item:hover {
   box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
     0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
 }
-.cnt_bd--test--item {
+.cnt_bd-tests--item-col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -254,7 +252,7 @@ Body content
 .nt_bd--test--item2 {
   margin-left: 10px;
 }
-.cnt_bd--test--title {
+.cnt_bd-tests--item-col--title {
   font-size: 16px;
   min-height: 20px;
   max-height: 40px;
@@ -264,12 +262,12 @@ Body content
   margin-bottom: 5px;
   padding-bottom: 10px;
 }
-.cnt_bd--test--description,
-.cnt_bd--test--date {
+.cnt_bd-tests--item-col--dsc,
+.cnt_bd-tests--item-col--date {
   color: #8e8e8e;
   font-size: 14px;
 }
-.cnt_bd--test--date {
+.cnt_bd-tests--item-col--date {
   font-size: 12px;
 }
 
