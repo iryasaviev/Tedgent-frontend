@@ -4,13 +4,16 @@
 }
 
 .night-mode .btn,
+.night-mode .menu,
 .night-mode .sidebar,
 .night-mode .cnt_bd--test {
   background: #1e3144;
   border-color: #141c24;
 }
 
-.night-mode .btn {
+.night-mode .btn,
+.night-mode .menu_bd--title,
+.night-mode .menu--title > a {
   color: #ddd;
 }
 
@@ -20,19 +23,26 @@
   color: #3f91d4;
 }
 
+.night-mode .sidebar_hd-user-col2--item {
+  color: hsl(0, 0%, 56%);
+}
 .night-mode .sidebar_hd--btn span {
   background: #ddd;
 }
 .night-mode .sidebar_hd--btn:hover span {
   background: #3f91d4;
 }
-.night-mode .sidebar_hd--inp {
+.night-mode .menu_bd-search--inp {
   color: #fff;
   background: #141c24;
   border-color: #1e3144;
 }
-.night-mode .sidebar_hd--inp:focus {
+.night-mode .menu_bd-search--inp:focus {
   background: rgba(20, 28, 36, 0.8);
+}
+
+.night-mode .menu--title {
+  border-color: #141c24;
 }
 
 .night-mode .cnt_hd--title {

@@ -122,14 +122,17 @@ Left menu
 }
 
 .sidebar_hd--btn {
-  height: 34px;
-  width: 38px;
+  height: 40px;
+  width: 39px;
   min-width: 38px;
   padding: 10px 6px;
   border: none;
   text-align: center;
   flex-direction: column;
   align-items: center;
+  position: absolute;
+  right: 10px;
+  top: 67px;
 }
 .sidebar_hd--btn span {
   height: 2px;
