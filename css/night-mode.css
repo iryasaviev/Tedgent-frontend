@@ -13,7 +13,8 @@
 
 .night-mode .btn,
 .night-mode .menu_bd--title,
-.night-mode .menu--title > a {
+.night-mode .menu--title > a,
+.night-mode .sidebar_hd-user-col1--txt {
   color: #ddd;
 }
 
@@ -23,8 +24,15 @@
   color: #3f91d4;
 }
 
+.night-mode .sidebar_hd-user {
+  background: hsla(207, 63%, 35%, 1);
+}
+
 .night-mode .sidebar_hd-user-col2--item {
   color: hsl(0, 0%, 56%);
+}
+.night-mode .sidebar_hd--btn {
+  background: hsla(207, 63%, 35%, 1);
 }
 .night-mode .sidebar_hd--btn span {
   background: #ddd;

@@ -133,6 +133,7 @@ Left menu
   position: absolute;
   right: 10px;
   top: 67px;
+  background: hsl(208, 65%, 95%);
 }
 .sidebar_hd--btn span {
   height: 2px;
