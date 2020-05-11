@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Ильнур Ясавиев</title>
+  <link rel="stylesheet" href="../css/app.css" />
+</head>
+
+<body class="sidebar-active" id="body" data-page-num="2">
+  <div class="sidebar">
+    <div class="sidebar_hd">
+      <div class="sidebar_hd-user">
+        <div class="sidebar_hd-user-col1">
+          <img class="sidebar_hd-user-col1--img" src="../img/pp.jpg" />
+          <div class="sidebar_hd-user-col1--txt">
+            <span>Ясавиев</span>
+            <span>Ильнур</span>
+          </div>
+        </div>
+        <div class="sidebar_hd-user-col2">
+          <div class="sidebar_hd-user-col2--item">ir.yasaveiv@yandex.ru</div>
+          <div class="sidebar_hd-user-col2--item">@ir_yasaviev</div>
+        </div>
+      </div>
+      <button class="sidebar_hd--btn btn i-arrow-left"></button>
+    </div>
+    <div class="sidebar_bd">
+      <div class="sidebar_bd-btns">
+        <button class="btn sidebar_bd-btn">
+          <span class="i-user icon"></span>
+          <div class="txt">Профиль</div>
+        </button>
+        <button class="btn sidebar_bd-btn" data-link="/test/create">
+          <span class="i-plus icon"></span>
+          <div class="txt">Создать тест</div>
+        </button>
+        <button class="btn sidebar_bd-btn">
+          <span class="i-list icon"></span>
+          <div class="txt">Тесты</div>
+        </button>
+        <button class="btn sidebar_bd-btn">
+          <span class="i-settings-1 icon"></span>
+          <div class="txt">Настройки</div>
+        </button>
+        <button class="btn sidebar_bd-btn nightMode">
+          <span class="i-moon icon"></span>
+          <div class="txt">Ночной режим</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <h1 class="menu--title"><a href="#">Tedgent</a></h1>
+    <div class="menu_bd">
+      <h2 class="menu_bd--title">Тесты</h2>
+      <div class="menu_bd-search">
+        <input class="menu_bd-search--inp inp" type="text" placeholder="Поиск" />
+      </div>
+    </div>
+  </div>
+
+  <div class="cnt" id="bodyContent">
+    <div class="cnt_bd">
+      <div class="cnt_bd-menu">
+        <div class="cnt_bd-tests-menu--select select" title="Сортировка по предмету">
+          <button class="select_hd">
+            <div class="select_hd-value" data-select-option-value=""></div>
+            <div class="select_hd--icon i-arrow1-down"></div>
+          </button>
+          <div class="select_bd">
+            <button class="select_bd-option" data-select-option="">
+              <div class="cnt_bd-tests-menu--select-option--square subject-bcg-1"></div>
+              <div class="cnt_bd-tests-menu--select-option--txt">Математика</div>
+            </button>
+            <button class="select_bd-option" data-select-option="">
+              <div class="cnt_bd-tests-menu--select-option--square subject-bcg-2"></div>
+              <div class="cnt_bd-tests-menu--select-option--txt">Русский язык</div>
+            </button>
+            <button class="select_bd-option" data-select-option="">
+              <div class="cnt_bd-tests-menu--select-option--square subject-bcg-4"></div>
+              <div class="cnt_bd-tests-menu--select-option--txt">Биология</div>
+            </button>
+            <button class="select_bd-option select_bd-option-last" data-select-option="">
+              <div class="cnt_bd-tests-menu--select-option--square subject-bcg-3"></div>
+              <div class="cnt_bd-tests-menu--select-option--txt">Информатика</div>
+            </button>
+          </div>
+        </div>
+        <input class="cnt_bd-tests-menu--date inp" type="date" title="Сортировка по дате создания">
+      </div>
+      <div class="cnt_bd-tests">
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-1">м</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Тест по математике для 7 А</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Описание теста по математике для 7 А класса</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-2">РЯ</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Руссикй язык. Члены предложения</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span></span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-3">и</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Программирование
+                микроконтроллеров</a></div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Тест по информатике для 3-го курса. Программирование микроконтроллеров на языке C и Assembler</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-1">м</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Тест по математике для 7 А</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Описание теста по математике для 7 А класса</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-2">РЯ</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Руссикй язык. Члены предложения</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span></span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-3">и</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Программирование
+                микроконтроллеров</a></div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Тест по информатике для 3-го курса. Программирование микроконтроллеров на языке C и Assembler</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-1">м</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Тест по математике для 7 А</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Описание теста по математике для 7 А класса</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-2">РЯ</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Руссикй язык. Члены предложения</a>
+            </div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span></span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+        <div class="cnt_bd-tests--item" data-link="test/1" data-test-subject="2">
+          <div class="cnt_bd-tests--item-col col1">
+            <div class="cnt_bd-tests--item-col--subject test-subject-logo subject-bcg-3">и</div>
+          </div>
+          <div class="cnt_bd-tests--item-col col2">
+            <div class="cnt_bd-tests--item-col--title"><a class="link" href="test/1">Программирование
+                микроконтроллеров</a></div>
+            <div class="cnt_bd-tests--item-col--dsc">
+              <span>Тест по информатике для 3-го курса. Программирование микроконтроллеров на языке C и Assembler</span>
+            </div>
+          </div>
+          <div class="cnt_bd-tests--item-col col3">
+            <div class="cnt_bd-tests--item-col--date" title="Дата создания теста" data-test-create-date="26.03.2020">
+              <span>26.03.2020</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="../js/tedgent-js.js"></script>
+</body>
+
+</html>
