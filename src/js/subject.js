@@ -78,4 +78,26 @@ export class Subject {
             }
         ];
     }
+
+    getShortName(subjectNum) {
+        let result = '';
+
+        if (subjectNum !== '0') {
+            for (let subject of this.list) {
+                if (subject.num === subjectNum) {
+                    let subjectNameWords = subject.name.split(' ');
+
+                    result = subjectNameWords[0].split('')[0];
+
+                    if (subjectNameWords.length > 1) {
+                        result += subjectNameWords[1].split('')[0];
+                    }
+
+                    return result;
+                }
+            }
+        }
+
+        return result;
+    }
 }
