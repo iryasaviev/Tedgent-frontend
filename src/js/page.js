@@ -20,11 +20,16 @@ export class Page {
 
             // Test create page
             case '3':
-                let testCreate = new TestCreate(),
-                    testCreateSubjectSelect = body.getElementsByClassName('js-test-create-subject-select')[0];
+                let testCreateCl = new TestCreate(),
+                    testCreateSubjectSelect = this.body.getElementsByClassName('js-test-create-subject-select')[0];
 
                 if (testCreateSubjectSelect !== undefined) {
-                    testCreateSubjectSelect.onclick = () => testCreate.selectSubject(testCreateSubjectSelect);
+                    testCreateSubjectSelect.onclick = () => testCreateCl.selectSubject(testCreateSubjectSelect);
+                }
+
+                let testCreateKeywordsInput = this.body.getElementsByClassName('js-test-create-kewords-inp')[0];
+                if (testCreateKeywordsInput !== undefined) {
+                    testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
                 }
                 break;
         }

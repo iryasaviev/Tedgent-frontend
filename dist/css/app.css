@@ -26,8 +26,9 @@ label {
   border-radius: 4px;
   background: #f2f4f5;
   border: none;
-  padding: 8px 6px;
+  padding: 10px 6px;
   color: #333;
+  font-size: 13px;
 }
 .inp:active,
 .inp:focus {
@@ -804,8 +805,11 @@ Test create page. Step 1
 .test-create_bd-keywords {
   margin-top: 20px;
 }
-.test-create_bd-keywords-label--inp {
-  resize: none;
+.test-create_bd-keywords-label--inp span {
+  padding: 2px 6px;
+  background: hsl(0, 0%, 87%);
+  margin: 0 4px;
+  border-radius: 4px;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;

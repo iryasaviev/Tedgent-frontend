@@ -1,6 +1,14 @@
 import { Subject } from './subject';
 
+/**
+ * Класс создания теста.
+ */
 export class TestCreate {
+
+    /**
+     * Отвечает за выбор основного предмета теста.
+     * @param {*} select 
+     */
     selectSubject(select) {
         let selectOptionData = select.getElementsByClassName('select_hd-value')[0].dataset.selectOptionValue,
             logo = document.getElementById('bodyContent').getElementsByClassName('js-test-subject-logo')[0],
@@ -18,6 +26,26 @@ export class TestCreate {
                     logo.classList.remove(subject.color);
                 }
             }
+        }
+    }
+
+    /**
+     * Выделяет ключевое слово.
+     * Написанное слово выделяется если перед ним (без пробела) присутсвует знак "#", либо после нажатия клавиш "Tab", "Space", "Enter".
+     */
+    highlightKeyword(event, input) {
+        if (event.code === 'Space' ||
+            event.code === 'Enter' ||
+            event.code === 'Tab') {
+
+            let inputWords = input.textContent.split(' ');
+            input.innerHTML = '';
+
+            for (let word of inputWords) {
+                input.insertAdjacentHTML('beforeend', `<span>${word}</span>`);
+            }
+
+            console.log(input.textContent);
         }
     }
 }
