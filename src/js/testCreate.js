@@ -35,23 +35,27 @@ export class TestCreate {
      */
     highlightKeyword(event, input) {
         if (event.code === 'Space' ||
-            event.code === 'Enter' ||
             event.code === 'Tab') {
 
             // &nbsp
-            const inputWords = input.innerText.split(' ');
+            let inputWords = input.textContent.split(';');
             input.innerHTML = '';
 
-            console.log(inputWords);
-            for (let word of inputWords) {
-                console.log(word);
+            let range = new Range();
+            range.setStart(input, 0);
+            // range.setEnd(input, 0);
 
-                if (word !== '' || word !== ' ') {
-                    input.insertAdjacentHTML('beforeend', `<span>${word}</span>`);
+            input.setSelectionRange(0, 1);
+
+            // https://overcoder.net/q/212217/сохранение-и-восстановление-позиции-каретки-для-contenteditable-div
+            for (let wordWithSemicolon of inputWords) {
+                for (let word of wordWithSemicolon.split(';')) {
+                    word = word.replace(/\s+/g, '');
+                    if (word !== " " && word !== ";" && word !== "") {
+                        input.insertAdjacentHTML('beforeend', `<span>${word};</span>`);
+                    }
                 }
             }
-
-            console.log(input.textContent);
         }
     }
 }
