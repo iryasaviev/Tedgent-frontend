@@ -38,11 +38,17 @@ export class TestCreate {
             event.code === 'Enter' ||
             event.code === 'Tab') {
 
-            let inputWords = input.textContent.split(' ');
+            // &nbsp
+            const inputWords = input.innerText.split(' ');
             input.innerHTML = '';
 
+            console.log(inputWords);
             for (let word of inputWords) {
-                input.insertAdjacentHTML('beforeend', `<span>${word}</span>`);
+                console.log(word);
+
+                if (word !== '' || word !== ' ') {
+                    input.insertAdjacentHTML('beforeend', `<span>${word}</span>`);
+                }
             }
 
             console.log(input.textContent);
