@@ -36,28 +36,36 @@ export class TestCreate {
     highlightKeyword(event, input) {
         if (event.code === 'Space' ||
             event.code === 'Tab' ||
-            event.code === 'Semicolon') {
+            event.code === 'Semicolon' ||
+            event.code === 'Enter') {
+
+            if (event.code === 'Space' || event.code === 'Enter' || event.code === 'Semicolon') {
+                event.preventDefault();
+            }
 
             let inputWords = input.textContent.split(';');
+
             input.innerHTML = '';
 
-            // https://overcoder.net/q/212217/сохранение-и-восстановление-позиции-каретки-для-contenteditable-div
             for (let wordWithSemicolon of inputWords) {
                 for (let word of wordWithSemicolon.split(';')) {
                     word = word.replace(/\s+/g, '');
-                    if (word !== " " && word !== ";" && word !== "") {
-                        input.insertAdjacentHTML('beforeend', `<span class="keyword">${word};</span>`);
+
+                    if (word !== ";" && word !== "") {
+                        input.insertAdjacentHTML('beforeend', `<span class="keyword" data-test-keyword-value="${word}">${word};</span>`);
                     }
                 }
             }
 
-            let range = new Range();
-            range.setStartAfter(input.lastElementChild);
-            range.collapse(true);
+            if (input.textContent.trim().length > 0) {
+                let range = new Range();
+                range.setStartAfter(input.lastElementChild);
+                range.collapse(true);
 
-            let selection = document.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
+                let selection = document.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
         }
     }
 }

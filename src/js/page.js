@@ -30,6 +30,7 @@ export class Page {
                 let testCreateKeywordsInput = this.body.getElementsByClassName('js-test-create-kewords-inp')[0];
                 if (testCreateKeywordsInput !== undefined) {
                     testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
+                    testCreateKeywordsInput.onkeydown = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
                 }
                 break;
         }
