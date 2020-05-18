@@ -894,7 +894,7 @@ Subject backgrounds
   background: hsla(39, 100%, 50%, 1);
 }
 .night-mode {
-  background: #141c24;
+  background: hsla(204, 13%, 10%, 1);
   color: #3f91d4;
 }
 
@@ -906,8 +906,8 @@ Subject backgrounds
 .night-mode .select_hd,
 .night-mode .select_bd-option,
 .night-mode .cnt_bd-testcreate{
-  background: #1e3144;
-  border-color: #141c24;
+  background: hsla(204, 13%, 15%, 1);
+  border-color: hsla(204, 14%, 15%, 1);
 }
 
 .night-mode .btn,
@@ -923,11 +923,10 @@ Subject backgrounds
 
 .night-mode .btn:hover,
 .night-mode .btn:focus,
-.night-mode .select_hd:focus,
 .night-mode .select_bd-option:hover,
 .night-mode .select_bd-option:active,
 .night-mode .select_bd-option:focus {
-  background: #141c24;
+  background: hsl(206, 14%, 10%);
   color: #3f91d4;
 }
 
@@ -944,16 +943,14 @@ Subject backgrounds
 .night-mode .sidebar_hd--btn:hover span {
   background: #3f91d4;
 }
-.night-mode .menu_bd-search--inp {
-  color: #fff;
-  background: #141c24;
-  border-color: #1e3144;
+.night-mode .menu_bd-search--inp,
+.night-mode .menu_bd-search--inp:focus {
+  color: #ddd;
+  background: hsl(206, 14%, 10%);
+  border-color: hsla(204, 14%, 15%, 1);
 }
 .night-mode .cnt_bd-testcreate_bd-select_hd {
   background: #141c24;
-}
-.night-mode .menu_bd-search--inp:focus {
-  background: rgba(20, 28, 36, 0.8);
 }
 
 .night-mode .cnt_hd--title {
