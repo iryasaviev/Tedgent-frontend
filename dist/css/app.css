@@ -789,7 +789,6 @@ Test create page. Step 1
 }
 .test-create_hd-row2 {
   flex-direction: column;
-  margin-top: 20px;
 }
 .test-create_bd {
   display: flex;
@@ -802,7 +801,9 @@ Test create page. Step 1
   width: 100%;
   max-width: 220px;
 }
-.test-create_bd-keywords {
+.test-create_bd-subject,
+.test-create_bd-keywords,
+.test-create_bd-attachments {
   margin-top: 20px;
 }
 .test-create_bd-keywords-label--inp .keyword {
