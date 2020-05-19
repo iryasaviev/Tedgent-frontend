@@ -288,6 +288,10 @@ Left menu
   right: 0;
   transition: 0.12s;
   transition-timing-function: ease-in;
+  -webkit-transition-property: max-width;
+  -moz-transition-property: max-width;
+  -o-transition-property: max-width;
+  transition-property: max-width;
 }
 .sidebar-active .sidebar_bd {
   max-width: 100%;
