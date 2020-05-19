@@ -168,45 +168,38 @@ Left menu
   bottom: 0;
   position: fixed;
   width: 100%;
-  max-width: 60px;
+  max-width: 240px;
   background: #fff;
   flex-direction: column;
   border-right: 1px solid #ddd;
-  /* box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132), 0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108); */
-  transition: 0.11s;
-  -webkit-transition-property: max-width;
-  -moz-transition-property: max-width;
-  -o-transition-property: max-width;
-  transition-property: max-width;
+  transition: 0.12s;
+  transition-timing-function: ease-in;
+  -webkit-transition-property: transform;
+  -moz-transition-property: transform;
+  -o-transition-property: transform;
+  transition-property: transform;
   overflow: auto;
   overflow-x: hidden;
   z-index: 10000;
+  transform: translateX(-190px);
 }
 .sidebar-active .sidebar {
-  max-width: 240px;
+  transform: translateX(0);
 }
 @media only screen and (max-width: 767px) {
   .sidebar {
-    max-width: 50px;
+    max-width: 200px;
+    transform: translateX(-150px);
     box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
       0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-  }
-}
-@media only screen and (max-width: 767px) {
-  .sidebar-active .sidebar {
-    max-width: 200px;
   }
 }
 .sidebar_hd {
   width: 100%;
   height: 120px;
   display: flex;
-  max-width: 60px;
   overflow: hidden;
   justify-content: space-between;
-}
-.sidebar-active .sidebar_hd {
-  max-width: 240px;
 }
 .sidebar_hd-user {
   height: 100%;
@@ -244,6 +237,7 @@ Left menu
 .sidebar_hd-user-col2 {
   display: flex;
   flex-direction: column;
+  padding-right: 40px;
 }
 .sidebar_hd-user-col2--item {
   color: hsla(0, 0%, 20%, 1);
@@ -267,14 +261,11 @@ Left menu
   font-size: 14px;
   background: hsl(208, 65%, 95%);
   justify-content: center;
-  left: 0;
-  right: 0;
+  right: 5px;
   top: 12px;
-  margin: 0 auto;
 }
 .sidebar-active .sidebar_hd--btn {
   right: 10px;
-  left: auto;
 }
 @media only screen and (max-width: 767px) {
   .sidebar-active .sidebar_hd--btn {
@@ -290,8 +281,16 @@ Left menu
 }
 .sidebar_bd {
   width: 100%;
-  padding: 0 10px;
+  padding: 0 5px;
   flex-direction: column;
+  max-width: 50px;
+  position: absolute;
+  right: 0;
+  transition: 0.12s;
+  transition-timing-function: ease-in;
+}
+.sidebar-active .sidebar_bd {
+  max-width: 100%;
 }
 @media only screen and (max-width: 767px) {
   .sidebar_bd {
@@ -461,7 +460,8 @@ Body content
   margin: 0 auto;
   display: flex;
   max-width: 1180px;
-  transition: 0.11s;
+  transition: 0.12s;
+  transition-timing-function: ease-in;
   flex-direction: column;
   -webkit-transition-property: left;
   -moz-transition-property: left;
