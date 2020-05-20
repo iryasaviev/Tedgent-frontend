@@ -460,10 +460,7 @@ Body content
   right: 0;
   top: 50px;
   bottom: 0;
-  padding: 0 20px;
-  margin: 0 auto;
   display: flex;
-  max-width: 1180px;
   transition: 0.12s;
   transition-timing-function: ease-in;
   flex-direction: column;
@@ -471,6 +468,7 @@ Body content
   -moz-transition-property: left;
   -o-transition-property: left;
   transition-property: left;
+  overflow-y: auto;
 }
 @media only screen and (max-width: 767px) {
   .cnt {
@@ -492,7 +490,12 @@ Body content
   }
 }
 .cnt_bd {
-  padding: 20px 10px;
+  padding: 20px 30px;
+  max-width: 1180px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .cnt_bd-menu {
   height: 35px;
