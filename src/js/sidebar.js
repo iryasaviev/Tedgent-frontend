@@ -18,6 +18,9 @@ export class Sidebar {
 
     setHandlers() {
         this.menu.getElementsByClassName('sidebar_hd--btn')[0].onclick = () => this.openOrClose();
-        this.menu.getElementsByClassName('nightMode')[0].onclick = () => this.nightModeToggle();
+
+        for (let nightModeBtn of this.menu.getElementsByClassName('js-night-mode-btn')) {
+            nightModeBtn.onclick = () => this.nightModeToggle();
+        }
     }
 }
