@@ -14,8 +14,27 @@ Tests list in the tests page
   min-width: 142px;
   max-width: 142px;
 }
+@media only screen and (max-width: 390px) {
+  .cnt_bd-tests-menu--date {
+    min-width: 160px;
+    max-width: 160px;
+  }
+}
 .cnt_bd-tests-menu--select {
   margin-right: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .cnt_bd-tests-menu--select {
+    margin-right: 10px;
+    min-width: 160px;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .cnt_bd-tests-menu--select {
+    margin-right: 0;
+    margin-bottom: 10px;
+    max-width: 150px;
+  }
 }
 .cnt_bd-tests-menu--select-option--square,
 .test-create_bd-select-option--square {
@@ -23,6 +42,12 @@ Tests list in the tests page
   width: 18px;
   border-radius: 4px;
   margin-right: 8px;
+}
+@media only screen and (max-width: 767px) {
+  .cnt_bd-tests-menu--select-option--square,
+  .test-create_bd-select-option--square {
+    display: none;
+  }
 }
 .cnt_bd-tests--item {
   width: 100%;
@@ -103,7 +128,7 @@ Tests list in the tests page
 }
 @media only screen and (max-width: 767px) {
   .cnt_bd-tests--item-col--title > .link {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 .cnt_bd-tests--item-col--title > .link:hover {
@@ -120,6 +145,11 @@ Tests list in the tests page
 }
 .cnt_bd-tests--item-col--date {
   font-size: 12px;
+}
+@media only screen and (max-width: 767px) {
+  .cnt_bd-tests--item-col--date {
+    font-size: 10px;
+  }
 }
 
 /*
