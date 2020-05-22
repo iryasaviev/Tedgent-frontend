@@ -40,10 +40,6 @@ label {
   border: none;
   outline: none;
   cursor: pointer;
-  -webkit-transition-property: box-shadow;
-  -moz-transition-property: box-shadow;
-  -o-transition-property: box-shadow;
-  transition-property: box-shadow;
   border-radius: 4px;
   display: flex;
 }
@@ -172,11 +168,6 @@ Left menu
   background: #fff;
   flex-direction: column;
   border-right: 1px solid #ddd;
-  transition: 0.1s ease-in;
-  -webkit-transition-property: transform;
-  -moz-transition-property: transform;
-  -o-transition-property: transform;
-  transition-property: transform;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 10000;
@@ -433,12 +424,6 @@ Body content
   top: 50px;
   bottom: 0;
   display: flex;
-  transition: 0.1s ease-in;
-  flex-direction: column;
-  -webkit-transition-property: left;
-  -moz-transition-property: left;
-  -o-transition-property: left;
-  transition-property: left;
   overflow-y: auto;
 }
 .sidebar-active .cnt {
