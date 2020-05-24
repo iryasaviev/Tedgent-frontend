@@ -520,6 +520,12 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-star1:before {
+  content: "\e91f";
+}
+.i-star:before {
+  content: "\e91e";
+}
 .i-arrow1-up:before {
   content: "\e91c";
 }

@@ -520,6 +520,12 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-star1:before {
+  content: "\e91f";
+}
+.i-star:before {
+  content: "\e91e";
+}
 .i-arrow1-up:before {
   content: "\e91c";
 }
@@ -761,6 +767,32 @@ Tests list in the tests page
   .cnt_bd-tests--item-col--dsc {
     font-size: 11px;
   }
+}
+.cnt_bd-tests--item-col-raiting {
+  display: flex;
+  direction: rtl;
+  max-width: 80px;
+  position: relative;
+}
+.cnt_bd-tests--item-col-raiting--scale {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  /* background: hsl(58, 100%, 50%); */
+  background: red;
+}
+.cnt_bd-tests--item-col-raiting--star {
+  padding-right: 2px;
+  cursor: pointer;
+  color: #f2f4f5;
+  position: relative;
+  background: #fff;
+}
+.cnt_bd-tests--item-col-raiting--star:hover,
+.cnt_bd-tests--item-col-raiting--star:hover
+  ~ .cnt_bd-tests--item-col-raiting--star {
+  color: hsl(58, 100%, 50%);
 }
 .cnt_bd-tests--item-col--date {
   font-size: 12px;
