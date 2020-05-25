@@ -2,6 +2,7 @@ import { Sidebar } from './sidebar';
 import { Select } from './select';
 
 import { TestCreate } from './testCreate';
+import { MoreMenu } from './moreMenu';
 
 export class Page {
     constructor() {
@@ -37,5 +38,6 @@ export class Page {
 
         new Sidebar().setHandlers();
         new Select().setHandlers();
+        new MoreMenu().setHandlers();
     }
 }

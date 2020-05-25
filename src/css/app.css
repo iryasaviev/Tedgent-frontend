@@ -154,7 +154,8 @@ label {
   .inp,
   .btn,
   .select,
-  .select_bd-option {
+  .select_bd-option,
+  .more-menu-list--btn {
     font-size: 12px;
   }
 }
@@ -162,6 +163,13 @@ label {
 .label-txt {
   font-size: 13px;
   margin-bottom: 6px;
+}
+
+.more-menu-list {
+  visibility: hidden;
+}
+.more-menu-active .more-menu-list {
+  visibility: visible;
 }
 
 /*

@@ -154,7 +154,8 @@ label {
   .inp,
   .btn,
   .select,
-  .select_bd-option {
+  .select_bd-option,
+  .more-menu-list--btn {
     font-size: 12px;
   }
 }
@@ -162,6 +163,13 @@ label {
 .label-txt {
   font-size: 13px;
   margin-bottom: 6px;
+}
+
+.more-menu-list {
+  visibility: hidden;
+}
+.more-menu-active .more-menu-list {
+  visibility: visible;
 }
 
 /*
@@ -675,7 +683,6 @@ Tests list in the tests page
   background: #fff;
   box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
     0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
-  overflow: hidden;
   margin-bottom: 40px;
   -moz-user-select: none;
   display: flex;
@@ -698,14 +705,14 @@ Tests list in the tests page
   box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
     0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
 }
-.cnt_bd-tests--item-col {
+.tests--item-col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-right: 20px;
 }
 @media only screen and (max-width: 767px) {
-  .cnt_bd-tests--item-col {
+  .tests--item-col {
     margin-right: 10px;
   }
 }
@@ -719,8 +726,9 @@ Tests list in the tests page
 }
 .cnt_bd-tests--item > .col3 {
   margin-right: 0;
+  align-items: flex-end;
 }
-.cnt_bd-tests--item-col--subject,
+.tests--item-col--subject,
 .test-subject-logo {
   min-height: 80px;
   min-width: 80px;
@@ -733,72 +741,149 @@ Tests list in the tests page
   text-transform: uppercase;
 }
 @media only screen and (max-width: 767px) {
-  .cnt_bd-tests--item-col--subject {
+  .tests--item-col--subject {
     min-width: 36px;
     min-height: 36px;
     font-size: 16px;
     line-height: 36px;
   }
 }
-.cnt_bd-tests--item-col--title {
+.tests--item-col--title {
   max-height: 35px;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 10px;
 }
-.cnt_bd-tests--item-col--title > .link {
+.tests--item-col--title > .link {
   text-decoration: none;
   color: #333;
   font-size: 16px;
   font-weight: 600;
 }
 @media only screen and (max-width: 767px) {
-  .cnt_bd-tests--item-col--title > .link {
+  .tests--item-col--title > .link {
     font-size: 12px;
   }
 }
-.cnt_bd-tests--item-col--title > .link:hover {
+.tests--item-col--title > .link:hover {
   text-decoration: underline;
 }
-.cnt_bd-tests--item-col--dsc,
-.cnt_bd-tests--item-col--date {
+.tests--item-col--dsc,
+.tests--item-col--date {
   color: #8e8e8e;
 }
 @media only screen and (max-width: 767px) {
-  .cnt_bd-tests--item-col--dsc {
+  .tests--item-col--dsc {
     font-size: 11px;
   }
 }
-.cnt_bd-tests--item-col-raiting {
+.tests--item-col-raiting {
+  position: relative;
+  display: flex;
+  font-size: 13px;
+  padding-top: 10px;
+}
+.tests--item-col-raiting-stars {
+  position: relative;
   display: flex;
   direction: rtl;
   max-width: 80px;
-  position: relative;
+  margin-right: 6px;
 }
-.cnt_bd-tests--item-col-raiting--scale {
+.tests--item-col-raiting-stars--scale {
   width: 50%;
   height: 100%;
   position: absolute;
   left: 0;
-  /* background: hsl(58, 100%, 50%); */
   background: red;
+  /* background: hsl(58, 100%, 50%); */
 }
-.cnt_bd-tests--item-col-raiting--star {
+.tests--item-col-raiting-stars--star {
   padding-right: 2px;
   cursor: pointer;
-  color: #f2f4f5;
+  color: #ddd;
   position: relative;
   background: #fff;
 }
-.cnt_bd-tests--item-col-raiting--star:hover,
-.cnt_bd-tests--item-col-raiting--star:hover
-  ~ .cnt_bd-tests--item-col-raiting--star {
-  color: hsl(58, 100%, 50%);
+.tests--item-col-raiting-stars--star:hover,
+.tests--item-col-raiting-stars--star:hover
+  ~ .tests--item-col-raiting-stars--star {
+  /* color: hsl(58, 100%, 50%); */
+  color: #333;
 }
-.cnt_bd-tests--item-col--date {
+.tests--item-col-raiting--voted {
+  color: #8e8e8e;
+}
+.tests--item-col-more {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tests--item-col-more--btn {
+  padding: 8px;
+  color: #8e8e8e;
+}
+.tests--item-col-more-list {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  position: absolute;
+  top: 44px;
+  z-index: 1;
+  width: 180px;
+}
+@media only screen and (max-width: 767px) {
+  .tests--item-col-more-list {
+    width: 150px;
+  }
+}
+.tests--item-col-more-list::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0px 0.9px 0 rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: -5px;
+  right: 10px;
+}
+.tests--item-col-more-list--btn {
+  padding: 0 12px;
+  width: 100%;
+  background: #fff;
+  border: none;
+  height: 34px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+}
+.tests--item-col-more-list--btn:hover {
+  background: #eee;
+}
+.tests--item-col-more-list--btn:active,
+.tests--item-col-more-list--btn:focus {
+  position: relative;
+  background: #eee;
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+}
+.tests--item-col-more-list--btn.first {
+  border-radius: 2px 2px 0 0;
+}
+.tests--item-col-more-list--btn.last {
+  border-radius: 0 0 2px 2px;
+}
+.tests--item-col--date {
   font-size: 12px;
 }
 @media only screen and (max-width: 767px) {
-  .cnt_bd-tests--item-col--date {
+  .tests--item-col--date {
     font-size: 10px;
   }
 }
@@ -971,7 +1056,9 @@ Subject backgrounds
 .night-mode .cnt_bd-tests-menu--date,
 .night-mode .select_hd,
 .night-mode .select_bd-option,
-.night-mode .cnt_bd-testcreate{
+.night-mode .cnt_bd-testcreate,
+.night-mode .more-menu-list--btn,
+.night-mode .more-menu-list::after {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsla(204, 14%, 15%, 1);
 }
@@ -983,7 +1070,8 @@ Subject backgrounds
 .night-mode .sidebar_hd-user-col2--item,
 .night-mode .cnt_bd-tests-menu--date,
 .night-mode .select_hd,
-.night-mode .select_bd-option {
+.night-mode .select_bd-option,
+.night-mode .more-menu-list--btn {
   color: #ddd;
 }
 
@@ -991,7 +1079,10 @@ Subject backgrounds
 .night-mode .btn:focus,
 .night-mode .select_bd-option:hover,
 .night-mode .select_bd-option:active,
-.night-mode .select_bd-option:focus {
+.night-mode .select_bd-option:focus,
+.night-mode .more-menu-list--btn:hover,
+.night-mode .more-menu-list--btn:active,
+.night-mode .more-menu-list--btn:focus {
   background: hsl(206, 14%, 10%);
   color: #3f91d4;
 }
@@ -1023,6 +1114,6 @@ Subject backgrounds
   color: #8e8e8e;
 }
 
-.night-mode .cnt_bd-tests--item-col--title > .link {
+.night-mode .tests--item-col--title > .link {
   color: #3f91d4;
 }
