@@ -528,6 +528,9 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-star2:before {
+  content: "\e920";
+}
 .i-star1:before {
   content: "\e91f";
 }
@@ -799,32 +802,34 @@ Tests list in the tests page
   }
 }
 .tests--item-col-raiting-stars {
-  position: relative;
+  height: 12.9px;
   display: flex;
   direction: rtl;
   max-width: 80px;
   margin-right: 6px;
+  position: relative;
+  background: #ddd;
 }
 .tests--item-col-raiting-stars--scale {
   width: 50%;
   height: 100%;
   position: absolute;
   left: 0;
-  background: red;
-  /* background: hsl(58, 100%, 50%); */
+  background: hsla(54, 100%, 50%, 1);
 }
 .tests--item-col-raiting-stars--star {
-  padding-right: 2px;
   cursor: pointer;
-  color: #ddd;
+  background: #ddd;
   position: relative;
-  background: #fff;
+  color: #fff;
+  height: 12.9px;
+  width: 12.7px;
+  overflow: hidden;
 }
 .tests--item-col-raiting-stars--star:hover,
 .tests--item-col-raiting-stars--star:hover
   ~ .tests--item-col-raiting-stars--star {
-  /* color: hsl(58, 100%, 50%); */
-  color: #333;
+  background: hsla(54, 100%, 50%, 1);
 }
 .tests--item-col-raiting--voted {
   color: #8e8e8e;
