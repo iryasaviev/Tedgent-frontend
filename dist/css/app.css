@@ -677,7 +677,7 @@ Tests list in the tests page
 }
 .cnt_bd-tests--item {
   width: 100%;
-  max-height: 112px;
+  max-height: 150px;
   min-height: 112px;
   border-radius: 4px;
   background: #fff;
@@ -694,6 +694,7 @@ Tests list in the tests page
     min-height: 60px;
     padding: 10px;
     margin-bottom: 15px;
+    max-height: 100px;
   }
 }
 @media only screen and (max-width: 390px) {
@@ -718,6 +719,7 @@ Tests list in the tests page
 }
 .cnt_bd-tests--item > .col2 {
   width: 100%;
+  overflow: hidden;
 }
 @media only screen and (max-width: 767px) {
   .cnt_bd-tests--item > .col2 {
@@ -750,9 +752,17 @@ Tests list in the tests page
 }
 .tests--item-col--title {
   max-height: 35px;
+  min-height: 26px;
   width: 100%;
   overflow: hidden;
   padding-bottom: 10px;
+  line-height: 1;
+}
+@media only screen and (max-width: 767px) {
+  .tests--item-col--title {
+    min-height: 18px;
+    padding-bottom: 5px;
+  }
 }
 .tests--item-col--title > .link {
   text-decoration: none;
@@ -768,9 +778,8 @@ Tests list in the tests page
 .tests--item-col--title > .link:hover {
   text-decoration: underline;
 }
-.tests--item-col--dsc,
-.tests--item-col--date {
-  color: #8e8e8e;
+.tests--item-col--dsc {
+  color: #333;
 }
 @media only screen and (max-width: 767px) {
   .tests--item-col--dsc {
@@ -782,6 +791,12 @@ Tests list in the tests page
   display: flex;
   font-size: 13px;
   padding-top: 10px;
+}
+@media only screen and (max-width: 767px) {
+  .tests--item-col-raiting {
+    padding: 4px 0;
+    font-size: 11px;
+  }
 }
 .tests--item-col-raiting-stars {
   position: relative;
@@ -881,6 +896,7 @@ Tests list in the tests page
 }
 .tests--item-col--date {
   font-size: 12px;
+  color: #8e8e8e;
 }
 @media only screen and (max-width: 767px) {
   .tests--item-col--date {
