@@ -1,3 +1,5 @@
+import { DarkTheme } from './darkTheme';
+
 export class Sidebar {
     constructor() {
         this.body = document.getElementById('body');
@@ -13,13 +15,14 @@ export class Sidebar {
     }
 
     nightModeToggle() {
-        this.body.classList.toggle('night-mode');
+        // new DarkTheme().setOrRemoveTheme();
+        this.body.classList.toggle('dark-theme');
     }
 
     setHandlers() {
         this.menu.getElementsByClassName('sidebar_hd--btn')[0].onclick = () => this.openOrClose();
 
-        for (let nightModeBtn of this.menu.getElementsByClassName('js-night-mode-btn')) {
+        for (let nightModeBtn of this.menu.getElementsByClassName('js-dark-theme-btn')) {
             nightModeBtn.onclick = () => this.nightModeToggle();
         }
     }
