@@ -1,4 +1,5 @@
 import { Subject } from './subject';
+import { FileLoad } from './fileLoad';
 
 /**
  * Класс создания теста.
@@ -66,6 +67,21 @@ export class TestCreate {
                 selection.removeAllRanges();
                 selection.addRange(range);
             }
+        }
+    }
+
+    uploadAttachment(input) {
+        let fileLoadCl = new FileLoad(),
+            files = fileLoadCl.readFile(input),
+            wrapper = document.getElementsByClassName('js-test-create-attachments-files')[0];
+
+        for (let file of files) {
+            wrapper.insertAdjacentHTML('beforeend',
+                `<div class="test-create_bd-attachments-file">
+                <span class="i-file icon"></span>
+                <span class="txt">${file.name}</span>
+                <button class="i-cross btn delete"></button>
+                </div>`);
         }
     }
 }

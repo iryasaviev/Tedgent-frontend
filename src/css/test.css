@@ -363,11 +363,42 @@ Test create page. Step 1
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 6px;
   padding: 0 12px;
 }
 .test-create_bd-attachments-label--inp {
   display: none;
+}
+.test-create_bd-attachments-files {
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  padding-top: 6px;
+  flex-direction: column;
+}
+.test-create_bd-attachments-file {
+  height: 40px;
+  background: hsla(207, 63%, 54%, 0.1);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+  max-width: 220px;
+  font-weight: 600;
+  justify-content: space-between;
+}
+.test-create_bd-attachments-file .icon {
+  font-size: 20px;
+  padding: 0 12px;
+}
+.test-create_bd-attachments-file .txt {
+  width: 100%;
+}
+.test-create_bd-attachments-file .delete {
+  height: 100%;
+  padding: 0 12px;
+  background: transparent;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;

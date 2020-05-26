@@ -33,6 +33,11 @@ export class Page {
                     testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
                     testCreateKeywordsInput.onkeydown = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
                 }
+
+                let testCreateAttchmentsInput = this.body.getElementsByClassName('js-test-create-attachments-inp')[0];
+                if (testCreateAttchmentsInput !== undefined) {
+                    testCreateAttchmentsInput.onchange = (event) => testCreateCl.uploadAttachment(event, testCreateAttchmentsInput);
+                }
                 break;
         }
 

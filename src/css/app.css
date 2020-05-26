@@ -63,6 +63,12 @@ label {
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
 
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .select {
   position: relative;
   font-size: 13px;
