@@ -163,8 +163,9 @@ Tests list in the tests page
 .tests--item-col-raiting {
   position: relative;
   display: flex;
-  font-size: 13px;
-  padding-top: 10px;
+  font-size: 12px;
+  padding-top: 8px;
+  line-height: 1;
 }
 @media only screen and (max-width: 767px) {
   .tests--item-col-raiting {
@@ -173,13 +174,14 @@ Tests list in the tests page
   }
 }
 .tests--item-col-raiting-stars {
-  height: 12.9px;
+  height: 11px;
   display: flex;
   direction: rtl;
   max-width: 80px;
   margin-right: 6px;
   position: relative;
   background: #ddd;
+  overflow: hidden;
 }
 .tests--item-col-raiting-stars--scale {
   width: 50%;
@@ -193,8 +195,8 @@ Tests list in the tests page
   background: #ddd;
   position: relative;
   color: #fff;
-  height: 12.9px;
-  width: 12.7px;
+  height: 11px;
+  width: 11px;
   overflow: hidden;
 }
 .tests--item-col-raiting-stars--star:hover,
@@ -353,6 +355,19 @@ Test create page. Step 1
   background: hsl(0, 0%, 87%);
   margin: 0 4px;
   border-radius: 4px;
+}
+.test-create_bd-attachments-label {
+  max-width: 120px;
+  height: 34px;
+  background: #f2f4f5;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding: 0 12px;
+}
+.test-create_bd-attachments-label--inp {
+  display: none;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;
