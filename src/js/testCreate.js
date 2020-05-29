@@ -5,6 +5,9 @@ import { FileLoad } from './fileLoad';
  * Класс создания теста.
  */
 export class TestCreate {
+    constructor() {
+        this.attachments = [];
+    }
 
     /**
      * Отвечает за выбор основного предмета теста.
@@ -70,18 +73,47 @@ export class TestCreate {
         }
     }
 
-    uploadAttachment(input) {
+    /**
+     * Добавляет вложения.
+     */
+    uploadAttachment(event) {
         let fileLoadCl = new FileLoad(),
-            files = fileLoadCl.readFile(input),
+            files = fileLoadCl.readFile(event),
             wrapper = document.getElementsByClassName('js-test-create-attachments-files')[0];
 
         for (let file of files) {
-            wrapper.insertAdjacentHTML('beforeend',
-                `<div class="test-create_bd-attachments-file">
+            if (this.attachments.length >= 5) {
+                // Error alert 
+                return;
+            }
+
+            this.attachments[this.attachments.length] = file;
+
+            wrapper.insertAdjacentHTML('afterbegin',
+                `<div class="test-create_bd-attachments-file js-test-create-attachment">
                 <span class="i-file icon"></span>
-                <span class="txt">${file.name}</span>
-                <button class="i-cross btn delete"></button>
+                <span class="txt js-test-create-attachment-name">${file.name}</span>
+                <button class="i-cross btn delete js-test-create-attachment-delete-btn"></button>
                 </div>`);
+
+            let attachment = wrapper.getElementsByClassName('js-test-create-attachment')[0],
+                delBtn = attachment.getElementsByClassName('js-test-create-attachment-delete-btn')[0];
+
+            delBtn.onclick = () => this.deleteAttachment(attachment);
+        }
+    }
+
+    deleteAttachment(attachment) {
+        let i = 0;
+        for (let file of this.attachments) {
+            let attachmentName = attachment.getElementsByClassName('js-test-create-attachment-name')[0].innerText;
+
+            if (file.name === attachmentName) {
+                attachment.remove();
+                this.attachments.splice(i, 1);
+                break;
+            }
+            i++;
         }
     }
 }

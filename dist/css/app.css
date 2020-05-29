@@ -1004,7 +1004,7 @@ Test create page. Step 1
   display: none;
 }
 .test-create_bd-attachments-files {
-  max-width: 300px;
+  max-width: 220px;
   width: 100%;
   display: flex;
   padding-top: 6px;
@@ -1019,21 +1019,24 @@ Test create page. Step 1
   align-items: center;
   font-size: 13px;
   width: 100%;
-  max-width: 220px;
   font-weight: 600;
   justify-content: space-between;
 }
 .test-create_bd-attachments-file .icon {
   font-size: 20px;
-  padding: 0 12px;
+  padding: 0 10px;
 }
 .test-create_bd-attachments-file .txt {
   width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 6px;
 }
 .test-create_bd-attachments-file .delete {
   height: 100%;
-  padding: 0 12px;
+  padding: 0 10px;
   background: transparent;
+  align-items: center;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;
