@@ -460,9 +460,8 @@ Menu
 .message {
   width: 400px;
   height: 60px;
-  background: #fff;
+  background: hsl(200, 13%, 95%);
   position: absolute;
-  border: 1px solid #ddd;
   border-top: none;
   left: 0;
   right: 0;

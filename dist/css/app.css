@@ -460,9 +460,8 @@ Menu
 .message {
   width: 400px;
   height: 60px;
-  background: #fff;
+  background: hsl(200, 13%, 95%);
   position: absolute;
-  border: 1px solid #ddd;
   border-top: none;
   left: 0;
   right: 0;
@@ -1185,7 +1184,8 @@ Subject backgrounds
 .dark-theme .select_bd-option:focus,
 .dark-theme .more-menu-list--btn:hover,
 .dark-theme .more-menu-list--btn:active,
-.dark-theme .more-menu-list--btn:focus {
+.dark-theme .more-menu-list--btn:focus,
+.dark-theme .message {
   background: hsl(206, 14%, 10%);
   color: #3f91d4;
 }

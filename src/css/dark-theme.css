@@ -37,7 +37,8 @@
 .dark-theme .select_bd-option:focus,
 .dark-theme .more-menu-list--btn:hover,
 .dark-theme .more-menu-list--btn:active,
-.dark-theme .more-menu-list--btn:focus {
+.dark-theme .more-menu-list--btn:focus,
+.dark-theme .message {
   background: hsl(206, 14%, 10%);
   color: #3f91d4;
 }
