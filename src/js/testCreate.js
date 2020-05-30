@@ -1,5 +1,6 @@
 import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
+import { Message } from './message';
 
 /**
  * Класс создания теста.
@@ -83,7 +84,7 @@ export class TestCreate {
 
         for (let file of files) {
             if (this.attachments.length >= 5) {
-                // Error alert 
+                new Message().show('Ошибка! Количество вложений не может быть больше 5.');
                 return;
             }
 

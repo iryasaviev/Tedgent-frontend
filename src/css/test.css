@@ -399,7 +399,7 @@ Test create page. Step 1
 }
 .test-create_bd-attachments-file .delete {
   height: 100%;
-  padding: 0 10px;
+  padding: 0 12px;
   background: transparent;
   align-items: center;
 }

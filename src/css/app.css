@@ -457,6 +457,32 @@ Menu
 .menu_bd-search--inp:focus {
   background: #fff;
 }
+.message {
+  width: 400px;
+  height: 60px;
+  background: #fff;
+  position: absolute;
+  border: 1px solid #ddd;
+  border-top: none;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 0px 0px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+  padding: 0 10px;
+  top: -20px;
+  z-index: 10000;
+  transition: 0.2s;
+}
+.message-active .message {
+  top: 50px;
+}
 
 /*
 ----------
