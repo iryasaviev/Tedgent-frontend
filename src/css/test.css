@@ -310,9 +310,6 @@ Test create page. Step 1
   align-items: center;
   margin-right: 20px;
 }
-.test-create_hd-row1-col1--subject {
-  background: #f2f4f5;
-}
 .test-create_hd-row1-col2 {
   width: 100%;
   display: flex;
