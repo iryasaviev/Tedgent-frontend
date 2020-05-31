@@ -26,7 +26,7 @@ label {
   border-radius: 4px;
   background: hsla(200, 13%, 93%, 1);
   border: none;
-  padding: 10px 6px;
+  padding: 10px 8px;
   color: #333;
   font-size: 13px;
   outline: none;
@@ -39,6 +39,7 @@ label {
   cursor: pointer;
   border-radius: 4px;
   display: flex;
+  align-items: center;
   font-size: 14px;
 }
 .btn:focus,
@@ -538,12 +539,12 @@ Body content
 }
 
 @font-face {
-  font-family: "tedgent";
-  src: url(../fonts/tedgent.eot);
-  src: url(../fonts/tedgent.eot#iefix) format("embedded-opentype"),
-    url(../fonts/tedgent.ttf) format("truetype"),
-    url(../fonts/tedgent.woff) format("woff"),
-    url(../fonts/tedgent.svg#tedgent) format("svg");
+  font-family: 'tedgent';
+  src:  url(../fonts/tedgent.eot);
+  src:  url(../fonts/tedgent.eot#iefix) format('embedded-opentype'),
+    url(../fonts/tedgent.ttf) format('truetype'),
+    url(../fonts/tedgent.woff) format('woff'),
+    url(../fonts/tedgent.svg#tedgent) format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -563,29 +564,74 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
-.i-star2:before {
-  content: "\e920";
+.i-check:before {
+  content: "\e903";
 }
-.i-star1:before {
-  content: "\e91f";
+.i-checkbox:before {
+  content: "\e905";
 }
-.i-star:before {
-  content: "\e91e";
+.i-cross:before {
+  content: "\e907";
 }
-.i-arrow1-up:before {
-  content: "\e91c";
+.i-down-arrow:before {
+  content: "\e908";
 }
-.i-arrow1-down:before {
-  content: "\e91d";
+.i-download:before {
+  content: "\e909";
+}
+.i-file:before {
+  content: "\e90a";
 }
 .i-list:before {
-  content: "\e91b";
+  content: "\e90b";
+}
+.i-minus:before {
+  content: "\e90c";
 }
 .i-moon:before {
+  content: "\e90d";
+}
+.i-more:before {
+  content: "\e90e";
+}
+.i-more-1:before {
+  content: "\e90f";
+}
+.i-plus:before {
+  content: "\e910";
+}
+.i-print:before {
+  content: "\e912";
+}
+.i-radiobox:before {
+  content: "\e913";
+}
+.i-search:before {
+  content: "\e914";
+}
+.i-search-minus:before {
+  content: "\e915";
+}
+.i-search-plus:before {
+  content: "\e916";
+}
+.i-share:before {
+  content: "\e917";
+}
+.i-star:before {
   content: "\e919";
 }
-.i-user:before {
+.i-star1:before {
   content: "\e91a";
+}
+.i-star2:before {
+  content: "\e91b";
+}
+.i-up-arrow:before {
+  content: "\e91c";
+}
+.i-user:before {
+  content: "\e91d";
 }
 .i-text:before {
   content: "\e904";
@@ -602,67 +648,12 @@ Body content
 .i-bell:before {
   content: "\e902";
 }
-.i-bold:before {
-  content: "\e903";
-}
-.i-checkbox:before {
-  content: "\e905";
-}
 .i-clip:before {
   content: "\e906";
 }
-.i-cross:before {
-  content: "\e907";
-}
-.i-decoration:before {
-  content: "\e908";
-}
-.i-door-close:before {
-  content: "\e909";
-}
-.i-door-open:before {
-  content: "\e90a";
-}
-.i-file:before {
-  content: "\e90b";
-}
-.i-file-add:before {
-  content: "\e90c";
-}
-.i-italic:before {
-  content: "\e90d";
-}
-.i-minus:before {
-  content: "\e90e";
-}
-.i-more:before {
-  content: "\e90f";
-}
-.i-more-hor:before {
-  content: "\e910";
-}
-.i-picture:before {
-  content: "\e912";
-}
-.i-plus:before {
-  content: "\e913";
-}
-.i-radiobox:before {
-  content: "\e914";
-}
-.i-search:before {
-  content: "\e915";
-}
-.i-search-minus:before {
-  content: "\e916";
-}
-.i-search-plus:before {
-  content: "\e917";
-}
 .i-settings-1:before {
   content: "\e918";
-}
-/*
+}/*
 ----------
 Tests list in the tests page 
 ----------
@@ -1062,7 +1053,6 @@ Test create page. Step 1
   height: 100%;
   padding: 0 12px;
   background: transparent;
-  align-items: center;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;
@@ -1070,10 +1060,11 @@ Test create page. Step 1
 .test_create_bd-question {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 .test_create_bd-question-col1 {
-  max-width: 620px;
+  width: 100%;
+  max-width: 670px;
 }
 .test_create_bd-question--inp {
   margin-bottom: 15px;
@@ -1087,6 +1078,20 @@ Test create page. Step 1
 }
 .test_create_bd-question-answer--btn {
   padding: 0 12px;
+}
+.test_create_bd-question-col2 {
+  margin-left: 20px;
+  width: 260px;
+}
+.test_create_bd-question--select {
+  max-width: 230px;
+}
+.test_create_bd-question--select-option--icon {
+  width: 18px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+.test_create_bd-question--select-option--icon {
 }
 
 /*

@@ -398,7 +398,6 @@ Test create page. Step 1
   height: 100%;
   padding: 0 12px;
   background: transparent;
-  align-items: center;
 }
 .test_create_bd-questions {
   margin-bottom: 20px;
@@ -406,10 +405,11 @@ Test create page. Step 1
 .test_create_bd-question {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
 .test_create_bd-question-col1 {
-  max-width: 620px;
+  width: 100%;
+  max-width: 670px;
 }
 .test_create_bd-question--inp {
   margin-bottom: 15px;
@@ -423,6 +423,20 @@ Test create page. Step 1
 }
 .test_create_bd-question-answer--btn {
   padding: 0 12px;
+}
+.test_create_bd-question-col2 {
+  margin-left: 20px;
+  width: 260px;
+}
+.test_create_bd-question--select {
+  max-width: 230px;
+}
+.test_create_bd-question--select-option--icon {
+  width: 18px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+.test_create_bd-question--select-option--icon {
 }
 
 /*
