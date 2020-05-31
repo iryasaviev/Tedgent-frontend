@@ -58,6 +58,7 @@
 }
 .dark-theme .inp,
 .dark-theme .test-create_bd-select_hd,
+.dark-theme .test_create_bd-question--select_hd,
 .dark-theme .subject-bcg-0,
 .dark-theme .test-create_bd-attachments-label,
 .dark-theme .menu_bd-search--inp,
@@ -84,4 +85,7 @@
 
 .dark-theme .test-create_bd-attachments-file .delete {
   background: transparent;
+}
+.dark-theme .test-create_bd {
+  border-color: hsl(206, 14%, 10%);
 }

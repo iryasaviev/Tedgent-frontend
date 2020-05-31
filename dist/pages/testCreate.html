@@ -205,17 +205,24 @@
           <div class="test_create_bd-questions">
             <div class="test_create_bd-question" data-question-num="1">
               <div class="test_create_bd-question-col1">
-                <input class="inp test_create_bd-question--inp" name="qustion" type="text" value="Вопрос №1">
+                <div class="test_create_bd-question-col1-row">
+                  <button class="test_create_bd-question-col1-row--btn btn i-cross"></button>
+                  <input class="inp test_create_bd-question-col1-row--inp" name="qustion" type="text" value="Вопрос №1">
+                </div>
                 <div class="test_create_bd-question-answers">
-                  <div class="test_create_bd-question-answer">
-                    <input class="inp test_create_bd-question-answer--inp" name="answer" type="text">
+                  <div class="test_create_bd-question-answer" data-answer-num="1">
+                    <div class="test-question-answer-checkbox">
+                      <input class="test-question-answer-checkbox--inp" id="answer11" type="checkbox">
+                      <label for="answer11"></label>
+                    </div>
+                    <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №1">
                     <button class="btn test_create_bd-question-answer--btn i-cross"></button>
                   </div>
                 </div>
               </div>
               <div class="test_create_bd-question-col2">
-                <div class="test_create_bd-question--select select" title="Сортировка по предмету">
-                  <button class="select_hd">
+                <div class="test_create_bd-question--select select">
+                  <button class="test_create_bd-question--select_hd select_hd">
                     <div class="select_hd-value" data-select-option-value="1">
                       <div class="test_create_bd-question--select-option--icon i-checkbox"></div>
                       <div class="test_create_bd-question--select-option--txt">Множественный выбор</div>
@@ -238,6 +245,38 @@
                     <button class="select_bd-option" data-select-option="4">
                       <div class="test_create_bd-question--select-option--icon i-number"></div>
                       <div class="test_create_bd-question--select-option--txt">Числовой ответ</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="test_create_bd-question-add js-test-create-question-add">
+              <div class="test_create_bd-question-add-col1">
+                <div class="test_create_bd-question-add--line"></div>
+                <button class="test_create_bd-question-add--btn btn-icon js-test-create-question-add-btn">Добавить вопрос</button>
+              </div>
+              <div class="test_create_bd-question-add-col2">
+                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1">
+                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1">
+                <div class="test_create_bd-question-add-col2--select select" title="Сортировка по предмету">
+                  <button class="test_create_bd-question-add-col2--select_hd select_hd">
+                    <div class="select_hd-value" data-select-option-value="1">
+                      <div class="question-add-col2--select-option-icon i-checkbox"></div>
+                    </div>
+                    <div class="select_hd--icon i-down-arrow"></div>
+                  </button>
+                  <div class="select_bd">
+                    <button class="select_bd-option" data-select-option="1">
+                      <div class="question-add-col2--select-option-icon i-checkbox"></div>
+                    </button>
+                    <button class="select_bd-option" data-select-option="2">
+                      <div class="question-add-col2--select-option-icon i-radiobox"></div>
+                    </button>
+                    <button class="select_bd-option" data-select-option="3">
+                      <div class="question-add-col2--select-option-icon i-text"></div>
+                    </button>
+                    <button class="select_bd-option" data-select-option="4">
+                      <div class="question-add-col2--select-option-icon i-number"></div>
                     </button>
                   </div>
                 </div>
