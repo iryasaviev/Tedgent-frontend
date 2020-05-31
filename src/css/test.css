@@ -356,7 +356,7 @@ Test create page. Step 1
 .test-create_bd-attachments-label {
   max-width: 120px;
   height: 34px;
-  background: #f2f4f5;
+  background: hsla(200, 13%, 93%, 1);
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -432,7 +432,7 @@ Subject backgrounds
 */
 /* math */
 .subject-bcg-0 {
-  background: hsl(200, 13%, 95%);
+  background: hsla(200, 13%, 93%, 1);
 }
 .subject-bcg-1 {
   background: hsl(16, 100%, 55%);
