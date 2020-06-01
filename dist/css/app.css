@@ -45,7 +45,7 @@ label {
 .btn:focus,
 .inp:focus,
 .select_hd:focus,
-.select_bd-option:focus{
+.select_bd-option:focus {
   background: hsla(200, 13%, 93%, 1);
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
@@ -539,12 +539,12 @@ Body content
 }
 
 @font-face {
-  font-family: 'tedgent';
-  src:  url(../fonts/tedgent.eot);
-  src:  url(../fonts/tedgent.eot#iefix) format('embedded-opentype'),
-    url(../fonts/tedgent.ttf) format('truetype'),
-    url(../fonts/tedgent.woff) format('woff'),
-    url(../fonts/tedgent.svg#tedgent) format('svg');
+  font-family: "tedgent";
+  src: url(../fonts/tedgent.eot);
+  src: url(../fonts/tedgent.eot#iefix) format("embedded-opentype"),
+    url(../fonts/tedgent.ttf) format("truetype"),
+    url(../fonts/tedgent.woff) format("woff"),
+    url(../fonts/tedgent.svg#tedgent) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -564,6 +564,9 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-image:before {
+  content: "\e91e";
+}
 .i-check:before {
   content: "\e903";
 }
@@ -653,7 +656,8 @@ Body content
 }
 .i-settings-1:before {
   content: "\e918";
-}/*
+}
+/*
 ----------
 Tests list in the tests page 
 ----------
@@ -1064,7 +1068,7 @@ Test create page. Step 1
 }
 .test_create_bd-question-col1 {
   width: 100%;
-  max-width: 670px;
+  max-width: 620px;
 }
 .test_create_bd-question-col1-row {
   display: flex;
@@ -1073,8 +1077,6 @@ Test create page. Step 1
 .test_create_bd-question-col1-row--btn {
   padding: 0 10px;
   margin-right: 10px;
-}
-.test_create_bd-question-col1-row--inp {
 }
 .test_create_bd-question-answers {
   padding-left: 43px;
@@ -1091,7 +1093,18 @@ Test create page. Step 1
 }
 .test_create_bd-question-col2 {
   margin-left: 20px;
-  width: 260px;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+}
+.test_create_bd-question-col2--btn {
+  height: 34px;
+  padding: 11px 12px;
+  margin-right: 10px;
+  background: hsla(200, 13%, 93%, 1);
+}
+.test_create_bd-question-col2--inp {
+  display: none;
 }
 .test_create_bd-question--select {
   max-width: 230px;
@@ -1110,7 +1123,7 @@ Test create page. Step 1
 }
 .test_create_bd-question-add-col1 {
   width: 100%;
-  max-width: 670px;
+  max-width: 620px;
   position: relative;
 }
 .test_create_bd-question-add--line {
@@ -1140,7 +1153,7 @@ Test create page. Step 1
   color: #333;
 }
 .test_create_bd-question-add-col2 {
-  width: 230px;
+  width: 280px;
   display: flex;
   justify-content: space-between;
 }

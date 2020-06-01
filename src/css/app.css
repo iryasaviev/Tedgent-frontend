@@ -45,7 +45,7 @@ label {
 .btn:focus,
 .inp:focus,
 .select_hd:focus,
-.select_bd-option:focus{
+.select_bd-option:focus {
   background: hsla(200, 13%, 93%, 1);
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
@@ -539,12 +539,12 @@ Body content
 }
 
 @font-face {
-  font-family: 'tedgent';
-  src:  url('../fonts/tedgent.eot?5j6tuk');
-  src:  url('../fonts/tedgent.eot?5j6tuk#iefix') format('embedded-opentype'),
-    url('../fonts/tedgent.ttf?5j6tuk') format('truetype'),
-    url('../fonts/tedgent.woff?5j6tuk') format('woff'),
-    url('../fonts/tedgent.svg?5j6tuk#tedgent') format('svg');
+  font-family: "tedgent";
+  src: url("../fonts/tedgent.eot?5j6tuk");
+  src: url("../fonts/tedgent.eot?5j6tuk#iefix") format("embedded-opentype"),
+    url("../fonts/tedgent.ttf?5j6tuk") format("truetype"),
+    url("../fonts/tedgent.woff?5j6tuk") format("woff"),
+    url("../fonts/tedgent.svg?5j6tuk#tedgent") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -564,6 +564,9 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-image:before {
+  content: "\e91e";
+}
 .i-check:before {
   content: "\e903";
 }
