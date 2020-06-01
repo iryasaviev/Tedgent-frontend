@@ -16,7 +16,7 @@
 .dark-theme .tests--item-col-raiting-stars,
 .dark-theme .cnt_bd-test-create {
   background: hsla(204, 13%, 15%, 1);
-  border-color: hsla(204, 14%, 15%, 1);
+  border-color: hsl(206, 14%, 10%);
 }
 
 .dark-theme .btn,

@@ -209,7 +209,13 @@
                   <button class="test_create_bd-question-col1-row--btn btn i-cross"></button>
                   <input class="inp test_create_bd-question-col1-row--inp" name="qustion" type="text" value="Вопрос №1">
                 </div>
-                <div class="test_create_bd-question-answers">
+                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
+                  <div class="test_create_bd-question-col1-image">
+                    <div class="test_create_bd-question-col1-image--bcg"></div>
+                    <img class="test_create_bd-question-col1--img js-test-question-img" src="">
+                  </div>
+                </div>
+                <div class="test_create_bd-question-col1-row test_create_bd-question-answers">
                   <div class="test_create_bd-question-answer" data-answer-num="1">
                     <div class="test-question-answer-checkbox">
                       <input class="test-question-answer-checkbox--inp" id="answer11" type="checkbox">
@@ -218,6 +224,12 @@
                     <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №1">
                     <button class="btn test_create_bd-question-answer--btn i-cross"></button>
                   </div>
+                </div>
+                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
+                  <button class="test_create_bd-question-answer-add--btn btn">
+                    <span class="i-plus"></span>
+                    <span class="txt">Вариант</span>
+                  </button>
                 </div>
               </div>
               <div class="test_create_bd-question-col2">
@@ -255,12 +267,16 @@
             </div>
             <div class="test_create_bd-question-add js-test-create-question-add">
               <div class="test_create_bd-question-add-col1">
-                <div class="test_create_bd-question-add--line"></div>
-                <button class="test_create_bd-question-add--btn btn-icon js-test-create-question-add-btn">Добавить вопрос</button>
+                <button class="test_create_bd-question-add-col1--btn btn">
+                  <span class="i-plus"></span>
+                  <span class="txt">Вопрос</span>
+                </button>
               </div>
               <div class="test_create_bd-question-add-col2">
-                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="50" title="Количество вопросов">
-                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="8" title="Количество ответов">
+                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="30"
+                  title="Количество вопросов">
+                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="6"
+                  title="Количество ответов">
                 <div class="test_create_bd-question-add-col2--select select" title="Сортировка по предмету">
                   <button class="test_create_bd-question-add-col2--select_hd select_hd">
                     <div class="select_hd-value" data-select-option-value="1">
