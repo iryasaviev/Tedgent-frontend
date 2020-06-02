@@ -41,7 +41,6 @@ label {
   display: flex;
   align-items: center;
   font-size: 14px;
-  position: relative;
 }
 .btn:focus,
 .inp:focus,
@@ -1197,12 +1196,18 @@ Test create page. Step 1
 }
 .test_create_bd-question-add--btn {
   border-radius: 4px 0 0 4px;
+  z-index: 2;
+}
+.test_create_bd-question-add--btn:hover {
+  position: relative;
+  z-index: 3;
 }
 .test_create_bd-question-add--btn--more {
   height: 32px;
   padding: 0 8px;
   border-radius: 0 4px 4px 0;
   background: hsla(200, 13%, 93%, 1);
+  z-index: 2;
 }
 /* .test_create_bd-question-add--btn:hover,
 .test_create_bd-question-add--btn--more:hover {
@@ -1210,10 +1215,21 @@ Test create page. Step 1
 } */
 .test_create_bd-question-add-more {
   width: 100%;
-  max-width: 100px;
+  max-width: 60px;
   margin-left: 10px;
-  background: hsla(200, 13%, 93%, 1);
   border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  z-index: 1;
+}
+.test_create_bd-question-add-btn--more-active
+  .test_create_bd-question-add-more {
+  right: -70px;
 }
 .test_create_bd-question-add-col2--inp,
 .test_create_bd-question-add-col2--select {
@@ -1226,6 +1242,14 @@ Test create page. Step 1
   display: flex;
   margin-left: 20px;
   justify-content: space-between;
+}
+.test_create_bd-question-add-col2--inp {
+  margin-right: 8px;
+  padding: 5px 4px;
+  height: 25px;
+  width: 25px;
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
 .test_create_bd-question-add-col2--inp::-webkit-outer-spin-button,
 .test_create_bd-question-add-col2--inp::-webkit-inner-spin-button {
