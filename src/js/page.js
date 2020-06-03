@@ -21,25 +21,7 @@ export class Page {
 
             // Test create page
             case '3':
-                let testCreateCl = new TestCreate(),
-                    testCreateSubjectSelect = this.body.getElementsByClassName('js-test-create-subject-select')[0];
-
-                if (testCreateSubjectSelect !== undefined) {
-                    testCreateSubjectSelect.onclick = () => testCreateCl.selectSubject(testCreateSubjectSelect);
-                }
-
-                let testCreateKeywordsInput = this.body.getElementsByClassName('js-test-create-kewords-inp')[0];
-                if (testCreateKeywordsInput !== undefined) {
-                    testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
-                    testCreateKeywordsInput.onkeydown = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
-                }
-
-                let testCreateAttchmentsInput = this.body.getElementsByClassName('js-test-create-attachments-inp')[0];
-                if (testCreateAttchmentsInput !== undefined) {
-                    testCreateAttchmentsInput.onchange = (event) => testCreateCl.uploadAttachment(event, testCreateAttchmentsInput);
-                }
-
-                testCreateCl.setHandlers();
+                new TestCreate().setHandlers()
                 break;
         }
 

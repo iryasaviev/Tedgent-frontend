@@ -9,6 +9,7 @@ import { Question } from './question';
  */
 export class TestCreate {
     constructor() {
+        this.wrapper = document.getElementById('bodyContent');
         this.attachments = [];
     }
 
@@ -127,5 +128,21 @@ export class TestCreate {
     setHandlers() {
         const questionCl = new Question();
         questionCl.setHandlers();
+
+        const testCreateSubjectSelect = this.wrapper.getElementsByClassName('js-test-create-subject-select')[0];
+        if (testCreateSubjectSelect !== undefined) {
+            testCreateSubjectSelect.onclick = () => testCreateCl.selectSubject(testCreateSubjectSelect);
+        }
+
+        const testCreateKeywordsInput = this.wrapper.getElementsByClassName('js-test-create-kewords-inp')[0];
+        if (testCreateKeywordsInput !== undefined) {
+            testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
+            testCreateKeywordsInput.onkeydown = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
+        }
+
+        const testCreateAttchmentsInput = this.wrapper.getElementsByClassName('js-test-create-attachments-inp')[0];
+        if (testCreateAttchmentsInput !== undefined) {
+            testCreateAttchmentsInput.onchange = (event) => testCreateCl.uploadAttachment(event, testCreateAttchmentsInput);
+        }
     }
 }
