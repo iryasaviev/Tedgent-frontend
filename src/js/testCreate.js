@@ -131,18 +131,18 @@ export class TestCreate {
 
         const testCreateSubjectSelect = this.wrapper.getElementsByClassName('js-test-create-subject-select')[0];
         if (testCreateSubjectSelect !== undefined) {
-            testCreateSubjectSelect.onclick = () => testCreateCl.selectSubject(testCreateSubjectSelect);
+            testCreateSubjectSelect.onclick = () => this.selectSubject(testCreateSubjectSelect);
         }
 
         const testCreateKeywordsInput = this.wrapper.getElementsByClassName('js-test-create-kewords-inp')[0];
         if (testCreateKeywordsInput !== undefined) {
-            testCreateKeywordsInput.onkeyup = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
-            testCreateKeywordsInput.onkeydown = (event) => testCreateCl.highlightKeyword(event, testCreateKeywordsInput);
+            testCreateKeywordsInput.onkeyup = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
+            testCreateKeywordsInput.onkeydown = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
         }
 
         const testCreateAttchmentsInput = this.wrapper.getElementsByClassName('js-test-create-attachments-inp')[0];
         if (testCreateAttchmentsInput !== undefined) {
-            testCreateAttchmentsInput.onchange = (event) => testCreateCl.uploadAttachment(event, testCreateAttchmentsInput);
+            testCreateAttchmentsInput.onchange = (event) => this.uploadAttachment(event, testCreateAttchmentsInput);
         }
     }
 }
