@@ -7,8 +7,10 @@ export class Select {
         currentSelect.classList.toggle('active');
 
         let btn = currentSelect.getElementsByClassName('select_hd--icon')[0];
-        btn.classList.toggle('i-down-arrow');
-        btn.classList.toggle('i-up-arrow');
+        if (btn !== undefined) {
+            btn.classList.toggle('i-down-arrow');
+            btn.classList.toggle('i-up-arrow');
+        }
     }
 
     selectItem(currentSelect, currentOption, isLoading = true) {

@@ -202,8 +202,8 @@
         </div>
 
         <div class="test-create_bd">
-          <div class="test_create_bd-questions">
-            <div class="test_create_bd-question" data-question-num="1">
+          <div class="test_create_bd-questions js-test-questions">
+            <div class="test_create_bd-question js-test-question" data-question-num="1">
               <div class="test_create_bd-question-col1">
                 <div class="test_create_bd-question-col1-row">
                   <button class="test_create_bd-question-col1-row--btn btn i-cross"></button>
@@ -267,48 +267,41 @@
             </div>
             <div class="test_create_bd-question-add js-test-create-question-add">
               <div class="test_create_bd-question-add">
-                <div class="test_create_bd-question-add-button test_create_bd-question-add-btn--more-active">
+                <div class="test_create_bd-question-add-button js-test-question-add-btn-wrapper">
                   <button class="test_create_bd-question-add--btn btn">
                     <span class="i-plus"></span>
                     <span class="txt">Вопрос</span>
                   </button>
-                  <button class="test_create_bd-question-add--btn--more btn i-more"></button>
+                  <button class="test_create_bd-question-add--btn--more js-test-question-add-btn btn i-more"></button>
                   <div class="test_create_bd-question-add-more">
-                    <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="30"
-                    title="Количество вопросов">
-                    <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="6"
+                    <input class="question-add-btn-more--inp inp" type="number" value="1" min="0" max="30"
+                      title="Количество вопросов">
+                    <input class="question-add-btn-more--inp inp" type="number" value="1" min="0" max="6"
                       title="Количество ответов">
+                    <div class="question-add-btn-more--select select" title="Сортировка по предмету">
+                      <button class="question-add-btn-more--select_hd select_hd">
+                        <div class="question-add-btn-more--select-value select_hd-value" data-select-option-value="1">
+                          <div class="question-add-btn-more--select-option--icon i-checkbox"></div>
+                        </div>
+                      </button>
+                      <div class="select_bd">
+                        <button class="question-add-btn-more--select-option select_bd-option" data-select-option="1">
+                          <div class="question-add-btn-more--select-option--icon i-checkbox"></div>
+                        </button>
+                        <button class="question-add-btn-more--select-option select_bd-option" data-select-option="2">
+                          <div class="question-add-btn-more--select-option--icon i-radiobox"></div>
+                        </button>
+                        <button class="question-add-btn-more--select-option select_bd-option" data-select-option="3">
+                          <div class="question-add-btn-more--select-option--icon i-text"></div>
+                        </button>
+                        <button class="question-add-btn-more--select-option select_bd-option" data-select-option="4">
+                          <div class="question-add-btn-more--select-option--icon i-number"></div>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <!-- <div class="test_create_bd-question-add-col2">
-                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="30"
-                  title="Количество вопросов">
-                <input class="test_create_bd-question-add-col2--inp inp" type="number" value="1" min="0" max="6"
-                  title="Количество ответов">
-                <div class="test_create_bd-question-add-col2--select select" style="width:60px;" title="Сортировка по предмету">
-                  <button class="test_create_bd-question-add-col2--select_hd select_hd">
-                    <div class="select_hd-value" data-select-option-value="1">
-                      <div class="question-add-col2--select-option-icon i-checkbox"></div>
-                    </div>
-                    <div class="select_hd--icon i-down-arrow"></div>
-                  </button>
-                  <div class="select_bd">
-                    <button class="select_bd-option" data-select-option="1">
-                      <div class="question-add-col2--select-option-icon i-checkbox"></div>
-                    </button>
-                    <button class="select_bd-option" data-select-option="2">
-                      <div class="question-add-col2--select-option-icon i-radiobox"></div>
-                    </button>
-                    <button class="select_bd-option" data-select-option="3">
-                      <div class="question-add-col2--select-option-icon i-text"></div>
-                    </button>
-                    <button class="select_bd-option" data-select-option="4">
-                      <div class="question-add-col2--select-option-icon i-number"></div>
-                    </button>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>

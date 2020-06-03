@@ -38,6 +38,8 @@ export class Page {
                 if (testCreateAttchmentsInput !== undefined) {
                     testCreateAttchmentsInput.onchange = (event) => testCreateCl.uploadAttachment(event, testCreateAttchmentsInput);
                 }
+
+                testCreateCl.setHandlers();
                 break;
         }
 

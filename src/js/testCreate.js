@@ -2,6 +2,8 @@ import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
 import { Message } from './message';
 
+import { Question } from './question';
+
 /**
  * Класс создания теста.
  */
@@ -104,6 +106,10 @@ export class TestCreate {
         }
     }
 
+    /**
+     * Удаляет вложение.
+     * @param {*} attachment 
+     */
     deleteAttachment(attachment) {
         let i = 0;
         for (let file of this.attachments) {
@@ -116,5 +122,10 @@ export class TestCreate {
             }
             i++;
         }
+    }
+
+    setHandlers() {
+        const questionCl = new Question();
+        questionCl.setHandlers();
     }
 }
