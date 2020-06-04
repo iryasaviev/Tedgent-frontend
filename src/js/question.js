@@ -5,6 +5,10 @@ export class Question {
         this.qustions = this.body.getElementsByClassName('js-test-question');
     }
 
+    addImage(event) {
+        const qustion = this.body.getElementsByClassName('js-test-question')
+    }
+
     /**
      * Показывает окно с дополнительными параметрами при добавлении вопроса.
      */
@@ -12,6 +16,10 @@ export class Question {
         const addBtnWrapper = this.body.getElementsByClassName('js-test-question-add-btn-wrapper')[0];
         addBtnWrapper.classList.toggle('test_create_bd-question-add-btn--more-active');
     }
+
+    /**
+     * Устанавливает обработчики события.
+     */
     setHandlers() {
         const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn')[0];
         if (questionAddMoreBtn !== undefined) {

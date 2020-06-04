@@ -1,3 +1,5 @@
+import { Delegation } from './delegation';
+
 import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
 import { Message } from './message';
