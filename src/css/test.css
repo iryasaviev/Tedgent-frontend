@@ -319,12 +319,6 @@ Test create page. Step 1
 .test-create_hd-row1-col2-label {
   margin-top: 20px;
 }
-.test-create_hd-row1-col2-label--inp.title {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  font-weight: 600;
-}
 .test-create_hd-row1-col2--inp.description {
   color: #8e8e8e;
 }
