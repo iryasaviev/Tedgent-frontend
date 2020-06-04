@@ -416,7 +416,7 @@ Test create page. Step 1
 .test_create_bd-question-col1-row-image {
   display: none;
 }
-.image-active .test_create_bd-question-col1-row-image {
+.test_create_bd-question-image-active .test_create_bd-question-col1-row-image {
   display: flex;
 }
 .test_create_bd-question-col1-image {
