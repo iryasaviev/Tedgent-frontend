@@ -8,19 +8,25 @@ export class Question {
         this.questions = this.body.getElementsByClassName('js-test-question');
     }
 
-    addImage(event) {
+    loadImage(event) {
         const question = this.surfacingToQuestion(event.target);
+
+        new FileLoad().readImage(event.target.files[0], this.showImage, {
+            showFunc: this.showImage,
+            questionTag: question
+        });
+    }
+
+    showImage(path, params) {
+        const question = params.questionTag;
 
         if (question === undefined) {
             new Message().show('Что-то пошло не так. Поажлуйста, перезагрузите страницу.');
             return;
         }
 
-        const fileLoadCl = new FileLoad(),
-            imgTag = question.getElementsByClassName('js-test-question-img')[0],
-            pathToFile = fileLoadCl.readImage(event.target.files[0]);
-
-        imgTag.setAttribute('src', pathToFile);
+        const imgTag = question.getElementsByClassName('js-test-question-img')[0];
+        imgTag.setAttribute('src', path);
 
         if (!question.classList.contains('test_create_bd-question-image-active')) {
             question.classList.add('test_create_bd-question-image-active');
@@ -59,7 +65,7 @@ export class Question {
         }
 
         for (let question of this.questions) {
-            question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.addImage(event);
+            question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);
         }
     }
 }
