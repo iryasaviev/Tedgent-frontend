@@ -1,3 +1,5 @@
+import { PhotoFrame } from './photoFrame';
+
 import { Message } from './message';
 import { FileLoad } from './fileLoad';
 
@@ -25,12 +27,16 @@ export class Question {
             return;
         }
 
-        const imgTag = question.getElementsByClassName('js-test-question-img')[0];
+        const imgBackground = question.getElementsByClassName('js-test-question-img-background')[0],
+            imgTag = question.getElementsByClassName('js-test-question-img')[0];
+
         imgTag.setAttribute('src', path);
 
         if (!question.classList.contains('test_create_bd-question-image-active')) {
             question.classList.add('test_create_bd-question-image-active');
         }
+
+        imgBackground.onclick = () => new PhotoFrame().showOrCloseFrame(path);
     }
 
     /**

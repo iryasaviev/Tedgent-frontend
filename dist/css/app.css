@@ -490,6 +490,37 @@ Menu
 
 /*
 ----------
+Photo frame 
+----------
+*/
+.photo-frame {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: hsla(0, 0%, 0%, 0.5);
+  z-index: 20000;
+  overflow: hidden;
+  padding: 10px;
+  display: none;
+}
+.photo-frame-active .photo-frame {
+  display: block;
+}
+.photo-frame--img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/*
+----------
 Body content 
 ----------
 */
