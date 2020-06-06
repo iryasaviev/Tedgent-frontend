@@ -1,8 +1,13 @@
 import { PhotoFrame } from './photoFrame';
-
 import { Message } from './message';
 import { FileLoad } from './fileLoad';
 
+import { Answer } from './answer';
+
+/**
+ * Class with methods for work with question.
+ * Класс с методами для работы с вопросом.
+ */
 export class Question {
     constructor() {
         this.wrapper = document.getElementById('bodyContent');
@@ -10,6 +15,10 @@ export class Question {
         this.questions = this.body.getElementsByClassName('js-test-question');
     }
 
+    /**
+     * Отвечает за загрузку изображения вопроса.
+     * @param {object} event 
+     */
     loadImage(event) {
         const question = this.surfacingToQuestion(event.target);
 
@@ -19,6 +28,11 @@ export class Question {
         });
     }
 
+    /**
+     * Выводит изобаржение вопроса.
+     * @param {string} path - Blob путь загруженного изображения.
+     * @param {object} params - Необходимые параметры.
+     */
     showImage(path, params) {
         const question = params.questionTag;
 
@@ -47,6 +61,10 @@ export class Question {
         addBtnWrapper.classList.toggle('test_create_bd-question-add-btn--more-active');
     }
 
+    /**
+     * Вслытие с element до вопроса.
+     * @param {*} element 
+     */
     surfacingToQuestion(element) {
         while (element !== document) {
             if (element !== null) {
@@ -65,6 +83,11 @@ export class Question {
      * Устанавливает обработчики события.
      */
     setHandlers() {
+        const answerCl = new Answer();
+        for (let question of this.questions) {
+            question.getElementsByClassName('js-test-create-answer-type-select')[0].onclick = () => answerCl.changeAnswerType(question);
+        }
+
         const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn')[0];
         if (questionAddMoreBtn !== undefined) {
             questionAddMoreBtn.onclick = () => this.showOrCloseQuestionAddParams();

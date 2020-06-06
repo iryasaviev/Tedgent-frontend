@@ -114,7 +114,7 @@
                 <span class="label-txt">Предмет</span>
                 <div class="test-create_bd-select select js-test-create-subject-select" title="Основной предмет теста">
                   <button class="test-create_bd-select_hd select_hd">
-                    <div class="select_hd-value" data-select-option-value="0"></div>
+                    <div class="select_hd-value js-select-value" data-select-option-value="0"></div>
                     <div class="select_hd--icon i-down-arrow"></div>
                   </button>
                   <div class="select_bd">
@@ -219,13 +219,23 @@
                     <img class="test_create_bd-question-col1--img js-test-question-img">
                   </div>
                 </div>
-                <div class="test_create_bd-question-col1-row test_create_bd-question-answers">
-                  <div class="test_create_bd-question-answer" data-answer-num="1">
-                    <div class="test-question-answer-checkbox">
-                      <input class="test-question-answer-checkbox--inp" id="answer11" type="checkbox">
+                <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers"
+                  data-answers-type="1">
+                  <div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="1">
+                    <div class="test-question-answer-checkbox js-test-question-answer-choice-btn">
+                      <input class="test-question-answer-checkbox--inp" id="answer11" name="answerCheck1"
+                        type="checkbox">
                       <label for="answer11"></label>
                     </div>
                     <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №1">
+                    <button class="test_create_bd-question-answer--btn btn i-cross"></button>
+                  </div>
+                  <div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="2">
+                    <div class="test-question-answer-radio js-test-question-answer-choice-btn">
+                      <input class="test-question-answer-radio--inp" id="answer12" name="answerRadio1" type="radio">
+                      <label for="answer12"></label>
+                    </div>
+                    <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №2">
                     <button class="test_create_bd-question-answer--btn btn i-cross"></button>
                   </div>
                 </div>
@@ -241,9 +251,9 @@
                   <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file"
                     accept="image/*">
                 </label>
-                <div class="test_create_bd-question--select select">
+                <div class="test_create_bd-question--select select js-test-create-answer-type-select">
                   <button class="test_create_bd-question--select_hd select_hd">
-                    <div class="select_hd-value" data-select-option-value="1">
+                    <div class="select_hd-value js-select-value" data-select-option-value="1">
                       <div class="test_create_bd-question--select-option--icon i-checkbox"></div>
                       <div class="test_create_bd-question--select-option--txt">Множественный выбор</div>
                     </div>
@@ -284,7 +294,7 @@
                       title="Количество ответов">
                     <div class="question-add-btn-more--select select" title="Сортировка по предмету">
                       <button class="question-add-btn-more--select_hd select_hd">
-                        <div class="question-add-btn-more--select-value select_hd-value" data-select-option-value="1">
+                        <div class="question-add-btn-more--select-value select_hd-value js-select-value" data-select-option-value="1">
                           <div class="question-add-btn-more--select-option--icon i-checkbox"></div>
                         </div>
                       </button>
