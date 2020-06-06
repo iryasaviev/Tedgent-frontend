@@ -86,6 +86,8 @@ export class Question {
         const answerCl = new Answer();
         for (let question of this.questions) {
             question.getElementsByClassName('js-test-create-answer-type-select')[0].onclick = () => answerCl.changeAnswerType(question);
+            question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => answerCl.addAnswer(question, 6);
+            question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = () => answerCl.deleteAnswer();
         }
 
         const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn')[0];
