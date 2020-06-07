@@ -172,6 +172,12 @@ export class Answer {
         }
     }
 
+    /**
+     * Удаляет вариант ответа.
+     * 
+     * @param {object} event событие.
+     * @param {*} question вопрос удаляемого ответа.
+     */
     deleteAnswer(event, question) {
         let answerForDelete = this.surfacingToAnswer(event.target),
             answers = question.getElementsByClassName('js-test-question-answer');
