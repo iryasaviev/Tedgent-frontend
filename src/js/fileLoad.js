@@ -1,13 +1,28 @@
+/**
+ * Класс отвечающий за зазгрузку файлов.
+ */
 export class FileLoad {
     constructor() {
         this.bufferImagePath;
     }
 
+    /**
+     * Считывает и возвращает загруженный файл.
+     * 
+     * @param {*} event события.
+     */
     readFile(event) {
         // https://web.dev/read-files/
         return event.target.files;
     }
 
+    /**
+     * Загружает и выводит изображание.
+     * 
+     * @param {*} file загруженный файл.
+     * @param {*} loadFunc функция, которая вызываеся после загрузки изображения.
+     * @param {*} loadFuncParams параметры вызываемой после загрузки функции.
+     */
     readImage(file, loadFunc, loadFuncParams) {
         if (file.type && file.type.indexOf('image') === -1) {
             // ToDo: реализовать вывод ошибки.
