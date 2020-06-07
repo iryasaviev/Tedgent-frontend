@@ -57,6 +57,17 @@
   color: #3f91d4;
 }
 
+.dark-theme .btn-disable {
+  cursor: default;
+}
+
+.dark-theme .btn-disable:hover,
+.dark-theme .btn-disable:active,
+.dark-theme .btn-disable:focus {
+  color: #ddd;
+  box-shadow: none;
+}
+
 .dark-theme .sidebar_hd-user,
 .dark-theme .sidebar_hd--btn {
   background: hsla(207, 63%, 35%, 1);
