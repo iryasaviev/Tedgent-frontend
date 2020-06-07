@@ -17,6 +17,7 @@ export class Question {
 
     /**
      * Отвечает за загрузку изображения вопроса.
+     * 
      * @param {object} event 
      */
     loadImage(event) {
@@ -30,6 +31,7 @@ export class Question {
 
     /**
      * Выводит изобаржение вопроса.
+     * 
      * @param {string} path - Blob путь загруженного изображения.
      * @param {object} params - Необходимые параметры.
      */
@@ -63,6 +65,7 @@ export class Question {
 
     /**
      * Вслытие с element до вопроса.
+     * 
      * @param {*} element 
      */
     surfacingToQuestion(element) {
@@ -87,7 +90,7 @@ export class Question {
         for (let question of this.questions) {
             question.getElementsByClassName('js-test-create-answer-type-select')[0].onclick = () => answerCl.changeAnswerType(question);
             question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => answerCl.addAnswer(question, 6);
-            question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = () => answerCl.deleteAnswer();
+            question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => answerCl.deleteAnswer(event, question);
         }
 
         const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn')[0];

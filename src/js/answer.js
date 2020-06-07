@@ -4,6 +4,9 @@ import { Controls } from './controls';
  * Класс содержащий методы для работы с ответами. 
  */
 export class Answer {
+    constructor() {
+        this.controlsCl = new Controls();
+    }
 
     /**
      * Меняет тип варианта ответа.
@@ -14,8 +17,7 @@ export class Answer {
         const select = question.getElementsByClassName('js-test-create-answer-type-select')[0],
             answersWrapper = question.getElementsByClassName('js-test-question-answers')[0],
             selectOptionData = select.getElementsByClassName('js-select-value')[0].dataset.selectOptionValue,
-            currentAnswerType = question.dataset.answersType,
-            controlsCl = new Controls();
+            currentAnswerType = question.dataset.answersType;
 
         question.dataset.answersType = selectOptionData;
 
@@ -29,10 +31,11 @@ export class Answer {
                 this.addAnswer(question);
 
                 // Вешает обработчик события на кнопку удаления варианта ответа.
-                answersWrapper.getElementsByClassName('js-test-question-answer')[0].onclick = () => this.deleteAnswer();
+                // let addedAnswer = answersWrapper.getElementsByClassName('js-test-question-answer')[0];
+                // addedAnswer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event);
 
                 // Включает возможжность взаимодействия с кнопкой добавления варианта ответа.
-                controlsCl.enableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
+                this.controlsCl.enableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
             }
             else {
                 let answers = answersWrapper.getElementsByClassName('js-test-question-answer'),
@@ -54,9 +57,7 @@ export class Answer {
         if (selectOptionData === '3' || selectOptionData === '4') {
             this.addAnswer(question);
 
-            answersWrapper.getElementsByClassName('js-test-question-answer')[0].onclick = () => this.deleteAnswer();
-
-            controlsCl.disableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
+            this.controlsCl.disableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
             return;
         }
     }
@@ -73,14 +74,14 @@ export class Answer {
         switch (type) {
             case '1':
                 return `<div class="test-question-answer-checkbox js-test-question-answer-choice-btn">
-                <input class="test-question-answer-checkbox--inp" id="answer${questionNum}${answerNum}" name="answerCheck${questionNum}" type="checkbox">
-                <label for="answer${questionNum}${answerNum}"></label>
+                <input class="test-question-answer-checkbox--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerCheck${questionNum}" type="checkbox">
+                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>`;
 
             case '2':
                 return `<div class="test-question-answer-radio js-test-question-answer-choice-btn">
-                <input class="test-question-answer-radio--inp" id="answer${questionNum}${answerNum}" name="answerRadio${questionNum}" type="radio">
-                <label for="answer${questionNum}${answerNum}"></label>
+                <input class="test-question-answer-radio--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerRadio${questionNum}" type="radio">
+                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>`;
         }
     }
@@ -95,8 +96,7 @@ export class Answer {
         const questionNum = question.dataset.questionNum,
             type = question.dataset.answersType,
             answersWrapper = question.getElementsByClassName('js-test-question-answers')[0],
-            answerAddBtn = question.getElementsByClassName('js-test-create-answer-add-btn')[0],
-            controlsCl = new Controls();
+            answerAddBtn = question.getElementsByClassName('js-test-create-answer-add-btn')[0];
 
         let answers = answersWrapper.getElementsByClassName('js-test-question-answer');
         switch (type) {
@@ -105,7 +105,7 @@ export class Answer {
                     answersWrapper.insertAdjacentHTML('beforeEnd', this.getAnswerItem(type, questionNum, answers.length));
 
                     if (!this.checkQuantityOfAnswers(question)) {
-                        controlsCl.disableButton(answerAddBtn);
+                        this.controlsCl.disableButton(answerAddBtn);
                     }
                 }
                 break;
@@ -115,7 +115,7 @@ export class Answer {
                     answersWrapper.insertAdjacentHTML('beforeEnd', this.getAnswerItem(type, questionNum, answers.length));
 
                     if (!this.checkQuantityOfAnswers(question)) {
-                        controlsCl.disableButton(answerAddBtn);
+                        this.controlsCl.disableButton(answerAddBtn);
                     }
                 }
                 break;
@@ -127,6 +127,11 @@ export class Answer {
             case '4':
                 answersWrapper.innerHTML = this.getAnswerItem(type, questionNum);
                 break;
+        }
+
+        // Вешает обработчик события метода удаления вопроса на добавленный вариант ответа.
+        if (type === '1' || type === '2') {
+            answers[answers.length - 1].getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event, question);
         }
     }
 
@@ -140,35 +145,61 @@ export class Answer {
     getAnswerItem(type, questionNum, answerNum = 1) {
         switch (type) {
             case '1':
-                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="1">
+                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="${answerNum + 1}">
                 <div class="test-question-answer-checkbox js-test-question-answer-choice-btn">
-                <input class="test-question-answer-checkbox--inp" id="answer${questionNum}${answerNum + 1}" name="answerCheck1" type="checkbox">
-                <label for="answer${questionNum}${answerNum + 1}"></label>
+                <input class="test-question-answer-checkbox--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum + 1}" name="answerCheck1" type="checkbox">
+                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum + 1}"></label>
                 </div>
-                <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №${answerNum + 1}">
+                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum + 1}">
                 <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
 
             case '2':
-                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="1">
+                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="${answerNum + 1}">
                 <div class="test-question-answer-radio js-test-question-answer-choice-btn">
-                <input class="test-question-answer-radio--inp" id="answer${questionNum}${answerNum + 1}" name="answerRadio1" type="radio">
-                <label for="answer${questionNum}${answerNum + 1}"></label>
+                <input class="test-question-answer-radio--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum + 1}" name="answerRadio1" type="radio">
+                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum + 1}"></label>
                 </div>
-                <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ №${answerNum + 1}">
+                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum + 1}">
                 <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
 
             case '3':
                 return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp" name="answer" type="text" value="Ответ...">`;
+                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ...">`;
 
             case '4':
                 return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp" name="answer" type="number" step="any" value="1">`;
+                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="number" step="any" placeholder="1">`;
         }
     }
 
-    deleteAnswer() {
+    deleteAnswer(event, question) {
+        let answerForDelete = this.surfacingToAnswer(event.target),
+            answers = question.getElementsByClassName('js-test-question-answer');
 
+        if (answerForDelete !== undefined) {
+
+            // Удаляет вариант ответа
+            answerForDelete.remove();
+
+            // Переисывает значения атрибутов у оставшихся вариантов
+            let newAnswerNum = 1;
+            for (let answer of answers) {
+                answer.dataset.answerNum = newAnswerNum;
+
+                answer.getElementsByClassName('js-test-question-answer-inp')[0].placeholder = `Ответ №${newAnswerNum}`;
+                answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].id = `answer${question.dataset.questionNum}${newAnswerNum}`;
+                answer.getElementsByClassName('js-test-question-answer-choice-label')[0].setAttribute('for', `answer${question.dataset.questionNum}${newAnswerNum}`);
+
+                newAnswerNum++;
+            }
+
+            if (this.checkQuantityOfAnswers(question)) {
+                this.controlsCl.enableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
+            }
+            else {
+                this.controlsCl.disableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
+            }
+        }
     }
 
     /**
@@ -186,6 +217,25 @@ export class Answer {
         }
         else {
             return true;
+        }
+    }
+
+    /**
+    * Вслытие с element до ответа.
+    * 
+    * @param {object} element 
+    */
+    surfacingToAnswer(element) {
+        while (element !== document) {
+            if (element !== null) {
+                if (element.classList.contains('js-test-question-answer')) {
+                    return element;
+                }
+                element = element.parentNode;
+            }
+            else {
+                return undefined;
+            }
         }
     }
 
