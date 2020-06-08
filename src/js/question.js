@@ -196,6 +196,7 @@ export class Question {
             question.getElementsByClassName('js-test-create-answer-type-select')[0].onclick = () => this.answerCl.changeAnswerType(question);
             question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => this.answerCl.addAnswer(question, 6);
             question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.answerCl.deleteAnswer(event, question);
+            question.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.answerCl.chooseAnAnswer(question.getElementsByClassName('js-test-question-answer')[0]);
         }
 
         const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0];

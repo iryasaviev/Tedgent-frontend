@@ -30,11 +30,7 @@ export class Answer {
                 answersWrapper.innerHTML = '';
                 this.addAnswer(question);
 
-                // Вешает обработчик события на кнопку удаления варианта ответа.
-                // let addedAnswer = answersWrapper.getElementsByClassName('js-test-question-answer')[0];
-                // addedAnswer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event);
-
-                // Включает возможжность взаимодействия с кнопкой добавления варианта ответа.
+                // Включает возможность взаимодействия с кнопкой добавления варианта ответа.
                 this.controlsCl.enableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
             }
             else {
@@ -49,6 +45,8 @@ export class Answer {
 
                     answerNum++;
                 }
+
+                this.deselect(question);
             }
 
             return;
@@ -129,9 +127,14 @@ export class Answer {
                 break;
         }
 
-        // Вешает обработчик события метода удаления вопроса на добавленный вариант ответа.
         if (type === '1' || type === '2') {
-            answers[answers.length - 1].getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event, question);
+            const newAnswer = answers[answers.length - 1];
+
+            // Вешает обработчик события метода удаления вопроса на добавленный вариант ответа.
+            newAnswer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event, question);
+
+            // Вешает обработчик события метода выделения выбранного варианта ответа.
+            newAnswer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(newAnswer);
         }
     }
 
@@ -176,7 +179,7 @@ export class Answer {
      * Удаляет вариант ответа.
      * 
      * @param {object} event событие.
-     * @param {*} question вопрос удаляемого ответа.
+     * @param {object} question вопрос удаляемого ответа.
      */
     deleteAnswer(event, question) {
         let answerForDelete = this.surfacingToAnswer(event.target),
@@ -227,7 +230,40 @@ export class Answer {
     }
 
     /**
-    * Вслытие с element до ответа.
+     * Выделяет выбранный ответ.
+     * 
+     * @param {object} answer вариант ответа.
+     */
+    chooseAnAnswer(answer) {
+        const choiceBtnInp = answer.getElementsByClassName('js-test-question-answer-choice-inp')[0];
+
+        if (choiceBtnInp.checked) {
+            if (!answer.classList.contains('test-question-answer-active')) {
+                answer.classList.add('test-question-answer-active');
+            }
+        }
+        else {
+            if (answer.classList.contains('test-question-answer-active')) {
+                answer.classList.remove('test-question-answer-active');
+            }
+        }
+    }
+
+    /**
+     * Удаляет выделения выбранных ответов.
+     * 
+     * @param {object} question вопрос, с выбранных вариантов которого нужно снять выделение.
+     */
+    deselect(question) {
+        for (let answer of question.getElementsByClassName('js-test-question-answer')) {
+            if (answer.classList.contains('test-question-answer-active')) {
+                answer.classList.remove('test-question-answer-active');
+            }
+        }
+    }
+
+    /**
+    * Всплытие с element до ответа.
     * 
     * @param {object} element 
     */
