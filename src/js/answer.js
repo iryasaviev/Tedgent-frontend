@@ -43,6 +43,8 @@ export class Answer {
                     answerChoiceBtn.remove();
                     answer.insertAdjacentHTML('afterbegin', this.getAnswerChoiceBtn(selectOptionData, question.dataset.questionNum, answerNum));
 
+                    answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(answer, question);
+
                     answerNum++;
                 }
 
@@ -134,7 +136,7 @@ export class Answer {
             newAnswer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event, question);
 
             // Вешает обработчик события метода выделения выбранного варианта ответа.
-            newAnswer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(newAnswer);
+            newAnswer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(newAnswer, question);
         }
     }
 
@@ -234,8 +236,17 @@ export class Answer {
      * 
      * @param {object} answer вариант ответа.
      */
-    chooseAnAnswer(answer) {
+    chooseAnAnswer(answer, question) {
         const choiceBtnInp = answer.getElementsByClassName('js-test-question-answer-choice-inp')[0];
+
+        // Если тип кнопок radio => удаляет все ранее выделенные варианты.
+        if (choiceBtnInp.getAttribute('type') === 'radio') {
+            for (let item of question.getElementsByClassName('js-test-question-answer')) {
+                if (item.classList.contains('test-question-answer-active')) {
+                    item.classList.remove('test-question-answer-active');
+                }
+            }
+        }
 
         if (choiceBtnInp.checked) {
             if (!answer.classList.contains('test-question-answer-active')) {
