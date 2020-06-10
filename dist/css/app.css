@@ -1107,10 +1107,21 @@ Test create page. Step 1
 }
 .test_create_bd-question-deleted-mess {
   display: flex;
-  color: #8e8e8e;
+  color: #333;
   background: hsla(207, 63%, 54%, 0.1);
   border-radius: 4px;
   padding: 15px 20px;
+  line-height: 1;
+}
+.test_create_bd-question-deleted-mess--btn {
+  outline: none;
+  margin-left: 12px;
+  color: hsl(207, 63%, 54%);
+  height: 14px;
+}
+.test_create_bd-question-deleted-mess--btn:hover {
+  color: hsla(207, 63%, 54%, 0.7);
+  border-bottom: 1px solid;
 }
 .test_create_bd-question_bd {
   display: flex;
