@@ -1100,7 +1100,20 @@ Test create page. Step 1
 .test_create_bd-question {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+}
+.test_create_bd-question-deleted .test_create_bd-question_bd {
+  display: none;
+}
+.test_create_bd-question-deleted-mess {
+  display: flex;
+  color: #8e8e8e;
+  background: hsla(207, 63%, 54%, 0.1);
+  border-radius: 4px;
+  padding: 15px 20px;
+}
+.test_create_bd-question_bd {
+  display: flex;
 }
 .test_create_bd-question-col1 {
   width: 100%;

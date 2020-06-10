@@ -57,6 +57,11 @@ export class Question {
     imgBackground.onclick = () => new PhotoFrame().showOrCloseFrame(path);
   }
 
+  /**
+   * Удаляет прикрепленное изображение вопроса.
+   * 
+   * @param {*} question вопрос.
+   */
   deleteImage(question) {
     const img = question.getElementsByClassName('js-test-question-img')[0];
 
@@ -180,6 +185,19 @@ export class Question {
   }
 
   /**
+   * Удаляет вопрос, заменяя его на сообщение с возможностью восстановления.
+   * 
+   * @param {*} question вопрос.
+   */
+  deleteQuestion(question) {
+    if (question.classList.contains('test_create_bd-question-deleted')) {
+      question.classList.add('test_create_bd-question-deleted');
+    }
+
+    
+  }
+
+  /**
    * Вслытие с element до вопроса.
    * 
    * @param {*} element 
@@ -217,6 +235,9 @@ export class Question {
 
       // Вешает обработчик события метода удаления загруженной фотографии вопроса
       question.getElementsByClassName('js-test-question-img-del-btn')[0].onclick = () => this.deleteImage(question);
+
+      // Вешает обработчик события метода удаления вопроса
+      question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
     }
 
     const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0];
