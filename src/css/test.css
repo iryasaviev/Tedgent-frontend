@@ -431,7 +431,26 @@ Test create page. Step 1
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
 }
+.test_create_bd-question-image--del-btn {
+  height: 34px;
+  width: 34px;
+  position: absolute;
+  right: 0;
+  justify-content: center;
+  z-index: 1;
+  background: hsla(0, 0%, 0%, 0.4);
+  border-radius: 0;
+  color: #fff;
+}
+.test_create_bd-question-image--del-btn:hover,
+.test_create_bd-question-image--del-btn:focus,
+.test_create_bd-question-image--del-btn:active {
+  background: hsla(0, 0%, 0%, 0.6);
+  color: #fff;
+}
+
 .test_create_bd-question-col1-image--bcg {
   position: absolute;
   left: 0;

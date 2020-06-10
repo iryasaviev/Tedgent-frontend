@@ -57,6 +57,16 @@ export class Question {
     imgBackground.onclick = () => new PhotoFrame().showOrCloseFrame(path);
   }
 
+  deleteImage(question) {
+    const img = question.getElementsByClassName('js-test-question-img')[0];
+
+    img.src = '';
+
+    if (question.classList.contains('test_create_bd-question-image-active')) {
+      question.classList.remove('test_create_bd-question-image-active');
+    }
+  }
+
   addQuestion() {
     const addParamsBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0],
       addParamsWrapper = addParamsBtn.getElementsByClassName('js-test-question-add-btn-params-wrapper')[0],
@@ -201,15 +211,17 @@ export class Question {
       question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => this.answerCl.addAnswer(question, 6);
       question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.answerCl.deleteAnswer(event, question);
       question.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.answerCl.chooseAnAnswer(question.getElementsByClassName('js-test-question-answer')[0], question);
+
+      // Вешает обработчик события метода загрзуки изображения вопроса
+      question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);
+
+      // Вешает обработчик события метода удаления загруженной фотографии вопроса
+      question.getElementsByClassName('js-test-question-img-del-btn')[0].onclick = () => this.deleteImage(question);
     }
 
     const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0];
     if (questionAddMoreBtn !== undefined) {
       questionAddMoreBtn.onclick = () => this.showOrCloseQuestionAddParams();
-    }
-
-    for (let question of this.questions) {
-      question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);
     }
   }
 }
