@@ -18,6 +18,12 @@ export class Select {
         currentSelect.getElementsByClassName('select_hd-value')[0].innerHTML = optionValue;
         currentSelect.getElementsByClassName('select_hd-value')[0].dataset.selectOptionValue = currentOption.dataset.selectOption;
 
+        let valueInp = currentSelect.getElementsByClassName('js-select-value-inp')[0],
+            event = new Event('input');
+
+        valueInp.value = currentOption.dataset.selectOption;
+        valueInp.dispatchEvent(event);
+
         if (!isLoading) {
             this.openOrClose(currentSelect);
         }
@@ -28,7 +34,8 @@ export class Select {
             item.getElementsByClassName('select_hd')[0].onclick = () => this.openOrClose(item);
 
             for (let option of item.getElementsByClassName('select_bd-option')) {
-                option.onclick = () => this.selectItem(item, option, false);
+                // option.onclick = () => this.selectItem(item, option, false);
+                option.addEventListener('click', () => this.selectItem(item, option, false));
 
                 if (option.classList.contains('option-choice')) {
                     this.selectItem(item, option, true);

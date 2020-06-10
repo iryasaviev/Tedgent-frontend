@@ -112,6 +112,9 @@ label {
 .select.active > .select_hd {
   border-radius: 4px 4px 0 0;
 }
+.select_hd-value--inp {
+  display: none;
+}
 .select_hd-value {
   height: 100%;
   display: flex;
