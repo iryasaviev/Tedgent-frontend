@@ -418,7 +418,9 @@ Test create page. Step 1
   color: hsl(207, 63%, 54%);
   height: 14px;
 }
-.test_create_bd-question-deleted-mess--btn:hover {
+.test_create_bd-question-deleted-mess--btn:hover,
+.test_create_bd-question-deleted-mess--btn:active,
+.test_create_bd-question-deleted-mess--btn:focus {
   color: hsla(207, 63%, 54%, 0.7);
   border-bottom: 1px solid;
 }
