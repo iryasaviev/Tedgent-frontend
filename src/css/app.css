@@ -193,6 +193,12 @@ label {
 .more-menu-active .more-menu-list {
   visibility: visible;
 }
+.more-menu-list--btn.first {
+  border-radius: 4px 4px 0 0;
+}
+.more-menu-list--btn.last {
+  border-radius: 0 0 4px 4px;
+}
 
 /*
 ----------

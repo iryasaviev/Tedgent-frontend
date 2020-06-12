@@ -586,31 +586,46 @@ Test create page. Step 1
   position: relative;
   z-index: 3;
 }
-.test_create_bd-question-add--btn--more {
+.test_create_bd-question-add--btn-more {
   height: 32px;
   padding: 0 8px;
   border-radius: 0 4px 4px 0;
   background: hsla(200, 13%, 93%, 1);
   z-index: 2;
 }
-.test_create_bd-question-add-more {
-  width: 100%;
-  max-width: 106px;
-  margin-left: 10px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.test_create_bd-question-add--btn-more-list {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 50px;
+  right: -180px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 160px;
+  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
+    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 13px;
   z-index: 1;
-  transition: 0.1s;
 }
-.test_create_bd-question-add-btn--more-active
-  .test_create_bd-question-add-more {
-  right: -116px;
+.test_create_bd-question-add--btn-more-list::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0px 0.9px 0 rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: 10px;
+  left: -5px;
+}
+.question-add--btn-more-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 4px;
 }
 .question-add-btn-more {
   width: 280px;
@@ -620,19 +635,12 @@ Test create page. Step 1
 }
 .question-add-btn-more--inp,
 .question-add-btn-more--select {
-  height: 25px;
-  width: 28px;
+  width: 34px;
 }
 .test_create_bd-question-add-btn--more-active .question-add-btn-more--inp,
 .test_create_bd-question-add-btn--more-active .question-add-btn-more--select {
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
-}
-.question-add-btn-more--select_hd {
-  width: 28px;
-  height: 25px;
-  min-height: 25px;
-  background: #fff;
 }
 .question-add-btn-more--select-value,
 .question-add-btn-more--select-option {
@@ -644,11 +652,7 @@ Test create page. Step 1
   font-size: 13px;
 }
 .question-add-btn-more--inp {
-  padding: 0 5px;
-  margin-right: 8px;
-  background: #fff;
   text-align: center;
-  font-size: 13px;
 }
 .question-add-btn-more--inp::-webkit-outer-spin-button,
 .question-add-btn-more--inp::-webkit-inner-spin-button {
