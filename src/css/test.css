@@ -459,7 +459,7 @@ Test create page. Step 1
   user-select: none;
   overflow: hidden;
 }
-.test_create_bd-question-image--del-btn {
+.test_create_bd-question-img--del-btn {
   height: 34px;
   width: 34px;
   position: absolute;
@@ -470,14 +470,14 @@ Test create page. Step 1
   border-radius: 0;
   color: #fff;
 }
-.test_create_bd-question-image--del-btn:hover,
-.test_create_bd-question-image--del-btn:focus,
-.test_create_bd-question-image--del-btn:active {
+.test_create_bd-question-img--del-btn:hover,
+.test_create_bd-question-img--del-btn:focus,
+.test_create_bd-question-img--del-btn:active {
   background: hsla(0, 0%, 0%, 0.6);
   color: #fff;
 }
 
-.test_create_bd-question-col1-image--bcg {
+.test_create_bd-question-img--bcg {
   position: absolute;
   left: 0;
   right: 0;
@@ -487,18 +487,18 @@ Test create page. Step 1
   display: flex;
   cursor: pointer;
 }
-.test_create_bd-question-col1-image--bcg:hover {
+.test_create_bd-question-img--bcg:hover {
   background: hsla(0, 0%, 0%, 0.5);
   justify-content: center;
   align-items: center;
   display: flex;
 }
-.test_create_bd-question-col1--img {
+.test_create_bd-question--img {
   max-width: 577px;
   max-height: 400px;
   border-radius: 4px;
 }
-.test_create_bd-question-col1--img:hover {
+.test_create_bd-question--img:hover {
   background: #000;
 }
 .test_create_bd-question-answers {
@@ -612,7 +612,7 @@ Test create page. Step 1
   background: #fff;
   width: 10px;
   height: 10px;
-  box-shadow: 0 0px 0.9px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.3px 2px 0 rgba(0, 0, 0, 0.2);
   z-index: -1;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
