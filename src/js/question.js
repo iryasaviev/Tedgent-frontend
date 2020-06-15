@@ -72,48 +72,56 @@ export class Question {
         }
     }
 
+    /**
+     * Добавляет новый вопрос.
+     */
     addQuestion() {
-        const addParamsBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0],
-            addParamsWrapper = addParamsBtn.getElementsByClassName('js-test-question-add-btn-params-wrapper')[0],
-            addParamsQuestionsQuantity = addParamsWrapper.getElementsByClassName('js-test-question-add-btn-params-questions')[0].value,
-            addParamsAnswersQuantity = addParamsWrapper.getElementsByClassName('js-test-question-add-btn-params-answers')[0].value,
-            addParamsType = addParamsWrapper.getElementsByClassName('js-test-question-add-btn-params-type')[0].getElementsByClassName('js-select-value').dataset.selectOptionValue;
+        const questionAddMenu = this.wrapper.getElementsByClassName('js-test-create-question-add')[0],
+            questionAddMenuMore = questionAddMenu.getElementsByClassName('js-test-question-add-btn-params')[0],
+            questionsQuantity = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-questions')[0].value,
+            answersQuantity = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-answers')[0].value,
+            answerType = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-type')[0].value;
 
-        let newQuestions;
-        for (let i = 0; 30 >= i; i++) {
+        let newQuestions = [];
+        for (let i = 1; Number(questionsQuantity) >= i; i++) {
 
             // Если количество имеющихся и новых вопросов превышает 30, то добавлние прекращается
-            if (30 >= this.questions.length + newQuestions.length) {
+            if (30 <= this.questions.length + newQuestions.length) {
                 return;
             }
 
-            let newQuestion = this.getQuestionItem(addParamsType, this.questions.length + newQuestions.length);
+            let newQuestion = this.getQuestionItem(answerType, this.questions.length + newQuestions.length, answersQuantity);
             newQuestions[newQuestions.length] = newQuestion;
         }
 
         // Вставка новых вопросов в body
         if (newQuestions.length > 0) {
-            this.body.insertAdjacentElement('beforeend', newQuestions);
+            let questionsDom;
+
+            for (let question of newQuestions) {
+                if (questionsDom === undefined) {
+                    questionsDom = question;
+                }
+                else {
+                    questionsDom = questionsDom + question;
+                }
+            }
+
+            this.body.insertAdjacentHTML('beforeend', questionsDom);
+
+            // Вешает обработчики событий
+            for (let question of this.questions) {
+
+                // На кнопку удаления вопроса
+                question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
+
+                // На кнопку добавлния варианта ответа
+                question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => new Answer().addAnswer(question);
+            }
         }
     }
 
-    getQuestionItem(answerType, questionNum) {
-        let questionBody;
-
-        switch (answerType) {
-            case '1':
-                return ``;
-
-            case '2':
-                return ``;
-
-            case '3':
-                return ``;
-
-            case '4':
-                return ``;
-        }
-
+    getQuestionItem(answerType, questionNum, answersQuantity) {
         let question = `<div class="test_create_bd-question js-test-question" data-question-num="${questionNum}" data-answers-type="${answerType}">
         <div class="test_create_bd-question_bd js-test-question-body">
           <div class="test_create_bd-question-col1">
@@ -128,7 +136,9 @@ export class Question {
                 <img class="test_create_bd-question--img js-test-question-img">
               </div>
             </div>
-            <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers"></div>
+            <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">
+            ${this.getAnswersForAddingQuestion(answersQuantity, answerType, questionNum)}
+            </div>
             <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
               <button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
                 <span class="i-plus"></span>
@@ -144,6 +154,8 @@ export class Question {
           </div>
         </div>
       </div>`;
+
+        return question;
     }
 
     /**
@@ -217,10 +229,30 @@ export class Question {
         return select;
     }
 
-    getAnswersForAddingQuestion(answersQuantity, answerType) {
-        if (answerType === '1' || answerType === '2') {
+    /**
+     * Возвращает массив с DOMString вариантами ответов у нового вопроса.
+     * 
+     * @param {number} answersQuantity количество вариантов ответа в новом вопросе.
+     * @param {string} answerType тип вариантов ответа в добавляемом вопросе.
+     * @param {string} questionNum порядковый номер добавляемого вопроса.
+     */
+    getAnswersForAddingQuestion(answersQuantity = 1, answerType = '1', questionNum) {
+        let answerCl = new Answer(),
+            answers = [];
 
+        if (answerType === '1' || answerType === '2') {
+            for (let answerNum = 0; answerNum < Number(answersQuantity); answerNum++) {
+                answers[answers.length] = answerCl.getAnswerItem(answerType, questionNum, answerNum);
+                console.log(answers[answers.length - 1]);
+            }
         }
+        else {
+            if (answerType === '3' || answerType === '4') {
+                answers[0] = answerCl.getAnswerItem(answerType, questionNum);
+            }
+        }
+
+        return answers;
     }
 
     /**
@@ -306,7 +338,14 @@ export class Question {
             question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
         }
 
-        const questionAddMoreBtn = this.body.getElementsByClassName('js-test-question-add-btn-params')[0];
+        // Вешает обработчик на кнопку добавления вопроса
+        const questionAddBtn = this.wrapper.getElementsByClassName('js-test-question-add-btn')[0];
+        if (questionAddBtn !== undefined) {
+            questionAddBtn.onclick = () => this.addQuestion();
+        }
+
+        // Вешает обработчик на кнопку "больше" у кнопки добавлния вопроса
+        const questionAddMoreBtn = this.wrapper.getElementsByClassName('js-test-question-add-btn-params')[0];
         if (questionAddMoreBtn !== undefined) {
             questionAddMoreBtn.onclick = () => this.showOrCloseQuestionAddParams();
         }

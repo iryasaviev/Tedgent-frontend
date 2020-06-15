@@ -399,6 +399,7 @@ Test create page. Step 1
 .test_create_bd-question {
   width: 100%;
   display: flex;
+  margin-bottom: 40px;
   flex-direction: column;
 }
 .test_create_bd-question-deleted .test_create_bd-question_bd {
@@ -547,11 +548,6 @@ Test create page. Step 1
   width: 18px;
   font-size: 16px;
   margin-right: 8px;
-}
-.test_create_bd-question-add {
-  width: 100%;
-  display: flex;
-  margin-top: 20px;
 }
 .test_create_bd-question-add {
   display: flex;
