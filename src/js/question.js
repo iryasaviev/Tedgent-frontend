@@ -109,6 +109,8 @@ export class Question {
 
             this.body.insertAdjacentHTML('beforeend', questionsDom);
 
+            let answerCl = new Answer();
+
             // Вешает обработчики событий
             for (let question of this.questions) {
 
@@ -116,44 +118,64 @@ export class Question {
                 question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
 
                 // На кнопку добавлния варианта ответа
-                question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => new Answer().addAnswer(question);
+                question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => answerCl.addAnswer(question);
+
+                for (let answer of question.getElementsByClassName('js-test-question-answer')) {
+
+                    // Вешает обработчик на кнопку удаления варианта ответа
+                    answer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => answerCl.deleteAnswer(event, question);
+
+                    // Вешает обработчик на кнопку выделения варианта ответа
+                    answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => answerCl.chooseAnAnswer(answer, question);
+                }
             }
         }
     }
 
     getQuestionItem(answerType, questionNum, answersQuantity) {
+        let answers = this.getAnswersForAddingQuestion(answersQuantity, answerType, questionNum),
+            answersString;
+
+        for (let answer of answers) {
+            if (answersString === undefined) {
+                answersString = answer;
+            }
+            else {
+                answersString += answer;
+            }
+        }
+
+
         let question = `<div class="test_create_bd-question js-test-question" data-question-num="${questionNum}" data-answers-type="${answerType}">
-        <div class="test_create_bd-question_bd js-test-question-body">
-          <div class="test_create_bd-question-col1">
-            <div class="test_create_bd-question-col1-row">
-              <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-              <input class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}">
+            <div class="test_create_bd-question_bd js-test-question-body">
+            <div class="test_create_bd-question-col1">
+                <div class="test_create_bd-question-col1-row">
+                <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
+                <input class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}">
+                </div>
+                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
+                <div class="test_create_bd-question-col1-image">
+                    <buttonclass="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
+                    <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
+                    <img class="test_create_bd-question--img js-test-question-img">
+                </div>
+                </div>
+                <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">${answersString}</div>
+                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
+                <button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
+                    <span class="i-plus"></span>
+                    <span class="txt">Вариант</span>
+                </button>
+                </div>
             </div>
-            <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
-              <div class="test_create_bd-question-col1-image">
-                <buttonclass="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
-                <img class="test_create_bd-question--img js-test-question-img">
-              </div>
+            <div class="test_create_bd-question-col2">
+                <label class="test_create_bd-question-col2--btn btn i-image">
+                <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file" accept="image/*">
+                </label>
+                ${this.getAnswerTypeSelectItem(answerType)}
             </div>
-            <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">
-            ${this.getAnswersForAddingQuestion(answersQuantity, answerType, questionNum)}
             </div>
-            <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
-              <button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
-                <span class="i-plus"></span>
-                <span class="txt">Вариант</span>
-              </button>
-            </div>
-          </div>
-          <div class="test_create_bd-question-col2">
-            <label class="test_create_bd-question-col2--btn btn i-image">
-              <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file" accept="image/*">
-            </label>
-            ${this.getAnswerTypeSelectItem(answerType)}
-          </div>
-        </div>
-      </div>`;
+            </div>`;
 
         return question;
     }
@@ -243,7 +265,6 @@ export class Question {
         if (answerType === '1' || answerType === '2') {
             for (let answerNum = 0; answerNum < Number(answersQuantity); answerNum++) {
                 answers[answers.length] = answerCl.getAnswerItem(answerType, questionNum, answerNum);
-                console.log(answers[answers.length - 1]);
             }
         }
         else {
