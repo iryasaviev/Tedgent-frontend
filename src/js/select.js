@@ -1,6 +1,6 @@
 export class Select {
     constructor() {
-        this.items = document.getElementsByClassName('select');
+        this.items = document.getElementsByClassName('js-select');
     }
 
     openOrClose(currentSelect) {
@@ -31,7 +31,7 @@ export class Select {
 
     setHandlers() {
         for (let item of this.items) {
-            item.getElementsByClassName('select_hd')[0].onclick = () => this.openOrClose(item);
+            item.getElementsByClassName('js-select-head')[0].onclick = () => this.openOrClose(item);
 
             for (let option of item.getElementsByClassName('select_bd-option')) {
                 // option.onclick = () => this.selectItem(item, option, false);

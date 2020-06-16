@@ -1,6 +1,7 @@
 import { PhotoFrame } from './photoFrame';
 import { Message } from './message';
 import { FileLoad } from './fileLoad';
+import { Select } from './select';
 
 import { Answer } from './answer';
 
@@ -83,14 +84,14 @@ export class Question {
             answerType = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-type')[0].value;
 
         let newQuestions = [];
-        for (let i = 1; Number(questionsQuantity) >= i; i++) {
+        for (let newQuestionNum = 1; Number(questionsQuantity) >= newQuestionNum; newQuestionNum++) {
 
             // Если количество имеющихся и новых вопросов превышает 30, то добавлние прекращается
             if (30 <= this.questions.length + newQuestions.length) {
-                return;
+                break;
             }
 
-            let newQuestion = this.getQuestionItem(answerType, this.questions.length + newQuestions.length, answersQuantity);
+            let newQuestion = this.getQuestionItem(answerType, this.questions.length + newQuestionNum, answersQuantity);
             newQuestions[newQuestions.length] = newQuestion;
         }
 
@@ -117,8 +118,11 @@ export class Question {
                 // На кнопку удаления вопроса
                 question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
 
-                // На кнопку добавлния варианта ответа
+                // На кнопку добавления варианта ответа
                 question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => answerCl.addAnswer(question);
+
+                // На select выбора типа ответа
+                question.getElementsByClassName('js-select-head')[0].onclick = () => new Select().openOrClose(question.getElementsByClassName('js-select')[0]);
 
                 for (let answer of question.getElementsByClassName('js-test-question-answer')) {
 
@@ -224,7 +228,7 @@ export class Question {
 
         let select =
             `<div class="test_create_bd-question--select select js-test-create-answer-type-select">
-            <button class="test_create_bd-question--select_hd select_hd">
+            <button class="test_create_bd-question--select_hd select_hd js-select-head">
                 ${selectValue}
                 <div class="select_hd--icon i-down-arrow"></div>
             </button>
@@ -363,12 +367,6 @@ export class Question {
         const questionAddBtn = this.wrapper.getElementsByClassName('js-test-question-add-btn')[0];
         if (questionAddBtn !== undefined) {
             questionAddBtn.onclick = () => this.addQuestion();
-        }
-
-        // Вешает обработчик на кнопку "больше" у кнопки добавлния вопроса
-        const questionAddMoreBtn = this.wrapper.getElementsByClassName('js-test-question-add-btn-params')[0];
-        if (questionAddMoreBtn !== undefined) {
-            questionAddMoreBtn.onclick = () => this.showOrCloseQuestionAddParams();
         }
     }
 }
