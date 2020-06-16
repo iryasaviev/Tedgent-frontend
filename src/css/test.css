@@ -425,6 +425,11 @@ Test create page. Step 1
 .test_create_bd-question_bd {
   display: flex;
 }
+.test_create_bd-question-title--inp {
+  max-height: 68px;
+  min-height: 34px;
+  resize: none;
+}
 .test_create_bd-question-col1 {
   width: 100%;
   max-width: 620px;

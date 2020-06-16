@@ -30,6 +30,7 @@ label {
   color: #333;
   font-size: 13px;
   outline: none;
+  line-height: 1;
 }
 
 .btn {

@@ -163,7 +163,7 @@ export class Question {
                     <div class="test_create_bd-question-col1">
                         <div class="test_create_bd-question-col1-row">
                             <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                            <input class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}">
+                            <textarea class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}"></textarea>
                         </div>
                         <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                             <div class="test_create_bd-question-col1-image">
