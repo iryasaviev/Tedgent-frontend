@@ -9,6 +9,9 @@ Tests list in the tests page
   height: 100%;
   flex-direction: column;
 }
+.cnt_bd-test-create {
+  overflow: hidden;
+}
 .cnt_bd-tests-menu--date {
   background: #f2f4f5;
   min-width: 142px;
@@ -425,14 +428,34 @@ Test create page. Step 1
 .test_create_bd-question_bd {
   display: flex;
 }
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question_bd {
+    flex-direction: column-reverse;
+  }
+}
 .test_create_bd-question-title--inp {
   max-height: 68px;
   min-height: 34px;
   resize: none;
 }
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-title--inp {
+    min-width: 500px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .test_create_bd-question-title--inp {
+    min-width: auto;
+  }
+}
 .test_create_bd-question-col1 {
   width: 100%;
   max-width: 620px;
+}
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-col1 {
+    min-width: 100%;
+  }
 }
 .test_create_bd-question-col1-row {
   display: flex;
@@ -533,6 +556,14 @@ Test create page. Step 1
   display: flex;
   justify-content: space-between;
 }
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-col2 {
+    margin-left: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
 .test_create_bd-question-col2--btn {
   height: 34px;
   padding: 11px 12px;
@@ -544,6 +575,7 @@ Test create page. Step 1
 }
 .test_create_bd-question--select {
   max-width: 230px;
+  min-width: 230px;
 }
 .test_create_bd-question--select-option--icon,
 .question-add-col2--select-option-icon {
@@ -556,6 +588,11 @@ Test create page. Step 1
   justify-content: center;
   width: 100%;
   max-width: 620px;
+}
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-add {
+    max-width: 100%;
+  }
 }
 .test_create_bd-question-add-button {
   position: relative;
