@@ -32,6 +32,9 @@ label {
   outline: none;
   line-height: 1;
 }
+.inp-bckg-white {
+  background: hsla(195, 11%, 96%, 1);
+}
 
 .btn {
   background: #fff;

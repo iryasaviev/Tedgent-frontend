@@ -1,6 +1,7 @@
 import { Sidebar } from './sidebar';
 import { Select } from './select';
 import { PhotoFrame } from './photoFrame';
+import { Fields } from './fields';
 
 import { TestCreate } from './testCreate';
 import { MoreMenu } from './moreMenu';
@@ -30,5 +31,6 @@ export class Page {
         new Sidebar().setHandlers();
         new Select().setHandlers();
         new MoreMenu().setHandlers();
+        // new Fields(this.body).setHandlers();
     }
 }
