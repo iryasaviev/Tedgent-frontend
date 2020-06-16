@@ -110,35 +110,26 @@ export class Question {
 
             this.body.insertAdjacentHTML('beforeend', questionsDom);
 
-            let answerCl = new Answer();
-
             // Вешает обработчики событий
-            for (let question of this.questions) {
+            this.setHandlers();
 
-                // На кнопку удаления вопроса
-                question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
-
-                // На кнопку добавления варианта ответа
-                question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => answerCl.addAnswer(question);
-
-                // На select выбора типа ответа
-                question.getElementsByClassName('js-select-head')[0].onclick = () => new Select().openOrClose(question.getElementsByClassName('js-select')[0]);
-
-                for (let answer of question.getElementsByClassName('js-test-question-answer')) {
-
-                    // Вешает обработчик на кнопку удаления варианта ответа
-                    answer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => answerCl.deleteAnswer(event, question);
-
-                    // Вешает обработчик на кнопку выделения варианта ответа
-                    answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => answerCl.chooseAnAnswer(answer, question);
-                }
-            }
+            // Вешает все необходимые обработчики на select
+            new Select().setHandlers();
         }
     }
 
-    getQuestionItem(answerType, questionNum, answersQuantity) {
+    /**
+     * Возвращает сформированный DOMString вопроса.
+     * 
+     * @param {*} answerType тип ответа.
+     * @param {*} questionNum номер формируемого вопроса.
+     * @param {*} answersQuantity количество вариантов ответа в добавляемом вопросе.
+     * @param {*} answersQuantityMaxLimit ограничение на максимальное количество вариантов ответа в добавляемом вопросе.
+     */
+    getQuestionItem(answerType, questionNum, answersQuantity, answersQuantityMaxLimit = 6) {
         let answers = this.getAnswersForAddingQuestion(answersQuantity, answerType, questionNum),
-            answersString;
+            answersString,
+            answerAddBtn;
 
         for (let answer of answers) {
             if (answersString === undefined) {
@@ -149,36 +140,48 @@ export class Question {
             }
         }
 
-
-        let question = `<div class="test_create_bd-question js-test-question" data-question-num="${questionNum}" data-answers-type="${answerType}">
-            <div class="test_create_bd-question_bd js-test-question-body">
-            <div class="test_create_bd-question-col1">
-                <div class="test_create_bd-question-col1-row">
-                <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                <input class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}">
-                </div>
-                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
-                <div class="test_create_bd-question-col1-image">
-                    <buttonclass="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                    <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
-                    <img class="test_create_bd-question--img js-test-question-img">
-                </div>
-                </div>
-                <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">${answersString}</div>
-                <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
-                <button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
+        if (answers.length > answersQuantityMaxLimit ||
+            answerType === '3' ||
+            answerType === '4') {
+            answerAddBtn =
+                `<button class="test_create_bd-question-answer-add--btn btn btn-disable js-test-create-answer-add-btn">
                     <span class="i-plus"></span>
                     <span class="txt">Вариант</span>
-                </button>
+                </button>`;
+        }
+        else {
+            answerAddBtn =
+                `<button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
+                    <span class="i-plus"></span>
+                    <span class="txt">Вариант</span>
+                </button>`;
+        }
+
+        let question =
+            `<div class="test_create_bd-question js-test-question" data-question-num="${questionNum}" data-answers-type="${answerType}">
+                <div class="test_create_bd-question_bd js-test-question-body">
+                    <div class="test_create_bd-question-col1">
+                        <div class="test_create_bd-question-col1-row">
+                            <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
+                            <input class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}">
+                        </div>
+                        <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
+                            <div class="test_create_bd-question-col1-image">
+                                <button class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
+                                <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
+                                <img class="test_create_bd-question--img js-test-question-img">
+                            </div>
+                        </div>
+                        <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">${answersString}</div>
+                        <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">${answerAddBtn}</div>
+                    </div>
+                    <div class="test_create_bd-question-col2">
+                        <label class="test_create_bd-question-col2--btn btn i-image">
+                            <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file" accept="image/*">
+                        </label>
+                        ${this.getAnswerTypeSelectItem(answerType)}
+                    </div>
                 </div>
-            </div>
-            <div class="test_create_bd-question-col2">
-                <label class="test_create_bd-question-col2--btn btn i-image">
-                <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file" accept="image/*">
-                </label>
-                ${this.getAnswerTypeSelectItem(answerType)}
-            </div>
-            </div>
             </div>`;
 
         return question;
@@ -227,7 +230,7 @@ export class Question {
         }
 
         let select =
-            `<div class="test_create_bd-question--select select js-test-create-answer-type-select">
+            `<div class="test_create_bd-question--select select js-select js-test-create-answer-type-select">
             <button class="test_create_bd-question--select_hd select_hd js-select-head">
                 ${selectValue}
                 <div class="select_hd--icon i-down-arrow"></div>
@@ -263,17 +266,16 @@ export class Question {
      * @param {string} questionNum порядковый номер добавляемого вопроса.
      */
     getAnswersForAddingQuestion(answersQuantity = 1, answerType = '1', questionNum) {
-        let answerCl = new Answer(),
-            answers = [];
+        let answers = [];
 
         if (answerType === '1' || answerType === '2') {
             for (let answerNum = 0; answerNum < Number(answersQuantity); answerNum++) {
-                answers[answers.length] = answerCl.getAnswerItem(answerType, questionNum, answerNum);
+                answers[answers.length] = this.answerCl.getAnswerItem(answerType, questionNum, answerNum);
             }
         }
         else {
             if (answerType === '3' || answerType === '4') {
-                answers[0] = answerCl.getAnswerItem(answerType, questionNum);
+                answers[0] = this.answerCl.getAnswerItem(answerType, questionNum);
             }
         }
 
@@ -340,7 +342,7 @@ export class Question {
     }
 
     /**
-     * Устанавливает обработчики события.
+     * Устанавливает обработчики событий.
      */
     setHandlers() {
         for (let question of this.questions) {
@@ -350,8 +352,18 @@ export class Question {
             answerTypeSelectValueInp.oninput = () => this.answerCl.changeAnswerType(question);
 
             question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => this.answerCl.addAnswer(question, 6);
-            question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.answerCl.deleteAnswer(event, question);
-            question.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.answerCl.chooseAnAnswer(question.getElementsByClassName('js-test-question-answer')[0], question);
+
+            // Вешает обработчик кнопки удаления варианта ответа
+            let answerDelBtn = question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0];
+            if (answerDelBtn !== undefined) {
+                answerDelBtn.onclick = (event) => this.answerCl.deleteAnswer(event, question);
+            }
+
+            // Вешает обработчик кнопки выбора правильного варианта ответа
+            let answerChooseInp = question.getElementsByClassName('js-test-question-answer-choice-inp')[0];
+            if (answerChooseInp !== undefined) {
+                answerChooseInp.onchange = () => this.answerCl.chooseAnAnswer(question.getElementsByClassName('js-test-question-answer')[0], question);
+            }
 
             // Вешает обработчик события метода загрзуки изображения вопроса
             question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);

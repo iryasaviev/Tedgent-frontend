@@ -393,9 +393,6 @@ Test create page. Step 1
   padding: 0 12px;
   background: transparent;
 }
-.test_create_bd-questions {
-  margin-bottom: 20px;
-}
 .test_create_bd-question {
   width: 100%;
   display: flex;
