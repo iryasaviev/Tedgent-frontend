@@ -410,6 +410,9 @@ Test create page. Step 1
   padding: 15px 20px;
   line-height: 1;
 }
+.test_create_bd-question-deleted-mess--time {
+  font-weight: 600;
+}
 .test_create_bd-question-deleted-mess--btn {
   outline: none;
   margin-left: 12px;

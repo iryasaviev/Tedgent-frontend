@@ -2,6 +2,7 @@ import { PhotoFrame } from './photoFrame';
 import { Message } from './message';
 import { FileLoad } from './fileLoad';
 import { Select } from './select';
+import { Timer } from './timer';
 
 import { Answer } from './answer';
 
@@ -302,11 +303,45 @@ export class Question {
 
         question.insertAdjacentHTML('beforeEnd',
             `<div class="test_create_bd-question-deleted-mess js-test-create-question-deleted-message">
-            <p>Вопрос удалён.</p>
+            <p>Вопрос будет удалён через <span class="test_create_bd-question-deleted-mess--time js-test-create-question-deleted-message-time">7</span>.</p>
             <button class="test_create_bd-question-deleted-mess--btn btn-icon js-test-create-question-restore-btn">Восстановить</button>
             </div>`);
 
         question.getElementsByClassName('js-test-create-question-restore-btn')[0].onclick = () => this.restoreQuestion(question);
+
+        this.updateQuestionDeleteTime(question, 8);
+    }
+
+    /**
+     * Стирает блок вопроса с DOM.
+     * 
+     * @param {*} question вопрос.
+     */
+    removeQuestion(question) {
+        question.remove();
+    }
+
+    /**
+     * Обновляет значение таймера в блоке удаления вопроса.
+     * Когда результат будет становится равен 0, вопрос удаляется.
+     * 
+     * @param {*} question вопрос.
+     * @param {number} time оставшееся время на восстановление вопроса.
+     */
+    updateQuestionDeleteTime(question, time) {
+        let timer = new Timer(),
+            result = question.getElementsByClassName('js-test-create-question-deleted-message-time')[0];
+
+        if (question.classList.contains('test_create_bd-question-deleted')) {
+            time = timer.countDown(time, 0);
+            result.innerText = time;
+
+            setTimeout(() => this.updateQuestionDeleteTime(question, time), 1000);
+
+            if (time === 0) {
+                this.removeQuestion(question);
+            }
+        }
     }
 
     /**
