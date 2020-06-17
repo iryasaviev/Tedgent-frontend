@@ -9,9 +9,6 @@ Tests list in the tests page
   height: 100%;
   flex-direction: column;
 }
-.cnt_bd-test-create {
-  overflow: hidden;
-}
 .cnt_bd-tests-menu--date {
   background: #f2f4f5;
   min-width: 142px;
@@ -660,7 +657,6 @@ Test create page. Step 1
   justify-content: space-between;
   padding: 5px 10px;
   background: #fff;
-  border-radius: 4px;
 }
 .question-add-btn-more {
   width: 280px;
