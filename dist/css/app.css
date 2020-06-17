@@ -1401,6 +1401,7 @@ Test create page. Step 1
 }
 .question-add-btn-more--inp {
   text-align: center;
+  -moz-appearance: textfield;
 }
 .question-add-btn-more--inp::-webkit-outer-spin-button,
 .question-add-btn-more--inp::-webkit-inner-spin-button {
