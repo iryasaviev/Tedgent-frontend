@@ -11,6 +11,23 @@ export class Page {
         this.body = document.getElementById('body');
         this.num = this.body.dataset.pageNum;
     }
+
+    /**
+     * Заркывает все активные всплывающие окна, селекты и подобные элементы по клику на body.
+     * 
+     * @param {*} event событие.
+     */
+    closeWindows(event) {
+        const items = this.body.getElementsByClassName('active'),
+            itemsCount = items.length;
+
+        for (let i = 0; itemsCount > i; i++) {
+            if (!items[0].contains(event.target)) {
+                items[0].classList.remove('active');
+            }
+        }
+    }
+
     setHandlers() {
         switch (this.num) {
             // Profile page
@@ -31,6 +48,7 @@ export class Page {
         new Sidebar().setHandlers();
         new Select().setHandlers();
         new MoreMenu().setHandlers();
-        // new Fields(this.body).setHandlers();
+
+        this.body.onclick = (event) => this.closeWindows(event);
     }
 }

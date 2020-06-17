@@ -5,12 +5,6 @@ export class Select {
 
     openOrClose(currentSelect) {
         currentSelect.classList.toggle('active');
-
-        let btn = currentSelect.getElementsByClassName('select_hd--icon')[0];
-        if (btn !== undefined) {
-            btn.classList.toggle('i-down-arrow');
-            btn.classList.toggle('i-up-arrow');
-        }
     }
 
     selectItem(currentSelect, currentOption, isLoading = true) {
@@ -34,7 +28,6 @@ export class Select {
             item.getElementsByClassName('js-select-head')[0].onclick = () => this.openOrClose(item);
 
             for (let option of item.getElementsByClassName('select_bd-option')) {
-                // option.onclick = () => this.selectItem(item, option, false);
                 option.addEventListener('click', () => this.selectItem(item, option, false));
 
                 if (option.classList.contains('option-choice')) {

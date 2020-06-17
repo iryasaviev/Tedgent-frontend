@@ -152,6 +152,9 @@ label {
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0 0 4px 4px;
 }
+.select.active .select_hd--icon {
+  transform: rotate(180deg);
+}
 .select_bd-option {
   padding: 0 12px;
   min-height: 34px;
@@ -194,7 +197,7 @@ label {
 .more-menu-list {
   visibility: hidden;
 }
-.more-menu-active .more-menu-list {
+.more-menu.active .more-menu-list {
   visibility: visible;
 }
 .more-menu-list--btn.first {

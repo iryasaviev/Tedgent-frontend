@@ -4,7 +4,7 @@ export class MoreMenu {
     }
 
     openOrClose(wrapper) {
-        wrapper.classList.toggle('more-menu-active');
+        wrapper.classList.toggle('active');
     }
 
     setHandlers() {
