@@ -36,7 +36,8 @@ label {
   background: hsla(195, 11%, 96%, 1);
 }
 
-.btn {
+.btn,
+.btn-1 {
   background: #fff;
   border: none;
   outline: none;
@@ -47,6 +48,7 @@ label {
   font-size: 14px;
 }
 .btn:focus,
+.btn-1:focus,
 .inp:focus,
 .select_hd:focus,
 .select_bd-option:focus {
@@ -54,12 +56,14 @@ label {
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
 }
-.btn:hover {
+.btn:hover,
+.btn-1:hover {
   background: hsla(200, 13%, 93%, 1);
   box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
     0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
 }
 .btn:active,
+.btn-1:active,
 .inp:active,
 .select_hd:active,
 .select_bd-option:active {
@@ -73,6 +77,14 @@ label {
   opacity: 0.5;
   cursor: default;
   box-shadow: none;
+}
+.btn-1 {
+  color: #fff;
+  background: hsla(207, 63%, 54%, 1);
+}
+.btn-1:hover,
+.btn-1:focus {
+  background: hsla(207, 63%, 54%, 0.9);
 }
 
 .inp:active,
