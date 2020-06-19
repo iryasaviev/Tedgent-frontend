@@ -163,7 +163,7 @@ export class Question {
                     <div class="test_create_bd-question-col1">
                         <div class="test_create_bd-question-col1-row">
                             <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                            <textarea class="inp test_create_bd-question-title--inp" name="qustion" type="text" placeholder="Вопрос №${questionNum}"></textarea>
+                            <textarea class="test_create_bd-question-title--inp inp js-test-create-question-title" name="question" type="text" placeholder="Вопрос №${questionNum}"></textarea>
                         </div>
                         <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                             <div class="test_create_bd-question-col1-image">
@@ -312,17 +312,44 @@ export class Question {
     }
 
     /**
-     * Стирает блок вопроса с DOM.
+     * Стирает блок вопроса с DOM и перезаписывает системные атрибуты у оставшихся элементов.
      * 
      * @param {*} question вопрос.
      */
     removeQuestion(question) {
         question.remove();
+
+        let questionNum = 1;
+        for (let question of this.questions) {
+
+            question.dataset.questionNum = questionNum;
+            question.getElementsByClassName('js-test-create-question-title')[0].placeholder = `Вопрос №${questionNum}`;
+
+            let answerNum = 1;
+            for (let answer of question.getElementsByClassName('js-test-question-answer')) {
+
+                if (question.dataset.answersType === '1' || question.dataset.answersType === '2') {
+                    answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].id = `answer${questionNum}${answerNum}`;
+                    answer.getElementsByClassName('js-test-question-answer-choice-label')[0].setAttribute('for', `answer${questionNum}${answerNum}`);
+
+                    if (question.dataset.answersType === '1') {
+                        answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].name = `answerCheck${questionNum}`;
+                    }
+                    if (question.dataset.answersType === '2') {
+                        answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].name = `answerRadio${questionNum}`;
+                    }
+                }
+
+                answerNum++;
+            }
+
+            questionNum++;
+        }
     }
 
     /**
      * Обновляет значение таймера в блоке удаления вопроса.
-     * Когда результат будет становится равен 0, вопрос удаляется.
+     * Когда результат будет равен 0, вопрос удаляется.
      * 
      * @param {*} question вопрос.
      * @param {number} time оставшееся время на восстановление вопроса.
