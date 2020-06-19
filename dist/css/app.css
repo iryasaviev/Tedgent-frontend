@@ -73,7 +73,11 @@ label {
 .btn-disable,
 .btn-disable:hover,
 .btn-disable:active,
-.btn-disable:focus {
+.btn-disable:focus,
+.inp-disable,
+.inp-disable:hover,
+.inp-disable:active,
+.inp-disable:focus {
   opacity: 0.5;
   cursor: default;
   box-shadow: none;

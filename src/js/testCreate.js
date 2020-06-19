@@ -17,6 +17,7 @@ export class TestCreate {
 
     /**
      * Отвечает за выбор основного предмета теста.
+     * 
      * @param {*} select 
      */
     selectSubject(select) {
@@ -41,12 +42,21 @@ export class TestCreate {
 
     /**
      * Выделяет ключевое слово.
-     * Написанное слово выделяется если перед ним (без пробела) присутсвует знак "#", либо после нажатия клавиш "Tab", "Space", "Enter".
+     * Написанное слово выделяется после нажатия клавиш "Tab", "Space", "Enter".
      * 
      * @param {*} event 
      * @param {*} input
      */
     highlightKeyword(event, input) {
+
+        // Проверят наличие ключевых слов в поле
+        if (!this.checkKeywordsQuantity(input)) {
+            if (event.code !== 'Backspace' && event.code !== 'Delete') {
+                event.preventDefault();
+            }
+            return;
+        }
+
         if (event.code === 'Space' ||
             event.code === 'Tab' ||
             event.code === 'Semicolon' ||
@@ -65,7 +75,7 @@ export class TestCreate {
                     word = word.replace(/\s+/g, '');
 
                     if (word !== ";" && word !== "") {
-                        input.insertAdjacentHTML('beforeend', `<span class="keyword" data-test-keyword-value="${word}">${word};</span>`);
+                        input.insertAdjacentHTML('beforeend', `<span class="keyword js-test-create-keyword" data-test-keyword-value="${word}">${word};</span>`);
                     }
                 }
             }
@@ -80,6 +90,19 @@ export class TestCreate {
                 selection.addRange(range);
             }
         }
+    }
+
+    /**
+     * Проверяет наличие ключевых слов в поле для ввода.
+     * Возвращает true - если количество слов меньше 5 и false, если больше или равно. 
+     * 
+     * @param {*} input поле для ввода.
+     */
+    checkKeywordsQuantity(input) {
+        if (input.getElementsByClassName('js-test-create-keyword').length >= 5) {
+            return false;
+        }
+        return true;
     }
 
     /**
