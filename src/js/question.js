@@ -141,11 +141,10 @@ export class Question {
             }
         }
 
-        if (answers.length > answersQuantityMaxLimit ||
-            answerType === '3' ||
-            answerType === '4') {
+        if (answers.length >= answersQuantityMaxLimit ||
+            answerType === '3' || answerType === '4') {
             answerAddBtn =
-                `<button class="test_create_bd-question-answer-add--btn btn btn-disable js-test-create-answer-add-btn">
+                `<button class="test_create_bd-question-answer-add--btn btn btn-disable js-test-create-answer-add-btn" disabled>
                     <span class="i-plus"></span>
                     <span class="txt">Вариант</span>
                 </button>`;
