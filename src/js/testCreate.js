@@ -42,6 +42,9 @@ export class TestCreate {
     /**
      * Выделяет ключевое слово.
      * Написанное слово выделяется если перед ним (без пробела) присутсвует знак "#", либо после нажатия клавиш "Tab", "Space", "Enter".
+     * 
+     * @param {*} event 
+     * @param {*} input
      */
     highlightKeyword(event, input) {
         if (event.code === 'Space' ||
@@ -111,6 +114,7 @@ export class TestCreate {
 
     /**
      * Удаляет вложение.
+     * 
      * @param {*} attachment 
      */
     deleteAttachment(attachment) {

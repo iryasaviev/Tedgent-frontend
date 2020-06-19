@@ -111,9 +111,13 @@
 }
 
 .dark-theme .test_create_bd-question-col1-row--btn,
-.dark-theme .test_create_bd-question-answer--btn,
-.dark-theme .test-create_bd-keywords-label--inp .keyword {
+.dark-theme .test_create_bd-question-answer--btn {
   background: hsla(204, 13%, 15%, 1);
+}
+
+.dark-theme .test-create_bd-keywords-label--inp .keyword {
+  color: hsl(207, 63%, 54%);
+  background: hsla(207, 63%, 54%, 0.1);
 }
 
 .dark-theme .test-question-answer-checkbox--inp + label::before,
@@ -151,4 +155,9 @@
   border-color: hsla(120, 74%, 52%, 1);
   background-color: hsla(120, 74%, 52%, 1);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.dark-theme .more-menu-list--btn:hover {
+  color: #ddd;
+  background: hsla(204, 13%, 15%, 1);
 }
