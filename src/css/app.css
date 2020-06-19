@@ -46,6 +46,7 @@ label {
   display: flex;
   align-items: center;
   font-size: 14px;
+  height: 34px;
 }
 .btn:focus,
 .btn-1:focus,
@@ -199,9 +200,13 @@ label {
   .inp,
   .btn,
   .select,
+  .select_hd,
+  .select_hd-value,
   .select_bd-option,
   .more-menu-list--btn {
     font-size: 12px;
+    height: 32px;
+    min-height: 32px;
   }
 }
 
@@ -521,11 +526,16 @@ Menu
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
   padding: 0 10px;
   top: -20px;
-  z-index: 10000;
+  z-index: 10500;
   transition: 0.2s;
 }
 .message-active .message {
   top: 50px;
+}
+@media only screen and (max-width: 500px) {
+  .message {
+    width: 310px;
+  }
 }
 
 /*

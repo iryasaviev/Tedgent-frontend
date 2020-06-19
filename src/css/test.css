@@ -43,12 +43,6 @@ Tests list in the tests page
   border-radius: 4px;
   margin-right: 8px;
 }
-@media only screen and (max-width: 767px) {
-  .cnt_bd-tests-menu--select-option--square,
-  .test-create_bd-select-option--square {
-    display: none;
-  }
-}
 .cnt_bd-tests--item {
   width: 100%;
   max-height: 150px;
@@ -296,6 +290,11 @@ Test create page. Step 1
   box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
     0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
 }
+@media only screen and (max-width: 767px) {
+  .cnt_bd-test-create {
+    padding: 10px;
+  }
+}
 .test-create-save {
   width: 100%;
   display: flex;
@@ -318,6 +317,16 @@ Test create page. Step 1
   display: flex;
   align-items: center;
   margin-right: 20px;
+}
+@media only screen and (max-width: 767px) {
+  .test-create_hd-row1-col1 {
+    margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .test-create_hd-row1-col1 {
+    display: none;
+  }
 }
 .test-create_hd-row1-col2 {
   width: 100%;
@@ -358,12 +367,16 @@ Test create page. Step 1
 }
 .test-create_bd-attachments-label {
   max-width: 120px;
-  height: 34px;
   background: hsla(200, 13%, 93%, 1);
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
+}
+@media only screen and (max-width: 767px) {
+  .test-create_bd-attachments-label {
+    max-width: 110px;
+  }
 }
 .test-create_bd-attachments-label--inp {
   display: none;
@@ -444,7 +457,6 @@ Test create page. Step 1
 }
 .test_create_bd-question-title--inp {
   max-height: 68px;
-  min-height: 34px;
   resize: none;
 }
 @media only screen and (max-width: 1000px) {
@@ -542,6 +554,11 @@ Test create page. Step 1
   display: flex;
   flex-direction: column;
 }
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-answers {
+    padding-left: 0;
+  }
+}
 .test_create_bd-question-answer {
   width: 100%;
   display: flex;
@@ -574,7 +591,6 @@ Test create page. Step 1
   }
 }
 .test_create_bd-question-col2--btn {
-  height: 34px;
   padding: 11px 12px;
   margin-right: 10px;
   background: hsla(200, 13%, 93%, 1);
@@ -591,6 +607,12 @@ Test create page. Step 1
   width: 18px;
   font-size: 16px;
   margin-right: 8px;
+}
+@media only screen and (max-width: 767px) {
+  .test_create_bd-question--select-option--icon,
+  .question-add-col2--select-option-icon {
+    font-size: 14px;
+  }
 }
 .test_create_bd-question-add {
   display: flex;
@@ -613,6 +635,12 @@ Test create page. Step 1
   height: 32px;
   padding: 0 12px;
   background: hsla(200, 13%, 93%, 1);
+}
+@media only screen and (max-width: 1000px) {
+  .test_create_bd-question-add--btn,
+  .test_create_bd-question-answer-add--btn {
+    font-size: 12px;
+  }
 }
 .test_create_bd-question-add--btn .txt,
 .test_create_bd-question-answer-add--btn .txt {
@@ -663,12 +691,32 @@ Test create page. Step 1
   top: 10px;
   left: -5px;
 }
+@media only screen and (max-width: 767px) {
+  .test_create_bd-question-add--btn-more-list::after {
+    top: -5px;
+    right: 9px;
+    left: auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .test_create_bd-question-add--btn-more-list {
+    width: 160px;
+    top: 48px;
+    left: 0;
+    right: 0;
+  }
+}
 .question-add--btn-more-list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 5px 10px;
   background: #fff;
+}
+@media only screen and (max-width: 767px) {
+  .question-add--btn-more-list-item {
+    height: auto;
+  }
 }
 .question-add-btn-more {
   width: 280px;
@@ -679,6 +727,12 @@ Test create page. Step 1
 .question-add-btn-more--inp,
 .question-add-btn-more--select {
   width: 34px;
+}
+@media only screen and (max-width: 767px) {
+  .question-add-btn-more--inp,
+  .question-add-btn-more--select {
+    width: 32px;
+  }
 }
 .test_create_bd-question-add-btn--more-active .question-add-btn-more--inp,
 .test_create_bd-question-add-btn--more-active .question-add-btn-more--select {
@@ -708,6 +762,13 @@ Test create page. Step 1
   display: flex;
   align-items: center;
   padding: 0 10px;
+}
+@media only screen and (max-width: 767px) {
+  .test-question-answer-checkbox,
+  .test-question-answer-radio {
+    padding: 0 7px;
+    margin-right: 10px;
+  }
 }
 .test-question-answer-checkbox--inp,
 .test-question-answer-radio--inp {
