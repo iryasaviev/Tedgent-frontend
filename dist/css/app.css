@@ -1237,6 +1237,7 @@ Test create page. Step 1
   position: relative;
   border: 1px solid #eee;
   display: flex;
+  justify-content: center;
   border-radius: 4px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -1440,7 +1441,7 @@ Test create page. Step 1
 }
 @media only screen and (max-width: 767px) {
   .test_create_bd-question-add--btn-more-list {
-    width: 160px;
+    width: 150px;
     top: 48px;
     left: 0;
     right: 0;
