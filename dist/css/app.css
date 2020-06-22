@@ -1094,6 +1094,7 @@ Test create page. Step 1
 .test-create_hd-row2 {
   flex-direction: column;
 }
+.test_bd,
 .test-create_bd {
   display: flex;
   flex-direction: column;
@@ -1204,6 +1205,7 @@ Test create page. Step 1
   background: transparent;
   margin: 0 8px;
 }
+.test-question,
 .test_create_bd-question {
   width: 100%;
   display: flex;
@@ -1349,6 +1351,7 @@ Test create page. Step 1
     padding-left: 0;
   }
 }
+.test-question-answer,
 .test_create_bd-question-answer {
   width: 100%;
   display: flex;
@@ -1687,6 +1690,7 @@ Test
   flex-direction: column;
 }
 .test_hd-attachments {
+  margin-top: 40px;
   display: none;
 }
 .test-active .test_hd-attachments {
@@ -1697,6 +1701,25 @@ Test
 }
 .test_hd-start--btn {
   padding: 0 12px;
+}
+.test-question {
+  padding: 0 20px;
+}
+.test-question_hd--title {
+  font-size: 16px;
+}
+.test-question--img {
+  width: 100%;
+}
+.test-question-answers {
+  padding-top: 20px;
+}
+.test-question-answer {
+  margin-bottom: 15px;
+  line-height: 18px;
+}
+.test-question-answer--txt {
+  font-size: 16px;
 }
 
 /*
