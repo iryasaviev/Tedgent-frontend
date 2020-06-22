@@ -1141,8 +1141,7 @@ Test create page. Step 1
   padding-top: 6px;
   flex-direction: column;
 }
-.test-attachments-file,
-.test_hd-attachments-file {
+.test-attachments-file {
   height: auto;
   min-height: 55px;
   max-height: 90px;
@@ -1172,8 +1171,8 @@ Test create page. Step 1
   flex-direction: column;
   justify-content: space-around;
   flex-grow: 1;
+  padding-right: 10px;
 }
-.test_hd-attachments-file .icon,
 .test-attachments-file .icon {
   font-size: 20px;
   padding: 0 10px;
@@ -1693,12 +1692,6 @@ Test
 .test-active .test_hd-attachments {
   display: flex;
 }
-.test_hd-attachments-file-type-img {
-  max-height: 90px;
-  padding: 10px;
-  align-items: flex-start;
-  height: auto;
-}
 .test_hd-start {
   justify-content: center;
 }
@@ -1871,6 +1864,7 @@ Subject backgrounds
 .dark-theme .test-create-attachments-file .delete {
   background: transparent;
 }
+.dark-theme .test-attachments-file,
 .dark-theme .test-attachments-file .link {
   color: hsl(207, 63%, 54%);
 }

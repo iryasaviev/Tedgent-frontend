@@ -106,6 +106,7 @@
 .dark-theme .test-create-attachments-file .delete {
   background: transparent;
 }
+.dark-theme .test-attachments-file,
 .dark-theme .test-attachments-file .link {
   color: hsl(207, 63%, 54%);
 }
