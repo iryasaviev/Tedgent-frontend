@@ -395,15 +395,17 @@ Test create page. Step 1
 }
 .test_hd-attachments,
 .test-create_bd-attachments-files {
-  max-width: 220px;
+  max-width: 280px;
   width: 100%;
   display: flex;
   padding-top: 6px;
   flex-direction: column;
 }
-.test_hd-attachments-file,
-.test-create_bd-attachments-file {
-  height: 40px;
+.test-attachments-file,
+.test_hd-attachments-file {
+  height: auto;
+  min-height: 55px;
+  max-height: 90px;
   background: hsla(207, 63%, 54%, 0.1);
   border-radius: 4px;
   margin-bottom: 10px;
@@ -413,29 +415,55 @@ Test create page. Step 1
   width: 100%;
   font-weight: 600;
   justify-content: space-between;
+  color: #333;
+  padding: 10px 0;
+}
+.test-attachments-file--img {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 4px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+.test-attachments-file-info {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 1;
 }
 .test_hd-attachments-file .icon,
-.test-create_bd-attachments-file .icon {
+.test-attachments-file .icon {
   font-size: 20px;
   padding: 0 10px;
 }
-.test_hd-attachments-file .txt,
-.test-create_bd-attachments-file .txt {
+.test-attachments-file .link {
   width: 100%;
+  color: #333;
   overflow: hidden;
   white-space: nowrap;
-  margin-right: 6px;
+  text-decoration: none;
 }
-.test_hd-attachments-file .size {
+.test-attachments-file .link:hover {
+  text-decoration: underline;
+}
+.test-create-attachments-file .link {
+  cursor: default;
+}
+.test-create-attachments-file .link:hover {
+  text-decoration: none;
+}
+.test-attachments-file .size {
   color: #8e8e8e;
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
 }
-.test-create_bd-attachments-file .delete {
-  height: 100%;
-  padding: 0 12px;
+.test-attachments-file .delete {
+  padding: 0 10px;
   background: transparent;
+  margin: 0 8px;
 }
 .test_create_bd-question {
   width: 100%;
@@ -854,11 +882,6 @@ Test create page. Step 1
 Test
 ----------
 */
-.test_hd {
-  max-height: 175px;
-  flex-direction: column;
-  position: relative;
-}
 .test_hdr {
   display: flex;
   justify-content: space-between;
@@ -894,11 +917,21 @@ Test
 .test_hdr-raiting--voted {
   font-size: 14px;
 }
+.test_hd {
+  min-height: 100px;
+  max-height: 175px;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+}
+.test-active .test_hd {
+  max-height: 100%;
+}
 .test_hd-row {
   display: flex;
 }
 .test_hd-info {
-  margin-bottom: 64px;
+  /* margin-bottom: 64px; */
 }
 .test_hd-title {
   display: flex;
@@ -917,25 +950,17 @@ Test
 .test_hd-attachments {
   display: none;
 }
+.test-active .test_hd-attachments {
+  display: flex;
+}
 .test_hd-attachments-file-type-img {
   max-height: 90px;
   padding: 10px;
   align-items: flex-start;
   height: auto;
-  cursor: pointer;
-}
-.test_hd-attachments-file--img {
-  max-width: 70px;
-  max-height: 70px;
-  border-radius: 4px;
-  margin-right: 10px;
 }
 .test_hd-start {
   justify-content: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 .test_hd-start--btn {
   padding: 0 12px;

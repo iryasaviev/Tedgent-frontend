@@ -5,6 +5,7 @@ import { FileLoad } from './fileLoad';
 import { Message } from './message';
 
 import { Question } from './question';
+import { PhotoFrame } from './photoFrame';
 
 /**
  * Класс создания теста.
@@ -121,18 +122,54 @@ export class TestCreate {
 
             this.attachments[this.attachments.length] = file;
 
+            // Если вложенный файл является изображеним, то выводится его превью,
+            // если нет, то иконка
+            let attachmentLogo;
+            if (file.type && file.type.indexOf('image') !== -1) {
+                attachmentLogo = `<img class="test-attachments-file--img" src="">`;
+            }
+            else {
+                attachmentLogo = `<span class="i-file icon"></span>`;
+            }
+
             wrapper.insertAdjacentHTML('afterbegin',
-                `<div class="test-create_bd-attachments-file js-test-create-attachment">
-                <span class="i-file icon"></span>
-                <span class="txt js-test-create-attachment-name">${file.name}</span>
-                <button class="i-cross btn delete js-test-create-attachment-delete-btn"></button>
+                `<div class="test-attachments-file test-create-attachments-file js-test-create-attachment">
+                    ${attachmentBody}
+                    <div class="test-attachments-file-info">
+                        <a class="link js-test-create-attachment-name" title="${file.name}">${file.name}</a>
+                        <span class="size">${fileLoadCl.convertBytesToKilobytes(file.size)} KB</span>
+                    </div>
+                    <button class="i-cross btn delete js-test-create-attachment-delete-btn"></button>
                 </div>`);
+
 
             let attachment = wrapper.getElementsByClassName('js-test-create-attachment')[0],
                 delBtn = attachment.getElementsByClassName('js-test-create-attachment-delete-btn')[0];
 
+            // Если прикрепленный файл является изображением, вешается обработчик события загрузки файла 
+            if (file.type && file.type.indexOf('image') !== -1) {
+                fileLoadCl.readImage(file, this.showImage, {
+                    attachmentTag: attachment,
+                    photoFramCl: new PhotoFrame()
+                });
+            }
+
             delBtn.onclick = () => this.deleteAttachment(attachment);
         }
+    }
+
+    /**
+     * Выводит превью изображения вложения и вешает обработчик.
+     * Срабатывает после загрузки файла.
+     * 
+     * @param {*} path путь к загруженному изображению.
+     * @param {*} params передаваемые параметры.
+     */
+    showImage(path, params) {
+        const img = params.attachmentTag.getElementsByClassName('test-attachments-file--img')[0];
+
+        img.src = path;
+        img.onclick = () => params.photoFramCl.showOrCloseFrame(path);
     }
 
     /**

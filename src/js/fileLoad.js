@@ -37,4 +37,13 @@ export class FileLoad {
         }
         reader.readAsDataURL(file);
     }
+
+    /**
+     * Конвертирует байты в килобайты.
+     * 
+     * @param {number} bytes значение для конвертации.
+     */
+    convertBytesToKilobytes(bytes) {
+        return Number(bytes) / 1000;
+    }
 }
