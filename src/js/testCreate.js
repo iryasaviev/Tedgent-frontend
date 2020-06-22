@@ -134,7 +134,7 @@ export class TestCreate {
 
             wrapper.insertAdjacentHTML('afterbegin',
                 `<div class="test-attachments-file test-create-attachments-file js-test-create-attachment">
-                    ${attachmentBody}
+                    ${attachmentLogo}
                     <div class="test-attachments-file-info">
                         <a class="link js-test-create-attachment-name" title="${file.name}">${file.name}</a>
                         <span class="size">${fileLoadCl.convertBytesToKilobytes(file.size)} KB</span>

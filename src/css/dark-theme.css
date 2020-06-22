@@ -103,8 +103,11 @@
   color: #21272b;
 }
 
-.dark-theme .test-create_bd-attachments-file .delete {
+.dark-theme .test-create-attachments-file .delete {
   background: transparent;
+}
+.dark-theme .test-attachments-file .link {
+  color: hsl(207, 63%, 54%);
 }
 .dark-theme .test-create_bd {
   border-color: hsl(206, 14%, 10%);
