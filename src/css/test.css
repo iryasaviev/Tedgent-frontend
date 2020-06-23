@@ -592,13 +592,11 @@ Test create page. Step 1
   align-items: center;
   display: flex;
 }
+.test-question--img,
 .test_create_bd-question--img {
   max-width: 577px;
   max-height: 400px;
   border-radius: 4px;
-}
-.test_create_bd-question--img:hover {
-  background: #000;
 }
 .test_create_bd-question-answers {
   padding-left: 43px;
@@ -814,7 +812,7 @@ Test create page. Step 1
 .test-question-answer-radio {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding-right: 10px;
 }
 @media only screen and (max-width: 767px) {
   .test-question-answer-checkbox,
@@ -920,8 +918,8 @@ Test
   font-size: 14px;
 }
 .test_hd {
-  min-height: 100px;
-  max-height: 175px;
+  min-height: 80px;
+  max-height: 80px;
   flex-direction: column;
   position: relative;
   justify-content: space-between;
@@ -950,13 +948,15 @@ Test
   flex-direction: column;
 }
 .test_hd-attachments {
-  margin-top: 40px;
   display: none;
+  margin: 0;
+  padding-top: 20px;
 }
 .test-active .test_hd-attachments {
   display: flex;
 }
 .test_hd-start {
+  display: flex;
   justify-content: center;
 }
 .test_hd-start--btn {
@@ -965,21 +965,32 @@ Test
 .test-question {
   padding: 0 20px;
 }
+.test-question_hd {
+  margin-bottom: 15px;
+}
 .test-question_hd--title {
-  font-size: 16px;
+  font-size: 17px;
+}
+.test_bd {
+  display: none;
+  padding: 40px 0;
+}
+.test-active .test_bd {
+  display: flex;
 }
 .test-question--img {
   width: 100%;
-}
-.test-question-answers {
-  padding-top: 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
 }
 .test-question-answer {
   margin-bottom: 15px;
   line-height: 18px;
 }
 .test-question-answer--txt {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 /*
