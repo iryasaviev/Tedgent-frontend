@@ -98,16 +98,16 @@
             <div class="test_hd-title">
               <label class="test-create_hd-title-label">
                 <span class="label-txt">Название</span>
-                <div class="inp_wr">
-                  <input class="inp" name="title" type="text" title="Название теста">
-                  <span class="inp-limit--value">110</span>
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true">
+                  <input class="inp js-inp" name="title" data-characters-max-limit-value="100" type="text">
+                  <span class="inp-limit--value js-inp-limit-value">100</span>
                 </div>
               </label>
               <label class="test-create_hd-title-label">
                 <span class="label-txt">Описание</span>
-                <div class="inp_wr">
-                  <input class="inp" name="description" type="text" title="Описание теста">
-                  <span class="inp-limit--value">160</span>
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true">
+                  <input class="inp js-inp" name="description" data-characters-max-limit-value="120" type="text">
+                  <span class="inp-limit--value js-inp-limit-value">120</span>
                 </div>
               </label>
             </div>

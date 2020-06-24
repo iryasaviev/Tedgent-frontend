@@ -59,6 +59,7 @@ export class Page {
         new Sidebar().setHandlers();
         new Select().setHandlers();
         new MoreMenu().setHandlers();
+        new Fields(this).setHandlers();
 
         this.body.onclick = (event) => this.closeWindows(event);
     }
