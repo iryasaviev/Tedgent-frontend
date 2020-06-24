@@ -1,7 +1,5 @@
 import { PhotoFrame } from './photoFrame';
-import { Message } from './message';
 import { FileLoad } from './fileLoad';
-import { Select } from './select';
 import { Timer } from './timer';
 
 import { Answer } from './answer';
@@ -11,18 +9,17 @@ import { Answer } from './answer';
  * Класс с методами для работы с вопросом.
  */
 export class Question {
-    constructor() {
+    constructor(page) {
         this.answerCl = new Answer();
 
-        this.wrapper = document.getElementById('bodyContent');
-        this.body = this.wrapper.getElementsByClassName('js-test-questions')[0];
-        this.questions = this.body.getElementsByClassName('js-test-question');
+        this.page = page;
+        this.questions = this.page.content.getElementsByClassName('js-test-question');
     }
 
     /**
      * Отвечает за загрузку изображения вопроса.
      * 
-     * @param {object} event 
+     * @param {object} event событие.
      */
     loadImage(event) {
         const question = this.surfacingToQuestion(event.target);
@@ -43,7 +40,7 @@ export class Question {
         const question = params.questionTag;
 
         if (question === undefined) {
-            new Message().show('Что-то пошло не так. Поажлуйста, перезагрузите страницу.');
+            this.messageCl.show('Что-то пошло не так. Поажлуйста, перезагрузите страницу.');
             return;
         }
 
@@ -78,7 +75,7 @@ export class Question {
      * Добавляет новый вопрос.
      */
     addQuestion() {
-        const questionAddMenu = this.wrapper.getElementsByClassName('js-test-create-question-add')[0],
+        const questionAddMenu = this.page.content.getElementsByClassName('js-test-create-question-add')[0],
             questionAddMenuMore = questionAddMenu.getElementsByClassName('js-test-question-add-btn-params')[0],
             questionsQuantity = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-questions')[0].value,
             answersQuantity = questionAddMenuMore.getElementsByClassName('js-test-question-add-btn-params-answers')[0].value,
@@ -109,13 +106,13 @@ export class Question {
                 }
             }
 
-            this.body.insertAdjacentHTML('beforeend', questionsDom);
+            this.page.content.getElementsByClassName('js-test-questions')[0].insertAdjacentHTML('beforeend', questionsDom);
 
             // Вешает обработчики событий
             this.setHandlers();
 
             // Вешает все необходимые обработчики на select
-            new Select().setHandlers();
+            this.page.selectCl.setHandlers();
         }
     }
 
@@ -286,7 +283,7 @@ export class Question {
      * Показывает окно с дополнительными параметрами при добавлении вопроса.
      */
     showOrCloseQuestionAddParams() {
-        const addBtnWrapper = this.body.getElementsByClassName('js-test-question-add-btn-wrapper')[0];
+        const addBtnWrapper = this.page.content.getElementsByClassName('js-test-question-add-btn-wrapper')[0];
         addBtnWrapper.classList.toggle('test_create_bd-question-add-btn--more-active');
     }
 
@@ -415,8 +412,7 @@ export class Question {
             question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => this.answerCl.addAnswer(question, 6);
 
             // Вешает обработчик кнопки удаления варианта ответа
-            let answerDelBtn = question.getElementsByClassName('js-test-create-question-answer-delete-btn')[0];
-            if (answerDelBtn !== undefined) {
+            for (let answerDelBtn of question.getElementsByClassName('js-test-create-question-answer-delete-btn')) {
                 answerDelBtn.onclick = (event) => this.answerCl.deleteAnswer(event, question);
             }
 
@@ -437,7 +433,7 @@ export class Question {
         }
 
         // Вешает обработчик на кнопку добавления вопроса
-        const questionAddBtn = this.wrapper.getElementsByClassName('js-test-question-add-btn')[0];
+        const questionAddBtn = this.page.content.getElementsByClassName('js-test-question-add-btn')[0];
         if (questionAddBtn !== undefined) {
             questionAddBtn.onclick = () => this.addQuestion();
         }

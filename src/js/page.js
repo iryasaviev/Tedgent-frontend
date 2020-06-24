@@ -5,6 +5,7 @@ import { Fields } from './fields';
 
 import { TestCreate } from './testCreate';
 import { MoreMenu } from './moreMenu';
+import { Message } from './message';
 
 export class Page {
     constructor() {
@@ -14,6 +15,10 @@ export class Page {
         this.menuPageTitle = this.menu.getElementsByClassName('js-menu-page-title')[0];
         this.photoFrame = this.body.getElementsByClassName('js-photo-frame')[0];
         this.message = this.body.getElementsByClassName('js-message')[0];
+
+        this.selectCl = new Select();
+        this.messageCl = new Message();
+        this.photoFrameCl = new PhotoFrame();
 
         this.num = this.body.dataset.pageNum;
     }
@@ -55,9 +60,9 @@ export class Page {
                 break;
         }
 
-        new PhotoFrame().setHandlers();
+        this.photoFrameCl.setHandlers();
         new Sidebar().setHandlers();
-        new Select().setHandlers();
+        this.selectCl.setHandlers();
         new MoreMenu().setHandlers();
         new Fields(this).setHandlers();
 

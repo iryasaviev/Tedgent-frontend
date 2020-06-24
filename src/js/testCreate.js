@@ -2,7 +2,6 @@ import { Delegation } from './delegation';
 
 import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
-import { Message } from './message';
 
 import { Question } from './question';
 import { PhotoFrame } from './photoFrame';
@@ -117,7 +116,7 @@ export class TestCreate {
 
         for (let file of files) {
             if (this.attachments.length >= 5) {
-                new Message().show('Ошибка! Количество вложений не может быть больше 5.');
+                this.page.messageCl.show('Ошибка! Количество вложений не может быть больше 5.');
                 return;
             }
 
@@ -151,7 +150,7 @@ export class TestCreate {
             if (file.type && file.type.indexOf('image') !== -1) {
                 fileLoadCl.readImage(file, this.showImage, {
                     attachmentTag: attachment,
-                    photoFramCl: new PhotoFrame()
+                    photoFramCl: this.page.photoFrameCl
                 });
             }
 
@@ -193,7 +192,7 @@ export class TestCreate {
     }
 
     setHandlers() {
-        const questionCl = new Question();
+        const questionCl = new Question(this.page);
         questionCl.setHandlers();
 
         const testCreateSubjectSelect = this.page.content.getElementsByClassName('js-test-create-subject-select')[0];
