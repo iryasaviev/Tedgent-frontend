@@ -11,8 +11,9 @@ import { PhotoFrame } from './photoFrame';
  * Класс создания теста.
  */
 export class TestCreate {
-    constructor() {
-        this.wrapper = document.getElementById('bodyContent');
+    constructor(page) {
+        this.page = page;
+
         this.attachments = [];
     }
 
@@ -23,7 +24,7 @@ export class TestCreate {
      */
     selectSubject(select) {
         let selectOptionData = select.getElementsByClassName('select_hd-value')[0].dataset.selectOptionValue,
-            logo = document.getElementById('bodyContent').getElementsByClassName('js-test-subject-logo')[0],
+            logo = this.page.content.getElementsByClassName('js-test-subject-logo')[0],
             subjectCl = new Subject();
 
         for (let subject of subjectCl.list) {
@@ -195,18 +196,18 @@ export class TestCreate {
         const questionCl = new Question();
         questionCl.setHandlers();
 
-        const testCreateSubjectSelect = this.wrapper.getElementsByClassName('js-test-create-subject-select')[0];
+        const testCreateSubjectSelect = this.page.content.getElementsByClassName('js-test-create-subject-select')[0];
         if (testCreateSubjectSelect !== undefined) {
             testCreateSubjectSelect.onclick = () => this.selectSubject(testCreateSubjectSelect);
         }
 
-        const testCreateKeywordsInput = this.wrapper.getElementsByClassName('js-test-create-kewords-inp')[0];
+        const testCreateKeywordsInput = this.page.content.getElementsByClassName('js-test-create-kewords-inp')[0];
         if (testCreateKeywordsInput !== undefined) {
             testCreateKeywordsInput.onkeyup = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
             testCreateKeywordsInput.onkeydown = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
         }
 
-        const testCreateAttchmentsInput = this.wrapper.getElementsByClassName('js-test-create-attachments-inp')[0];
+        const testCreateAttchmentsInput = this.page.content.getElementsByClassName('js-test-create-attachments-inp')[0];
         if (testCreateAttchmentsInput !== undefined) {
             testCreateAttchmentsInput.onchange = (event) => this.uploadAttachment(event, testCreateAttchmentsInput);
         }

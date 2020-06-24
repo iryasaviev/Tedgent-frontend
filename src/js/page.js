@@ -9,6 +9,12 @@ import { MoreMenu } from './moreMenu';
 export class Page {
     constructor() {
         this.body = document.getElementById('body');
+        this.content = document.getElementById('bodyContent');
+        this.menu = this.body.getElementsByClassName('js-menu')[0];
+        this.menuPageTitle = this.menu.getElementsByClassName('js-menu-page-title')[0];
+        this.photoFrame = this.body.getElementsByClassName('js-photo-frame')[0];
+        this.message = this.body.getElementsByClassName('js-message')[0];
+
         this.num = this.body.dataset.pageNum;
     }
 
@@ -40,7 +46,12 @@ export class Page {
 
             // Test create page
             case '3':
-                new TestCreate().setHandlers()
+                new TestCreate(this).setHandlers();
+                break;
+
+            // Test page
+            case '3':
+                new Test(this).setHandlers();
                 break;
         }
 

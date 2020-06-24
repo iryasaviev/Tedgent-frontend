@@ -10,10 +10,10 @@
 </head>
 
 <body class="sidebar-active" id="body" data-page-num="3">
-  <div class="menu">
+  <div class="menu js-menu">
     <h1 class="menu--title"><a href="#">Tedgent</a></h1>
     <div class="menu_bd">
-      <h2 class="menu_bd--title">Тесты</h2>
+      <h2 class="menu_bd--title js-menu-page-title">Тесты</h2>
       <div class="menu_bd-search">
         <input class="menu_bd-search--inp inp" type="text" placeholder="Поиск" />
       </div>
@@ -91,118 +91,120 @@
     <div class="cnt_bd">
       <div class="cnt_bd-test">
         <div class="test_hd test-create_hd">
-          <div class="test-create_hd-row test-create_hd-row1">
-            <div class="test-create_hd-row1-col1">
-              <div class="test-create_hd-row1-col1--subject test-subject-logo subject-bcg-0 js-test-subject-logo"></div>
+          <div class="test_hd-row">
+            <div class="test-subject-logo_wr">
+              <div class="test-subject-logo subject-bcg-0 js-test-subject-logo"></div>
             </div>
-            <div class="test-create_hd-row1-col2">
-              <label>
+            <div class="test_hd-title">
+              <label class="test-create_hd-title-label">
                 <span class="label-txt">Название</span>
-                <input class="test-create_hd-row1-col2-label--inp title inp" name="title" type="text"
-                  title="Название теста">
+                <div class="inp_wr">
+                  <input class="inp" name="title" type="text" title="Название теста">
+                  <span class="inp-limit--value">110</span>
+                </div>
               </label>
-              <label class="test-create_hd-row1-col2-label">
+              <label class="test-create_hd-title-label">
                 <span class="label-txt">Описание</span>
-                <input class="test-create_hd-row1-col2-label--inp description inp" name="description" type="text"
-                  title="Описание теста">
+                <div class="inp_wr">
+                  <input class="inp" name="description" type="text" title="Описание теста">
+                  <span class="inp-limit--value">160</span>
+                </div>
               </label>
             </div>
           </div>
-          <div class="test-create_hd-row test-create_hd-row2">
-            <div class="test-create_bd-subject">
-              <label class="test-create_bd-label_select">
-                <span class="label-txt">Предмет</span>
-                <div class="test-create_bd-select select js-select js-test-create-subject-select"
-                  title="Основной предмет теста">
-                  <button class="test-create_bd-select_hd js-select-head select_hd">
-                    <div class="select_hd-value js-select-value" data-select-option-value="0"></div>
-                    <div class="select_hd--icon i-down-arrow"></div>
+          <div class="test_hd-row test-create_hd-subject">
+            <label class="test-create_bd-label_select">
+              <span class="label-txt">Предмет</span>
+              <div class="test-create_bd-select select js-select js-test-create-subject-select"
+                title="Основной предмет теста">
+                <button class="test-create_bd-select_hd js-select-head select_hd">
+                  <div class="select_hd-value js-select-value" data-select-option-value="0"></div>
+                  <div class="select_hd--icon i-down-arrow"></div>
+                </button>
+                <input class="select_hd-value--inp js-select-value-inp" type="text" value="0">
+                <div class="select_bd">
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="1">
+                    <div class="test-create_bd-select-option--square subject-bcg-1"></div>
+                    <div>Математика</div>
                   </button>
-                  <input class="select_hd-value--inp js-select-value-inp" type="text" value="0">
-                  <div class="select_bd">
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="1">
-                      <div class="test-create_bd-select-option--square subject-bcg-1"></div>
-                      <div>Математика</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="2">
-                      <div class="test-create_bd-select-option--square subject-bcg-1-1"></div>
-                      <div>Алгебра</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="3">
-                      <div class="test-create_bd-select-option--square subject-bcg-1-2"></div>
-                      <div>Геометрия</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="4">
-                      <div class="test-create_bd-select-option--square subject-bcg-1-3"></div>
-                      <div>Информатика</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="5">
-                      <div class="test-create_bd-select-option--square subject-bcg-2"></div>
-                      <div>Родной язык</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="6">
-                      <div class="test-create_bd-select-option--square subject-bcg-2-1"></div>
-                      <div>Чтение / Литература</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="7">
-                      <div class="test-create_bd-select-option--square subject-bcg-2-2"></div>
-                      <div>Иностранный язык</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="8">
-                      <div class="test-create_bd-select-option--square subject-bcg-3"></div>
-                      <div>География</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="9">
-                      <div class="test-create_bd-select-option--square subject-bcg-3-1"></div>
-                      <div>Биология</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="10">
-                      <div class="test-create_bd-select-option--square subject-bcg-3-2"></div>
-                      <div>Физика</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="11">
-                      <div class="test-create_bd-select-option--square subject-bcg-3-3"></div>
-                      <div>Химия</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="12">
-                      <div class="test-create_bd-select-option--square subject-bcg-3-4"></div>
-                      <div>Астрономия</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="13">
-                      <div class="test-create_bd-select-option--square subject-bcg-4"></div>
-                      <div>История</div>
-                    </button>
-                    <button class="select_bd-option js-test-create-subject-select-option" data-select-option="14">
-                      <div class="test-create_bd-select-option--square subject-bcg-4-1"></div>
-                      <div>Обществознание</div>
-                    </button>
-                    <button
-                      class="select_bd-option js-test-create-subject-select-option select_bd-option js-test-create-subject-select-option-last"
-                      data-select-option="0">
-                      <div class="test-create_bd-select-option--square subject-bcg-0"></div>
-                      <div>Другой</div>
-                    </button>
-                  </div>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="2">
+                    <div class="test-create_bd-select-option--square subject-bcg-1-1"></div>
+                    <div>Алгебра</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="3">
+                    <div class="test-create_bd-select-option--square subject-bcg-1-2"></div>
+                    <div>Геометрия</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="4">
+                    <div class="test-create_bd-select-option--square subject-bcg-1-3"></div>
+                    <div>Информатика</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="5">
+                    <div class="test-create_bd-select-option--square subject-bcg-2"></div>
+                    <div>Родной язык</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="6">
+                    <div class="test-create_bd-select-option--square subject-bcg-2-1"></div>
+                    <div>Чтение / Литература</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="7">
+                    <div class="test-create_bd-select-option--square subject-bcg-2-2"></div>
+                    <div>Иностранный язык</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="8">
+                    <div class="test-create_bd-select-option--square subject-bcg-3"></div>
+                    <div>География</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="9">
+                    <div class="test-create_bd-select-option--square subject-bcg-3-1"></div>
+                    <div>Биология</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="10">
+                    <div class="test-create_bd-select-option--square subject-bcg-3-2"></div>
+                    <div>Физика</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="11">
+                    <div class="test-create_bd-select-option--square subject-bcg-3-3"></div>
+                    <div>Химия</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="12">
+                    <div class="test-create_bd-select-option--square subject-bcg-3-4"></div>
+                    <div>Астрономия</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="13">
+                    <div class="test-create_bd-select-option--square subject-bcg-4"></div>
+                    <div>История</div>
+                  </button>
+                  <button class="select_bd-option js-test-create-subject-select-option" data-select-option="14">
+                    <div class="test-create_bd-select-option--square subject-bcg-4-1"></div>
+                    <div>Обществознание</div>
+                  </button>
+                  <button
+                    class="select_bd-option js-test-create-subject-select-option select_bd-option js-test-create-subject-select-option-last"
+                    data-select-option="0">
+                    <div class="test-create_bd-select-option--square subject-bcg-0"></div>
+                    <div>Другой</div>
+                  </button>
                 </div>
-              </label>
-            </div>
-            <div class="test-create_bd-keywords">
-              <label class="test-create_bd-keywords-label">
-                <span class="label-txt">Ключевые слова</span>
-                <div class="test-create_bd-keywords-label--inp inp js-test-create-kewords-inp" contenteditable="true">
-                </div>
-              </label>
-            </div>
-            <div class="test-create_bd-attachments">
-              <span class="label-txt">Вложения</span>
-              <div class="test-create_bd-attachments-files js-test-create-attachments-files">
-                <label class="test-create_bd-attachments-label btn">
-                  <span class="i-clip"></span>
-                  <span>Прикрепить</span>
-                  <input class="test-create_bd-attachments-label--inp js-test-create-attachments-inp inp" type="file"
-                    multiple>
-                </label>
               </div>
+            </label>
+          </div>
+          <div class="test_hd-row test-create_hd-keywords">
+            <label class="test-create_hd-keywords-label">
+              <span class="label-txt">Ключевые слова</span>
+              <div class="test-create_hd-keywords-label--inp inp js-test-create-kewords-inp" contenteditable="true">
+              </div>
+            </label>
+          </div>
+          <div class="test_hd-row test_hd-attachments test-create_hd-attachments">
+            <span class="label-txt">Вложения</span>
+            <div class="test-create_hd-attachments-files js-test-create-attachments-files">
+              <label class="test-create_hd-attachments-label btn">
+                <span class="i-clip"></span>
+                <span>Прикрепить</span>
+                <input class="test-create_hd-attachments-label--inp js-test-create-attachments-inp inp" type="file"
+                  multiple>
+              </label>
             </div>
           </div>
         </div>

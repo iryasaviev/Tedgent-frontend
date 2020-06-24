@@ -99,19 +99,6 @@ Tests list in the tests page
   margin-right: 0;
   align-items: flex-end;
 }
-.tests--item-col--subject,
-.test-subject-logo {
-  min-height: 80px;
-  min-width: 80px;
-  line-height: 80px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  color: #fff;
-  font-size: 40px;
-  text-transform: uppercase;
-  max-width: 80px;
-}
 @media only screen and (max-width: 767px) {
   .tests--item-col--subject {
     min-width: 36px;
