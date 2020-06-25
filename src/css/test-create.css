@@ -28,6 +28,7 @@ Test create page
   max-width: 220px;
 }
 .test-create_hd-subject,
+.test-create_hd-time,
 .test-create_hd-keywords {
   margin-top: 20px;
 }

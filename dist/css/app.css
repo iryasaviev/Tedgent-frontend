@@ -127,6 +127,7 @@ label {
 .select.active {
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 .select_hd {
   background: hsla(200, 13%, 93%, 1);
@@ -1278,6 +1279,7 @@ Test create page
   max-width: 220px;
 }
 .test-create_hd-subject,
+.test-create_hd-time,
 .test-create_hd-keywords {
   margin-top: 20px;
 }
