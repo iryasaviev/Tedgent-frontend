@@ -370,16 +370,22 @@ Left menu
 }
 .sidebar_bd {
   width: 100%;
-  padding: 0 5px;
+  padding: 0 10px;
   padding-top: 20px;
   display: flex;
   justify-content: flex-end;
+}
+@media only screen and (max-width: 767px) {
+  .sidebar_bd {
+    padding: 0 5px;
+    padding-top: 20px;
+  }
 }
 
 .sidebar_bd-small-btns {
   display: flex;
   flex-direction: column;
-  transform: translateX(230px);
+  transform: translateX(225px);
 }
 .sidebar-active .sidebar_bd-small-btns {
   transform: translateX(-230px);
@@ -396,7 +402,7 @@ Left menu
   display: flex;
   flex-direction: column;
   transform: translateX(235px);
-  min-width: 230px;
+  min-width: 220px;
 }
 @media only screen and (max-width: 767px) {
   .sidebar_bd-btns {
