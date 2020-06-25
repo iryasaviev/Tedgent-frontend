@@ -4,7 +4,6 @@ import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
 
 import { Question } from './question';
-import { PhotoFrame } from './photoFrame';
 
 /**
  * Класс создания теста.
