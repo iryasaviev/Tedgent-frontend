@@ -29,7 +29,7 @@ label {
 .inp {
   width: 100%;
   height: 34px;
-  border-radius: 4px;
+  border-radius: 2px;
   background: hsla(200, 13%, 93%, 1);
   border: none;
   padding: 10px 8px;
@@ -53,34 +53,28 @@ label {
   border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   font-size: 14px;
   height: 34px;
 }
-.btn:focus,
-.btn-1:focus,
-.inp:focus,
-.select_hd:focus,
-.select_bd-option:focus {
-  background: hsla(200, 13%, 93%, 1);
-  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
-    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
-}
 .btn:hover,
 .btn-1:hover {
   background: hsla(200, 13%, 93%, 1);
-  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
-    0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
+}
+.btn:focus,
+.btn-1:focus,
+.select_hd:focus,
+.select_bd-option:focus {
+  background: hsla(200, 1%, 89%, 1);
 }
 .btn:active,
 .btn-1:active,
 .inp:active,
 .select_hd:active,
 .select_bd-option:active {
-  box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
-    0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
+  background: hsla(200, 1%, 89%, 1);
 }
 .btn-disable,
 .btn-disable:hover,
@@ -106,6 +100,7 @@ label {
 .inp:active,
 .inp:focus {
   background: #fff;
+  border: 1px solid #eee;
 }
 
 .btn-icon {
@@ -240,6 +235,14 @@ label {
   border-radius: 0 0 2.5px 2.5px;
 }
 
+.link {
+  color: #333;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
 /*
 ----------
 Left menu 
@@ -371,7 +374,7 @@ Left menu
 }
 .sidebar_bd {
   width: 100%;
-  padding: 0 10px;
+  /* padding: 0 10px; */
   padding-top: 20px;
   display: flex;
   justify-content: flex-end;
@@ -386,7 +389,7 @@ Left menu
 .sidebar_bd-small-btns {
   display: flex;
   flex-direction: column;
-  transform: translateX(225px);
+  transform: translateX(220px);
 }
 .sidebar-active .sidebar_bd-small-btns {
   transform: translateX(-230px);
@@ -414,15 +417,27 @@ Left menu
   transform: none;
 }
 
+.sidebar_bd-small-btn {
+  justify-content: center;
+}
 .sidebar_bd-btn,
 .sidebar_bd-small-btn {
-  height: 40px;
+  height: 50px;
   width: 100%;
-  padding: 12px;
-  margin: 5px 0 10px;
+  padding: 0 17px;
   overflow: hidden;
-  min-width: 39px;
+  min-width: 50px;
+  border-radius: 0;
 }
+.sidebar_bd-btn:hover,
+.sidebar_bd-btn:active,
+.sidebar_bd-btn:focus,
+.sidebar_bd-small-btn:hover,
+.sidebar_bd-small-btn:active,
+.sidebar_bd-small-btn:focus {
+  box-shadow: none;
+}
+
 @media only screen and (max-width: 767px) {
   .sidebar_bd-btn,
   .sidebar_bd-small-btn {
@@ -433,7 +448,7 @@ Left menu
   margin-right: 14px;
 }
 .sidebar-active .sidebar_bd-btn .icon {
-  margin-right: 10px;
+  margin-right: 17px;
 }
 .sidebar_bd-btn .txt {
   width: 100%;

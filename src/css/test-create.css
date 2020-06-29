@@ -5,7 +5,7 @@ Test create page
 */
 .test-create_bd {
   display: flex;
-  padding: 30px 0;
+  padding-top: 0;
 }
 .test-create-save {
   width: 100%;
@@ -19,6 +19,7 @@ Test create page
 .test-create_hd {
   min-height: 100%;
   max-height: 100%;
+  padding: 15px;
 }
 .test-create_hd-title-label {
   padding-bottom: 5px;
@@ -27,25 +28,25 @@ Test create page
   width: 100%;
   max-width: 220px;
 }
-.test-create_hd-subject,
-.test-create_hd-time,
-.test-create_hd-keywords {
+.test-create_bd-subject,
+.test-create_bd-time,
+.test-create_bd-keywords {
   margin-top: 20px;
 }
-.test-create_hd-keywords-label {
+.test-create_bd-keywords-label {
   width: 100%;
 }
-.test-create_hd-keywords-label--inp .keyword {
+.test-create_bd-keywords-label--inp .keyword {
   padding: 2px 6px;
   background: hsl(0, 0%, 87%);
   margin: 0 4px;
   border-radius: 4px;
 }
-.test-create_hd-attachments {
+.test-create_bd-attachments {
   display: flex;
   flex-direction: column;
 }
-.test-create_hd-attachments-label {
+.test-create_bd-attachments-label {
   max-width: 120px;
   background: hsla(200, 13%, 93%, 1);
   flex-direction: row;
@@ -54,14 +55,14 @@ Test create page
   padding: 0 12px;
 }
 @media only screen and (max-width: 767px) {
-  .test-create_hd-attachments-label {
+  .test-create_bd-attachments-label {
     max-width: 110px;
   }
 }
-.test-create_hd-attachments-label--inp {
+.test-create_bd-attachments-label--inp {
   display: none;
 }
-.test-create_hd-attachments-files {
+.test-create_bd-attachments-files {
   max-width: 280px;
   width: 100%;
   display: flex;
@@ -129,6 +130,9 @@ Test create page
   padding: 0 10px;
   background: transparent;
   margin: 0 8px;
+}
+.test_create_bd-questions {
+  margin-top: 60px;
 }
 .test-question,
 .test_create_bd-question {
