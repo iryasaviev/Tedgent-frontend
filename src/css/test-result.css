@@ -1,5 +1,5 @@
 .test-result_hd {
-  padding: 30px 15px;
+  border-radius: 0;
 }
 .test-result_bd {
   display: flex;
@@ -26,7 +26,7 @@
   font-size: 18px;
   display: flex;
   align-items: center;
-  padding-bottom: 12px;
+  padding-bottom: 5px;
 }
 .test-result-users_hd {
   display: flex;

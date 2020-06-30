@@ -1,0 +1,44 @@
+.raiting {
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  position: relative;
+}
+.raiting-stars {
+  height: 15px;
+  max-width: 100px;
+  display: flex;
+  direction: rtl;
+  position: relative;
+  background: #ddd;
+  overflow: hidden;
+}
+.raiting-star {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+  background: #ddd;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+.raiting-stars--scale {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background: hsla(54, 100%, 50%, 1);
+}
+.raiting--voted {
+  font-size: 14px;
+  color: #8e8e8e;
+}
+.raiting-star:hover,
+.raiting-star:hover ~ .raiting-star {
+  background: hsla(54, 100%, 50%, 1);
+}
+.raiting-star--voted {
+  font-size: 14px;
+  margin-left: 6px;
+  line-height: 16px;
+}

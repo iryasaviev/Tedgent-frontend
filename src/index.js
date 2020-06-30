@@ -1,4 +1,5 @@
 import './css/app.css';
+import './css/raiting.css';
 import './css/test.css';
 import './css/tests.css';
 import './css/test-create.css';

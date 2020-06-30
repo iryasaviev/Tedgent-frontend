@@ -7,18 +7,11 @@ Test create page
   display: flex;
   padding-top: 0;
 }
-.test-create-save {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.test-create-save--btn {
-  padding: 0 12px;
-  height: 34px;
-}
 .test-create_hd {
   min-height: 100%;
   max-height: 100%;
+}
+.test-create_hd-info {
   padding: 15px;
 }
 .test-create_hd-title-label {
@@ -45,6 +38,7 @@ Test create page
 .test-create_bd-attachments {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 .test-create_bd-attachments-label {
   max-width: 120px;
@@ -130,9 +124,6 @@ Test create page
   padding: 0 10px;
   background: transparent;
   margin: 0 8px;
-}
-.test_create_bd-questions {
-  margin-top: 60px;
 }
 .test-question,
 .test_create_bd-question {

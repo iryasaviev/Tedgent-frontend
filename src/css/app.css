@@ -26,14 +26,14 @@ label {
 }
 
 .bd_bcg-1 {
-  background: hsla(220, 100%, 99%, 0.5) url(../img/background1.jpg);
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background1.jpg);
 }
 .bd_bcg-2 {
-  background: hsla(220, 100%, 99%, 0.5) url(../img/background2.jpg);
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background2.jpg);
 }
 .bd_bcg-active {
   background-blend-mode: overlay;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -80,20 +80,20 @@ label {
 }
 .btn:hover,
 .btn-1:hover {
-  background: hsla(200, 13%, 93%, 1);
+  background: hsl(0, 0%, 87%);
 }
 .btn:focus,
 .btn-1:focus,
 .select_hd:focus,
 .select_bd-option:focus {
-  background: hsla(200, 1%, 89%, 1);
+  background: hsl(0, 0%, 84%);
 }
 .btn:active,
 .btn-1:active,
 .inp:active,
 .select_hd:active,
 .select_bd-option:active {
-  background: hsla(200, 1%, 89%, 1);
+  background: hsl(0, 0%, 84%);
 }
 .btn-disable,
 .btn-disable:hover,
@@ -393,14 +393,12 @@ Left menu
 }
 .sidebar_bd {
   width: 100%;
-  /* padding: 0 10px; */
   padding-top: 20px;
   display: flex;
   justify-content: flex-end;
 }
 @media only screen and (max-width: 767px) {
   .sidebar_bd {
-    padding: 0 5px;
     padding-top: 20px;
   }
 }

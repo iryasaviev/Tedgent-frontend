@@ -143,7 +143,7 @@ Tests list in the tests page
     font-size: 11px;
   }
 }
-.test_hdr-raiting,
+/* .test_hdr-raiting,
 .tests--item-col-raiting {
   position: relative;
   display: flex;
@@ -196,7 +196,7 @@ Tests list in the tests page
 .test_hdr-raiting--voted,
 .tests--item-col-raiting--voted {
   color: #8e8e8e;
-}
+} */
 .tests--item-col-more {
   position: relative;
   display: flex;
