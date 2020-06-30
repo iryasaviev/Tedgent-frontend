@@ -4,10 +4,15 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   color: #333;
   background: #fcfdff;
   font-size: 14px;
+  height: 100%;
 }
 body,
 input,
@@ -18,6 +23,20 @@ textarea {
 label {
   display: flex;
   flex-direction: column;
+}
+
+.bd_bcg-1 {
+  background: hsla(220, 100%, 99%, 0.5) url(../img/background1.jpg);
+}
+.bd_bcg-2 {
+  background: hsla(220, 100%, 99%, 0.5) url(../img/background2.jpg);
+}
+.bd_bcg-active {
+  background-blend-mode: overlay;
+  backdrop-filter: blur(2px);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 .inp_wr {
