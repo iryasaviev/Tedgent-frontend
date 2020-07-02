@@ -701,6 +701,9 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-sort:before {
+  content: "\e91f";
+}
 .i-image:before {
   content: "\e91e";
 }
@@ -793,8 +796,7 @@ Body content
 }
 .i-settings-1:before {
   content: "\e918";
-}
-.raiting {
+}.raiting {
   font-size: 16px;
   line-height: 1;
   display: flex;
@@ -875,6 +877,11 @@ Test
 .test_hd-info {
   display: flex;
   padding: 30px 15px;
+}
+@media only screen and (max-width: 767px) {
+  .test_hd-info {
+    padding: 20px 10px;
+  }
 }
 .test_hd-dsc {
   display: flex;
@@ -1974,7 +1981,7 @@ Test create page
   padding-bottom: 5px;
 }
 @media only screen and (max-width: 767px) {
-  .test-result-users_bd {
+  .test-result-users_hdr {
     padding-bottom: 15px;
   }
 }
@@ -1990,7 +1997,17 @@ Test create page
 .test-result-users_hd-alphabet-sort {
   padding: 0 12px;
   margin-left: 0;
+  line-height: 1;
   background: hsla(200, 13%, 93%, 1);
+}
+.test-result-users_hd-alphabet-sort--icon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+@media only screen and (max-width: 767px) {
+  .test-result-users_hd-alphabet-sort--txt {
+    display: none;
+  }
 }
 .test-result-users_hd-questions-sort {
   max-width: 160px;
@@ -2005,6 +2022,7 @@ Test create page
   flex-direction: column;
   margin-top: 20px;
   overflow-y: auto;
+  overflow-x: auto;
   max-height: 600px;
   padding: 0 15px;
 }
@@ -2024,6 +2042,7 @@ Test create page
   margin-bottom: 10px;
   justify-content: space-between;
   overflow: hidden;
+  min-width: 400px;
 }
 .test-result-user-info {
   width: 50%;

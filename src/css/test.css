@@ -36,6 +36,11 @@ Test
   display: flex;
   padding: 30px 15px;
 }
+@media only screen and (max-width: 767px) {
+  .test_hd-info {
+    padding: 20px 10px;
+  }
+}
 .test_hd-dsc {
   display: flex;
   justify-content: space-between;

@@ -701,6 +701,9 @@ Body content
   -moz-osx-font-smoothing: grayscale;
 }
 
+.i-sort:before {
+  content: "\e91f";
+}
 .i-image:before {
   content: "\e91e";
 }
