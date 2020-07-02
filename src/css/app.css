@@ -31,6 +31,12 @@ label {
 .bd_bcg-2 {
   background: hsla(220, 100%, 99%, 0.45) url(../img/background2.jpg);
 }
+.bd_bcg-3 {
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background3.jpg);
+}
+.bd_bcg-4 {
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background4.jpg);
+}
 .bd_bcg-active {
   background-blend-mode: overlay;
   backdrop-filter: blur(3px);
