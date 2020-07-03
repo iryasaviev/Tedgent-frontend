@@ -94,6 +94,26 @@ export class Fields {
         return true;
     }
 
+    checkValueForDateInput(event) {
+        let inp = event.target,
+            value = inp.value;
+
+        if (isNaN(Number(value[value.length - 1]))) {
+            if (value[value.length - 1] !== '.') {
+                inp.value = value.substring(0, value.length - 1);
+            }
+        }
+    }
+
+    checkValueTypeOnNumber(value) {
+        if (isNaN(value)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     /**
      * Устанавливает обработчики событий.
      */
@@ -101,6 +121,11 @@ export class Fields {
         let inpWrappers = this.page.body.getElementsByClassName('js-inp-wrapper');
         for (let inpWrapper of inpWrappers) {
             inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+        }
+
+        let dateInps = this.page.body.getElementsByClassName('js-date-inp');
+        for (let dateInp of dateInps) {
+            dateInp.oninput = (event) => this.checkValueForDateInput(event);
         }
     }
 }
