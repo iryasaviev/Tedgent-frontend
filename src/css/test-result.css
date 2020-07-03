@@ -38,30 +38,32 @@
   justify-content: flex-end;
 }
 .test-result-users_hd-alphabet-sort,
-.test-result-users_hd-questions-sort,
-.test-result-users_hd-date {
+.test-result-users_hd-questions-sort {
   margin-left: 20px;
-}
-.test-result-users_hd-alphabet-sort {
   padding: 0 12px;
-  margin-left: 0;
   line-height: 1;
   background: hsla(200, 13%, 93%, 1);
 }
-.test-result-users_hd-alphabet-sort--icon {
-  margin-right: 6px;
+.test-result-users_hd-alphabet-sort {
+  margin-left: 0;
+}
+.test-result-users_hd-alphabet-sort--icon,
+.test-result-users_hd-questions-sort--icon {
   font-size: 16px;
 }
+.test-result-users_hd-alphabet-sort--txt,
+.test-result-users_hd-questions-sort--txt {
+  margin-left: 8px;
+}
 @media only screen and (max-width: 767px) {
-  .test-result-users_hd-alphabet-sort--txt {
+  .test-result-users_hd-alphabet-sort--txt,
+  .test-result-users_hd-questions-sort--txt {
     display: none;
   }
 }
-.test-result-users_hd-questions-sort {
-  max-width: 160px;
-}
-.test-result-users_hd-date {
-  max-width: 142px;
+.test-result-users_hd-date--inp {
+  max-width: 116px;
+  margin-left: 20px;
 }
 .test-result-users_bd {
   height: 100%;
