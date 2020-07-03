@@ -39,7 +39,7 @@ label {
 }
 .bd_bcg-active {
   background-blend-mode: overlay;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -135,6 +135,17 @@ label {
 .btn-1:hover,
 .btn-1:focus {
   background: hsla(207, 63%, 54%, 0.9);
+}
+
+.btn--icon,
+.inp--icon {
+  font-size: 16px;
+}
+@media only screen and (max-width: 767px) {
+  .btn--icon,
+  .inp--icon {
+    font-size: 12px;
+  }
 }
 
 .inp:active,

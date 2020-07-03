@@ -1,6 +1,13 @@
 .dark-theme {
-  background: hsla(204, 13%, 10%, 1);
-  color: #3f91d4;
+  background-color: hsla(204, 13%, 10%, 1);
+  color: hsl(207, 63%, 54%);
+}
+
+.dark-theme.bd_bcg-1,
+.dark-theme.bd_bcg-2,
+.dark-theme.bd_bcg-3,
+.dark-theme.bd_bcg-4 {
+  background-color: hsla(204, 13%, 10%, 0.45);
 }
 
 .dark-theme .btn,
@@ -28,7 +35,8 @@
 .dark-theme .more-menu-list--btn,
 .dark-theme .more-menu-list::after,
 .dark-theme .tests--item-col-raiting-stars,
-.dark-theme .cnt_bd-test {
+.dark-theme .cnt_bd-test,
+.dark-theme .test_hd-dsc {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }
@@ -59,7 +67,7 @@
 .dark-theme .more-menu-list--btn:focus,
 .dark-theme .message {
   background: hsl(206, 14%, 10%);
-  color: #3f91d4;
+  color: hsl(207, 63%, 54%);
 }
 
 .dark-theme .btn-disable {
@@ -100,9 +108,13 @@
   color: #8e8e8e;
 }
 
+.dark-theme .btn--icon,
+.dark-theme .inp--icon,
+.dark-theme .test_hd-dsc-time--value,
 .dark-theme .tests--item-col--title > .link,
+.dark-theme .test-result-short-row--value,
 .dark-theme .test-result-user {
-  color: #3f91d4;
+  color: hsl(207, 63%, 54%);
 }
 
 .dark-theme .tests--item-col-raiting-stars--star {
