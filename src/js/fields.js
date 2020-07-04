@@ -140,6 +140,31 @@ export class Fields {
     }
 
     /**
+     * Автоматический увеличивает высоту textarea по мере его заполнения.
+     * 
+     * @param {object} event объект события.
+     * @param {number} paddingTop верхний padding поля.
+     * @param {number} paddingBottom нижний padding поля.
+     */
+    autoHeightChange(event, paddingTop, paddingBottom) {
+        let inp = event.target,
+            computed = window.getComputedStyle(inp);
+
+        let height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+            + parseInt(computed.getPropertyValue('padding-top'), 10)
+            + inp.scrollHeight - (paddingTop + paddingBottom)
+            + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+            + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+        if (inp.value === '') {
+            inp.removeAttribute('style');
+        }
+        else {
+            inp.style.height = height + 'px';
+        }
+    }
+
+    /**
      * Устанавливает обработчики событий.
      */
     setHandlers() {

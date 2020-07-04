@@ -1,4 +1,5 @@
 import { Delegation } from './delegation';
+import { Fields } from './fields'
 
 import { Subject } from './subject';
 import { FileLoad } from './fileLoad';
@@ -208,6 +209,11 @@ export class TestCreate {
         const testCreateAttchmentsInput = this.page.content.getElementsByClassName('js-test-create-attachments-inp')[0];
         if (testCreateAttchmentsInput !== undefined) {
             testCreateAttchmentsInput.onchange = (event) => this.uploadAttachment(event, testCreateAttchmentsInput);
+        }
+
+        const testCreateQuestionTitles = this.page.content.getElementsByClassName('js-test-create-question-title');
+        for (let questionTitle of testCreateQuestionTitles) {
+            questionTitle.oninput = (event) => new Fields().autoHeightChange(event);
         }
     }
 }

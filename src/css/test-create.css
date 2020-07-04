@@ -167,8 +167,10 @@ Test create page
   }
 }
 .test_create_bd-question-title--inp {
-  max-height: 68px;
+  height: 36px;
+  max-height: 72px;
   resize: none;
+  line-height: 14px;
 }
 @media only screen and (max-width: 1000px) {
   .test_create_bd-question-title--inp {
