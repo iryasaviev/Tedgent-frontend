@@ -94,24 +94,49 @@ export class Fields {
         return true;
     }
 
+    /**
+     * Проверяет введенные значения и приводит их к соотвествующему виду в поле для ввода даты.
+     * 
+     * @param {object} event объект события.
+     */
     checkValueForDateInput(event) {
         let inp = event.target,
-            value = inp.value;
+            value = inp.value,
+            newValue = '',
+            charNum = 0;
 
-        if (isNaN(Number(value[value.length - 1]))) {
-            if (value[value.length - 1] !== '.') {
-                inp.value = value.substring(0, value.length - 1);
+        for (let char of value) {
+
+            // Проверка на числовой тип и точку
+            if (isNaN(char) && char !== '.') {
+                break;
             }
-        }
-    }
 
-    checkValueTypeOnNumber(value) {
-        if (isNaN(value)) {
-            return false;
+            // Если кол-во символов превышает или равно 10
+            if (charNum >= 10) {
+                break;
+            }
+
+            // Ставится точка после 2 числовых символов (день)
+            if (charNum === 2) {
+                if (char !== '.') {
+                    newValue += '.';
+                }
+            }
+
+            // Ставится точка после 5 символов (месяц)
+            if (charNum === 5) {
+                if (char !== '.') {
+                    newValue += '.';
+                }
+            }
+
+            newValue += char;
+
+            charNum++;
         }
-        else {
-            return true;
-        }
+
+        inp.value = newValue;
     }
 
     /**
