@@ -145,10 +145,13 @@ export class Fields {
      * @param {object} event объект события.
      * @param {number} paddingTop верхний padding поля.
      * @param {number} paddingBottom нижний padding поля.
+     * @param {string} defaultHeight размер поля по умолчанию (прим. 36px).
      */
-    autoHeightChange(event, paddingTop, paddingBottom) {
+    autoHeightChange(event, paddingTop, paddingBottom, defaultHeight = 'inherit') {
         let inp = event.target,
             computed = window.getComputedStyle(inp);
+
+        inp.style.height = defaultHeight;
 
         let height = parseInt(computed.getPropertyValue('border-top-width'), 10)
             + parseInt(computed.getPropertyValue('padding-top'), 10)
