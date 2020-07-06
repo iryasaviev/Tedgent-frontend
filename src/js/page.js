@@ -20,6 +20,8 @@ export class Page {
         this.messageCl = new Message();
         this.photoFrameCl = new PhotoFrame();
 
+        this.fieldCl = new Fields(this);
+
         this.num = this.body.dataset.pageNum;
     }
 
@@ -64,7 +66,7 @@ export class Page {
         new Sidebar().setHandlers();
         this.selectCl.setHandlers();
         new MoreMenu().setHandlers();
-        new Fields(this).setHandlers();
+        this.fieldCl.setHandlers();
 
         this.body.onclick = (event) => this.closeWindows(event);
     }

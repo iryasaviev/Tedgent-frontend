@@ -72,7 +72,9 @@ export class Fields {
     changeCharactersLimitValue(inpWrapper, inp, maxLimit) {
         let valueTag = inpWrapper.getElementsByClassName('js-inp-limit-value')[0];
 
-        valueTag.innerText = maxLimit - inp.value.length;
+        if (valueTag !== undefined) {
+            valueTag.innerText = maxLimit - inp.value.length;
+        }
     }
 
     /**

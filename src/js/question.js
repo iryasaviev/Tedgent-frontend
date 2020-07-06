@@ -160,7 +160,9 @@ export class Question {
                     <div class="test_create_bd-question-col1">
                         <div class="test_create_bd-question-col1-row">
                             <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                            <textarea class="test_create_bd-question-title--inp inp js-test-create-question-title" name="question" type="text" placeholder="Вопрос №${questionNum}"></textarea>
+                            <div class="inp_wr js-inp-wrapper" data-characters-limit="true">
+                                <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title" name="question" type="text" data-characters-max-limit-value="250" placeholder="Вопрос №${questionNum}"></textarea>
+                            </div>
                         </div>
                         <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                             <div class="test_create_bd-question-col1-image">
@@ -381,6 +383,15 @@ export class Question {
     }
 
     /**
+     * Отвечает за обработку введенного значения в поле.
+     * 
+     * @param {object} event событие.
+     */
+    inputToQuestion(event) {
+        this.page.fieldCl.autoHeightChange(event, 10, 10, '36px');
+    }
+
+    /**
      * Вслытие с element до вопроса.
      * 
      * @param {*} element 
@@ -404,6 +415,10 @@ export class Question {
      */
     setHandlers() {
         for (let question of this.questions) {
+
+            // Вешает обработчик события на поле для вопроса, для обработки ввода
+            const questionInp = question.getElementsByClassName('js-test-create-question-title')[0];
+            questionInp.addEventListener('input', (event) => this.inputToQuestion(event), true);
 
             // Вешает обработчик события input на соответствующий тег у селекта
             let answerTypeSelectValueInp = question.getElementsByClassName('select_hd-value--inp')[0];

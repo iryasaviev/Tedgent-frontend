@@ -251,8 +251,11 @@
                   <div class="test_create_bd-question-col1-row">
                     <button
                       class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                    <textarea class="test_create_bd-question-title--inp inp js-test-create-question-title"
-                      name="question" type="text" placeholder="Вопрос №1"></textarea>
+                    <div class="inp_wr js-inp-wrapper" data-characters-limit="true">
+                      <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title"
+                        name="question" type="text" data-characters-max-limit-value="250"
+                        placeholder="Вопрос №1"></textarea>
+                    </div>
                   </div>
                   <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                     <div class="test_create_bd-question-col1-image">
