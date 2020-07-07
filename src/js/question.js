@@ -160,7 +160,7 @@ export class Question {
                     <div class="test_create_bd-question-col1">
                         <div class="test_create_bd-question-col1-row">
                             <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                            <div class="inp_wr js-inp-wrapper" data-characters-limit="true">
+                            <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="false">
                                 <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title" name="question" type="text" data-characters-max-limit-value="250" placeholder="Вопрос №${questionNum}"></textarea>
                             </div>
                         </div>
@@ -389,6 +389,11 @@ export class Question {
      */
     inputToQuestion(event) {
         this.page.fieldCl.autoHeightChange(event, 10, 10, '36px');
+
+        let inp = event.target,
+            inpWrapper = inp.parentElement;
+
+        this.page.fieldCl.checkValueLengthAndTakeAction(event, inpWrapper);
     }
 
     /**
@@ -418,7 +423,7 @@ export class Question {
 
             // Вешает обработчик события на поле для вопроса, для обработки ввода
             const questionInp = question.getElementsByClassName('js-test-create-question-title')[0];
-            questionInp.addEventListener('input', (event) => this.inputToQuestion(event), true);
+            questionInp.oninput = (event) => this.inputToQuestion(event);
 
             // Вешает обработчик события input на соответствующий тег у селекта
             let answerTypeSelectValueInp = question.getElementsByClassName('select_hd-value--inp')[0];

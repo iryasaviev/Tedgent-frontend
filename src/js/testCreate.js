@@ -210,10 +210,5 @@ export class TestCreate {
         if (testCreateAttchmentsInput !== undefined) {
             testCreateAttchmentsInput.onchange = (event) => this.uploadAttachment(event, testCreateAttchmentsInput);
         }
-
-        // const testCreateQuestionTitles = this.page.content.getElementsByClassName('js-test-create-question-title');
-        // for (let questionTitle of testCreateQuestionTitles) {
-        //     questionTitle.oninput = (event) => new Fields().autoHeightChange(event, 10, 10, '36px');
-        // }
     }
 }

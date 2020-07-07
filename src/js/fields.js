@@ -172,10 +172,12 @@ export class Fields {
     /**
      * Устанавливает обработчики событий.
      */
-    setHandlers() {
+    setHandlers() { 
         let inpWrappers = this.page.body.getElementsByClassName('js-inp-wrapper');
         for (let inpWrapper of inpWrappers) {
-            inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+            if (inpWrapper.dataset.autoHangHandler === 'true') {
+                inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+            }
         }
 
         let dateInps = this.page.body.getElementsByClassName('js-date-inp');
