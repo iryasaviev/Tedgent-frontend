@@ -25,6 +25,16 @@ label {
   flex-direction: column;
 }
 
+.bd_bcg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: hsla(220, 100%, 99%, 1);
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
 .bd_bcg-1 {
   background: hsla(220, 100%, 99%, 0.45) url(../img/background1.jpg);
 }
@@ -39,7 +49,6 @@ label {
 }
 .bd_bcg-active {
   background-blend-mode: overlay;
-  backdrop-filter: blur(5px);
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -2126,10 +2135,10 @@ Test create page
   color: hsl(207, 63%, 54%);
 }
 
-.dark-theme.bd_bcg-1,
-.dark-theme.bd_bcg-2,
-.dark-theme.bd_bcg-3,
-.dark-theme.bd_bcg-4 {
+.dark-theme .bd_bcg-1,
+.dark-theme .bd_bcg-2,
+.dark-theme .bd_bcg-3,
+.dark-theme .bd_bcg-4 {
   background-color: hsla(204, 13%, 10%, 0.45);
 }
 
