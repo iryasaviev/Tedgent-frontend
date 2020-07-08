@@ -14,8 +14,8 @@ Test create page
 .test-create_hd-info {
   padding: 15px;
 }
-.test-create_hd-title-label {
-  padding-bottom: 5px;
+.test-create_hd-title-label.first {
+  margin-bottom: 20px;
 }
 .test-create_bd-label_select {
   width: 100%;
