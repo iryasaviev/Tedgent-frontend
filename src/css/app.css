@@ -179,6 +179,19 @@ label {
   cursor: pointer;
 }
 
+.pivot-menu {
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+.pivot-menu--btn {
+  padding: 0 12px;
+  border-radius: 0;
+}
+.pivot-menu--btn-active {
+  font-weight: 600;
+  box-shadow: inset 0px -2px 0px 0px hsl(207, 63%, 54%);
+}
+
 .select {
   position: relative;
   font-size: 13px;
@@ -718,6 +731,26 @@ Body content
     align-items: flex-end;
     height: auto;
   }
+}
+
+.cnt-block {
+  display: flex;
+  flex-direction: column;
+}
+.cnt-block_hd {
+  width: 100%;
+}
+.cnt-block_hd-title {
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.cnt-block_bd {
+  padding: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 @font-face {
