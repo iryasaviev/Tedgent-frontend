@@ -1,6 +1,7 @@
 import { Sidebar } from './sidebar';
 import { Select } from './select';
 import { PhotoFrame } from './photoFrame';
+import { Controls } from './controls';
 import { Fields } from './fields';
 
 import { TestCreate } from './testCreate';
@@ -20,6 +21,7 @@ export class Page {
         this.messageCl = new Message();
         this.photoFrameCl = new PhotoFrame();
 
+        this.controlsCl = new Controls(this);
         this.fieldCl = new Fields(this);
 
         this.num = this.body.dataset.pageNum;
@@ -66,6 +68,7 @@ export class Page {
         new Sidebar().setHandlers();
         this.selectCl.setHandlers();
         new MoreMenu().setHandlers();
+        this.controlsCl.setHandlers();
         this.fieldCl.setHandlers();
 
         this.body.onclick = (event) => this.closeWindows(event);

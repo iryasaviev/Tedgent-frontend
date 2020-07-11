@@ -6,7 +6,9 @@
 .dark-theme .bd_bcg-1,
 .dark-theme .bd_bcg-2,
 .dark-theme .bd_bcg-3,
-.dark-theme .bd_bcg-4 {
+.dark-theme .bd_bcg-4,
+.dark-theme .bd_bcg-5,
+.dark-theme .bd_bcg-6 {
   background-color: hsla(204, 13%, 10%, 0.45);
 }
 

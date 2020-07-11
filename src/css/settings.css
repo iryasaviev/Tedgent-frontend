@@ -25,10 +25,38 @@
   padding: 25px 20px;
 }
 
-.settings-acc-info-label {
-  max-width: 220px;
-  margin-top: 20px;
+.settings-acc-info-label,
+.settings-acc-security-label,
+.settings-service-appearance-label {
+  max-width: 240px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
-.settings-acc-info-label.first {
-  margin: 0;
+
+.settings-save--btn {
+  padding: 0 12px;
+  align-self: flex-end;
+}
+
+.settings-service-appearance-label {
+  max-width: 300px;
+}
+.settings-service-appearance-bcgds {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.settings-service-appearance-bcg {
+  overflow: hidden;
+  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.settings-service-appearance-bcg--img {
+  max-height: 80px;
+}
+.settings-service-appearance-bcg-toggle {
+  margin-bottom: 10px;
 }

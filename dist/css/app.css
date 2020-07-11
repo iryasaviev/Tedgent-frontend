@@ -47,6 +47,12 @@ label {
 .bd_bcg-4 {
   background: hsla(220, 100%, 99%, 0.45) url(../img/background4.jpg);
 }
+.bd_bcg-5 {
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background5.jpg);
+}
+.bd_bcg-6 {
+  background: hsla(220, 100%, 99%, 0.45) url(../img/background6.jpg);
+}
 .bd_bcg-active {
   background-blend-mode: overlay;
   background-attachment: fixed;
@@ -126,14 +132,16 @@ label {
 .btn:focus,
 .btn-1:focus,
 .select_hd:focus,
-.select_bd-option:focus {
+.select_bd-option:focus,
+.toggle--btn:focus {
   background: hsl(0, 0%, 84%);
 }
 .btn:active,
 .btn-1:active,
 .inp:active,
 .select_hd:active,
-.select_bd-option:active {
+.select_bd-option:active,
+.toggle--btn:active {
   background: hsl(0, 0%, 84%);
 }
 .btn-disable,
@@ -190,6 +198,51 @@ label {
 .pivot-menu--btn-active {
   font-weight: 600;
   box-shadow: inset 0px -2px 0px 0px hsl(207, 63%, 54%);
+}
+
+.toggle {
+  display: flex;
+  line-height: 20px;
+  flex-direction: row;
+}
+.toggle--btn {
+  width: 40px;
+  height: 20px;
+  background: hsl(0, 0%, 87%);
+  border: 1px solid hsl(0, 0%, 84%);
+  border-radius: 12px;
+  padding: 2px;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+}
+.toggle--lever {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #333;
+}
+.toggle--inp {
+  display: none;
+}
+.toggle--btn:hover .toggle--lever {
+  background: #000;
+}
+.toggle--txt {
+  margin-left: 10px;
+}
+.toggle-active .toggle--btn {
+  justify-content: flex-end;
+  background: hsl(207, 63%, 54%);
+}
+.toggle-active .toggle--btn:focus {
+  background: hsla(207, 63%, 35%);
+}
+.toggle-active .toggle--lever {
+  background: #fff;
+}
+.toggle-active .toggle--btn:hover .toggle--lever {
+  background: hsl(0, 0%, 87%);
 }
 
 .select {
@@ -303,6 +356,12 @@ label {
 .label-txt {
   font-size: 13px;
   margin-bottom: 6px;
+}
+.label-dsc {
+  font-size: 12px;
+  margin-top: 5px;
+  color: hsl(0, 0%, 56%);
+  line-height: 14px;
 }
 
 .more-menu-list {
@@ -736,6 +795,8 @@ Body content
 .cnt-block {
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 .cnt-block_hd {
   width: 100%;
@@ -749,8 +810,8 @@ Body content
 }
 .cnt-block_bd {
   padding: 0 15px;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 @font-face {
@@ -2190,14 +2251,41 @@ Test create page
   padding: 25px 20px;
 }
 
-.settings-acc-info-label {
-  max-width: 220px;
-  margin-top: 20px;
+.settings-acc-info-label,
+.settings-acc-security-label,
+.settings-service-appearance-label {
+  max-width: 240px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
-.settings-acc-info-label.first {
-  margin: 0;
+
+.settings-save--btn {
+  padding: 0 12px;
+  align-self: flex-end;
 }
-.dark-theme {
+
+.settings-service-appearance-label {
+  max-width: 300px;
+}
+.settings-service-appearance-bcgds {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.settings-service-appearance-bcg {
+  overflow: hidden;
+  border-radius: 4px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.settings-service-appearance-bcg--img {
+  max-height: 80px;
+}
+.settings-service-appearance-bcg-toggle {
+  margin-bottom: 10px;
+}.dark-theme {
   background-color: hsla(204, 13%, 10%, 1);
   color: hsl(207, 63%, 54%);
 }
@@ -2205,7 +2293,9 @@ Test create page
 .dark-theme .bd_bcg-1,
 .dark-theme .bd_bcg-2,
 .dark-theme .bd_bcg-3,
-.dark-theme .bd_bcg-4 {
+.dark-theme .bd_bcg-4,
+.dark-theme .bd_bcg-5,
+.dark-theme .bd_bcg-6 {
   background-color: hsla(204, 13%, 10%, 0.45);
 }
 
