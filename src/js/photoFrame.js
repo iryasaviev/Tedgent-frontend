@@ -1,26 +1,34 @@
 export class PhotoFrame {
-    constructor() {
-        this.wrapper = document.getElementsByClassName('js-photo-frame')[0];
+    constructor(page) {
+        this.page = page;
+
+        this.wrapper = page.body.getElementsByClassName('js-photo-frame')[0];
         this.img = this.wrapper.getElementsByClassName('js-photo-frame-img')[0];
     }
 
+    /**
+     * Показывает или закрывает необходимое изображение.
+     * 
+     * @param {*} pathToImg путь к изображению.
+     */
     showOrCloseFrame(pathToImg) {
-        const body = document.getElementById('body');
-
         if (pathToImg !== undefined) {
-            if (!body.classList.contains('photo-frame-active')) {
-                body.classList.add('photo-frame-active');
+            if (!this.page.body.classList.contains('photo-frame-active')) {
+                this.page.body.classList.add('photo-frame-active');
             }
             this.img.src = pathToImg;
         }
         else {
-            if (body.classList.contains('photo-frame-active')) {
-                body.classList.remove('photo-frame-active');
+            if (this.page.body.classList.contains('photo-frame-active')) {
+                this.page.body.classList.remove('photo-frame-active');
             }
             this.img.src = '';
         }
     }
 
+    /**
+     * Устанавливает обработчики событий.
+     */
     setHandlers() {
         this.wrapper.onclick = () => this.showOrCloseFrame();
     }

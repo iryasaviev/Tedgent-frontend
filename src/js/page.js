@@ -5,12 +5,14 @@ import { Controls } from './controls';
 import { Fields } from './fields';
 
 import { TestCreate } from './testCreate';
+import { Settings } from './settings/settings';
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';
 
 export class Page {
     constructor() {
         this.body = document.getElementById('body');
+        this.backgroundImg = this.body.getElementsByClassName('js-background-img')[0];
         this.content = document.getElementById('bodyContent');
         this.menu = this.body.getElementsByClassName('js-menu')[0];
         this.menuPageTitle = this.menu.getElementsByClassName('js-menu-page-title')[0];
@@ -19,7 +21,7 @@ export class Page {
 
         this.selectCl = new Select();
         this.messageCl = new Message();
-        this.photoFrameCl = new PhotoFrame();
+        this.photoFrameCl = new PhotoFrame(this);
 
         this.controlsCl = new Controls(this);
         this.fieldCl = new Fields(this);
@@ -28,7 +30,7 @@ export class Page {
     }
 
     /**
-     * Заркывает все активные всплывающие окна, селекты и подобные элементы по клику на body.
+     * Закрывает все активные всплывающие окна, селекты и подобные элементы по клику на body.
      * 
      * @param {*} event событие.
      */
@@ -61,6 +63,15 @@ export class Page {
             // Test page
             case '3':
                 new Test(this).setHandlers();
+                break;
+
+            // Test result for crator page
+            case '4':
+                break;
+
+            // Settings page
+            case '5':
+                new Settings(this).setHandlers();
                 break;
         }
 

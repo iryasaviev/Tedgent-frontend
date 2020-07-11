@@ -32,26 +32,28 @@ label {
   top: 0;
   bottom: 0;
   background: hsla(220, 100%, 99%, 1);
+}
+.bd_bcg-blur {
   -webkit-filter: blur(5px);
   filter: blur(5px);
 }
 .bd_bcg-1 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background1.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background1.jpg);
 }
 .bd_bcg-2 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background2.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background2.jpg);
 }
 .bd_bcg-3 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background3.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background3.jpg);
 }
 .bd_bcg-4 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background4.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background4.jpg);
 }
 .bd_bcg-5 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background5.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background5.jpg);
 }
 .bd_bcg-6 {
-  background: hsla(220, 100%, 99%, 0.45) url(../img/background6.jpg);
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background6.jpg);
 }
 .bd_bcg-active {
   background-blend-mode: overlay;
@@ -356,6 +358,7 @@ label {
 .label-txt {
   font-size: 13px;
   margin-bottom: 6px;
+  display: block;
 }
 .label-dsc {
   font-size: 12px;
@@ -2284,7 +2287,7 @@ Test create page
   max-height: 80px;
 }
 .settings-service-appearance-bcg-toggle {
-  margin-bottom: 10px;
+  padding: 5px 0 5px 0;
 }.dark-theme {
   background-color: hsla(204, 13%, 10%, 1);
   color: hsl(207, 63%, 54%);
@@ -2325,7 +2328,9 @@ Test create page
 .dark-theme .more-menu-list::after,
 .dark-theme .tests--item-col-raiting-stars,
 .dark-theme .cnt_bd-test,
-.dark-theme .test_hd-dsc {
+.dark-theme .test_hd-dsc,
+.dark-theme .cnt_bd-settings,
+.dark-theme .pivot-menu {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }
@@ -2411,11 +2416,13 @@ Test create page
 .dark-theme .test-create-attachments-file .delete {
   background: transparent;
 }
+.dark-theme .toggle--btn,
 .dark-theme .test_bd,
 .dark-theme .test_hdr {
   border-color: hsl(206, 14%, 10%);
 }
 
+.dark-theme .pivot-menu--btn,
 .dark-theme .test_create_bd-question-col1-row--btn,
 .dark-theme .test_create_bd-question-answer--btn {
   background: hsla(204, 13%, 15%, 1);
