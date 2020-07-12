@@ -69,8 +69,12 @@ export class Page {
             case '4':
                 break;
 
-            // Settings page
+            // Account settings page
             case '5':
+                break;
+
+            // Service settings page
+            case '6':
                 new Settings(this).setHandlers();
                 break;
         }

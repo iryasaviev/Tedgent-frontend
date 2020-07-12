@@ -9,6 +9,8 @@ export class Settings {
      * Устанавливает обработчики событий.
      */
     setHandlers() {
-        new ServiceSettings(this.page).setHandlers();
+        if (this.page.num === '6') {
+            new ServiceSettings(this.page).setHandlers();
+        }
     }
 }

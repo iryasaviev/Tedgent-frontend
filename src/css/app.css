@@ -34,28 +34,33 @@ label {
   background: hsla(220, 100%, 99%, 1);
 }
 .bd_bcg-blur {
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
 }
-.bd_bcg-1 {
+.bd_bcg-active.bd_bcg-1 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background1.jpg);
 }
-.bd_bcg-2 {
+.bd_bcg-active.bd_bcg-2 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background2.jpg);
 }
-.bd_bcg-3 {
+.bd_bcg-active.bd_bcg-3 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background3.jpg);
 }
-.bd_bcg-4 {
+.bd_bcg-active.bd_bcg-4 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background4.jpg);
 }
-.bd_bcg-5 {
+.bd_bcg-active.bd_bcg-5 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background5.jpg);
 }
-.bd_bcg-6 {
+.bd_bcg-active.bd_bcg-6 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background6.jpg);
 }
-.bd_bcg-active {
+.bd_bcg-active.bd_bcg-1,
+.bd_bcg-active.bd_bcg-2,
+.bd_bcg-active.bd_bcg-3,
+.bd_bcg-active.bd_bcg-4,
+.bd_bcg-active.bd_bcg-5,
+.bd_bcg-active.bd_bcg-6 {
   background-blend-mode: overlay;
   background-attachment: fixed;
   background-size: cover;
