@@ -806,7 +806,8 @@ Body content
   padding-top: 20px;
   margin-bottom: 40px;
 }
-.cnt-block_hd {
+.cnt-block_hd,
+.cnt-block_ft {
   width: 100%;
 }
 .cnt-block_hd-title {
@@ -814,12 +815,25 @@ Body content
   font-size: 16px;
   display: flex;
   align-items: center;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 .cnt-block_bd {
   padding: 0 15px;
   display: flex;
   flex-direction: column;
+}
+@media only screen and (max-width: 767px) {
+  .cnt-block_bd {
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .cnt-block_bd {
+    padding: 0;
+  }
+}
+.cnt-block_ft {
+  padding-top: 20px;
 }
 
 @font-face {

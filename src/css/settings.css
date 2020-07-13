@@ -22,24 +22,40 @@
 }
 
 .settings_bd {
-  padding: 25px 20px;
+  padding: 25px 15px;
 }
 
 .settings-acc-info-label,
 .settings-acc-security-label,
 .settings-service-appearance-label {
-  max-width: 240px;
-  min-width: 240px;
+  width: 100%;
+  max-width: 260px;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.settings-acc-info-block_bd {
-  height: 260px;
+.settings-acc-info-block_bd,
+.settings-acc-security-block_bd,
+.settings-service-appearance-block_bd {
+  height: 300px;
   flex-wrap: wrap;
   align-items: center;
 }
-.settings-acc-info-label {
+@media only screen and (max-width: 767px) {
+  .settings-acc-info-block_bd {
+    height: auto;
+  }
+}
+
+.settings-acc-info-block_ft,
+.settings-acc-security-block_ft {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-acc-security-block_bd,
+.settings-service-appearance-block_bd {
+  height: auto;
 }
 
 .settings-save--btn {
@@ -55,6 +71,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media only screen and (max-width: 390px) {
+  .settings-service-appearance-bcgds {
+    justify-content: center;
+  }
+}
 .settings-service-appearance-bcg {
   overflow: hidden;
   border-radius: 4px;
@@ -62,6 +83,11 @@
   height: 80px;
   cursor: pointer;
   margin-bottom: 10px;
+}
+@media only screen and (max-width: 390px) {
+  .settings-service-appearance-bcg {
+    margin: 10px;
+  }
 }
 .settings-service-appearance-bcg--img {
   max-height: 80px;
