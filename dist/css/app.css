@@ -2263,8 +2263,17 @@ Test create page
 .settings-acc-security-label,
 .settings-service-appearance-label {
   max-width: 240px;
+  min-width: 240px;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+
+.settings-acc-info-block_bd {
+  height: 260px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.settings-acc-info-label {
 }
 
 .settings-save--btn {
