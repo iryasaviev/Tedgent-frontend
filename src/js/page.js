@@ -4,7 +4,7 @@ import { PhotoFrame } from './photoFrame';
 import { Controls } from './controls';
 import { Fields } from './fields';
 
-import { TestCreate } from './testCreate';
+import { TestCreate } from './testCreate/testCreate';
 import { Settings } from './settings/settings';
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';

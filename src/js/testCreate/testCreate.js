@@ -1,8 +1,8 @@
-import { Delegation } from './delegation';
-import { Fields } from './fields'
+import { Delegation } from '../delegation';
+import { Fields } from '../fields'
 
-import { Subject } from './subject';
-import { FileLoad } from './fileLoad';
+import { Subject } from '../subject';
+import { FileLoad } from '../fileLoad';
 
 import { Question } from './question';
 
