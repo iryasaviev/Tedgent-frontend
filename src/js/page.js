@@ -6,6 +6,7 @@ import { Fields } from './fields';
 
 // import { TestCreate } from './testCreate/testCreate';
 import { Settings } from './settings/settings';
+import { AccountSettings } from './accountSettings/accountSettings';
 
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';
@@ -49,7 +50,27 @@ export class Page {
     runPage(pageNum) {
         let contentBd = this.content.getElementsByClassName('js-conent-bd')[0];
 
-        
+        this.body.dataset.pageNum = '6';
+        this.num = this.body.dataset.pageNum;
+
+        switch (pageNum) {
+            case '3':
+                break;
+
+            case '4':
+                break;
+
+            case '5':
+
+                break;
+        }
+    }
+
+    goToPage(linkBtn) {
+        let link = linkBtn.dataset.link,
+            linkPageNum = linkBtn.dataset.linkPageNum;
+
+        this.runPage(linkPageNum);
     }
 
     setHandlers() {
@@ -84,6 +105,11 @@ export class Page {
             // Service settings page
             case '6':
                 break;
+        }
+
+        let linkBtns = this.body.getElementsByClassName('js-link-btn');
+        for (let linkBtn of linkBtns) {
+            linkBtn.onclick = () => this.goToPage(linkBtn);
         }
 
         this.photoFrameCl.setHandlers();

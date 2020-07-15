@@ -11,11 +11,11 @@ export class Settings {
         let content;
 
         switch (pageNum) {
-            case '5.1':
+            case '5':
                 content = new SettingsContent().getAccountSettingsPage();
                 break;
 
-            case '5.2':
+            case '6':
                 content = new SettingsContent().getServiceSettingsPage();
                 break;
         }
