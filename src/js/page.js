@@ -15,7 +15,8 @@ import { Test } from './test/test';
 import { AccountSettings } from './account-settings/accountSettings';
 import { ServiceSettings } from './service-settings/serviceSettings';
 
-
+// Для страниц
+import { PageTitles } from './pageTitles';
 
 /**
  * Класс для работы со страницами.
@@ -62,6 +63,15 @@ export class Page {
     }
 
     /**
+     * Изменяет заголовок страницы в меню.
+     * 
+     * @param {string} pageNum номер страницы. 
+     */
+    changePageTitle(pageNum = this.num) {
+        this.menuPageTitle.innerText = new PageTitles().getTitle(pageNum);
+    }
+
+    /**
      * Отвечает за переход на страницу.
      * 
      * @param {object} linkBtn кнопка-ссылка на которой произошел click.
@@ -87,6 +97,10 @@ export class Page {
 
         // Определяет необходимый метод для активации по номеру страницу 
         switch (this.num) {
+
+            case '0':
+                break;
+
             // Profile page
             case '1':
                 break;
@@ -120,6 +134,7 @@ export class Page {
                 break;
         }
 
+        this.changePageTitle();
         this.setHandlers();
     }
 
