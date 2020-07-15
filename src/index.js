@@ -1,6 +1,7 @@
 import './css/app.css';
 import './css/raiting.css';
 import './css/test.css';
+import './css/profile.css';
 import './css/tests.css';
 import './css/test-create.css';
 import './css/test-result.css';

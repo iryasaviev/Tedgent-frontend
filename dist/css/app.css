@@ -1308,6 +1308,47 @@ Subject backgrounds
 .subject-bcg-4-1-opacity {
   background: hsla(39, 100%, 50%, 0.15);
 }
+.cnt_bd-profile {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 4px;
+  padding-bottom: 20px;
+  box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
+    0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+}
+
+.profile_hd {
+  width: 100%;
+  padding: 30px 15px;
+  display: flex;
+}
+.profile_hd-info {
+  margin-left: 20px;
+}
+.profile_hd--img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
+    0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
+}
+.profile_hd-info--names {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.profile_hd-info--nickname {
+  margin-top: 5px;
+}
+.profile_hd-info--email {
+  margin-top: 5px;
+}
 /*
 ----------
 Tests list in the tests page 
