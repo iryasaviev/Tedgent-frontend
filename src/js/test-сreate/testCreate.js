@@ -1,10 +1,9 @@
-import { Delegation } from '../delegation';
-import { Fields } from '../fields'
-
 import { Subject } from '../subject';
 import { FileLoad } from '../fileLoad';
 
-import { Question } from './question';
+import { Question } from '../test/question';
+
+import { TestCreateContent } from './testCreateContent';
 
 /**
  * Класс создания теста.
@@ -14,6 +13,8 @@ export class TestCreate {
         this.page = page;
 
         this.attachments = [];
+
+        this.contentCl = new TestCreateContent();
     }
 
     /**
@@ -189,6 +190,17 @@ export class TestCreate {
             }
             i++;
         }
+    }
+
+    /**
+     * Отвечает за загрузку страницы.
+     * 
+     * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
+     */
+    runPage(contentBd) {
+        contentBd.innerHTML = this.contentCl.getPage();
+
+        this.setHandlers();
     }
 
     setHandlers() {

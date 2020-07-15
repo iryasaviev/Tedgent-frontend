@@ -1,4 +1,4 @@
-import { Controls } from './controls';
+import { Controls } from '../controls';
 
 /**
  * Класс содержащий методы для работы с ответами. 

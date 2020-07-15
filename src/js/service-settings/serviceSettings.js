@@ -1,6 +1,10 @@
+import { ServiceSettingsContent } from './serviceSettingsContent';
+
 export class ServiceSettings {
     constructor(page) {
         this.page = page;
+
+        this.contentCl = new ServiceSettingsContent();
     }
 
     /**
@@ -75,6 +79,17 @@ export class ServiceSettings {
         }
 
         // ToDo: Реализовать отправку изменений на сервер.
+    }
+
+    /**
+    * Отвечает за загрузку страницы.
+    * 
+    * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
+    */
+    runPage(contentBd) {
+        contentBd.innerHTML = this.contentCl.getPage();
+
+        this.setHandlers();
     }
 
     /**

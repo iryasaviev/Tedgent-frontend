@@ -4,7 +4,7 @@ export class App {
     constructor() { }
 
     load() {
-        new Page().setHandlers();
+        new Page().runPageContent();
     }
 }
 

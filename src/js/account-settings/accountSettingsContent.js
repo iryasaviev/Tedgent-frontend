@@ -1,98 +1,7 @@
-<!DOCTYPE html>
-<html>
+export class AccountSettingsContent {
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Настройки</title>
-  <link rel="stylesheet" href="../css/app.css" />
-</head>
-
-<body class="sidebar-active" id="body" data-page-num="5">
-  <div class="bd_bcg bd_bcg-active bd_bcg-4 js-background-img"></div>
-
-  <div class="menu js-menu">
-    <h1 class="menu--title"><a href="#">Tedgent</a></h1>
-    <div class="menu_bd">
-      <h2 class="menu_bd--title js-menu-page-title">настройки</h2>
-      <div class="menu_bd-search">
-        <input class="menu_bd-search--inp inp" type="text" placeholder="Поиск" />
-      </div>
-    </div>
-  </div>
-  <div class="message js-message">
-    <span class="js-message-text"></span>
-  </div>
-
-  <div class="sidebar">
-    <div class="sidebar_hd">
-      <div class="sidebar_hd-user">
-        <div class="sidebar_hd-user-col1">
-          <img class="sidebar_hd-user-col1--img" src="../img/pp.jpg" />
-          <div class="sidebar_hd-user-col1--txt">
-            <span>Ясавиев</span>
-            <span>Ильнур</span>
-          </div>
-        </div>
-        <div class="sidebar_hd-user-col2">
-          <div class="sidebar_hd-user-col2--item">ir.yasaveiv@yandex.ru</div>
-          <div class="sidebar_hd-user-col2--item">@ir_yasaviev</div>
-        </div>
-      </div>
-      <button class="sidebar_hd--btn btn i-arrow-left btn"></button>
-    </div>
-    <div class="sidebar_bd">
-      <div class="sidebar_bd-small-btns">
-        <button class="btn sidebar_bd-small-btn">
-          <span class="i-user icon"></span>
-        </button>
-        <button class="btn sidebar_bd-small-btn" data-link="/test/create">
-          <span class="i-plus icon"></span>
-        </button>
-        <button class="btn sidebar_bd-small-btn">
-          <span class="i-list icon"></span>
-        </button>
-        <button class="btn sidebar_bd-small-btn">
-          <span class="i-settings icon"></span>
-        </button>
-        <button class="btn sidebar_bd-small-btn js-dark-theme-btn">
-          <span class="i-moon icon"></span>
-        </button>
-      </div>
-      <div class="sidebar_bd-btns">
-        <button class="btn sidebar_bd-btn">
-          <span class="i-user icon"></span>
-          <div class="txt">Профиль</div>
-        </button>
-        <button class="btn sidebar_bd-btn" data-link="/test/create">
-          <span class="i-plus icon"></span>
-          <div class="txt">Создать тест</div>
-        </button>
-        <button class="btn sidebar_bd-btn">
-          <span class="i-list icon"></span>
-          <div class="txt">Тесты</div>
-        </button>
-        <button class="btn sidebar_bd-btn">
-          <span class="i-settings icon"></span>
-          <div class="txt">Настройки</div>
-        </button>
-        <button class="btn sidebar_bd-btn js-dark-theme-btn">
-          <span class="i-moon icon"></span>
-          <div class="txt">Тёмная тема</div>
-        </button>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="photo-frame js-photo-frame">
-    <img class="photo-frame--img js-photo-frame-img">
-  </div>
-
-  <div class="cnt" id="bodyContent">
-    <div class="cnt_bd">
-      <div class="cnt_bd-settings">
+    getPage() {
+        return `<div class="cnt_bd-settings">
         <div class="settings_hd">
           <div class="settings_hd-menu pivot-menu">
             <button class="settings_hd-menu--btn btn pivot-menu--btn pivot-menu--btn-active js-link-btn"
@@ -189,11 +98,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <script src="../js/tedgent-js.js"></script>
-</body>
-
-</html>
+      </div>`;
+    }
+}

@@ -1,6 +1,5 @@
-import { PhotoFrame } from './photoFrame';
-import { FileLoad } from './fileLoad';
-import { Timer } from './timer';
+import { FileLoad } from '../fileLoad';
+import { Timer } from '../timer';
 
 import { Answer } from './answer';
 
@@ -26,7 +25,8 @@ export class Question {
 
         new FileLoad().readImage(event.target.files[0], this.showImage, {
             showFunc: this.showImage,
-            questionTag: question
+            questionTag: question,
+            photoFrameCl: this.page.photoFrameCl
         });
     }
 
@@ -53,7 +53,7 @@ export class Question {
             question.classList.add('test_create_bd-question-image-active');
         }
 
-        imgBackground.onclick = () => new PhotoFrame().showOrCloseFrame(path);
+        imgBackground.onclick = () => params.photoFrameCl.showOrCloseFrame(path);
     }
 
     /**

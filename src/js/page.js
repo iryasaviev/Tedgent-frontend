@@ -1,18 +1,29 @@
+// Основные области
 import { Sidebar } from './sidebar';
 import { Select } from './select';
 import { PhotoFrame } from './photoFrame';
-import { Controls } from './controls';
-import { Fields } from './fields';
-
-// import { TestCreate } from './testCreate/testCreate';
-import { Settings } from './settings/settings';
-import { AccountSettings } from './accountSettings/accountSettings';
-
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';
 
+// Элементы управления (кнопки, поля для ввода)
+import { Controls } from './controls';
+import { Fields } from './fields';
+
+// Страницы
+import { TestCreate } from './test-сreate/testCreate';
+import { Test } from './test/test';
+import { AccountSettings } from './account-settings/accountSettings';
+import { ServiceSettings } from './service-settings/serviceSettings';
+
+
+
+/**
+ * Класс для работы со страницами.
+ */
 export class Page {
     constructor() {
+
+        // Области
         this.body = document.getElementById('body');
         this.backgroundImg = this.body.getElementsByClassName('js-background-img')[0];
         this.content = document.getElementById('bodyContent');
@@ -21,20 +32,23 @@ export class Page {
         this.photoFrame = this.body.getElementsByClassName('js-photo-frame')[0];
         this.message = this.body.getElementsByClassName('js-message')[0];
 
+        // Для работы с областями
         this.selectCl = new Select();
         this.messageCl = new Message();
         this.photoFrameCl = new PhotoFrame(this);
 
+        // Для работы с элементами управления
         this.controlsCl = new Controls(this);
         this.fieldCl = new Fields(this);
 
+        // Номер текущей страницы
         this.num = this.body.dataset.pageNum;
     }
 
     /**
      * Закрывает все активные всплывающие окна, селекты и подобные элементы по клику на body.
      * 
-     * @param {*} event событие.
+     * @param {object} event объект события.
      */
     closeWindows(event) {
         const items = this.body.getElementsByClassName('active'),
@@ -47,33 +61,31 @@ export class Page {
         }
     }
 
-    runPage(pageNum) {
-        let contentBd = this.content.getElementsByClassName('js-conent-bd')[0];
-
-        this.body.dataset.pageNum = '6';
-        this.num = this.body.dataset.pageNum;
-
-        switch (pageNum) {
-            case '3':
-                break;
-
-            case '4':
-                break;
-
-            case '5':
-
-                break;
-        }
-    }
-
+    /**
+     * Отвечает за переход на страницу.
+     * 
+     * @param {object} linkBtn кнопка-ссылка на которой произошел click.
+     */
     goToPage(linkBtn) {
         let link = linkBtn.dataset.link,
             linkPageNum = linkBtn.dataset.linkPageNum;
 
-        this.runPage(linkPageNum);
+        this.runPageContent(linkPageNum);
     }
 
-    setHandlers() {
+    /**
+     * Загружает содержимое страницы.
+     * 
+     * @param {string} pageNum номер страницы.
+     */
+    runPageContent(pageNum = this.num) {
+        let contentBd = this.content.getElementsByClassName('js-content-bd')[0];
+
+        // Изменяет номер страницы
+        this.body.dataset.pageNum = pageNum;
+        this.num = this.body.dataset.pageNum;
+
+        // Определяет необходимый метод для активации по номеру страницу 
         switch (this.num) {
             // Profile page
             case '1':
@@ -85,28 +97,38 @@ export class Page {
 
             // Test create page
             case '3':
-                new TestCreate(this).setHandlers();
+                new TestCreate(this).runPage(contentBd);
                 break;
 
             // Test page
-            case '3':
-                new Test(this).setHandlers();
-                break;
-
-            // Test result for crator page
             case '4':
+                new Test(this).runPage(contentBd);
                 break;
 
-            // Settings page
+            // Test result for creator page
             case '5':
-                new Settings(this).setHandlers();
+                break;
+
+            // Account settings page
+            case '6':
+                new AccountSettings(this).runPage(contentBd);
                 break;
 
             // Service settings page
-            case '6':
+            case '7':
+                new ServiceSettings(this).runPage(contentBd);
                 break;
         }
 
+        this.setHandlers();
+    }
+
+    /**
+     * Устанавливает обработчики событий.
+     */
+    setHandlers() {
+
+        // Вешает обработчик события метода для открытия страницы на кнопки-ссылки
         let linkBtns = this.body.getElementsByClassName('js-link-btn');
         for (let linkBtn of linkBtns) {
             linkBtn.onclick = () => this.goToPage(linkBtn);

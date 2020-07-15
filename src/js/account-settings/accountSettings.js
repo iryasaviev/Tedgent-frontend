@@ -1,10 +1,10 @@
-import { TestContent } from './testContent'
+import { AccountSettingsContent } from './accountSettingsContent';
 
-export class Test {
+export class AccountSettings {
     constructor(page) {
         this.page = page;
 
-        this.contentCl = new TestContent();
+        this.contentCl = new AccountSettingsContent();
     }
 
     /**
@@ -14,5 +14,14 @@ export class Test {
      */
     runPage(contentBd) {
         contentBd.innerHTML = this.contentCl.getPage();
+
+        this.setHandlers();
+    }
+
+    /**
+     * Устанавливает обработчики событий.
+     */
+    setHandlers() {
+
     }
 }
