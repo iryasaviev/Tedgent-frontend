@@ -22,6 +22,9 @@
   color: #fff;
   overflow: hidden;
 }
+.raiting-star-active {
+  background: hsla(54, 100%, 50%, 1);
+}
 .raiting-stars--scale {
   width: 50%;
   height: 100%;
