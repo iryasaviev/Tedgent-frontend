@@ -80,6 +80,7 @@
 .test-result-user {
   display: flex;
   height: 60px;
+  min-height: 60px;
   width: 100%;
   background: hsla(207, 63%, 54%, 0.1);
   align-items: center;

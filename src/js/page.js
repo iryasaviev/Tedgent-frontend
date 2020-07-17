@@ -10,6 +10,7 @@ import { Controls } from './controls';
 import { Fields } from './fields';
 
 // Страницы
+import { Profile } from './profile/profile';
 import { TestCreate } from './test-сreate/testCreate';
 import { Test } from './test/test';
 import { AccountSettings } from './account-settings/accountSettings';
@@ -103,6 +104,7 @@ export class Page {
 
             // Profile page
             case '1':
+                new Profile(this).runPage(contentBd);
                 break;
 
             // Tests list page

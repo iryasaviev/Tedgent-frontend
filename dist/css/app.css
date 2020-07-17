@@ -1485,7 +1485,7 @@ Subject backgrounds
   margin-bottom: 10px;
   -moz-user-select: none;
   display: flex;
-  padding: 15px;
+  padding: 15px 0;
   justify-content: space-between;
 }
 @media only screen and (max-width: 767px) {
@@ -2436,6 +2436,7 @@ Test create page
 .test-result-user {
   display: flex;
   height: 60px;
+  min-height: 60px;
   width: 100%;
   background: hsla(207, 63%, 54%, 0.1);
   align-items: center;
@@ -2619,7 +2620,8 @@ Test create page
 .dark-theme .cnt_bd-test,
 .dark-theme .test_hd-dsc,
 .dark-theme .cnt_bd-settings,
-.dark-theme .pivot-menu {
+.dark-theme .pivot-menu,
+.dark-theme .cnt_bd-profile {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }
@@ -2636,7 +2638,10 @@ Test create page
 .dark-theme .test_hd-title--description,
 .dark-theme .test-question_hd--title,
 .dark-theme .test-question-answer,
-.dark-theme .test-result_bd {
+.dark-theme .test-result_bd,
+.dark-theme .profile_hd,
+.dark-theme .inp--icon,
+.dark-theme .cnt-block_hd-title {
   color: #ddd;
 }
 
@@ -2648,7 +2653,8 @@ Test create page
 .dark-theme .more-menu-list--btn:hover,
 .dark-theme .more-menu-list--btn:active,
 .dark-theme .more-menu-list--btn:focus,
-.dark-theme .message {
+.dark-theme .message,
+.dark-theme .profile-tests-title--counter {
   background: hsl(206, 14%, 10%);
   color: hsl(207, 63%, 54%);
 }

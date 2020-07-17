@@ -40,7 +40,8 @@
 .dark-theme .cnt_bd-test,
 .dark-theme .test_hd-dsc,
 .dark-theme .cnt_bd-settings,
-.dark-theme .pivot-menu {
+.dark-theme .pivot-menu,
+.dark-theme .cnt_bd-profile {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }
@@ -57,7 +58,10 @@
 .dark-theme .test_hd-title--description,
 .dark-theme .test-question_hd--title,
 .dark-theme .test-question-answer,
-.dark-theme .test-result_bd {
+.dark-theme .test-result_bd,
+.dark-theme .profile_hd,
+.dark-theme .inp--icon,
+.dark-theme .cnt-block_hd-title {
   color: #ddd;
 }
 
@@ -69,7 +73,8 @@
 .dark-theme .more-menu-list--btn:hover,
 .dark-theme .more-menu-list--btn:active,
 .dark-theme .more-menu-list--btn:focus,
-.dark-theme .message {
+.dark-theme .message,
+.dark-theme .profile-tests-title--counter {
   background: hsl(206, 14%, 10%);
   color: hsl(207, 63%, 54%);
 }
