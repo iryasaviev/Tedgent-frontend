@@ -134,6 +134,10 @@ export class Page {
             case '7':
                 new ServiceSettings(this).runPage(contentBd);
                 break;
+
+            // Search pge
+            case '8':
+                break;
         }
 
         this.changePageTitle();
