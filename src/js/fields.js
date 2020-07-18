@@ -109,6 +109,11 @@ export class Fields {
 
         for (let char of value) {
 
+            // Проверка на пробел
+            if (char === ' ') {
+                break;
+            }
+
             // Проверка на числовой тип и точку
             if (isNaN(char) && char !== '.') {
                 break;
@@ -172,7 +177,7 @@ export class Fields {
     /**
      * Устанавливает обработчики событий.
      */
-    setHandlers() { 
+    setHandlers() {
         let inpWrappers = this.page.body.getElementsByClassName('js-inp-wrapper');
         for (let inpWrapper of inpWrappers) {
             if (inpWrapper.dataset.autoHangHandler === 'true') {

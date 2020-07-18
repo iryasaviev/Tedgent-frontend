@@ -36,7 +36,7 @@ export class Page {
 
         // Для работы с областями
         this.selectCl = new Select();
-        this.messageCl = new Message();
+        this.messageCl = new Message(this);
         this.photoFrameCl = new PhotoFrame(this);
 
         // Для работы с элементами управления
