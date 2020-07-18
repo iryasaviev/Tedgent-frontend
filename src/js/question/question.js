@@ -1,7 +1,8 @@
 import { FileLoad } from '../fileLoad';
 import { Timer } from '../timer';
 
-import { Answer } from './answer';
+import { Answer } from '../answer/answer';
+import { QuestionContent } from './questionContent';
 
 /**
  * Class with methods for work with question.
@@ -10,6 +11,7 @@ import { Answer } from './answer';
 export class Question {
     constructor(page) {
         this.answerCl = new Answer();
+        this.contentCl = new QuestionContent();
 
         this.page = page;
         this.questions = this.page.content.getElementsByClassName('js-test-question');
@@ -140,121 +142,13 @@ export class Question {
 
         if (answers.length >= answersQuantityMaxLimit ||
             answerType === '3' || answerType === '4') {
-            answerAddBtn =
-                `<button class="test_create_bd-question-answer-add--btn btn btn-disable js-test-create-answer-add-btn" disabled>
-                    <span class="i-plus"></span>
-                    <span class="txt">Вариант</span>
-                </button>`;
+            answerAddBtn = this.contentCl.getAnswerAddBtn(true);
         }
         else {
-            answerAddBtn =
-                `<button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
-                    <span class="i-plus"></span>
-                    <span class="txt">Вариант</span>
-                </button>`;
+            answerAddBtn = this.contentCl.getAnswerAddBtn(false);
         }
 
-        let question =
-            `<div class="test_create_bd-question js-test-question" data-question-num="${questionNum}" data-answers-type="${answerType}">
-                <div class="test_create_bd-question_bd js-test-question-body">
-                    <div class="test_create_bd-question-col1">
-                        <div class="test_create_bd-question-col1-row">
-                            <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
-                            <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="false">
-                                <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title" name="question" type="text" data-characters-max-limit-value="250" placeholder="Вопрос №${questionNum}"></textarea>
-                            </div>
-                        </div>
-                        <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
-                            <div class="test_create_bd-question-col1-image">
-                                <button class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                                <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
-                                <img class="test_create_bd-question--img js-test-question-img">
-                            </div>
-                        </div>
-                        <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">${answersString}</div>
-                        <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">${answerAddBtn}</div>
-                    </div>
-                    <div class="test_create_bd-question-col2">
-                        <label class="test_create_bd-question-col2--btn btn i-image">
-                            <input class="test_create_bd-question-col2--inp js-test-create-question-image-inp" type="file" accept="image/*">
-                        </label>
-                        ${this.getAnswerTypeSelectItem(answerType)}
-                    </div>
-                </div>
-            </div>`;
-
-        return question;
-    }
-
-    /**
-     * Возвращает select типа варианта ответа для добавляемого вопроса.
-     * 
-     * @param {*} answerType выбранный тип ответа для добавляемого вопроса.
-     */
-    getAnswerTypeSelectItem(answerType) {
-        let selectValue;
-
-        switch (answerType) {
-            case '1':
-                selectValue = `<div class="select_hd-value js-select-value" data-select-option-value="${answerType}">
-                <div class="test_create_bd-question--select-option--icon i-checkbox"></div>
-                <div class="test_create_bd-question--select-option--txt">Множественный выбор</div>
-                </div>
-                <input class="select_hd-value--inp js-select-value-inp" type="text" value="${answerType}">`;
-                break;
-
-            case '2':
-                selectValue = `<div class="select_hd-value js-select-value" data-select-option-value="${answerType}">
-                <div class="test_create_bd-question--select-option--icon i-radiobox"></div>
-                <div class="test_create_bd-question--select-option--txt">Одиночный выбор</div>
-                </div>
-                <input class="select_hd-value--inp js-select-value-inp" type="text" value="${answerType}">`;
-                break;
-
-            case '3':
-                selectValue = `<div class="select_hd-value js-select-value" data-select-option-value="${answerType}">
-                <div class="test_create_bd-question--select-option--icon i-text"></div>
-                <div class="test_create_bd-question--select-option--txt">Текстовый ответ</div>
-                </div>
-                <input class="select_hd-value--inp js-select-value-inp" type="text" value="${answerType}">`;
-                break;
-
-            case '4':
-                selectValue = `<div class="select_hd-value js-select-value" data-select-option-value="${answerType}">
-                <div class="test_create_bd-question--select-option--icon i-number"></div>
-                <div class="test_create_bd-question--select-option--txt">Числовой ответ</div>
-                </div>
-                <input class="select_hd-value--inp js-select-value-inp" type="text" value="${answerType}">`;
-                break;
-        }
-
-        let select =
-            `<div class="test_create_bd-question--select select js-select js-test-create-answer-type-select">
-            <button class="test_create_bd-question--select_hd select_hd js-select-head">
-                ${selectValue}
-                <div class="select_hd--icon i-down-arrow"></div>
-            </button>
-            <div class="select_bd">
-            <button class="select_bd-option" data-select-option="1">
-                <div class="test_create_bd-question--select-option--icon i-checkbox"></div>
-                <div class="test_create_bd-question--select-option--txt">Множественный выбор</div>
-            </button>
-            <button class="select_bd-option" data-select-option="2">
-                <div class="test_create_bd-question--select-option--icon i-radiobox"></div>
-                <div class="test_create_bd-question--select-option--txt">Одиночный выбор</div>
-            </button>
-            <button class="select_bd-option" data-select-option="3">
-                <div class="test_create_bd-question--select-option--icon i-text"></div>
-                <div class="test_create_bd-question--select-option--txt">Текстовый ответ</div>
-            </button>
-            <button class="select_bd-option" data-select-option="4">
-                <div class="test_create_bd-question--select-option--icon i-number"></div>
-                <div class="test_create_bd-question--select-option--txt">Числовой ответ</div>
-            </button>
-            </div>
-            </div>`;
-
-        return select;
+        return this.contentCl.getQuestion(questionNum, answerType, answerAddBtn, answersString, this.contentCl.getAnswerTypeSelect(answerType));
     }
 
     /**
@@ -269,6 +163,9 @@ export class Question {
 
         if (answerType === '1' || answerType === '2') {
             for (let answerNum = 0; answerNum < Number(answersQuantity); answerNum++) {
+                if (answerNum >= 6) {
+                    break;
+                }
                 answers[answers.length] = this.answerCl.getAnswerItem(answerType, questionNum, answerNum);
             }
         }
@@ -292,22 +189,18 @@ export class Question {
     /**
      * Удаляет вопрос, заменяя его на сообщение с возможностью восстановления.
      * 
-     * @param {*} question вопрос.
+     * @param {object} question вопрос.
      */
     deleteQuestion(question) {
         if (!question.classList.contains('test_create_bd-question-deleted')) {
             question.classList.add('test_create_bd-question-deleted');
         }
 
-        question.insertAdjacentHTML('beforeEnd',
-            `<div class="test_create_bd-question-deleted-mess js-test-create-question-deleted-message">
-            <p>Вопрос будет удалён через <span class="test_create_bd-question-deleted-mess--time js-test-create-question-deleted-message-time">7</span>.</p>
-            <button class="test_create_bd-question-deleted-mess--btn btn-icon js-test-create-question-restore-btn">Восстановить</button>
-            </div>`);
+        question.insertAdjacentHTML('beforeEnd', this.contentCl.getQuestionDeleteMessage());
 
         question.getElementsByClassName('js-test-create-question-restore-btn')[0].onclick = () => this.restoreQuestion(question);
 
-        this.updateQuestionDeleteTime(question, 8);
+        this.updateQuestionDeleteTime(question, 7);
     }
 
     /**

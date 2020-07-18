@@ -132,36 +132,21 @@ label {
   font-size: 14px;
   height: 34px;
 }
-.btn:hover,
-.btn-1:hover {
+.btn:hover {
   background: hsl(0, 0%, 87%);
 }
 .btn:focus,
-.btn-1:focus,
 .select_hd:focus,
 .select_bd-option:focus,
 .toggle--btn:focus {
   background: hsl(0, 0%, 84%);
 }
 .btn:active,
-.btn-1:active,
 .inp:active,
 .select_hd:active,
 .select_bd-option:active,
 .toggle--btn:active {
   background: hsl(0, 0%, 84%);
-}
-.btn-disable,
-.btn-disable:hover,
-.btn-disable:active,
-.btn-disable:focus,
-.inp-disable,
-.inp-disable:hover,
-.inp-disable:active,
-.inp-disable:focus {
-  opacity: 0.5;
-  cursor: default;
-  box-shadow: none;
 }
 .btn-1 {
   color: #fff;
@@ -170,6 +155,9 @@ label {
 .btn-1:hover,
 .btn-1:focus {
   background: hsla(207, 63%, 54%, 0.9);
+}
+.btn-2 {
+  background: hsla(200, 13%, 93%, 1);
 }
 
 .btn--icon,
@@ -250,6 +238,20 @@ label {
 }
 .toggle-active .toggle--btn:hover .toggle--lever {
   background: hsl(0, 0%, 87%);
+}
+
+.btn-disable,
+.btn-disable:hover,
+.btn-disable:active,
+.btn-disable:focus,
+.inp-disable,
+.inp-disable:hover,
+.inp-disable:active,
+.inp-disable:focus {
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+  background: hsla(200, 13%, 93%, 1);
 }
 
 .select {
@@ -2163,7 +2165,6 @@ Test create page
   font-size: 13px;
   height: 32px;
   padding: 0 12px;
-  background: hsla(200, 13%, 93%, 1);
 }
 @media only screen and (max-width: 1000px) {
   .test_create_bd-question-add--btn,

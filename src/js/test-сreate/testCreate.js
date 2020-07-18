@@ -1,7 +1,7 @@
 import { Subject } from '../subject';
 import { FileLoad } from '../fileLoad';
 
-import { Question } from '../test/question';
+import { Question } from '../question/question';
 
 import { TestCreateContent } from './testCreateContent';
 

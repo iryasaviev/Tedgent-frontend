@@ -1,11 +1,14 @@
 import { Controls } from '../controls';
 
+import { AnswerContent } from './answerContent';
+
 /**
  * Класс содержащий методы для работы с ответами. 
  */
 export class Answer {
     constructor() {
         this.controlsCl = new Controls();
+        this.contentCl = new AnswerContent();
     }
 
     /**
@@ -41,7 +44,13 @@ export class Answer {
                     let answerChoiceBtn = answer.getElementsByClassName('js-test-question-answer-choice-btn')[0];
 
                     answerChoiceBtn.remove();
-                    answer.insertAdjacentHTML('afterbegin', this.getAnswerChoiceBtn(selectOptionData, question.dataset.questionNum, answerNum));
+                    answer.insertAdjacentHTML(
+                        'afterbegin',
+                        this.contentCl.getAnswerChoiceBtn(
+                            selectOptionData,
+                            Number(question.dataset.questionNum),
+                            Number(answerNum)
+                        ));
 
                     answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(answer, question);
 
@@ -59,30 +68,6 @@ export class Answer {
 
             this.controlsCl.disableButton(question.getElementsByClassName('js-test-create-answer-add-btn')[0]);
             return;
-        }
-    }
-
-    /**
-     * Возвращает блок с кнопкой варианта ответа.
-     * Используется при смене варианта ответа.
-     * 
-     * @param {string} type тип варианта ответа который нужно вернуть.
-     * @param {string} questionNum номер вопроса.
-     * @param {string} answerNum номер ответа.
-     */
-    getAnswerChoiceBtn(type, questionNum, answerNum) {
-        switch (type) {
-            case '1':
-                return `<div class="test-question-answer-checkbox js-test-question-answer-choice-btn">
-                <input class="test-question-answer-checkbox--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerCheck${questionNum}" type="checkbox">
-                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
-                </div>`;
-
-            case '2':
-                return `<div class="test-question-answer-radio js-test-question-answer-choice-btn">
-                <input class="test-question-answer-radio--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerRadio${questionNum}" type="radio">
-                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
-                </div>`;
         }
     }
 
@@ -143,38 +128,12 @@ export class Answer {
     /**
      * Возвращает DOMString варианта ответа.
      * 
-     * @param {string} type тип возвращаемого варианта.
+     * @param {string} answerType тип возвращаемого варианта.
      * @param {string} questionNum номер вопроса.
      * @param {number} answerNum номер варианта ответа.
      */
-    getAnswerItem(type, questionNum, answerNum = 1) {
-        switch (type) {
-            case '1':
-                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="${answerNum + 1}">
-                <div class="test-question-answer-checkbox js-test-question-answer-choice-btn">
-                <input class="test-question-answer-checkbox--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum + 1}" name="answerCheck${questionNum}" type="checkbox">
-                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum + 1}"></label>
-                </div>
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum + 1}">
-                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
-
-            case '2':
-                return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="${answerNum + 1}">
-                <div class="test-question-answer-radio js-test-question-answer-choice-btn">
-                <input class="test-question-answer-radio--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum + 1}" name="answerRadio${questionNum}" type="radio">
-                <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum + 1}"></label>
-                </div>
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum + 1}">
-                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
-
-            case '3':
-                return `<div class="test_create_bd-question-answer test-question-answer-active js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ..."></div>`;
-
-            case '4':
-                return `<div class="test_create_bd-question-answer test-question-answer-active js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="number" step="any" placeholder="1"></div>`;
-        }
+    getAnswerItem(answerType, questionNum, answerNum = 1) {
+        return this.contentCl.getAnswer(answerType, questionNum, answerNum + 1);
     }
 
     /**
@@ -290,9 +249,5 @@ export class Answer {
                 return undefined;
             }
         }
-    }
-
-    setHandlers() {
-
     }
 }

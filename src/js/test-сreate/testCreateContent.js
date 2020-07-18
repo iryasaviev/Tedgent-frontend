@@ -193,7 +193,7 @@ export class TestCreateContent {
                     </div>
                   </div>
                   <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
-                    <button class="test_create_bd-question-answer-add--btn btn js-test-create-answer-add-btn">
+                    <button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn">
                       <span class="i-plus"></span>
                       <span class="txt">Вариант</span>
                     </button>
@@ -239,7 +239,7 @@ export class TestCreateContent {
           <div class="test_create_bd-question-add js-test-create-question-add">
             <div class="test_create_bd-question-add">
               <div class="test_create_bd-question-add-button more-menu js-more-menu">
-                <button class="test_create_bd-question-add--btn btn js-test-question-add-btn">
+                <button class="test_create_bd-question-add--btn btn btn-2 js-test-question-add-btn">
                   <span class="txt">Добавить вопрос</span>
                 </button>
                 <button class="test_create_bd-question-add--btn-more btn i-more js-more-menu-btn"></button>

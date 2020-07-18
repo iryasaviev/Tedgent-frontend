@@ -346,7 +346,6 @@ Test create page
   font-size: 13px;
   height: 32px;
   padding: 0 12px;
-  background: hsla(200, 13%, 93%, 1);
 }
 @media only screen and (max-width: 1000px) {
   .test_create_bd-question-add--btn,
