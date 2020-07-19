@@ -15,6 +15,7 @@ import { TestCreate } from './test-сreate/testCreate';
 import { Test } from './test/test';
 import { AccountSettings } from './account-settings/accountSettings';
 import { ServiceSettings } from './service-settings/serviceSettings';
+import { Search } from './search/search';
 
 // Для страниц
 import { PageTitles } from './pageTitles';
@@ -137,6 +138,7 @@ export class Page {
 
             // Search pge
             case '8':
+                new Search(this).runPage(contentBd);
                 break;
         }
 

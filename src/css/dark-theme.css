@@ -20,7 +20,8 @@
 .dark-theme .subject-bcg-0,
 .dark-theme .test-create_bd-attachments-label,
 .dark-theme .menu_bd-search--inp,
-.dark-theme .menu_bd-search--inp:focus {
+.dark-theme .menu_bd-search--inp:focus,
+.dark-theme .cnt-block_bd--mess {
   color: #ddd;
   background: hsl(206, 14%, 10%);
   border-color: hsla(204, 13%, 15%, 1);
@@ -41,7 +42,9 @@
 .dark-theme .test_hd-dsc,
 .dark-theme .cnt_bd-settings,
 .dark-theme .pivot-menu,
-.dark-theme .cnt_bd-profile {
+.dark-theme .cnt_bd-profile,
+.dark-theme .cnt_bd-search,
+.dark-theme .search-result-users {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }

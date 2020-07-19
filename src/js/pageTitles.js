@@ -28,6 +28,9 @@ export class PageTitles {
 
             case '7':
                 return 'Настройки сервиса';
+
+            case '8':
+                return 'Поиск';
         }
     }
 }

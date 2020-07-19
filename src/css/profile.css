@@ -18,7 +18,7 @@
 }
 @media only screen and (max-width: 767px) {
   .profile_hd {
-    padding: 15px;
+    padding: 20px 10px;
   }
 }
 .profile_hd--img {
@@ -80,6 +80,11 @@
 
 .profile_bd {
   padding: 30px 15px;
+}
+@media only screen and (max-width: 767px) {
+  .profile_bd {
+    padding: 20px 10px;
+  }
 }
 .profile-tests-title--counter {
   border-radius: 8px;

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/app.css" />
 </head>
 
-<body class="sidebar-active" id="body" data-page-num="8">
+<body class="sidebar-active" id="body" data-page-num="08">
   <div class="bd_bcg bd_bcg-active bd_bcg-4 js-background-img"></div>
 
   <div class="menu js-menu">
@@ -38,7 +38,7 @@
     </div>
     <div class="sidebar_bd">
       <div class="sidebar_bd-small-btns">
-        <button class="btn sidebar_bd-small-btn">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
         </button>
         <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/test/create" data-link-page-num="3">
@@ -58,7 +58,7 @@
         </button>
       </div>
       <div class="sidebar_bd-btns">
-        <button class="btn sidebar_bd-btn js-link-btn">
+        <button class="btn sidebar_bd-btn js-link-btn" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
           <div class="txt">Профиль</div>
         </button>
@@ -93,23 +93,134 @@
   <div class="cnt" id="bodyContent">
     <div class="cnt_bd js-content-bd">
       <div class="cnt_bd-search">
-        <div class="seacrh_hd">
-          <div class="seacrh_hd-inp_wr inp_wr js-inp-wrapper" data-characters-limit="true"
+        <div class="search_hd">
+          <div class="search_hd-inp_wr inp_wr js-inp-wrapper" data-characters-limit="true"
             data-auto-hang-handler="true">
-            <input class="seacrh_hd--inp inp js-inp" name="search" data-characters-max-limit-value="100" type="text"
+            <input class="search_hd--inp inp js-inp" name="search" data-characters-max-limit-value="100" type="text"
               placeholder="Поиск">
-            <button class="seacrh_hd-inp--btn btn btn-1">
+            <button class="search_hd-inp--btn btn btn-1">
               <span class="i-search"></span>
             </button>
             <span class="inp-limit--value js-inp-limit-value">100</span>
           </div>
+          <div class="search_hd-filter">
+            <button class="search_hd-filter--discard btn btn-2 js-search-filter-discard">Сбросить</button>
+            <div class="search_hd-filter-subject select js-select js-search-filter-subject" title="Предмет теста">
+              <button class="test-create_bd-select_hd js-select-head select_hd">
+                <div class="select_hd-value js-select-value" data-select-option-value="0"></div>
+                <div class="select_hd--icon i-down-arrow"></div>
+              </button>
+              <input class="select_hd-value--inp js-select-value-inp" type="text" value="0">
+              <div class="select_bd">
+                <button class="select_bd-option" data-select-option="1">
+                  <div class="select-subject-option--square subject-bcg-1"></div>
+                  <div>Математика</div>
+                </button>
+                <button class="select_bd-option" data-select-option="2">
+                  <div class="select-subject-option--square subject-bcg-1-1"></div>
+                  <div>Алгебра</div>
+                </button>
+                <button class="select_bd-option" data-select-option="3">
+                  <div class="select-subject-option--square subject-bcg-1-2"></div>
+                  <div>Геометрия</div>
+                </button>
+                <button class="select_bd-option" data-select-option="4">
+                  <div class="select-subject-option--square subject-bcg-1-3"></div>
+                  <div>Информатика</div>
+                </button>
+                <button class="select_bd-option" data-select-option="5">
+                  <div class="select-subject-option--square subject-bcg-2"></div>
+                  <div>Родной язык</div>
+                </button>
+                <button class="select_bd-option" data-select-option="6">
+                  <div class="select-subject-option--square subject-bcg-2-1"></div>
+                  <div>Чтение / Литература</div>
+                </button>
+                <button class="select_bd-option" data-select-option="7">
+                  <div class="select-subject-option--square subject-bcg-2-2"></div>
+                  <div>Иностранный язык</div>
+                </button>
+                <button class="select_bd-option" data-select-option="8">
+                  <div class="select-subject-option--square subject-bcg-3"></div>
+                  <div>География</div>
+                </button>
+                <button class="select_bd-option" data-select-option="9">
+                  <div class="select-subject-option--square subject-bcg-3-1"></div>
+                  <div>Биология</div>
+                </button>
+                <button class="select_bd-option" data-select-option="10">
+                  <div class="select-subject-option--square subject-bcg-3-2"></div>
+                  <div>Физика</div>
+                </button>
+                <button class="select_bd-option" data-select-option="11">
+                  <div class="select-subject-option--square subject-bcg-3-3"></div>
+                  <div>Химия</div>
+                </button>
+                <button class="select_bd-option" data-select-option="12">
+                  <div class="select-subject-option--square subject-bcg-3-4"></div>
+                  <div>Астрономия</div>
+                </button>
+                <button class="select_bd-option" data-select-option="13">
+                  <div class="select-subject-option--square subject-bcg-4"></div>
+                  <div>История</div>
+                </button>
+                <button class="select_bd-option" data-select-option="14">
+                  <div class="select-subject-option--square subject-bcg-4-1"></div>
+                  <div>Обществознание</div>
+                </button>
+                <button class="select_bd-option select_bd-option-last" data-select-option="0">
+                  <div class="select-subject-option--square subject-bcg-0"></div>
+                  <div>Другой</div>
+                </button>
+              </div>
+            </div>
+            <div class="search_hd-filter-date date-inp_wr">
+              <span class="date-inp--icon inp--icon i-calendar"></span>
+              <input class="inp date--inp js-date-inp js-search-filter-date" type="text" placeholder="03.07.2020"
+                title="Дата создания теста">
+            </div>
+          </div>
         </div>
-        <div class="seacrh_bd">
+        <div class="search_bd">
           <div class="cnt-block">
             <div class="cnt-block_hd">
               <div class="cnt-block_hd-title">Результаты поиска</div>
             </div>
-            <div class="cnt-block_bd search-result_bd"></div>
+            <div class="cnt-block_bd search-result_bd">
+              <span class="cnt-block_bd--mess">Ничего не найдено.</span>
+              <div class="search-result-users">
+                <!-- <div class="search-result-user">
+                  <img class="search-result-user--img" src="../img/pp.jpg">
+                  <div class="profile-test-info">
+                    <div class="profile-test-info--title">
+                      <a class="link" href="#">Иванов Иван Иванович</a>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+              <div class="search-result-tests">
+                <!-- <div class="search-result-test">
+                  <div class="search-result-test-logo test-subject-logo subject-bcg-1">м</div>
+                  <div class="search-result-test-info">
+                    <div class="search-result-test-info--title">
+                      <a class="link" href="#">Тест по математике для 7 А</a>
+                    </div>
+                    <div class="raiting">
+                      <div class="raiting-stars">
+                        <div class="raiting-stars--scale"></div>
+                        <div class="raiting-star star-1"><span class="i-star2"></span></div>
+                        <div class="raiting-star star-2"><span class="i-star2"></span></div>
+                        <div class="raiting-star star-3"><span class="i-star2"></span></div>
+                        <div class="raiting-star star-4"><span class="i-star2"></span></div>
+                        <div class="raiting-star star-5"><span class="i-star2"></span></div>
+                      </div>
+                      <div class="raiting-star--voted">0</div>
+                    </div>
+                  </div>
+                  <div class="search-result-test-date">16.07.2020</div>
+                </div> -->
+              </div>
+            </div>
           </div>
         </div>
       </div>

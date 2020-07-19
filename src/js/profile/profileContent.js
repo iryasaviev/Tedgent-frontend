@@ -40,7 +40,7 @@ export class ProfileContent {
               </div>
             </div>
             <div class="profile-tests_bd cnt-block_bd">
-              <span>Пользователь не создал ещё ни одного теста.</span>
+              <span class="cnt-block_bd--mess">Пользователь не создал ещё ни одного теста.</span>
             </div>
           </div>
         </div>

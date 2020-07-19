@@ -260,7 +260,7 @@ label {
   height: 34px;
   width: 100%;
   max-width: 220px;
-  border-radius: 4px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -279,11 +279,11 @@ label {
   outline: none;
   cursor: pointer;
   border: none;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .select.active > .select_hd {
-  border-radius: 4px 4px 0 0;
+  border-radius: 2px 2px 0 0;
 }
 .select_hd-value--inp {
   display: none;
@@ -319,7 +319,7 @@ label {
   visibility: visible;
   box-shadow: 0 2px 3.6px 0 rgba(0, 0, 0, 0.25),
     0 0.3px 0.9px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 2px 2px;
 }
 .select.active .select_hd--icon {
   transform: rotate(180deg);
@@ -336,6 +336,7 @@ label {
   outline: none;
   cursor: pointer;
   text-align: left;
+  border-radius: 0;
 }
 .select_bd-option:hover {
   background: #eee;
@@ -345,7 +346,7 @@ label {
   position: relative;
 }
 .select_bd-option-last {
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 2px 2px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -833,6 +834,12 @@ Body content
   .cnt-block_bd {
     padding: 0;
   }
+}
+.cnt-block_bd--mess {
+  font-size: 13px;
+  background: hsla(200, 13%, 93%, 1);
+  padding: 15px 20px;
+  border-radius: 4px;
 }
 .cnt-block_ft {
   padding-top: 20px;
@@ -1333,7 +1340,7 @@ Subject backgrounds
 }
 @media only screen and (max-width: 767px) {
   .profile_hd {
-    padding: 15px;
+    padding: 20px 10px;
   }
 }
 .profile_hd--img {
@@ -1395,6 +1402,11 @@ Subject backgrounds
 
 .profile_bd {
   padding: 30px 15px;
+}
+@media only screen and (max-width: 767px) {
+  .profile_bd {
+    padding: 20px 10px;
+  }
 }
 .profile-tests-title--counter {
   border-radius: 8px;
@@ -1584,7 +1596,7 @@ Tests list in the tests page
   }
 }
 .cnt_bd-tests-menu--select-option--square,
-.test-create_bd-select-option--square {
+.select-subject-option--square {
   height: 18px;
   width: 18px;
   border-radius: 4px;
@@ -2590,30 +2602,175 @@ Test create page
   box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
     0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
 }
-.seacrh_hd {
+.search_hd {
   padding: 30px;
   display: flex;
+  flex-direction: column;
 }
-.seacrh_hd-inp_wr {
+@media only screen and (max-width: 767px) {
+  .search_hd {
+    padding: 20px 10px;
+  }
+}
+.search_hd-inp_wr {
   display: flex;
   flex-direction: row;
   max-width: 730px;
   margin: auto;
+  margin-bottom: 15px;
 }
-.seacrh_hd--inp {
+.search_hd--inp {
   height: 44px;
   border-radius: 4px 0 0 4px;
 }
-.seacrh_hd-inp--btn {
+.search_hd-inp--btn {
   padding: 0 22px;
   height: 44px;
   border-radius: 0 4px 4px 0;
 }
-
-.seacrh_bd {
-  padding: 30px 15px;
+.search_hd-filter {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 730px;
+  width: 100%;
+  margin: auto;
+}
+@media only screen and (max-width: 767px) {
+  .search_hd-filter {
+    flex-wrap: wrap;
+  }
+}
+.search_hd-filter--discard {
+  padding: 0 12px;
+}
+.search_hd-filter-subject,
+.search_hd-filter-date {
+  margin-left: 20px;
+}
+.search_hd-filter-date {
+  max-width: 116px;
+  min-width: 116px;
+}
+@media only screen and (max-width: 767px) {
+  .search_hd-filter--discard,
+  .search_hd-filter-subject,
+  .search_hd-filter-date {
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
 }
 
+.search_bd {
+  padding: 30px 15px;
+}
+@media only screen and (max-width: 767px) {
+  .search_bd {
+    padding: 20px 10px;
+  }
+}
+.search-result-users {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+  display: none;
+}
+.search-result-users-active {
+  display: block;
+}
+.search-result-user {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 10px;
+  display: flex;
+  padding: 15px 10px;
+  justify-content: space-between;
+}
+.search-result-user--img,
+.search-result-test-logo {
+  border-radius: 50%;
+  min-width: 60px;
+  min-height: 60px;
+  max-width: 60px;
+  max-height: 60px;
+  box-shadow: 0 2px 7.2px 0 rgba(0, 0, 0, 0.25),
+    0 0.6px 2.8px 0 rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 767px) {
+  .search-result-user--img,
+  .search-result-test-logo {
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+  }
+}
+.search-result-tests {
+  max-height: 990px;
+  overflow-y: auto;
+  display: none;
+}
+.search-result-tests-active {
+  display: block;
+}
+.search-result-test {
+  padding: 15px 10px;
+  width: 100%;
+  max-height: 150px;
+  min-height: 90px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 767px) {
+  .search-result-test,
+  .search-result-user {
+    height: 70px;
+    min-height: 70px;
+    padding: 10px 5px;
+  }
+}
+.search-result-test-logo {
+  border-radius: 12px;
+  font-size: 30px;
+  line-height: 60px;
+}
+@media only screen and (max-width: 767px) {
+  .search-result-test-logo {
+    font-size: 25px;
+    line-height: 50px;
+    border-radius: 8px;
+  }
+}
+.search-result-test-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 15px;
+  flex-grow: 1;
+}
+@media only screen and (max-width: 767px) {
+  .search-result-test-info {
+    margin-left: 10px;
+  }
+}
+.search-result-test-info--title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+@media only screen and (max-width: 767px) {
+  .search-result-test-info--title {
+    font-size: 14px;
+  }
+}
+.search-result-test-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: #8e8e8e;
+}
 .dark-theme {
   background-color: hsla(204, 13%, 10%, 1);
   color: hsl(207, 63%, 54%);
@@ -2636,7 +2793,8 @@ Test create page
 .dark-theme .subject-bcg-0,
 .dark-theme .test-create_bd-attachments-label,
 .dark-theme .menu_bd-search--inp,
-.dark-theme .menu_bd-search--inp:focus {
+.dark-theme .menu_bd-search--inp:focus,
+.dark-theme .cnt-block_bd--mess {
   color: #ddd;
   background: hsl(206, 14%, 10%);
   border-color: hsla(204, 13%, 15%, 1);
@@ -2657,7 +2815,9 @@ Test create page
 .dark-theme .test_hd-dsc,
 .dark-theme .cnt_bd-settings,
 .dark-theme .pivot-menu,
-.dark-theme .cnt_bd-profile {
+.dark-theme .cnt_bd-profile,
+.dark-theme .cnt_bd-search,
+.dark-theme .search-result-users {
   background: hsla(204, 13%, 15%, 1);
   border-color: hsl(206, 14%, 10%);
 }
