@@ -14,5 +14,23 @@ export class Test {
      */
     runPage(contentBd) {
         contentBd.innerHTML = this.contentCl.getPage();
+
+        this.setHandlers();
+    }
+
+    /**
+     * Устанавливает обработчики событий.
+     */
+    setHandlers() {
+
+        // Устанавливает обработчики событий на вложения, которые являются изображения, для возможности увеличенного просмотра
+        const attachments = this.page.content.getElementsByClassName('js-test-create-attachment');
+        for (let attachment of attachments) {
+            let img = attachment.getElementsByClassName('js-test-create-attachment-img')[0];
+            if (img !== undefined) {
+                img.onclick = () => this.page.photoFrameCl.showOrCloseFrame(img.src);
+            }
+        }
+
     }
 }

@@ -7,8 +7,10 @@ export class TestContent {
               <div class="test-subject-logo subject-bcg-1 js-test-subject-logo">М</div>
             </div>
             <div class="test_hd-title">
-              <h3 class="test_hd-title--heading">Тест по математике за 5 класс</h3>
-              <p class="test_hd-title--description">Описание для теста по математике за 5 класс. Простые уравнения.</p>
+              <h3 class="test_hd-title--heading">Товарищи! постоянное информационно-пропагандистское обеспечение нашей
+                деятельности позволяет выполня</h3>
+              <p class="test_hd-title--description">Разнообразный и богатый опыт консультация с широким активом
+                обеспечивает широкому кругу. Таким образом реализация намече</p>
             </div>
           </div>
           <div class="test_hd-dsc">
@@ -34,7 +36,7 @@ export class TestContent {
         <div class="test_bd">
           <div class="test-attachments js-test-attachments">
             <div class="test-attachments-file js-test-create-attachment">
-              <img class="test-attachments-file--img"
+              <img class="test-attachments-file--img js-test-create-attachment-img"
                 src="https://reshenie.club/ulp/matematika/5klass/a_merzljak_i_dr/zadanie_287_efr.png">
               <div class="test-attachments-file-info">
                 <a class="link js-test-create-attachment-name" href="#"

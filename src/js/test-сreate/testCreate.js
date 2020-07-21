@@ -127,7 +127,7 @@ export class TestCreate {
             // если нет, то иконка
             let attachmentLogo;
             if (file.type && file.type.indexOf('image') !== -1) {
-                attachmentLogo = `<img class="test-attachments-file--img" src="">`;
+                attachmentLogo = `<img class="test-attachments-file--img js-test-create-attachment-img">`;
             }
             else {
                 attachmentLogo = `<span class="i-file icon"></span>`;
@@ -167,7 +167,7 @@ export class TestCreate {
      * @param {*} params передаваемые параметры.
      */
     showImage(path, params) {
-        const img = params.attachmentTag.getElementsByClassName('test-attachments-file--img')[0];
+        const img = params.attachmentTag.getElementsByClassName('js-test-create-attachment-img')[0];
 
         img.src = path;
         img.onclick = () => params.photoFramCl.showOrCloseFrame(path);

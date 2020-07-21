@@ -64,7 +64,8 @@
 .dark-theme .test-result_bd,
 .dark-theme .profile_hd,
 .dark-theme .inp--icon,
-.dark-theme .cnt-block_hd-title {
+.dark-theme .cnt-block_hd-title,
+.dark-theme .test_hd-title--heading {
   color: #ddd;
 }
 

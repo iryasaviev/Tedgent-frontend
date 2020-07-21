@@ -62,69 +62,6 @@ Test create page
   display: flex;
   flex-direction: column;
 }
-.test-attachments-file {
-  height: auto;
-  min-height: 55px;
-  max-height: 90px;
-  background: hsla(207, 63%, 54%, 0.1);
-  border-radius: 4px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-  width: 100%;
-  font-weight: 600;
-  justify-content: space-between;
-  color: #333;
-  padding: 10px 0;
-}
-.test-attachments-file--img {
-  margin: 0 10px;
-  border-radius: 4px;
-  max-width: 70px;
-  max-height: 70px;
-  cursor: pointer;
-}
-.test-attachments-file-info {
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-grow: 1;
-  padding-right: 10px;
-}
-.test-attachments-file .icon {
-  font-size: 20px;
-  padding: 0 10px;
-}
-.test-attachments-file .link {
-  width: 100%;
-  color: #333;
-  overflow: hidden;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.test-attachments-file .link:hover {
-  text-decoration: underline;
-}
-.test-create-attachments-file .link {
-  cursor: default;
-}
-.test-create-attachments-file .link:hover {
-  text-decoration: none;
-}
-.test-attachments-file .size {
-  color: #8e8e8e;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 20px;
-}
-.test-attachments-file .delete {
-  padding: 0 10px;
-  background: transparent;
-  margin: 0 8px;
-}
 .test-question,
 .test_create_bd-question {
   width: 100%;
