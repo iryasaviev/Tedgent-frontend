@@ -111,36 +111,32 @@ export class Page {
                 new Profile(this).runPage(contentBd);
                 break;
 
-            // Tests list page
-            case '2':
-                break;
-
             // Test create page
-            case '3':
+            case '2':
                 new TestCreate(this).runPage(contentBd);
                 break;
 
             // Test page
-            case '4':
+            case '3':
                 new Test(this).runPage(contentBd);
                 break;
 
             // Test result for creator page
-            case '5':
+            case '4':
                 break;
 
             // Account settings page
-            case '6':
+            case '5':
                 new AccountSettings(this).runPage(contentBd);
                 break;
 
             // Service settings page
-            case '7':
+            case '6':
                 new ServiceSettings(this).runPage(contentBd);
                 break;
 
-            // Search pge
-            case '8':
+            // Search page
+            case '7':
                 new Search(this).runPage(contentBd);
                 break;
         }
