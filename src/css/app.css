@@ -151,7 +151,7 @@ label {
 .select_hd:active,
 .select_bd-option:active,
 .toggle--btn:active {
-  background: hsl(0, 0%, 84%);
+  background: hsl(0, 0%, 81%);
 }
 .btn-1 {
   color: #fff;
@@ -584,14 +584,6 @@ Left menu
   overflow: hidden;
   min-width: 50px;
   border-radius: 0;
-}
-.sidebar_bd-btn:hover,
-.sidebar_bd-btn:active,
-.sidebar_bd-btn:focus,
-.sidebar_bd-small-btn:hover,
-.sidebar_bd-small-btn:active,
-.sidebar_bd-small-btn:focus {
-  box-shadow: none;
 }
 
 @media only screen and (max-width: 767px) {

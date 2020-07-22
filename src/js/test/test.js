@@ -24,13 +24,17 @@ export class Test {
     setHandlers() {
 
         // Устанавливает обработчики событий на вложения, которые являются изображения, для возможности увеличенного просмотра
-        const attachments = this.page.content.getElementsByClassName('js-test-create-attachment');
+        const attachments = this.page.content.getElementsByClassName('js-test-attachment');
         for (let attachment of attachments) {
-            let img = attachment.getElementsByClassName('js-test-create-attachment-img')[0];
+            let img = attachment.getElementsByClassName('js-test-attachment-img')[0];
             if (img !== undefined) {
                 img.onclick = () => this.page.photoFrameCl.showOrCloseFrame(img.src);
             }
         }
 
+        const questionImgs = this.page.content.getElementsByClassName('js-test-question-img');
+        for (let questionImg of questionImgs) {
+            questionImg.onclick = () => this.page.photoFrameCl.showOrCloseFrame(questionImg.src);
+        }
     }
 }

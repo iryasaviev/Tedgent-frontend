@@ -143,60 +143,6 @@ Tests list in the tests page
     font-size: 11px;
   }
 }
-/* .test_hdr-raiting,
-.tests--item-col-raiting {
-  position: relative;
-  display: flex;
-  font-size: 12px;
-  padding-top: 8px;
-  line-height: 1;
-}
-@media only screen and (max-width: 767px) {
-  .tests--item-col-raiting {
-    padding: 4px 0;
-    font-size: 11px;
-  }
-}
-.test_hdr-raiting-stars,
-.tests--item-col-raiting-stars {
-  height: 11px;
-  display: flex;
-  direction: rtl;
-  max-width: 80px;
-  margin-right: 6px;
-  position: relative;
-  background: #ddd;
-  overflow: hidden;
-}
-.test_hdr-raiting-stars--scale,
-.tests--item-col-raiting-stars--scale {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  background: hsla(54, 100%, 50%, 1);
-}
-.test_hdr-raiting-stars--star,
-.tests--item-col-raiting-stars--star {
-  cursor: pointer;
-  background: #ddd;
-  position: relative;
-  color: #fff;
-  height: 11px;
-  width: 11px;
-  overflow: hidden;
-}
-.test_hdr-raiting-stars--star :hover,
-.tests--item-col-raiting-stars--star:hover,
-.tests--item-col-raiting-stars--star:hover
-  ~ .tests--item-col-raiting-stars--star,
-.test_hdr-raiting-stars--star:hover ~ .test_hdr-raiting-stars--star {
-  background: hsla(54, 100%, 50%, 1);
-}
-.test_hdr-raiting--voted,
-.tests--item-col-raiting--voted {
-  color: #8e8e8e;
-} */
 .tests--item-col-more {
   position: relative;
   display: flex;

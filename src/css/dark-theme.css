@@ -21,7 +21,8 @@
 .dark-theme .test-create_bd-attachments-label,
 .dark-theme .menu_bd-search--inp,
 .dark-theme .menu_bd-search--inp:focus,
-.dark-theme .cnt-block_bd--mess {
+.dark-theme .cnt-block_bd--mess,
+.dark-theme .test-attachments-file {
   color: #ddd;
   background: hsl(206, 14%, 10%);
   border-color: hsla(204, 13%, 15%, 1);
