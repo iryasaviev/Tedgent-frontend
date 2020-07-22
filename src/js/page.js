@@ -4,6 +4,7 @@ import { Select } from './select';
 import { PhotoFrame } from './photoFrame';
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';
+import { DialogWindow } from './dialogWindow';
 
 // Элементы управления (кнопки, поля для ввода)
 import { Controls } from './controls';
@@ -34,10 +35,12 @@ export class Page {
         this.menuPageTitle = this.menu.getElementsByClassName('js-menu-page-title')[0];
         this.photoFrame = this.body.getElementsByClassName('js-photo-frame')[0];
         this.message = this.body.getElementsByClassName('js-message')[0];
+        this.dialogWindow = this.body.getElementsByClassName('js-dialog-window')[0];
 
         // Для работы с областями
         this.selectCl = new Select();
         this.messageCl = new Message(this);
+        this.dialogWindowCl = new DialogWindow(this);
         this.photoFrameCl = new PhotoFrame(this);
 
         // Для работы с элементами управления
@@ -157,12 +160,13 @@ export class Page {
             linkBtn.onclick = () => this.goToPage(linkBtn);
         }
 
-        this.photoFrameCl.setHandlers();
         new Sidebar().setHandlers();
         this.selectCl.setHandlers();
         new MoreMenu().setHandlers();
         this.controlsCl.setHandlers();
         this.fieldCl.setHandlers();
+        this.photoFrameCl.setHandlers();
+        this.dialogWindowCl.setHandlers();
 
         this.body.onclick = (event) => this.closeWindows(event);
     }

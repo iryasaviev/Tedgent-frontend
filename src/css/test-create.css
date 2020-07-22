@@ -62,6 +62,9 @@ Test create page
   display: flex;
   flex-direction: column;
 }
+.test_create_bd-questions {
+  margin-top: 60px;
+}
 .test-question,
 .test_create_bd-question {
   width: 100%;
