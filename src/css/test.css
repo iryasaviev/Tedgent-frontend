@@ -26,11 +26,11 @@ Test
 }
 .test_hd-info {
   display: flex;
-  padding: 30px 15px;
+  padding: 30px 15px 22px 15px;
 }
 @media only screen and (max-width: 767px) {
   .test_hd-info {
-    padding: 20px 10px;
+    padding: 20px 10px 12px 10px;
   }
 }
 .test_hd-dsc {
@@ -119,6 +119,17 @@ Test
   display: flex;
   flex-direction: column;
 }
+.test_hd-author {
+  display: flex;
+  align-self: flex-end;
+  font-size: 12px;
+  padding: 0 15px;
+  padding-bottom: 8px;
+  line-height: 12px;
+}
+.test_hd-author > .link {
+  color: #8e8e8e;
+}
 .test-attachments {
   margin: 0;
   flex-direction: column;
@@ -189,7 +200,8 @@ Test
   background: transparent;
   margin: 0 8px;
 }
-.test-active .test-attachments {
+.test-active .test-attachments,
+.test-result-attachments {
   display: flex;
 }
 .test-questions {

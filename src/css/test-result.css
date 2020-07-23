@@ -125,3 +125,21 @@
 .test-result-user--time .unit {
   font-weight: 500;
 }
+.test-result-question_hd {
+  background: hsla(200, 13%, 93%, 1);
+}
+.test-question-incorrect {
+  background: hsla(0, 100%, 50%, 0.4);
+}
+.test-question-correct {
+  background: hsla(120deg, 100%, 25%, 45%);
+}
+.test-result-answer-correct {
+  font-size: 16px;
+  font-weight: 600;
+}
+@media only screen and (max-width: 767px) {
+  .test-result-answer-correct {
+    font-size: 14px;
+  }
+}

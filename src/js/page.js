@@ -124,19 +124,23 @@ export class Page {
             // Test result for creator page
             case '4':
                 break;
+            
+            // Test result for user
+            case '5':
+                break;
 
             // Account settings page
-            case '5':
+            case '6':
                 new AccountSettings(this).runPage(contentBd);
                 break;
 
             // Service settings page
-            case '6':
+            case '7':
                 new ServiceSettings(this).runPage(contentBd);
                 break;
 
             // Search page
-            case '7':
+            case '8':
                 new Search(this).runPage(contentBd);
                 break;
         }
