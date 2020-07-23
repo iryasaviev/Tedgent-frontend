@@ -1,10 +1,10 @@
-import { TestResultForUserContent } from './testResultForUserContent';
+import { TestResultForCreatorContent } from './testResultForCreatorContent';
 
-export class TestResultForUser {
+export class TestResultForCreator {
     constructor(page) {
         this.page = page;
 
-        this.contentCl = new TestResultForUserContent();
+        this.contentCl = new TestResultForCreatorContent();
     }
 
     /**

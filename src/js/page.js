@@ -14,6 +14,8 @@ import { Fields } from './fields';
 import { Profile } from './profile/profile';
 import { TestCreate } from './test-сreate/testCreate';
 import { Test } from './test/test';
+import { TestResultForCreator } from './test-result-for-creator/testResultForCreator';
+import { TestResultForUser } from './test-result-for-user/testResultForUser';
 import { AccountSettings } from './account-settings/accountSettings';
 import { ServiceSettings } from './service-settings/serviceSettings';
 import { Search } from './search/search';
@@ -123,10 +125,12 @@ export class Page {
 
             // Test result for creator page
             case '4':
+                new TestResultForCreator(this).runPage(contentBd);
                 break;
-            
+
             // Test result for user
             case '5':
+                new TestResultForUser(this).runPage(contentBd);
                 break;
 
             // Account settings page
