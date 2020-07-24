@@ -38,6 +38,10 @@ label {
   bottom: 0;
   background: hsla(220, 100%, 99%, 1);
 }
+.preloader-active .bd_bcg {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
 .bd_bcg-blur {
   -webkit-filter: blur(8px);
   filter: blur(8px);
@@ -806,6 +810,37 @@ Dialog window
 
 /*
 ----------
+Preloader
+----------
+*/
+.preloader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 1;
+  background: hsla(0, 0%, 0%, 0.5);
+}
+.preloader-active .preloader {
+  display: flex;
+}
+.preloader--img {
+  width: 60px;
+}
+.preloader--txt {
+  margin-top: 10px;
+  color: #ddd;
+  text-align: center;
+  max-width: 150px;
+}
+
+/*
+----------
 Body content 
 ----------
 */
@@ -838,6 +873,10 @@ Body content
   .cnt_bd {
     padding: 20px 10px;
   }
+}
+.preloader-active .cnt_bd {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
 }
 .cnt_bd-menu {
   height: 35px;

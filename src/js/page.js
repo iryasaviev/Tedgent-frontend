@@ -5,6 +5,7 @@ import { PhotoFrame } from './photoFrame';
 import { MoreMenu } from './moreMenu';
 import { Message } from './message';
 import { DialogWindow } from './dialogWindow';
+import { Preloader } from './preloader';
 
 // Элементы управления (кнопки, поля для ввода)
 import { Controls } from './controls';
@@ -38,12 +39,14 @@ export class Page {
         this.photoFrame = this.body.getElementsByClassName('js-photo-frame')[0];
         this.message = this.body.getElementsByClassName('js-message')[0];
         this.dialogWindow = this.body.getElementsByClassName('js-dialog-window')[0];
+        this.preloader = this.body.getElementsByClassName('js-preloader')[0];
 
         // Для работы с областями
         this.selectCl = new Select();
         this.messageCl = new Message(this);
         this.dialogWindowCl = new DialogWindow(this);
         this.photoFrameCl = new PhotoFrame(this);
+        this.preloaderCl = new Preloader(this);
 
         // Для работы с элементами управления
         this.controlsCl = new Controls(this);
@@ -87,7 +90,9 @@ export class Page {
         let link = linkBtn.dataset.link,
             linkPageNum = linkBtn.dataset.linkPageNum;
 
+        this.preloaderCl.show('Загрузка страницы...');
         this.runPageContent(linkPageNum);
+        this.preloaderCl.close();
     }
 
     /**
