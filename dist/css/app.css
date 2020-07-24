@@ -114,6 +114,10 @@ label {
 .inp-limit-value-visisble .inp {
   padding-right: 34px;
 }
+.inp-error {
+  border-color: hsla(0, 100%, 50%, 0.5);
+  background: hsla(0, 100%, 50%, 0.2);
+}
 
 .date-inp_wr {
   position: relative;

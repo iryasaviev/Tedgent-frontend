@@ -146,6 +146,51 @@ export class Fields {
         inp.value = newValue;
     }
 
+    checkOnLettersAndNums(inp) {
+        // Набор из букв и цифр (латиница + кириллица)
+        const expression = '^[а-яА-ЯёЁa-zA-Z0-9]+$';
+    }
+
+    /**
+     * Проверка поля на пустоту.
+     * 
+     * @param {object} event объект события.
+     */
+    checkOnEmpty(event) {
+        const inp = event.target;
+
+        if (inp.value.length > 0) {
+            return false;
+            // if (!inp.classList.contains('inp-error')) {
+            //     inp.classList.add('inp-error');
+            // }
+        }
+        else {
+            for (let char of inp.value) {
+                if (char !== ' ') {
+                    return true;
+                }
+            }
+        }
+    }
+
+    highlightErrorInput(inp, text) {
+        if (!inp.classList.contains('inp-error')) {
+            inp.classList.add('inp-error');
+        }
+
+        // ToDo: вывести текст
+    }
+
+
+    removeErrorSelection(inp) {
+        if (inp.classList.contains('inp-error')) {
+            inp.classList.remove('inp-error');
+        }
+
+        // ToDo: удалить текст
+    }
+
     /**
      * Автоматический увеличивает высоту textarea по мере его заполнения.
      * 
