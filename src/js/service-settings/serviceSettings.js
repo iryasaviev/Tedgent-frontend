@@ -8,6 +8,21 @@ export class ServiceSettings {
     }
 
     /**
+     * Изменяет состояние тумблеров, в зависимости от примененных ранее настроек.
+     */
+    setSwitchStates() {
+        let bcgSolidColorToggle = this.page.content.getElementsByClassName('js-settings-service-appearance-img-solid-color-toggle')[0];
+        if (!this.page.backgroundImg.classList.contains('bd_bcg-active')) {
+            this.page.controlsCl.switchToggle(bcgSolidColorToggle);
+        }
+
+        let bcgBlurToggle = this.page.content.getElementsByClassName('js-settings-service-appearance-img-blur-toggle')[0];
+        if (this.page.backgroundImg.classList.contains('bd_bcg-blur')) {
+            this.page.controlsCl.switchToggle(bcgBlurToggle);
+        }
+    }
+
+    /**
      * Изменяет фоновое изображение.
      * 
      * @param {object} imgWrapper родительский блок выбранного изображения.
@@ -110,5 +125,8 @@ export class ServiceSettings {
 
         // Устанавливает обработчик события на тумблер для установки сплошного цвета в качестве фона
         bcgImgSolidColorToggle.onclick = () => this.toggleBackgroundSolidColor(bcgImgSolidColorToggle);
+
+        // Изменяет состояние тумблеров, в зависимости от примененных ранее настроек
+        this.setSwitchStates();
     }
 }

@@ -1,4 +1,4 @@
-export class TestResultForCreator {
+export class TestResultForCreatorContent {
     getPage() {
         return ``;
     }
