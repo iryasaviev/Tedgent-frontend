@@ -26,7 +26,7 @@
     <div class="sidebar_hd">
       <div class="sidebar_hd-user">
         <div class="sidebar_hd-user-col1">
-          <img class="sidebar_hd-user-col1--img" src="img/pp.jpg" />
+          <img class="sidebar_hd-user-col1--img" src="../img/pp.jpg" />
           <div class="sidebar_hd-user-col1--txt">
             <span>Ясавиев</span>
             <span>Ильнур</span>
@@ -37,44 +37,44 @@
           <div class="sidebar_hd-user-col2--item">@ir_yasaviev</div>
         </div>
       </div>
-      <button class="sidebar_hd--btn btn i-arrow-left btn"></button>
+      <button class="sidebar_hd--btn btn i-arrow-left btn" data-action="openOrClose" data-run-in-frame="sidebar"></button>
     </div>
     <div class="sidebar_bd">
       <div class="sidebar_bd-small-btns">
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/test/create" data-link-page-num="3">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/acconut/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/acconut/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-dark-theme-btn">
+        <button class="btn sidebar_bd-small-btn" data-action="darkThemeToggle" data-run-in-frame="sidebar">
           <span class="i-moon icon"></span>
         </button>
       </div>
       <div class="sidebar_bd-btns">
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
           <div class="txt">Профиль</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/test/create" data-link-page-num="3">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
           <div class="txt">Создать тест</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
           <div class="txt">Поиск</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/account/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/account/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
           <div class="txt">Настройки</div>
         </button>
-        <button class="btn sidebar_bd-btn js-dark-theme-btn">
+        <button class="btn sidebar_bd-btn js-dark-theme-btn" data-action="darkThemeToggle" data-run-in-frame="sidebar">
           <span class="i-moon icon"></span>
           <div class="txt">Тёмная тема</div>
         </button>
@@ -82,8 +82,20 @@
     </div>
   </div>
 
-  <div class="photo-frame js-photo-frame">
+  <div class="photo-frame js-photo-frame" data-action="close" data-run-in-frame="photoFrame">
     <img class="photo-frame--img js-photo-frame-img">
+  </div>
+
+  <div class="dialog-window_wr js-dialog-window">
+    <div class="dialog-window">
+      <div class="dialog-window_bd">
+        <span class="js-dialog-window-text"></span>
+      </div>
+      <div class="dialog-window_ft">
+        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" >Отмена</button>
+        <button class="dialog-window--btn btn btn-1 js-dialog-window-execute-btn">Выполнить</button>
+      </div>
+    </div>
   </div>
 
   <div class="cnt" id="bodyContent">
@@ -99,7 +111,7 @@
                 <span class="label-txt">Название</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
                   data-auto-hang-handler="true">
-                  <input class="inp js-inp" name="title" data-characters-max-limit-value="100" type="text">
+                  <input class="inp js-inp" name="testTitle" data-characters-max-limit-value="100" type="text">
                   <span class="inp-limit--value js-inp-limit-value">100</span>
                 </div>
               </label>
@@ -107,7 +119,7 @@
                 <span class="label-txt">Описание</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
                   data-auto-hang-handler="true">
-                  <input class="inp js-inp" name="description" data-characters-max-limit-value="120" type="text">
+                  <input class="inp js-inp" name="testDescription" data-characters-max-limit-value="120" type="text">
                   <span class="inp-limit--value js-inp-limit-value">120</span>
                 </div>
               </label>
@@ -250,8 +262,7 @@
               <div class="test_create_bd-question_bd js-test-question-body">
                 <div class="test_create_bd-question-col1">
                   <div class="test_create_bd-question-col1-row">
-                    <button
-                      class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
+                    <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn" data-question-action="deleteQuestion"></button>
                     <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="false">
                       <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title"
                         name="question" type="text" data-characters-max-limit-value="250"
@@ -262,8 +273,7 @@
                     <div class="test_create_bd-question-col1-image">
                       <button
                         class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                      <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
-                      <img class="test_create_bd-question--img js-test-question-img">
+                      <img class="test_create_bd-question--img js-test-question-img" data-action="show" data-run-in-frame="photoFrame">
                     </div>
                   </div>
                   <div
@@ -277,11 +287,11 @@
                       <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer"
                         type="text" placeholder="Ответ №1">
                       <button
-                        class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button>
+                        class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button>
                     </div>
                   </div>
                   <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
-                    <button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn">
+                    <button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn" data-answer-action="addAnswer">
                       <span class="i-plus"></span>
                       <span class="txt">Вариант</span>
                     </button>
@@ -327,7 +337,7 @@
           <div class="test_create_bd-question-add js-test-create-question-add">
             <div class="test_create_bd-question-add">
               <div class="test_create_bd-question-add-button more-menu js-more-menu">
-                <button class="test_create_bd-question-add--btn btn btn-2 js-test-question-add-btn">
+                <button class="test_create_bd-question-add--btn btn btn-2 js-test-question-add-btn" data-action="addQuestion">
                   <span class="txt">Добавить вопрос</span>
                 </button>
                 <button class="test_create_bd-question-add--btn-more btn i-more js-more-menu-btn"></button>
@@ -376,7 +386,7 @@
         </div>
 
         <div class="test_ft">
-          <button class="test_ft--btn btn btn-1">Начать</button>
+          <button class="test_ft--btn btn btn-1" data-action="collectData">Сохранить</button>
         </div>
       </div>
     </div>

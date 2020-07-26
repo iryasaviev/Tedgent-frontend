@@ -14,7 +14,7 @@ export class QuestionContent {
         <div class="test_create_bd-question_bd js-test-question-body">
             <div class="test_create_bd-question-col1">
                 <div class="test_create_bd-question-col1-row">
-                    <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn"></button>
+                    <button class="test_create_bd-question-col1-row--btn btn i-cross js-test-create-question-del-btn" data-question-action="deleteQuestion"></button>
                     <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="false">
                         <textarea class="test_create_bd-question-title--inp inp js-inp js-test-create-question-title" name="question" type="text" data-characters-max-limit-value="250" placeholder="Вопрос №${questionNum}"></textarea>
                     </div>
@@ -22,8 +22,7 @@ export class QuestionContent {
                 <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                     <div class="test_create_bd-question-col1-image">
                         <button class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                        <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
-                        <img class="test_create_bd-question--img js-test-question-img">
+                        <img class="test_create_bd-question--img js-test-question-img" data-action="show" data-run-in-frame="photoFrame">
                     </div>
                 </div>
                 <div class="test_create_bd-question-col1-row test_create_bd-question-answers js-test-question-answers">${answersString}</div>
@@ -116,7 +115,7 @@ export class QuestionContent {
     getQuestionDeleteMessage() {
         return `<div class="test_create_bd-question-deleted-mess js-test-create-question-deleted-message">
         <p>Вопрос будет удалён через <span class="test_create_bd-question-deleted-mess--time js-test-create-question-deleted-message-time">7</span>.</p>
-        <button class="test_create_bd-question-deleted-mess--btn btn-icon js-test-create-question-restore-btn">Восстановить</button>
+        <button class="test_create_bd-question-deleted-mess--btn btn-icon js-test-create-question-restore-btn" data-question-action="restoreQuestion">Восстановить</button>
         </div>`;
     }
 
@@ -133,7 +132,7 @@ export class QuestionContent {
             </button>`;
         }
         else {
-            return `<button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn">
+            return `<button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn" data-answer-action="addAnswer">
             <span class="i-plus"></span>
             <span class="txt">Вариант</span>
             </button>`;

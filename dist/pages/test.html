@@ -37,44 +37,44 @@
           <div class="sidebar_hd-user-col2--item">@ir_yasaviev</div>
         </div>
       </div>
-      <button class="sidebar_hd--btn btn i-arrow-left btn"></button>
+      <button class="sidebar_hd--btn btn i-arrow-left btn" data-action="openOrClose" data-run-in-frame="sidebar"></button>
     </div>
     <div class="sidebar_bd">
       <div class="sidebar_bd-small-btns">
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/test/create" data-link-page-num="3">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-link="/acconut/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/acconut/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-dark-theme-btn">
+        <button class="btn sidebar_bd-small-btn" data-action="darkThemeToggle" data-run-in-frame="sidebar">
           <span class="i-moon icon"></span>
         </button>
       </div>
       <div class="sidebar_bd-btns">
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
           <div class="txt">Профиль</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/test/create" data-link-page-num="3">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
           <div class="txt">Создать тест</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
           <div class="txt">Поиск</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-link="/account/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/account/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
           <div class="txt">Настройки</div>
         </button>
-        <button class="btn sidebar_bd-btn js-dark-theme-btn">
+        <button class="btn sidebar_bd-btn js-dark-theme-btn" data-action="darkThemeToggle" data-run-in-frame="sidebar">
           <span class="i-moon icon"></span>
           <div class="txt">Тёмная тема</div>
         </button>
@@ -82,8 +82,20 @@
     </div>
   </div>
 
-  <div class="photo-frame js-photo-frame">
+  <div class="photo-frame js-photo-frame" data-action="close" data-run-in-frame="photoFrame">
     <img class="photo-frame--img js-photo-frame-img">
+  </div>
+
+  <div class="dialog-window_wr js-dialog-window">
+    <div class="dialog-window">
+      <div class="dialog-window_bd">
+        <span class="js-dialog-window-text"></span>
+      </div>
+      <div class="dialog-window_ft">
+        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" >Отмена</button>
+        <button class="dialog-window--btn btn btn-1 js-dialog-window-execute-btn">Выполнить</button>
+      </div>
+    </div>
   </div>
 
   <div class="cnt" id="bodyContent">

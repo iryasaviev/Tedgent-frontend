@@ -86,7 +86,7 @@ label {
 .inp {
   width: 100%;
   height: 34px;
-  border-radius: 2px;
+  border-radius: 4px;
   background: hsla(200, 13%, 93%, 1);
   border: none;
   padding: 10px 8px;
@@ -139,7 +139,7 @@ label {
   border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -273,7 +273,7 @@ label {
   height: 34px;
   width: 100%;
   max-width: 220px;
-  border-radius: 2px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -292,11 +292,11 @@ label {
   outline: none;
   cursor: pointer;
   border: none;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .select.active > .select_hd {
-  border-radius: 2px 2px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .select_hd-value--inp {
   display: none;

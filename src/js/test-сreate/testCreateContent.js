@@ -1,6 +1,6 @@
 export class TestCreateContent {
-    getPage() {
-        return `<div class="cnt_bd-test">
+  getPage() {
+    return `<div class="cnt_bd-test">
         <div class="test_hd test-create_hd">
           <div class="test_hd-info test-create_hd-info">
             <div class="test-subject-logo_wr">
@@ -174,7 +174,6 @@ export class TestCreateContent {
                     <div class="test_create_bd-question-col1-image">
                       <button
                         class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
-                      <div class="test_create_bd-question-img--bcg js-test-question-img-background"></div>
                       <img class="test_create_bd-question--img js-test-question-img">
                     </div>
                   </div>
@@ -189,11 +188,11 @@ export class TestCreateContent {
                       <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer"
                         type="text" placeholder="Ответ №1">
                       <button
-                        class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button>
+                        class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button>
                     </div>
                   </div>
                   <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-add-answer">
-                    <button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn">
+                    <button class="test_create_bd-question-answer-add--btn btn btn-2 js-test-create-answer-add-btn" data-answer-action="addAnswer">
                       <span class="i-plus"></span>
                       <span class="txt">Вариант</span>
                     </button>
@@ -291,5 +290,5 @@ export class TestCreateContent {
           <button class="test_ft--btn btn btn-1">Начать</button>
         </div>
       </div>`;
-    }
+  }
 }

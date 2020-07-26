@@ -3,6 +3,7 @@ import { Timer } from '../timer';
 
 import { Answer } from '../answer/answer';
 import { QuestionContent } from './questionContent';
+import { DelegationQuestion } from './deleagtionQuestion';
 
 /**
  * Class with methods for work with question.
@@ -10,8 +11,9 @@ import { QuestionContent } from './questionContent';
  */
 export class Question {
     constructor(page) {
-        this.answerCl = new Answer();
+        this.answerCl = new Answer(this);
         this.contentCl = new QuestionContent();
+        this.delegationQuestionCl = new DelegationQuestion(this, this.answerCl);
 
         this.page = page;
         this.questions = this.page.content.getElementsByClassName('js-test-question');
@@ -46,8 +48,7 @@ export class Question {
             return;
         }
 
-        const imgBackground = question.getElementsByClassName('js-test-question-img-background')[0],
-            imgTag = question.getElementsByClassName('js-test-question-img')[0];
+        const imgTag = question.getElementsByClassName('js-test-question-img')[0];
 
         imgTag.setAttribute('src', path);
 
@@ -55,7 +56,7 @@ export class Question {
             question.classList.add('test_create_bd-question-image-active');
         }
 
-        imgBackground.onclick = () => params.photoFrameCl.showOrCloseFrame(path);
+        // imgBackground.onclick = () => params.photoFrameCl.showOrCloseFrame(path);
     }
 
     /**
@@ -191,14 +192,14 @@ export class Question {
      * 
      * @param {object} question вопрос.
      */
-    deleteQuestion(question) {
+    deleteQuestion(target) {
+        let question = this.surfacingToQuestion(target);
+
         if (!question.classList.contains('test_create_bd-question-deleted')) {
             question.classList.add('test_create_bd-question-deleted');
         }
 
         question.insertAdjacentHTML('beforeEnd', this.contentCl.getQuestionDeleteMessage());
-
-        question.getElementsByClassName('js-test-create-question-restore-btn')[0].onclick = () => this.restoreQuestion(question);
 
         this.updateQuestionDeleteTime(question, 7);
     }
@@ -265,9 +266,11 @@ export class Question {
     /**
      * Восстанавливает удалённый вопрос.
      * 
-     * @param {*} question вопрос.
+     * @param {object} target элемент на котором произошло событие.
      */
-    restoreQuestion(question) {
+    restoreQuestion(target) {
+        let question = this.surfacingToQuestion(target);
+
         question.getElementsByClassName('js-test-create-question-deleted-message')[0].remove()
 
         if (question.classList.contains('test_create_bd-question-deleted')) {
@@ -292,7 +295,7 @@ export class Question {
     /**
      * Вслытие с element до вопроса.
      * 
-     * @param {*} element 
+     * @param {object} element элемент с которого произвоидтся всплытие.
      */
     surfacingToQuestion(element) {
         while (element !== document) {
@@ -322,13 +325,6 @@ export class Question {
             let answerTypeSelectValueInp = question.getElementsByClassName('select_hd-value--inp')[0];
             answerTypeSelectValueInp.oninput = () => this.answerCl.changeAnswerType(question);
 
-            question.getElementsByClassName('js-test-create-answer-add-btn')[0].onclick = () => this.answerCl.addAnswer(question, 6);
-
-            // Вешает обработчик кнопки удаления варианта ответа
-            for (let answerDelBtn of question.getElementsByClassName('js-test-create-question-answer-delete-btn')) {
-                answerDelBtn.onclick = (event) => this.answerCl.deleteAnswer(event, question);
-            }
-
             // Вешает обработчик кнопки выбора правильного варианта ответа
             let answerChooseInp = question.getElementsByClassName('js-test-question-answer-choice-inp')[0];
             if (answerChooseInp !== undefined) {
@@ -341,14 +337,8 @@ export class Question {
             // Вешает обработчик события метода удаления загруженной фотографии вопроса
             question.getElementsByClassName('js-test-question-img-del-btn')[0].onclick = () => this.deleteImage(question);
 
-            // Вешает обработчик события метода удаления вопроса
-            question.getElementsByClassName('js-test-create-question-del-btn')[0].onclick = () => this.deleteQuestion(question);
-        }
-
-        // Вешает обработчик на кнопку добавления вопроса
-        const questionAddBtn = this.page.content.getElementsByClassName('js-test-question-add-btn')[0];
-        if (questionAddBtn !== undefined) {
-            questionAddBtn.onclick = () => this.addQuestion();
+            // Вешает обработчик события click на вопрос для делегирования
+            question.onclick = (event) => this.delegationQuestionCl.callAction(event);
         }
     }
 }

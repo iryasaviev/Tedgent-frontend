@@ -8,6 +8,7 @@ import { DialogWindow } from './dialogWindow';
 import { Preloader } from './preloader';
 
 // Элементы управления (кнопки, поля для ввода)
+import { Delegation } from './delegation';
 import { Controls } from './controls';
 import { Fields } from './fields';
 
@@ -47,13 +48,16 @@ export class Page {
         this.dialogWindowCl = new DialogWindow(this);
         this.photoFrameCl = new PhotoFrame(this);
         this.preloaderCl = new Preloader(this);
+        this.sidebarCl = new Sidebar();
 
         // Для работы с элементами управления
+        this.delegationCl = new Delegation(this);
         this.controlsCl = new Controls(this);
         this.fieldCl = new Fields(this);
 
         // Номер текущей страницы
         this.num = this.body.dataset.pageNum;
+        this.currentPageCl;
     }
 
     /**
@@ -115,12 +119,14 @@ export class Page {
 
             // Profile page
             case '1':
-                new Profile(this).runPage(contentBd);
+                this.currentPageCl = new Profile(this);
+                this.currentPageCl.runPage(contentBd);
                 break;
 
             // Test create page
             case '2':
-                new TestCreate(this).runPage(contentBd);
+                this.currentPageCl = new TestCreate(this);
+                this.currentPageCl.runPage(contentBd);
                 break;
 
             // Test page
@@ -140,17 +146,20 @@ export class Page {
 
             // Account settings page
             case '6':
-                new AccountSettings(this).runPage(contentBd);
+                this.currentPageCl = new AccountSettings(this);
+                this.currentPageCl.runPage(contentBd);
                 break;
 
             // Service settings page
             case '7':
-                new ServiceSettings(this).runPage(contentBd);
+                this.currentPageCl = new ServiceSettings(this);
+                this.currentPageCl.runPage(contentBd);
                 break;
 
             // Search page
             case '8':
-                new Search(this).runPage(contentBd);
+                this.currentPageCl = new Search(this);
+                this.currentPageCl.runPage(contentBd);
                 break;
         }
 
@@ -162,21 +171,11 @@ export class Page {
      * Устанавливает обработчики событий.
      */
     setHandlers() {
-
-        // Вешает обработчик события метода для открытия страницы на кнопки-ссылки
-        let linkBtns = this.body.getElementsByClassName('js-link-btn');
-        for (let linkBtn of linkBtns) {
-            linkBtn.onclick = () => this.goToPage(linkBtn);
-        }
-
-        new Sidebar().setHandlers();
         this.selectCl.setHandlers();
         new MoreMenu().setHandlers();
         this.controlsCl.setHandlers();
         this.fieldCl.setHandlers();
-        this.photoFrameCl.setHandlers();
-        this.dialogWindowCl.setHandlers();
 
-        this.body.onclick = (event) => this.closeWindows(event);
+        this.body.onclick = (event) => this.delegationCl.callAction(event);
     }
 }

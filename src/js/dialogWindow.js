@@ -23,16 +23,12 @@ export class DialogWindow {
         this.close();
     }
 
+    /**
+     * Закрывает диалоговое окно.
+     */
     close() {
         if (this.page.body.classList.contains('dialog-window-active')) {
             this.page.body.classList.remove('dialog-window-active');
         }
-    }
-
-    /**
-     * Устанавливает обработчики событий.
-     */
-    setHandlers() {
-        this.page.dialogWindow.getElementsByClassName('js-dialog-window-cancel-btn')[0].onclick = () => this.close();
     }
 }

@@ -178,26 +178,11 @@ Test create page
   color: #fff;
 }
 
-.test_create_bd-question-img--bcg {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 4px;
-  display: flex;
-  cursor: pointer;
-}
-.test_create_bd-question-img--bcg:hover {
-  background: hsla(0, 0%, 0%, 0.5);
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
 .test_create_bd-question--img {
   max-width: 577px;
   max-height: 300px;
   border-radius: 4px;
+  cursor: pointer;
 }
 .test_create_bd-question-answers {
   padding-left: 43px;

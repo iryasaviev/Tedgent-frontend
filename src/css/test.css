@@ -340,6 +340,13 @@ Test
   padding: 0 12px;
 }
 
+.select-subject-option--square {
+  height: 18px;
+  width: 18px;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
 /*
 ----------
 Subject backgrounds

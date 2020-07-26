@@ -6,9 +6,10 @@ import { AnswerContent } from './answerContent';
  * Класс содержащий методы для работы с ответами. 
  */
 export class Answer {
-    constructor() {
+    constructor(question) {
         this.controlsCl = new Controls();
         this.contentCl = new AnswerContent();
+        this.questionCl = question;
     }
 
     /**
@@ -77,8 +78,9 @@ export class Answer {
      * @param {object} question вопрос в котором добавляется вариант ответа.
      * @param {number} maxLimit максимальное ограничение на количество вариантов ответов в вопросе.
      */
-    addAnswer(question, maxLimit = 1) {
-        const questionNum = question.dataset.questionNum,
+    addAnswer(target, maxLimit = 1) {
+        const question = this.questionCl.surfacingToQuestion(target),
+            questionNum = question.dataset.questionNum,
             type = question.dataset.answersType,
             answersWrapper = question.getElementsByClassName('js-test-question-answers')[0],
             answerAddBtn = question.getElementsByClassName('js-test-create-answer-add-btn')[0];
@@ -117,9 +119,6 @@ export class Answer {
         if (type === '1' || type === '2') {
             const newAnswer = answers[answers.length - 1];
 
-            // Вешает обработчик события метода удаления вопроса на добавленный вариант ответа.
-            newAnswer.getElementsByClassName('js-test-create-question-answer-delete-btn')[0].onclick = (event) => this.deleteAnswer(event, question);
-
             // Вешает обработчик события метода выделения выбранного варианта ответа.
             newAnswer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(newAnswer, question);
         }
@@ -140,10 +139,10 @@ export class Answer {
      * Удаляет вариант ответа.
      * 
      * @param {object} event событие.
-     * @param {object} question вопрос удаляемого ответа.
      */
-    deleteAnswer(event, question) {
-        let answerForDelete = this.surfacingToAnswer(event.target),
+    deleteAnswer(target) {
+        let question = this.questionCl.surfacingToQuestion(target),
+            answerForDelete = this.surfacingToAnswer(target),
             answers = question.getElementsByClassName('js-test-question-answer');
 
         if (answerForDelete !== undefined) {

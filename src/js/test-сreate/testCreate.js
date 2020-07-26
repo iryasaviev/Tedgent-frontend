@@ -15,12 +15,13 @@ export class TestCreate {
         this.attachments = [];
 
         this.contentCl = new TestCreateContent();
+        this.questionCl = new Question(page);
     }
 
     /**
      * Отвечает за выбор основного предмета теста.
      * 
-     * @param {*} select 
+     * @param {object} select кнопка выбора (select) предмета теста.
      */
     selectSubject(select) {
         let selectOptionData = select.getElementsByClassName('select_hd-value')[0].dataset.selectOptionValue,
@@ -46,8 +47,8 @@ export class TestCreate {
      * Выделяет ключевое слово.
      * Написанное слово выделяется после нажатия клавиш "Tab", "Space", "Enter".
      * 
-     * @param {*} event 
-     * @param {*} input
+     * @param {object} event объект события.
+     * @param {object} input поле для ввода.
      */
     highlightKeyword(event, input) {
 
@@ -98,7 +99,7 @@ export class TestCreate {
      * Проверяет наличие ключевых слов в поле для ввода.
      * Возвращает true - если количество слов меньше 5 и false, если больше или равно. 
      * 
-     * @param {*} input поле для ввода.
+     * @param {object} input поле для ввода.
      */
     checkKeywordsQuantity(input) {
         if (input.getElementsByClassName('js-test-create-keyword').length >= 5) {
@@ -109,6 +110,8 @@ export class TestCreate {
 
     /**
      * Добавляет вложения.
+     * 
+     * @param {object} event объект события.
      */
     uploadAttachment(event) {
         let fileLoadCl = new FileLoad(),
@@ -127,7 +130,7 @@ export class TestCreate {
             // если нет, то иконка
             let attachmentLogo;
             if (file.type && file.type.indexOf('image') !== -1) {
-                attachmentLogo = `<img class="test-attachments-file--img js-test-create-attachment-img">`;
+                attachmentLogo = `<img class="test-attachments-file--img js-test-create-attachment-img" data-action="show" data-run-in-frame="photoFrame">`;
             }
             else {
                 attachmentLogo = `<span class="i-file icon"></span>`;
@@ -140,7 +143,7 @@ export class TestCreate {
                         <a class="link js-test-create-attachment-name" title="${file.name}">${file.name}</a>
                         <span class="size">${fileLoadCl.convertBytesToKilobytes(file.size)} KB</span>
                     </div>
-                    <button class="i-cross btn delete js-test-create-attachment-delete-btn"></button>
+                    <button class="i-cross btn delete js-test-create-attachment-delete-btn" data-action="deleteAttachment"></button>
                 </div>`);
 
 
@@ -150,12 +153,9 @@ export class TestCreate {
             // Если прикрепленный файл является изображением, вешается обработчик события загрузки файла 
             if (file.type && file.type.indexOf('image') !== -1) {
                 fileLoadCl.readImage(file, this.showImage, {
-                    attachmentTag: attachment,
-                    photoFramCl: this.page.photoFrameCl
+                    attachmentTag: attachment
                 });
             }
-
-            delBtn.onclick = () => this.deleteAttachment(attachment);
         }
     }
 
@@ -163,22 +163,29 @@ export class TestCreate {
      * Выводит превью изображения вложения и вешает обработчик.
      * Срабатывает после загрузки файла.
      * 
-     * @param {*} path путь к загруженному изображению.
-     * @param {*} params передаваемые параметры.
+     * @param {string} path путь к загруженному изображению.
+     * @param {object} params передаваемые параметры.
      */
     showImage(path, params) {
         const img = params.attachmentTag.getElementsByClassName('js-test-create-attachment-img')[0];
 
         img.src = path;
-        img.onclick = () => params.photoFramCl.showOrCloseFrame(path);
+        // img.onclick = () => params.photoFramCl.showOrCloseFrame(path);
     }
 
     /**
      * Удаляет вложение.
      * 
-     * @param {*} attachment 
+     * @param {object} attachment вложение, необходимое для удаления.
      */
-    deleteAttachment(attachment) {
+    deleteAttachment(target) {
+
+        // Поиск вложения, необходимого для удаления
+        let attachment;
+        while ((target = target.parentElement) && target.classList.contains('js-test-create-attachment')) {
+            attachment = target;
+        }
+
         let i = 0;
         for (let file of this.attachments) {
             let attachmentName = attachment.getElementsByClassName('js-test-create-attachment-name')[0].innerText;
@@ -192,32 +199,121 @@ export class TestCreate {
         }
     }
 
+    addQuestion() {
+        this.questionCl.addQuestion();
+    }
+
+    /**
+     * Собирает варианты ответов вопроса.
+     * 
+     * @param {object} question вопрос, в котором производится поиск.
+     */
+    collectAnswers(question) {
+        let answersData = [],
+            answers = question.getElementsByClassName('js-test-question-answer'),
+            answerNum = 1;
+
+        for (let answer of answers) {
+
+            // Проверка на то, выбран ли вариант ответа в качестве верного
+            let answerIsTrue = false;
+            if (question.dataset.answersType === '3' ||
+                question.dataset.answersType === '4') {
+                answerIsTrue = true;
+            }
+            else {
+                if (answer.getElementsByClassName('js-test-question-answer-choice-inp')[0].checked) {
+                    answerIsTrue = true;
+                }
+            }
+
+            answersData[answersData.length] = {
+                num: answerNum,
+                text: answer.getElementsByClassName('js-test-question-answer-inp')[0].value,
+                isTrue: answerIsTrue
+            };
+
+            answerNum++;
+        }
+
+        return answersData;
+    }
+
+    /**
+     * Собирает вопрос и сопуствующие данные.
+     */
+    collectQuestions() {
+        const questions = this.page.content.getElementsByClassName('js-test-question');
+
+        let questionsData = [],
+            questionNum = 1;
+        for (let question of questions) {
+
+            let questionImg = question.getElementsByClassName('js-test-create-question-image-inp')[0].files[0];
+            if (questionImg === undefined) {
+                questionImg = null;
+            }
+
+            questionsData[questionsData.length] = {
+                num: questionNum,
+                title: question.getElementsByClassName('js-test-create-question-title')[0].value,
+                answersType: question.dataset.answersType,
+                image: questionImg,
+                answers: this.collectAnswers(question)
+            }
+
+            questionNum++;
+        }
+
+        return questionsData;
+    }
+
+    /**
+     * Собирает данные теста.
+     */
+    collectData() {
+        console.log(this.collectQuestions());
+
+        // let data = {
+        //     title: ,
+        //     description: ,
+        //     subject: ,
+        //     time: ,
+        //     keyWords: ,
+        //     attachments: ,
+        //     questions: this.collectQuestions()
+        // };
+    }
+
     /**
      * Отвечает за загрузку страницы.
      * 
      * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
      */
     runPage(contentBd) {
-        contentBd.innerHTML = this.contentCl.getPage();
+        // contentBd.innerHTML = this.contentCl.getPage();
 
         this.setHandlers();
     }
 
     setHandlers() {
-        const questionCl = new Question(this.page);
-        questionCl.setHandlers();
+        this.questionCl.setHandlers();
 
-        const testCreateSubjectSelect = this.page.content.getElementsByClassName('js-test-create-subject-select')[0];
+        // Вешает обработчик на кнопку выбора предмета теста
+        const testCreateSubjectSelect = this.page.content.getElementsByClassName('js-test-create-subject-select')[0],
+            testCreateSubjectSelectInp = testCreateSubjectSelect.getElementsByClassName('js-select-value-inp')[0];
         if (testCreateSubjectSelect !== undefined) {
-            testCreateSubjectSelect.onclick = () => this.selectSubject(testCreateSubjectSelect);
+            testCreateSubjectSelectInp.oninput = () => this.selectSubject(testCreateSubjectSelect);
         }
 
+        // Вешает обработчик на поле для ввода ключевых слов
         const testCreateKeywordsInput = this.page.content.getElementsByClassName('js-test-create-kewords-inp')[0];
         if (testCreateKeywordsInput !== undefined) {
             testCreateKeywordsInput.onkeyup = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
             testCreateKeywordsInput.onkeydown = (event) => this.highlightKeyword(event, testCreateKeywordsInput);
         }
 
+        // Вешает обработчик на кнопку прикрепления вложений
         const testCreateAttchmentsInput = this.page.content.getElementsByClassName('js-test-create-attachments-inp')[0];
         if (testCreateAttchmentsInput !== undefined) {
             testCreateAttchmentsInput.onchange = (event) => this.uploadAttachment(event, testCreateAttchmentsInput);

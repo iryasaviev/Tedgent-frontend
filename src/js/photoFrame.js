@@ -7,29 +7,28 @@ export class PhotoFrame {
     }
 
     /**
-     * Показывает или закрывает необходимое изображение.
+     * Показывает выбранное изображение.
      * 
-     * @param {*} pathToImg путь к изображению.
+     * @param {object} img изображение, на котором произошло нажатие.
      */
-    showOrCloseFrame(pathToImg) {
-        if (pathToImg !== undefined) {
-            if (!this.page.body.classList.contains('photo-frame-active')) {
-                this.page.body.classList.add('photo-frame-active');
-            }
-            this.img.src = pathToImg;
+    show(img) {
+        const imgPath = img.src;
+
+        if (!this.page.body.classList.contains('photo-frame-active')) {
+            this.page.body.classList.add('photo-frame-active');
         }
-        else {
-            if (this.page.body.classList.contains('photo-frame-active')) {
-                this.page.body.classList.remove('photo-frame-active');
-            }
-            this.img.src = '';
-        }
+
+        this.img.src = imgPath;
     }
 
     /**
-     * Устанавливает обработчики событий.
+     * Закрывает показанное изображение.
      */
-    setHandlers() {
-        this.wrapper.onclick = () => this.showOrCloseFrame();
+    close() {
+        if (this.page.body.classList.contains('photo-frame-active')) {
+            this.page.body.classList.remove('photo-frame-active');
+        }
+
+        this.img.src = '';
     }
 }

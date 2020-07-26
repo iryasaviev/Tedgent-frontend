@@ -16,7 +16,7 @@ export class AnswerContent {
                 <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>
                 <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum}">
-                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
+                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button></div>`;
 
             case '2':
                 return `<div class="test_create_bd-question-answer js-test-question-answer" data-answer-num="${answerNum}">
@@ -25,7 +25,7 @@ export class AnswerContent {
                 <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>
                 <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum}">
-                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn"></button></div>`;
+                <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button></div>`;
 
             case '3':
                 return `<div class="test_create_bd-question-answer test-question-answer-active js-test-question-answer" data-answer-num="1">
