@@ -92,13 +92,17 @@
         <span class="js-dialog-window-text"></span>
       </div>
       <div class="dialog-window_ft">
-        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" >Отмена</button>
+        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" data-action="close" data-run-in-frame="dialogWindow">Отмена</button>
         <button class="dialog-window--btn btn btn-1 js-dialog-window-execute-btn">Выполнить</button>
       </div>
     </div>
   </div>
 
   <div class="cnt" id="bodyContent">
+    <div class="preloader js-preloader">
+      <img class="preloader--img" src="../img/preloader.svg">
+      <span class="preloader--txt js-preloader-text">Загрузка страницы...</span>
+    </div>
     <div class="cnt_bd js-content-bd">
       <div class="cnt_bd-test">
         <div class="test_hd test-create_hd">
@@ -272,7 +276,7 @@
                   <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                     <div class="test_create_bd-question-col1-image">
                       <button
-                        class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
+                        class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn" data-question-action="deleteImage"></button>
                       <img class="test_create_bd-question--img js-test-question-img" data-action="show" data-run-in-frame="photoFrame">
                     </div>
                   </div>

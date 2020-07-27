@@ -170,7 +170,6 @@ export class TestCreate {
         const img = params.attachmentTag.getElementsByClassName('js-test-create-attachment-img')[0];
 
         img.src = path;
-        // img.onclick = () => params.photoFramCl.showOrCloseFrame(path);
     }
 
     /**
@@ -291,7 +290,7 @@ export class TestCreate {
      * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
      */
     runPage(contentBd) {
-        // contentBd.innerHTML = this.contentCl.getPage();
+        contentBd.innerHTML = this.contentCl.getPage();
 
         this.setHandlers();
     }

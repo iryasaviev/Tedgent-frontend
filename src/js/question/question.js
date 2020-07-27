@@ -55,17 +55,16 @@ export class Question {
         if (!question.classList.contains('test_create_bd-question-image-active')) {
             question.classList.add('test_create_bd-question-image-active');
         }
-
-        // imgBackground.onclick = () => params.photoFrameCl.showOrCloseFrame(path);
     }
 
     /**
      * Удаляет прикрепленное изображение вопроса.
      * 
-     * @param {*} question вопрос.
+     * @param {object} target элемент, на котором сработалоа событие.
      */
-    deleteImage(question) {
-        const img = question.getElementsByClassName('js-test-question-img')[0];
+    deleteImage(target) {
+        const question = this.surfacingToQuestion(target),
+            img = question.getElementsByClassName('js-test-question-img')[0];
 
         img.src = '';
 
@@ -333,9 +332,6 @@ export class Question {
 
             // Вешает обработчик события метода загрзуки изображения вопроса
             question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);
-
-            // Вешает обработчик события метода удаления загруженной фотографии вопроса
-            question.getElementsByClassName('js-test-question-img-del-btn')[0].onclick = () => this.deleteImage(question);
 
             // Вешает обработчик события click на вопрос для делегирования
             question.onclick = (event) => this.delegationQuestionCl.callAction(event);

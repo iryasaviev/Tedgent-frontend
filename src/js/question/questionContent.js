@@ -21,7 +21,7 @@ export class QuestionContent {
                 </div>
                 <div class="test_create_bd-question-col1-row test_create_bd-question-col1-row-image">
                     <div class="test_create_bd-question-col1-image">
-                        <button class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn"></button>
+                        <button class="test_create_bd-question-img--del-btn i-cross btn js-test-question-img-del-btn" data-question-action="deleteImage"></button>
                         <img class="test_create_bd-question--img js-test-question-img" data-action="show" data-run-in-frame="photoFrame">
                     </div>
                 </div>

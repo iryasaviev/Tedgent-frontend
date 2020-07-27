@@ -1,13 +1,13 @@
 export class AccountSettingsContent {
 
-    getPage() {
-        return `<div class="cnt_bd-settings">
+  getPage() {
+    return `<div class="cnt_bd-settings">
         <div class="settings_hd">
           <div class="settings_hd-menu pivot-menu">
             <button class="settings_hd-menu--btn btn pivot-menu--btn pivot-menu--btn-active js-link-btn"
-              data-link="/acconut/settings" data-link-page-num="6">Аккаунт</button>
+              data-link="/acconut/settings" data-link-page-num="6" data-action="goToPage" data-run-in-frame="true">Аккаунт</button>
             <button class="settings_hd-menu--btn btn pivot-menu--btn js-link-btn" data-link="/acconut/settings"
-              data-link-page-num="7">Сервис</button>
+              data-link-page-num="7" data-action="goToPage" data-run-in-frame="true">Сервис</button>
           </div>
         </div>
         <div class="settings_bd">
@@ -99,5 +99,5 @@ export class AccountSettingsContent {
           </div>
         </div>
       </div>`;
-    }
+  }
 }
