@@ -1,10 +1,13 @@
+
 import { ServiceSettingsContent } from './serviceSettingsContent';
+import { DelegationServiceSettings } from './delegationServiceSettings';
 
 export class ServiceSettings {
     constructor(page) {
         this.page = page;
 
         this.contentCl = new ServiceSettingsContent();
+        this.delegationServiceSettingsCl = new DelegationServiceSettings(this);
     }
 
     /**
@@ -25,11 +28,10 @@ export class ServiceSettings {
     /**
      * Изменяет фоновое изображение.
      * 
-     * @param {object} imgWrapper родительский блок выбранного изображения.
-     * @param {object} solidColorToggle тумблер переключения фона на сплошной цвет. Срабатывает (выключается) при выборе изображения в качестве фона.
+     * @param {object} target элемент на котором сработало событие (родительский блок выбранного изображения).
      */
-    changeBackgroundImage(imgWrapper, solidColorToggle) {
-        const imgNum = imgWrapper.dataset.backgroundImgNum;
+    changeBackgroundImage(target) {
+        const imgNum = target.dataset.backgroundImgNum;
 
         let bcgSelector = `bd_bcg-${imgNum}`;
 
@@ -44,6 +46,7 @@ export class ServiceSettings {
         if (!this.page.backgroundImg.classList.contains('bd_bcg-active')) {
             this.page.backgroundImg.classList.add('bd_bcg-active');
 
+            let solidColorToggle = this.page.content.getElementsByClassName('js-settings-service-appearance-img-solid-color-toggle')[0];
             if (solidColorToggle.classList.contains('toggle-active')) {
                 this.page.controlsCl.switchToggle(solidColorToggle);
             }
@@ -55,10 +58,10 @@ export class ServiceSettings {
     /**
      * Выбирает размыто ли фоновое изображение.
      * 
-     * @param {object} toggle тумблер.
+     * @param {object} target элемент на котором сработало событие (тумблер).
      */
-    toggleBackgroundBlur(toggle) {
-        let toggleValue = toggle.getElementsByClassName('js-toggle-btn')[0].dataset.toggleValue;
+    toggleBackgroundBlur(target) {
+        let toggleValue = target.getElementsByClassName('js-toggle-btn')[0].dataset.toggleValue;
 
         if (toggleValue === 'true') {
             if (!this.page.backgroundImg.classList.contains('bd_bcg-blur')) {
@@ -77,10 +80,10 @@ export class ServiceSettings {
     /**
      * Выбирает является ли сплошной цвет фоном.
      * 
-     * @param {object} toggle тумблер.
+     * @param {object} target элемент на котором сработало событие (тумблер).
      */
-    toggleBackgroundSolidColor(toggle) {
-        let toggleValue = toggle.getElementsByClassName('js-toggle-btn')[0].dataset.toggleValue;
+    toggleBackgroundSolidColor(target) {
+        let toggleValue = target.getElementsByClassName('js-toggle-btn')[0].dataset.toggleValue;
 
         if (toggleValue === 'true') {
             if (this.page.backgroundImg.classList.contains('bd_bcg-active')) {
@@ -112,19 +115,8 @@ export class ServiceSettings {
      */
     setHandlers() {
 
-        // Устанавливает обработчики событий на выбираемые фоновые изображения
-        let bcgImgWrapper = this.page.content.getElementsByClassName('js-settings-service-appearance-img-wrapper'),
-            bcgImgSolidColorToggle = this.page.content.getElementsByClassName('js-settings-service-appearance-img-solid-color-toggle')[0]
-        for (let wrapper of bcgImgWrapper) {
-            wrapper.onclick = () => this.changeBackgroundImage(wrapper, bcgImgSolidColorToggle);
-        }
-
-        // Устанавливает обработчик события на тумблер для выбора размытия фона
-        let bcgImgBlurToggle = this.page.content.getElementsByClassName('js-settings-service-appearance-img-blur-toggle')[0];
-        bcgImgBlurToggle.onclick = () => this.toggleBackgroundBlur(bcgImgBlurToggle);
-
-        // Устанавливает обработчик события на тумблер для установки сплошного цвета в качестве фона
-        bcgImgSolidColorToggle.onclick = () => this.toggleBackgroundSolidColor(bcgImgSolidColorToggle);
+        // Вешает обработчик события click на оберточный элемент страницы
+        this.page.content.getElementsByClassName('js-settings-bd')[0].onclick = (event) => this.delegationServiceSettingsCl.callAction(event);
 
         // Изменяет состояние тумблеров, в зависимости от примененных ранее настроек
         this.setSwitchStates();

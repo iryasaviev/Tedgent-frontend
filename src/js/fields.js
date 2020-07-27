@@ -1,6 +1,10 @@
+import { ValidationErrorMessages } from './validationErrorMessages';
+
 export class Fields {
     constructor(page) {
         this.page = page;
+
+        this.validationErrorMessagesCl = new ValidationErrorMessages();
     }
 
     /**
@@ -146,9 +150,91 @@ export class Fields {
         inp.value = newValue;
     }
 
+    checkValue(event) {
+        const inp = event.target,
+            inpWrapper = this.surfacingToInpWrapper(inp),
+            validationNum = inpWrapper.dataset.validationNum;
+
+        let haveError = false;
+        switch (validationNum) {
+            case '1':
+                if (!this.checkOnEmpty(event)) {
+                    this.showError(inpWrapper, validationNum);
+                    haveError = true;
+                }
+                break;
+
+            case '2':
+                break;
+
+            case '3':
+                break;
+
+            case '4':
+                break;
+
+            case '5':
+                break;
+
+            case '6':
+                if (!this.checkOnUsername(event)) {
+                    this.showError(inpWrapper, validationNum);
+                    haveError = true;
+                }
+                break;
+        }
+
+        if (!haveError) {
+            this.hideError(inpWrapper);
+        }
+    }
+
+    showError(inpWrapper, errorNum) {
+        const errorText = this.validationErrorMessagesCl.getText(errorNum);
+
+        inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = errorText;
+
+        if (!inpWrapper.classList.contains('inp-error')) {
+            inpWrapper.classList.add('inp-error');
+        }
+    }
+
+    hideError(inpWrapper) {
+        inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = '';
+
+        if (inpWrapper.classList.contains('inp-error')) {
+            inpWrapper.classList.remove('inp-error');
+        }
+    }
+
+    // Email
+    checkOnEmail(value) {
+        const regexp = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+        return regexp.test(value);
+    }
+
+    // Пароль (Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов)
+    checkOnPassword(value) {
+        const regexp = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+        return regexp.test(value);
+    }
+
+    // Имя пользователя (с ограничением 4-20 символов, которыми могут быть буквы и цифры, первый символ обязательно буква)
+    checkOnUsername(value) {
+        const regexp = /^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$/;
+        return regexp.test(value);
+    }
+
+    // Набор из букв (латиница + кириллица)
+    checkOnLetters(value) {
+        const regexp = /^[а-яА-ЯёЁa-zA-Z]+$/;
+        return regexp.test(value);
+    }
+
+    // Набор из букв и цифр (латиница + кириллица)
     checkOnLettersAndNums(inp) {
-        // Набор из букв и цифр (латиница + кириллица)
-        const expression = '^[а-яА-ЯёЁa-zA-Z0-9]+$';
+        const regexp = /^[а-яА-ЯёЁa-zA-Z0-9]+$/;
+        return regexp.test(value);
     }
 
     /**
@@ -159,11 +245,8 @@ export class Fields {
     checkOnEmpty(event) {
         const inp = event.target;
 
-        if (inp.value.length > 0) {
+        if (inp.value.length <= 0) {
             return false;
-            // if (!inp.classList.contains('inp-error')) {
-            //     inp.classList.add('inp-error');
-            // }
         }
         else {
             for (let char of inp.value) {
@@ -189,6 +272,25 @@ export class Fields {
         }
 
         // ToDo: удалить текст
+    }
+
+    /**
+     * Вслытие с target до оберточного блока поля для ввода.
+     * 
+     * @param {object} target элемент с которого производится всплытие.
+     */
+    surfacingToInpWrapper(target) {
+        while (target !== document) {
+            if (target !== null) {
+                if (target.classList.contains('inp_wr')) {
+                    return target;
+                }
+                target = target.parentNode;
+            }
+            else {
+                return undefined;
+            }
+        }
     }
 
     /**
@@ -226,7 +328,8 @@ export class Fields {
         let inpWrappers = this.page.body.getElementsByClassName('js-inp-wrapper');
         for (let inpWrapper of inpWrappers) {
             if (inpWrapper.dataset.autoHangHandler === 'true') {
-                inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+                // inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+                inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValue(event, inpWrapper);
             }
         }
 

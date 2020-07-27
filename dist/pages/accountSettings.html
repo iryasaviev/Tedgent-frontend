@@ -37,20 +37,25 @@
           <div class="sidebar_hd-user-col2--item">@ir_yasaviev</div>
         </div>
       </div>
-      <button class="sidebar_hd--btn btn i-arrow-left btn" data-action="openOrClose" data-run-in-frame="sidebar"></button>
+      <button class="sidebar_hd--btn btn i-arrow-left btn" data-action="openOrClose"
+        data-run-in-frame="sidebar"></button>
     </div>
     <div class="sidebar_bd">
       <div class="sidebar_bd-small-btns">
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/" data-link-page-num="1">
           <span class="i-user icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
         </button>
-        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/acconut/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-small-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/acconut/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
         </button>
         <button class="btn sidebar_bd-small-btn" data-action="darkThemeToggle" data-run-in-frame="sidebar">
@@ -58,19 +63,23 @@
         </button>
       </div>
       <div class="sidebar_bd-btns">
-        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/" data-link-page-num="1">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/"
+          data-link-page-num="1">
           <span class="i-user icon"></span>
           <div class="txt">Профиль</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/test/create" data-link-page-num="2">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/test/create" data-link-page-num="2">
           <span class="i-plus icon"></span>
           <div class="txt">Создать тест</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/search" data-link-page-num="8">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/search" data-link-page-num="8">
           <span class="i-search icon"></span>
           <div class="txt">Поиск</div>
         </button>
-        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true" data-link="/account/settings" data-link-page-num="6">
+        <button class="btn sidebar_bd-btn js-link-btn" data-action="goToPage" data-run-in-frame="true"
+          data-link="/account/settings" data-link-page-num="6">
           <span class="i-settings icon"></span>
           <div class="txt">Настройки</div>
         </button>
@@ -92,7 +101,8 @@
         <span class="js-dialog-window-text"></span>
       </div>
       <div class="dialog-window_ft">
-        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" data-action="close" data-run-in-frame="dialogWindow">Отмена</button>
+        <button class="dialog-window--btn btn btn-2 js-dialog-window-cancel-btn" data-action="close"
+          data-run-in-frame="dialogWindow">Отмена</button>
         <button class="dialog-window--btn btn btn-1 js-dialog-window-execute-btn">Выполнить</button>
       </div>
     </div>
@@ -108,7 +118,8 @@
         <div class="settings_hd">
           <div class="settings_hd-menu pivot-menu">
             <button class="settings_hd-menu--btn btn pivot-menu--btn pivot-menu--btn-active js-link-btn"
-              data-link="/acconut/settings" data-link-page-num="6" data-action="goToPage" data-run-in-frame="true">Аккаунт</button>
+              data-link="/acconut/settings" data-link-page-num="6" data-action="goToPage"
+              data-run-in-frame="true">Аккаунт</button>
             <button class="settings_hd-menu--btn btn pivot-menu--btn js-link-btn" data-link="/acconut/settings"
               data-link-page-num="7" data-action="goToPage" data-run-in-frame="true">Сервис</button>
           </div>
@@ -118,29 +129,38 @@
             <div class="cnt-block_hd">
               <div class="cnt-block_hd-title">Публичные данные</div>
             </div>
-            <div class="settings-acc-info-block_bd cnt-block_bd">
+            <div class="settings-acc-info-block_bd cnt-block_bd js-account-settings-public-data-form">
               <label class="settings-acc-info-label">
                 <span class="label-txt">Фамилия</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true">
+                  data-auto-hang-handler="true" data-validation-num="1">
                   <input class="inp js-inp" name="firstName" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
+                  <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                  </div>
                 </div>
               </label>
               <label class="settings-acc-info-label">
                 <span class="label-txt">Имя</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true">
+                  data-auto-hang-handler="true" data-validation-num="1">
                   <input class="inp js-inp" name="lastName" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
+                  <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                  </div>
                 </div>
               </label>
               <label class="settings-acc-info-label">
                 <span class="label-txt">Отчество</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true">
+                  data-auto-hang-handler="true" data-validation-num="1">
                   <input class="inp js-inp" name="patronymic" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
+                  <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                  </div>
                 </div>
               </label>
               <label class="settings-acc-info-label">
@@ -153,9 +173,12 @@
               <label class="settings-acc-info-label">
                 <span class="label-txt">Имя пользователя</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true">
-                  <input class="inp js-inp" name="userName" data-characters-max-limit-value="30" type="text">
+                  data-auto-hang-handler="true"  data-validation-num="6">
+                  <input class="inp js-inp" name="username" data-characters-max-limit-value="30" type="text">
                   <span class="inp-limit--value js-inp-limit-value">30</span>
+                  <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                  </div>
                 </div>
                 <span class="label-dsc">Имя пользователя позволяет найти Ваш профиль не зная Вашего личного
                   идентификатора.</span>
