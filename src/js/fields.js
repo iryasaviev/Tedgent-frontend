@@ -153,36 +153,43 @@ export class Fields {
     checkValue(event) {
         const inp = event.target,
             inpWrapper = this.surfacingToInpWrapper(inp),
-            validationNum = inpWrapper.dataset.validationNum;
+            validationNums = inpWrapper.dataset.validationNums;
 
         let haveError = false;
-        switch (validationNum) {
-            case '1':
-                if (!this.checkOnEmpty(event)) {
-                    this.showError(inpWrapper, validationNum);
-                    haveError = true;
-                }
-                break;
+        for (let validationNum of validationNums.split(',')) {
+            switch (validationNum) {
+                case '1':
+                    if (!this.checkOnEmpty(event)) {
+                        this.showError(inpWrapper, validationNum);
+                        haveError = true;
+                    }
+                    break;
 
-            case '2':
-                break;
+                case '2':
+                    if (this.checkOnNum(inp.value)) {
+                        this.showError(inpWrapper, validationNum);
+                        haveError = true;
+                    }
+                    break;
 
-            case '3':
-                break;
+                case '3':
+                    break;
 
-            case '4':
-                break;
+                case '4':
+                    break;
 
-            case '5':
-                break;
+                case '5':
+                    break;
 
-            case '6':
-                if (!this.checkOnUsername(event)) {
-                    this.showError(inpWrapper, validationNum);
-                    haveError = true;
-                }
-                break;
+                case '6':
+                    if (!this.checkOnUsername(event)) {
+                        this.showError(inpWrapper, validationNum);
+                        haveError = true;
+                    }
+                    break;
+            }
         }
+
 
         if (!haveError) {
             this.hideError(inpWrapper);
@@ -205,6 +212,11 @@ export class Fields {
         if (inpWrapper.classList.contains('inp-error')) {
             inpWrapper.classList.remove('inp-error');
         }
+    }
+
+    // Проверка на числовой тип
+    checkOnNum(value) {
+        return isNaN(value);
     }
 
     // Email
