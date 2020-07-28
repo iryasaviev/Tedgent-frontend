@@ -159,7 +159,7 @@ export class Fields {
         for (let validationNum of validationNums.split(',')) {
             switch (validationNum) {
                 case '1':
-                    if (!this.checkOnEmpty(event)) {
+                    if (!this.checkOnEmpty(inp.value)) {
                         this.showError(inpWrapper, validationNum);
                         haveError = true;
                     }
@@ -173,6 +173,10 @@ export class Fields {
                     break;
 
                 case '3':
+                    if (this.checkOnPassword(inp.value)) {
+                        this.showError(inpWrapper, validationNum);
+                        haveError = true;
+                    }
                     break;
 
                 case '4':
@@ -182,9 +186,11 @@ export class Fields {
                     break;
 
                 case '6':
-                    if (!this.checkOnUsername(event)) {
-                        this.showError(inpWrapper, validationNum);
-                        haveError = true;
+                    if (!this.checkOnUsername(inp.value)) {
+                        if (inp.value.length !== 0) {
+                            this.showError(inpWrapper, validationNum);
+                            haveError = true;
+                        }
                     }
                     break;
             }
@@ -196,9 +202,7 @@ export class Fields {
         }
     }
 
-    showError(inpWrapper, errorNum) {
-        const errorText = this.validationErrorMessagesCl.getText(errorNum);
-
+    showError(inpWrapper, errorText) {
         inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = errorText;
 
         if (!inpWrapper.classList.contains('inp-error')) {
@@ -233,7 +237,7 @@ export class Fields {
 
     // Имя пользователя (с ограничением 4-20 символов, которыми могут быть буквы и цифры, первый символ обязательно буква)
     checkOnUsername(value) {
-        const regexp = /^[a-zA-Z][a-zA-Z0-9-_\.]{4,20}$/;
+        const regexp = /^[a-z0-9_-]{5,20}$/;
         return regexp.test(value);
     }
 
@@ -254,14 +258,12 @@ export class Fields {
      * 
      * @param {object} event объект события.
      */
-    checkOnEmpty(event) {
-        const inp = event.target;
-
-        if (inp.value.length <= 0) {
+    checkOnEmpty(value) {
+        if (value.length <= 0) {
             return false;
         }
         else {
-            for (let char of inp.value) {
+            for (let char of value) {
                 if (char !== ' ') {
                     return true;
                 }
@@ -340,8 +342,8 @@ export class Fields {
         let inpWrappers = this.page.body.getElementsByClassName('js-inp-wrapper');
         for (let inpWrapper of inpWrappers) {
             if (inpWrapper.dataset.autoHangHandler === 'true') {
-                // inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
-                inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValue(event, inpWrapper);
+                inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
+                // inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValue(event, inpWrapper);
             }
         }
 

@@ -133,7 +133,7 @@
               <label class="settings-acc-info-label">
                 <span class="label-txt">Фамилия</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true" data-validation-nums="1">
+                  data-auto-hang-handler="true">
                   <input class="inp js-inp" name="firstName" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
                   <div class="inp-error-mess">
@@ -144,7 +144,7 @@
               <label class="settings-acc-info-label">
                 <span class="label-txt">Имя</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true" data-validation-nums="1">
+                  data-auto-hang-handler="true">
                   <input class="inp js-inp" name="lastName" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
                   <div class="inp-error-mess">
@@ -155,7 +155,7 @@
               <label class="settings-acc-info-label">
                 <span class="label-txt">Отчество</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true" data-validation-nums="1">
+                  data-auto-hang-handler="true">
                   <input class="inp js-inp" name="patronymic" data-characters-max-limit-value="50" type="text">
                   <span class="inp-limit--value js-inp-limit-value">50</span>
                   <div class="inp-error-mess">
@@ -173,9 +173,9 @@
               <label class="settings-acc-info-label">
                 <span class="label-txt">Имя пользователя</span>
                 <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
-                  data-auto-hang-handler="true"  data-validation-nums="6">
-                  <input class="inp js-inp" name="username" data-characters-max-limit-value="30" type="text">
-                  <span class="inp-limit--value js-inp-limit-value">30</span>
+                  data-auto-hang-handler="true">
+                  <input class="inp js-inp" name="username" data-characters-max-limit-value="20" type="text">
+                  <span class="inp-limit--value js-inp-limit-value">20</span>
                   <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                   </div>
@@ -200,8 +200,12 @@
             <div class="settings-acc-security-block_bd cnt-block_bd">
               <label class="settings-acc-security-label">
                 <span class="label-txt">Старый пароль</span>
-                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
-                  <input class="inp js-inp" name="oldPassword" data-characters-max-limit-value="30" type="password">
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true"
+                  data-validation-nums="6">
+                  <input class="inp js-inp" name="currentPassword" data-characters-max-limit-value="30" type="password">
+                  <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                  </div>
                 </div>
               </label>
               <label class="settings-acc-security-label">
