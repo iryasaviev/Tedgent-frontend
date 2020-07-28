@@ -150,58 +150,6 @@ export class Fields {
         inp.value = newValue;
     }
 
-    checkValue(event) {
-        const inp = event.target,
-            inpWrapper = this.surfacingToInpWrapper(inp),
-            validationNums = inpWrapper.dataset.validationNums;
-
-        let haveError = false;
-        for (let validationNum of validationNums.split(',')) {
-            switch (validationNum) {
-                case '1':
-                    if (!this.checkOnEmpty(inp.value)) {
-                        this.showError(inpWrapper, validationNum);
-                        haveError = true;
-                    }
-                    break;
-
-                case '2':
-                    if (this.checkOnNum(inp.value)) {
-                        this.showError(inpWrapper, validationNum);
-                        haveError = true;
-                    }
-                    break;
-
-                case '3':
-                    if (this.checkOnPassword(inp.value)) {
-                        this.showError(inpWrapper, validationNum);
-                        haveError = true;
-                    }
-                    break;
-
-                case '4':
-                    break;
-
-                case '5':
-                    break;
-
-                case '6':
-                    if (!this.checkOnUsername(inp.value)) {
-                        if (inp.value.length !== 0) {
-                            this.showError(inpWrapper, validationNum);
-                            haveError = true;
-                        }
-                    }
-                    break;
-            }
-        }
-
-
-        if (!haveError) {
-            this.hideError(inpWrapper);
-        }
-    }
-
     showError(inpWrapper, errorText) {
         inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = errorText;
 
