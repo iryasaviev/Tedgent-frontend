@@ -184,8 +184,10 @@ export class TestCreateContent {
                       id="answer11" name="answerCheck1" type="checkbox">
                     <label class="js-test-question-answer-choice-label" for="answer11"></label>
                   </div>
-                  <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer"
-                    type="text" placeholder="Ответ №1">
+                  <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
+                        <input class="inp test_create_bd-question-answer--inp js-inp js-test-question-answer-inp"
+                          name="answer" data-characters-max-limit-value="300" type="text" placeholder="Ответ №1">
+                      </div>
                   <button
                     class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button>
                 </div>

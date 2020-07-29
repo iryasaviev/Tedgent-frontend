@@ -15,7 +15,9 @@ export class AnswerContent {
                 <input class="test-question-answer-checkbox--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerCheck${questionNum}" type="checkbox">
                 <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum}">
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
+                <input class="inp test_create_bd-question-answer--inp js-inp js-test-question-answer-inp"
+                name="answer" data-characters-max-limit-value="300" type="text" placeholder="Ответ №${answerNum}"></div>
                 <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button></div>`;
 
             case '2':
@@ -24,16 +26,24 @@ export class AnswerContent {
                 <input class="test-question-answer-radio--inp js-test-question-answer-choice-inp" id="answer${questionNum}${answerNum}" name="answerRadio${questionNum}" type="radio">
                 <label class="js-test-question-answer-choice-label" for="answer${questionNum}${answerNum}"></label>
                 </div>
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ №${answerNum}">
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
+                <input class="inp test_create_bd-question-answer--inp js-inp js-test-question-answer-inp"
+                name="answer" data-characters-max-limit-value="300" type="text" placeholder="Ответ №${answerNum}"></div>
                 <button class="test_create_bd-question-answer--btn btn i-cross js-test-create-question-answer-delete-btn" data-answer-action="deleteAnswer"></button></div>`;
 
             case '3':
                 return `<div class="test_create_bd-question-answer test-question-answer-active js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="text" placeholder="Ответ..."></div>`;
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
+                <input class="inp test_create_bd-question-answer--inp js-inp js-test-question-answer-inp" name="answer" data-characters-max-limit-value="500" type="text" placeholder="Ответ...">
+                </div>
+                </div>`;
 
             case '4':
                 return `<div class="test_create_bd-question-answer test-question-answer-active js-test-question-answer" data-answer-num="1">
-                <input class="inp test_create_bd-question-answer--inp js-test-question-answer-inp" name="answer" type="number" step="any" placeholder="1"></div>`;
+                <div class="inp_wr js-inp-wrapper" data-characters-limit="true" data-auto-hang-handler="true">
+                <input class="inp test_create_bd-question-answer--inp js-inp js-test-question-answer-inp" name="answer" data-characters-max-limit-value="100" type="number" step="any" placeholder="1">
+                </div>
+                </div>`;
         }
     }
 
