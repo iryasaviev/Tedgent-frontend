@@ -1,10 +1,12 @@
 import { AccountSettingsContent } from './accountSettingsContent';
+import { DelegationAccountSettings } from './delegationAccountSettings';
 
 export class AccountSettings {
     constructor(page) {
         this.page = page;
 
         this.contentCl = new AccountSettingsContent();
+        this.delegationAccountSettingsCl = new DelegationAccountSettings(this);
     }
 
     /**
@@ -47,6 +49,18 @@ export class AccountSettings {
         if (!haveError) {
             this.page.fieldCl.hideError(inpWrapper);
         }
+    }
+
+    /**
+     * Показывает пример ссылки с вводимым именем пользователя.
+     * 
+     * @param {object} inp поле для ввода имени пользователя.
+     */
+    showUsernameLinkExample(inp) {
+        let value = inp.value,
+            linkExample = this.page.content.getElementsByClassName('js-settings-account-info-username-link-example')[0];
+
+        linkExample.innerText = value;
     }
 
     /**
@@ -94,32 +108,66 @@ export class AccountSettings {
         }
     }
 
-    collectPublicData() {
+    /**
+     * Собирает данные с полей для ввода формы Публичные данные.
+     */
+    collectDataFromPublic() {
         const form = this.page.content.getElementsByClassName('js-account-settings-public-data-form')[0],
             inps = form.getElementsByClassName('js-inp');
 
-        let data,
-            errorIsHave = false;
+        let data = {};
         for (let inp of inps) {
             switch (inp.name) {
                 case 'firstName':
+                    data.firstName = inp.value;
                     break;
 
                 case 'lastName':
+                    data.lastName = inp.value;
                     break;
 
-                case 'patronomyc':
+                case 'patronymic':
+                    data.patronymic = inp.value;
                     break;
 
-                case 'patronomyc':
+                case 'dateOfBirth':
+                    data.dateOfBirth = inp.value;
                     break;
 
                 case 'username':
-                    errorIsHave = this.page.fieildsCl.checkOnUserName(inp.value);
-                    this.page.fieildsCl.showError();
+                    data.username = inp.value;
                     break;
             }
         }
+
+        return data;
+    }
+
+    /**
+     * Собирает данные с полей для ввода формы Безопасность.
+     */
+    collectDataFromSecurity() {
+        const form = this.page.content.getElementsByClassName('js-account-settings-security-data-form')[0],
+            inps = form.getElementsByClassName('js-inp');
+
+        let data = {};
+        for (let inp of inps) {
+            switch (inp.name) {
+                case 'currentPassword':
+                    data.currentPassword = inp.value;
+                    break;
+
+                case 'newPassword':
+                    data.newPassword = inp.value;
+                    break;
+
+                case 'newPasswordRetry':
+                    data.newPasswordRetry = inp.value;
+                    break;
+            }
+        }
+
+        return data;
     }
 
     /**
@@ -150,10 +198,11 @@ export class AccountSettings {
             // Вешает обработчик события на поле имени пользователя
             if (inp.name === 'username') {
                 inp.addEventListener('input', () => this.usernameValidation(inp));
+                inp.addEventListener('input', () => this.showUsernameLinkExample(inp));
             }
 
             // Вешает обработчик события на поля для ввода и смены пароля
-            if (inp.name === 'currentPassword' || inp.name === 'newPassword') {
+            if (inp.name === 'newPassword') {
                 inp.addEventListener('input', () => this.passwordValidation(inp));
             }
 
@@ -164,5 +213,8 @@ export class AccountSettings {
                 inp.addEventListener('input', () => this.validateNewPassword(newPassword, newPasswordRetry));
             }
         }
+
+        // Вешает обработчик события click на оберточный элемент страницы
+        this.page.content.getElementsByClassName('js-account-bd')[0].onclick = (event) => this.delegationAccountSettingsCl.callAction(event);
     }
 }

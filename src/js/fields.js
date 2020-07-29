@@ -1,10 +1,6 @@
-import { ValidationErrorMessages } from './validationErrorMessages';
-
 export class Fields {
     constructor(page) {
         this.page = page;
-
-        this.validationErrorMessagesCl = new ValidationErrorMessages();
     }
 
     /**
@@ -39,7 +35,7 @@ export class Fields {
     /**
      * Перезаписывает введенное в поле значение в пределах лимита.
      * 
-     * @param {*} inp поле для ввода.
+     * @param {object} inp поле для ввода.
      * @param {number} maxLimit максимально допустимое количество символов.
      */
     overwriteValue(inp, maxLimit) {
@@ -63,6 +59,9 @@ export class Fields {
         }
 
         inp.value = newValue;
+
+        let event = new Event('input');
+        inp.dispatchEvent(event);
     }
 
     /**
@@ -89,11 +88,11 @@ export class Fields {
      * @param {number} minLimit  минимально допустимое количество символов. По умолчанию = 0.
      */
     checkCharactersLimit(value, maxLimit = 200, minLimit = 0) {
-        if (value.length <= minLimit) {
+        if (value.length < minLimit) {
             return false;
         }
 
-        if (value.length >= maxLimit) {
+        if (value.length > maxLimit) {
             return false;
         }
 
@@ -285,7 +284,6 @@ export class Fields {
         for (let inpWrapper of inpWrappers) {
             if (inpWrapper.dataset.autoHangHandler === 'true') {
                 inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValueLengthAndTakeAction(event, inpWrapper);
-                // inpWrapper.getElementsByClassName('js-inp')[0].oninput = (event) => this.checkValue(event, inpWrapper);
             }
         }
 

@@ -126,7 +126,8 @@
 .dark-theme .test-attachments-file,
 .dark-theme .test-attachments-file .link,
 .dark-theme .test_hdr-time--value,
-.dark-theme .test-question-answer-active .test_create_bd-question-answer--inp {
+.dark-theme .test-question-answer-active .test_create_bd-question-answer--inp,
+.dark-theme .settings-acc-info-username-link-example {
   color: hsl(207, 63%, 54%);
 }
 
