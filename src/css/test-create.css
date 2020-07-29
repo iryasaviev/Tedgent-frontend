@@ -234,7 +234,7 @@ Test create page
   padding-right: 44px;
   justify-content: flex-end;
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 767px) {
   .test_create_bd-question-col1-row-add-answer {
     padding-right: 38px;
   }

@@ -42,7 +42,7 @@ export class SearchContent {
                 </button>
                 <button class="select_bd-option" data-select-option="6">
                   <div class="select-subject-option--square subject-bcg-2-1"></div>
-                  <div>Чтение / Литература</div>
+                  <div>Литература</div>
                 </button>
                 <button class="select_bd-option" data-select-option="7">
                   <div class="select-subject-option--square subject-bcg-2-2"></div>

@@ -136,7 +136,8 @@
 }
 .dark-theme .toggle--btn,
 .dark-theme .test_bd,
-.dark-theme .test_hdr {
+.dark-theme .test_hdr,
+.dark-theme .test_create_bd-question-col1-image {
   border-color: hsl(206, 14%, 10%);
 }
 

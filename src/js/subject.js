@@ -33,7 +33,7 @@ export class Subject {
             },
             {
                 num: '6',
-                name: 'Чтение / Литература',
+                name: 'Литература',
                 color: 'subject-bcg-2-1'
             },
             {
