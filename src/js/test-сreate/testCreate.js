@@ -271,17 +271,26 @@ export class TestCreate {
      * Собирает данные теста.
      */
     collectData() {
-        console.log(this.collectQuestions());
+        const form = this.page.content.getElementsByClassName('js-test-bd-form')[0],
+            titleInp = form.getElementsByClassName('js-test-create-title')[0],
+            descriptionInp = form.getElementsByClassName('js-test-create-title')[0],
+            subjectInp = form.getElementsByClassName('js-test-create-subject-select')[0].getElementsByClassName('js-select-value-inp')[0],
+            timeToPassInp = form.getElementsByClassName('js-test-create-time-to-pass-select')[0].getElementsByClassName('js-select-value-inp')[0],
+            keywordsInp = form.getElementsByClassName('js-test-create-kewords-inp')[0],
+            attachmentsInp = form.getElementsByClassName('js-test-create-attachments-inp')[0];
 
-        // let data = {
-        //     title: ,
-        //     description: ,
-        //     subject: ,
-        //     time: ,
-        //     keyWords: ,
-        //     attachments: ,
-        //     questions: this.collectQuestions()
-        // };
+
+        let data = {
+            title: titleInp.value,
+            description: descriptionInp.value,
+            subject: subjectInp.value,
+            time: timeToPassInp.value,
+            keyWords: keywordsInp.value,
+            attachments: attachmentsInp.files,
+            questions: this.collectQuestions()
+        };
+
+        console.log(data);
     }
 
     /**

@@ -1,6 +1,6 @@
 export class TestCreateContent {
   getPage() {
-    return `<div class="cnt_bd-test">
+    return `<div class="cnt_bd-test js-test-bd-form">
     <div class="test_hd test-create_hd">
       <div class="test_hd-info test-create_hd-info">
         <div class="test-subject-logo_wr">
@@ -11,7 +11,7 @@ export class TestCreateContent {
             <span class="label-txt">Название</span>
             <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
               data-auto-hang-handler="true">
-              <input class="inp js-inp" name="testTitle" data-characters-max-limit-value="100" type="text">
+              <input class="inp js-inp js-test-create-title" name="testTitle" data-characters-max-limit-value="100" type="text">
               <span class="inp-limit--value js-inp-limit-value">100</span>
             </div>
           </label>
@@ -19,7 +19,7 @@ export class TestCreateContent {
             <span class="label-txt">Описание</span>
             <div class="inp_wr inp-limit-value-visisble js-inp-wrapper" data-characters-limit="true"
               data-auto-hang-handler="true">
-              <input class="inp js-inp" name="testDescription" data-characters-max-limit-value="120" type="text">
+              <input class="inp js-inp js-test-create-description" name="testDescription" data-characters-max-limit-value="120" type="text">
               <span class="inp-limit--value js-inp-limit-value">120</span>
             </div>
           </label>
@@ -108,7 +108,7 @@ export class TestCreateContent {
       <div class="test_hd-row test-create_bd-time">
         <label class="test-create_bd-label_select">
           <span class="label-txt">Время на прохождение</span>
-          <div class="test-create_bd-select select js-select">
+          <div class="test-create_bd-select select js-select js-test-create-time-to-pass-select">
             <button class="test-create_bd-select_hd select_hd js-select-head">
               <div class="select_hd-value js-select-value" data-select-option-value="0">
                 <div>Нет</div>
@@ -142,7 +142,7 @@ export class TestCreateContent {
       <div class="test_hd-row test-create_bd-keywords">
         <label class="test-create_bd-keywords-label">
           <span class="label-txt">Ключевые слова</span>
-          <div class="test-create_bd-keywords-label--inp inp js-test-create-kewords-inp" contenteditable="true">
+          <div class="test-create_bd-keywords-label--inp inp js-test-create-kewords-inp" name="testKeywords" contenteditable="true">
           </div>
         </label>
       </div>
