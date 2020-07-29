@@ -275,6 +275,13 @@ Test
   align-items: center;
   margin-right: 10px;
 }
+@media only screen and (max-width: 767px) {
+  .test-question-answer-checkbox,
+  .test-question-answer-radio {
+    padding: 0 7px;
+    margin-right: 5px;
+  }
+}
 .test-question-answer-checkbox--inp,
 .test-question-answer-radio--inp {
   position: absolute;
