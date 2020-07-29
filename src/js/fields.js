@@ -150,6 +150,12 @@ export class Fields {
         inp.value = newValue;
     }
 
+    /**
+     * Показывает сообщение с ошибкой.
+     * 
+     * @param {object} inpWrapper обёрточный блок поля для ввода.
+     * @param {string} errorText текст ошибки.
+     */
     showError(inpWrapper, errorText) {
         inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = errorText;
 
@@ -158,6 +164,11 @@ export class Fields {
         }
     }
 
+    /**
+     * Скрывает сообщение ошибки.
+     * 
+     * @param {object} inpWrapper обёрточный блок поля для ввода.
+     */
     hideError(inpWrapper) {
         inpWrapper.getElementsByClassName('js-inp-error-txt')[0].innerText = '';
 
@@ -185,7 +196,7 @@ export class Fields {
 
     // Имя пользователя (с ограничением 4-20 символов, которыми могут быть буквы и цифры, первый символ обязательно буква)
     checkOnUsername(value) {
-        const regexp = /^[a-z0-9_-]{5,20}$/;
+        const regexp = /^[a-zA-z0-9_-]{5,20}$/;
         return regexp.test(value);
     }
 
@@ -217,23 +228,6 @@ export class Fields {
                 }
             }
         }
-    }
-
-    highlightErrorInput(inp, text) {
-        if (!inp.classList.contains('inp-error')) {
-            inp.classList.add('inp-error');
-        }
-
-        // ToDo: вывести текст
-    }
-
-
-    removeErrorSelection(inp) {
-        if (inp.classList.contains('inp-error')) {
-            inp.classList.remove('inp-error');
-        }
-
-        // ToDo: удалить текст
     }
 
     /**

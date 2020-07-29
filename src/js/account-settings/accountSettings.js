@@ -55,8 +55,6 @@ export class AccountSettings {
      * @param {object} inp поля для ввода пароля.
      */
     passwordValidation(inp) {
-        console.log(inp);
-
         let haveError = false,
             inpWrapper = this.page.fieldCl.surfacingToInpWrapper(inp);
 
@@ -130,7 +128,7 @@ export class AccountSettings {
      * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
      */
     runPage(contentBd) {
-        // contentBd.innerHTML = this.contentCl.getPage();
+        contentBd.innerHTML = this.contentCl.getPage();
 
         this.setHandlers();
     }
@@ -145,9 +143,7 @@ export class AccountSettings {
         for (let inp of inps) {
 
             // Вешает обработчики событий на поля ФИО
-            if (inp.name === 'firstName' ||
-                inp.name === 'lastName' ||
-                inp.name === 'patronymic') {
+            if (inp.name === 'firstName' || inp.name === 'lastName') {
                 inp.addEventListener('input', () => this.fullNameValidation(inp));
             }
 
@@ -158,7 +154,6 @@ export class AccountSettings {
 
             // Вешает обработчик события на поля для ввода и смены пароля
             if (inp.name === 'currentPassword' || inp.name === 'newPassword') {
-
                 inp.addEventListener('input', () => this.passwordValidation(inp));
             }
 
