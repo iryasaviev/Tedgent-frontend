@@ -333,6 +333,12 @@ export class Question {
             // Вешает обработчик события метода загрзуки изображения вопроса
             question.getElementsByClassName('js-test-create-question-image-inp')[0].onchange = (event) => this.loadImage(event);
 
+            // 
+            const answerInps = question.getElementsByClassName('js-test-question-answer-inp');
+            for (let answerInp of answerInps) {
+                answerInp.oninput = (event) => this.answerCl.inputInAnswer(event);
+            }
+
             // Вешает обработчик события click на вопрос для делегирования
             question.onclick = (event) => this.delegationQuestionCl.callAction(event);
         }

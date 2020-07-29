@@ -116,12 +116,15 @@ export class Answer {
                 break;
         }
 
+        const newAnswer = answers[answers.length - 1];
         if (type === '1' || type === '2') {
-            const newAnswer = answers[answers.length - 1];
 
             // Вешает обработчик события метода выделения выбранного варианта ответа.
             newAnswer.getElementsByClassName('js-test-question-answer-choice-inp')[0].onchange = () => this.chooseAnAnswer(newAnswer, question);
         }
+
+        // Вешает обработчик события метода обработки ввода в поле для варианта ответа
+        newAnswer.getElementsByClassName('js-test-question-answer-inp')[0].oninput = (event) => this.inputInAnswer(event);
     }
 
     /**
@@ -229,6 +232,18 @@ export class Answer {
                 answer.classList.remove('test-question-answer-active');
             }
         }
+    }
+
+    /**
+     * Отвечает за обработку введенного значения в поле.
+     * 
+     * @param {object} event событие.
+     */
+    inputInAnswer(event) {
+        let inp = event.target,
+            inpWrapper = inp.parentElement;
+
+        this.questionCl.page.fieldCl.checkValueLengthAndTakeAction(event, inpWrapper);
     }
 
     /**
