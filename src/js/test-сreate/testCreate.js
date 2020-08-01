@@ -299,7 +299,7 @@ export class TestCreate {
      * @param {object} contentBd DOM элемент, в которое должно вставляться основное содержимое.
      */
     runPage(contentBd) {
-        // contentBd.innerHTML = this.contentCl.getPage();
+        contentBd.innerHTML = this.contentCl.getPage();
 
         this.setHandlers();
     }
