@@ -4,10 +4,22 @@
   margin: 0;
 }
 
+@font-face {
+  font-family: Ubuntu;
+  src: url(Ubuntu-Bold.ttf) format("truetype");
+  src: url(Ubuntu-BoldItalic.ttf) format("truetype");
+  src: url(Ubuntu-Italic.ttf) format("truetype");
+  src: url(Ubuntu-Light.ttf) format("truetype");
+  src: url(Ubuntu-LightItalic.ttf) format("truetype");
+  src: url(Ubuntu-Medium.ttf) format("truetype");
+  src: url(Ubuntu-MediumItalic.ttf) format("truetype");
+  src: url(Ubuntu-Regular.ttf) format("truetype");
+}
+
 body {
-  color: #333;
+  color: hsla(0, 0%, 20%, 1);
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   background: hsla(220, 100%, 99%, 1);
 }
 
@@ -25,6 +37,8 @@ a:hover {
   height: 34px;
   padding: 0 12px;
   cursor: pointer;
+  outline: none;
+  transition: 0.12s;
 }
 
 .menu {
@@ -36,7 +50,7 @@ a:hover {
   align-items: center;
 }
 .menu-btn > a {
-  color: #333;
+  color: hsla(0, 0%, 30%, 1);
 }
 .menu-logo {
   text-align: center;
@@ -44,17 +58,16 @@ a:hover {
 }
 .menu-logo > a {
   font-size: 20px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 500;
+  color: hsla(0, 0%, 30%, 1);
 }
 .menu-auth {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
 }
-.menu-login {
+.menu-login:hover {
   color: hsl(207, 63%, 54%);
-  border: 1px solid hsl(207, 63%, 54%);
 }
 .menu-registration {
   color: #fff;
@@ -69,7 +82,7 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 1180px;
+  max-width: 1020px;
   margin: 0 auto;
   flex-direction: column;
 }
@@ -79,30 +92,65 @@ main {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 17px 40px,
     rgba(0, 0, 0, 0.08) 0px 4px 11px;
-  padding: 35px;
-  margin-top: 150px;
+  padding: 45px 35px;
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
 .cnt--img {
-  max-width: 540px;
-  border-radius: 18px;
+  max-width: 510px;
+  border-radius: 14px;
+  box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
+    0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
 }
-.cnt-dsc {
-  font-size: 32px;
+.cnt-txt {
   padding-left: 40px;
 }
+.cnt-txt-1 {
+  padding-left: 0;
+  padding-right: 40px;
+  text-align: right;
+}
+.cnt-txt--title {
+  font-size: 32px;
+  font-weight: 500;
+}
+.cnt-txt--dsc {
+  font-size: 15px;
+  padding-top: 30px;
+  line-height: 22px;
+  color: hsla(0, 0%, 30%, 1);
+}
 
-@font-face {
-  font-family: "Roboto", sans-serif;
-  src: url(Roboto-Black.ttf) format("truetype"),
-    url(Roboto-BlackItalic.ttf) format("truetype"),
-    url(Roboto-Bold.ttf) format("truetype"),
-    url(Roboto-BoldItalic.ttf) format("truetype"),
-    url(Roboto-Italic.ttf) format("truetype"),
-    url(Roboto-Light.ttf) format("truetype"),
-    url(Roboto-LightItalic.ttf) format("truetype"),
-    url(Roboto-Medium.ttf) format("truetype"),
-    url(Roboto-MediumItalic.ttf) format("truetype"),
-    url(Roboto-Regular.ttf) format("truetype"),
-    url(Roboto-Thin.ttf) format("truetype"),
-    url(Roboto-ThinItalic.ttf) format("truetype");
+footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 0;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.ft-about {
+  max-width: 350px;
+}
+.ft-about--title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.ft-about--dsc {
+  font-size: 12px;
+}
+.ft-menu {
+  padding: 0 20px;
+}
+.ft-menu-btn {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.ft-menu-btn > a {
+  color: hsla(0, 0%, 20%, 1);
+}
+.ft-social {
+  display: flex;
+  flex-grow: 1;
 }
