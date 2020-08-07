@@ -44,10 +44,16 @@ a:hover {
   cursor: pointer;
   outline: none;
   transition: 0.12s;
+  border: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
 @media only screen and (max-width: 767px) {
   .btn {
     height: 32px;
+    font-size: 12px;
   }
 }
 
@@ -90,15 +96,22 @@ a:hover {
   display: flex;
   justify-content: flex-end;
 }
-.menu-login:hover {
-  color: hsl(207, 63%, 54%);
+.menu-login,
+.menu-login > a {
+  margin: 0;
 }
-.menu-registration {
+.menu-login:hover > a {
+  color: hsl(207, 63%, 54%);
+  text-decoration: none;
+}
+.menu-registration > a {
   color: #fff;
   margin-left: 20px;
   background: hsl(207, 63%, 54%);
+  padding: 0 12px;
 }
-.menu-registration:hover {
+.menu-registration:hover > a {
+  text-decoration: none;
   background: hsla(207, 63%, 54%, 0.9);
 }
 
@@ -109,6 +122,7 @@ main {
   max-width: 1020px;
   margin: 0 auto;
   flex-direction: column;
+  align-items: center;
   padding: 0 25px;
 }
 .cnt {
@@ -122,6 +136,7 @@ main {
   margin-bottom: 50px;
   overflow: hidden;
   align-items: start;
+  width: 100%;
 }
 @media only screen and (max-width: 767px) {
   .cnt {
@@ -230,4 +245,49 @@ footer {
 .ft-social {
   display: flex;
   flex-grow: 1;
+}
+
+/*Login and reistration pages*/
+.cnt-login {
+  margin-top: 0;
+  max-width: 400px;
+  flex-direction: column;
+}
+.cnt-login-label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  width: 100%;
+}
+.cnt-login-label--txt {
+  color: hsla(0, 0%, 30%, 1);
+  margin-bottom: 6px;
+  display: block;
+}
+.cnt-login-label--inp {
+  height: 34px;
+  background: hsla(200, 13%, 93%, 1);
+  padding: 10px 8px;
+  font-size: 13px;
+  outline: none;
+  line-height: 1;
+  border: 1px solid #eee;
+}
+.cnt-login_ft {
+  width: 100%;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.cnt-login--signup {
+  color: hsl(207, 63%, 54%);
+  padding: 0;
+}
+.cnt-login--signin {
+  color: #fff;
+  background: hsl(207, 63%, 54%);
+}
+.cnt-login--signin:hover {
+  background: hsla(207, 63%, 54%, 0.9);
 }
