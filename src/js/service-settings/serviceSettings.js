@@ -35,7 +35,7 @@ export class ServiceSettings {
 
         let bcgSelector = `bd_bcg-${imgNum}`;
 
-        for (let num = 1; 6 >= num; num++) {
+        for (let num = 1; 9 >= num; num++) {
             if (this.page.backgroundImg.classList.contains(`bd_bcg-${num}`)) {
                 this.page.backgroundImg.classList.remove(`bd_bcg-${num}`);
             }

@@ -64,6 +64,15 @@ label {
 .bd_bcg-active.bd_bcg-6 {
   background: hsla(220, 100%, 99%, 0.4) url(../img/background6.jpg);
 }
+.bd_bcg-active.bd_bcg-7 {
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background7.jpg);
+}
+.bd_bcg-active.bd_bcg-8 {
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background8.jpg);
+}
+.bd_bcg-active.bd_bcg-9 {
+  background: hsla(220, 100%, 99%, 0.4) url(../img/background9.jpg);
+}
 .bd_bcg-active.bd_bcg-1,
 .bd_bcg-active.bd_bcg-2,
 .bd_bcg-active.bd_bcg-3,
@@ -2722,7 +2731,10 @@ Test create page
 .dark-theme .bd_bcg-3,
 .dark-theme .bd_bcg-4,
 .dark-theme .bd_bcg-5,
-.dark-theme .bd_bcg-6 {
+.dark-theme .bd_bcg-6,
+.dark-theme .bd_bcg-7,
+.dark-theme .bd_bcg-8,
+.dark-theme .bd_bcg-9 {
   background-color: hsla(204, 13%, 10%, 0.45);
 }
 

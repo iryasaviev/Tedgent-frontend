@@ -1,7 +1,7 @@
 export class ServiceSettingsContent {
 
-	getPage() {
-		return `<div class="cnt_bd-settings js-settings-bd">
+  getPage() {
+    return `<div class="cnt_bd-settings js-settings-bd">
     <div class="settings_hd">
       <div class="settings_hd-menu pivot-menu">
         <button class="settings_hd-menu--btn btn pivot-menu--btn js-link-btn" data-link="/acconut/settings"
@@ -50,6 +50,21 @@ export class ServiceSettingsContent {
                 <img class="settings-service-appearance-bcg--img js-settings-service-appearance-img"
                   src="./img/background6.jpg">
               </div>
+              <div class="settings-service-appearance-bcg"
+                data-background-img-num="7" data-settings-service-action="changeBackgroundImage">
+                <img class="settings-service-appearance-bcg--img js-settings-service-appearance-img"
+                  src="./img/background7.jpg">
+              </div>
+              <div class="settings-service-appearance-bcg"
+                data-background-img-num="8" data-settings-service-action="changeBackgroundImage">
+                <img class="settings-service-appearance-bcg--img js-settings-service-appearance-img"
+                  src="./img/background8.jpg">
+              </div>
+              <div class="settings-service-appearance-bcg"
+                data-background-img-num="9" data-settings-service-action="changeBackgroundImage">
+                <img class="settings-service-appearance-bcg--img js-settings-service-appearance-img"
+                  src="./img/background9.jpg">
+              </div>
             </div>
             <label
               class="settings-service-appearance-bcg-toggle toggle js-toggle js-settings-service-appearance-img-solid-color-toggle"
@@ -72,5 +87,5 @@ export class ServiceSettingsContent {
       </div>
     </div>
   </div>`;
-	}
+  }
 }
