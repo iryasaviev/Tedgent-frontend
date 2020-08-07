@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="body">
     <header class="menu">
         <nav class="menu-logo">
             <a href="#">Tedgent</a>
@@ -17,25 +17,40 @@
 
     <main>
         <section class="cnt cnt-login">
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Фамилия</span>
-                <input class="cnt-login-label--inp" name="lastName" type="text">
+                <input class="cnt-login-label--inp js-inp" name="firstName" type="text">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Имя</span>
-                <input class="cnt-login-label--inp" name="firstName" type="text">
+                <input class="cnt-login-label--inp js-inp" name="lastName" type="text">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Email</span>
-                <input class="cnt-login-label--inp" name="email" type="text">
+                <input class="cnt-login-label--inp js-inp" name="email" type="text">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Пароль</span>
-                <input class="cnt-login-label--inp" name="password" type="password">
+                <input class="cnt-login-label--inp js-inp" name="password" type="password">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Повторите пароль</span>
-                <input class="cnt-login-label--inp" name="password" type="password">
+                <input class="cnt-login-label--inp js-inp" name="passwordConfirm" type="password">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
             <div class="cnt-login_ft">
                 <a class="btn cnt-login--signup" href="#">Войти</a>

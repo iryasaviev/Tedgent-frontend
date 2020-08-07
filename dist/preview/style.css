@@ -57,6 +57,50 @@ a:hover {
   }
 }
 
+.inp_wr {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+.inp-error-mess {
+  font-size: 12px;
+  background: hsl(0deg 100% 90%);
+  position: absolute;
+  top: 44px;
+  border: 1px solid hsla(0, 100%, 50%, 0.5);
+  border-radius: 8px;
+  z-index: 1;
+  box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
+    0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
+  display: none;
+  left: 0;
+  right: 0;
+  padding: 0 8px;
+}
+.inp-error-mess::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  box-shadow: 0 0.3px 2px 0 rgba(0, 0, 0, 0.2);
+  z-index: -1;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  top: -6px;
+  left: 20px;
+  background: hsl(0deg 100% 90%);
+  border: 1px solid hsla(0, 100%, 50%, 0.5);
+}
+.inp-error .inp-error-mess {
+  display: block;
+}
+.inp-error-mess--txt {
+  padding: 15px 10px;
+  color: #333;
+  background: hsl(0deg 100% 90%);
+}
+
 .menu {
   width: 100%;
   height: 60px;
@@ -254,10 +298,7 @@ footer {
   flex-direction: column;
 }
 .cnt-login-label {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 30px;
-  width: 100%;
 }
 .cnt-login-label--txt {
   color: hsla(0, 0%, 30%, 1);
@@ -272,6 +313,7 @@ footer {
   outline: none;
   line-height: 1;
   border: 1px solid #eee;
+  width: 100%;
 }
 .cnt-login_ft {
   width: 100%;
