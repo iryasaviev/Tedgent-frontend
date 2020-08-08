@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация нового аккаунта</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/preview-styles.css">
 </head>
 
 <body id="body">
@@ -19,35 +19,35 @@
         <section class="cnt cnt-login">
             <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Фамилия</span>
-                <input class="cnt-login-label--inp js-inp" name="firstName" type="text">
+                <input class="inp js-inp" name="firstName" type="text">
                 <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                 </div>
             </label>
             <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Имя</span>
-                <input class="cnt-login-label--inp js-inp" name="lastName" type="text">
+                <input class="inp js-inp" name="lastName" type="text">
                 <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                 </div>
             </label>
             <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Email</span>
-                <input class="cnt-login-label--inp js-inp" name="email" type="text">
+                <input class="inp js-inp" name="email" type="text">
                 <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                 </div>
             </label>
             <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Пароль</span>
-                <input class="cnt-login-label--inp js-inp" name="password" type="password">
+                <input class="inp js-inp js-password-inp" name="password" type="password">
                 <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                 </div>
             </label>
-            <label class="cnt-login-label inp_wr js-inp-wrapper">
+            <label class="cnt-login-label inp_wr js-inp-wrapper js-password-inp-confirm-wrapper">
                 <span class="cnt-login-label--txt">Повторите пароль</span>
-                <input class="cnt-login-label--inp js-inp" name="passwordConfirm" type="password">
+                <input class="inp js-inp js-password-inp-confirm" name="passwordConfirm" type="password">
                 <div class="inp-error-mess">
                     <div class="inp-error-mess--txt js-inp-error-txt"></div>
                 </div>
@@ -60,7 +60,7 @@
         </section>
     </main>
 
-    <script src="scripts.js"></script>
+    <script src="../js/preview-scripts.js"></script>
 </body>
 
 </html>

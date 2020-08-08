@@ -6,14 +6,14 @@
 
 @font-face {
   font-family: Ubuntu;
-  src: url(Ubuntu-Bold.ttf) format("truetype");
-  src: url(Ubuntu-BoldItalic.ttf) format("truetype");
-  src: url(Ubuntu-Italic.ttf) format("truetype");
-  src: url(Ubuntu-Light.ttf) format("truetype");
-  src: url(Ubuntu-LightItalic.ttf) format("truetype");
-  src: url(Ubuntu-Medium.ttf) format("truetype");
-  src: url(Ubuntu-MediumItalic.ttf) format("truetype");
-  src: url(Ubuntu-Regular.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-Bold.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-BoldItalic.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-Italic.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-Light.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-LightItalic.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-Medium.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-MediumItalic.ttf) format("truetype");
+  src: url(../fonts/preview/Ubuntu-Regular.ttf) format("truetype");
 }
 
 body {
@@ -57,6 +57,18 @@ a:hover {
   }
 }
 
+.inp {
+  height: 34px;
+  background: hsla(200, 13%, 93%, 1);
+  padding: 10px 8px;
+  font-size: 13px;
+  outline: none;
+  line-height: 1;
+  border: 1px solid #eee;
+  width: 100%;
+  border-radius: 4px;
+}
+
 .inp_wr {
   display: flex;
   flex-direction: column;
@@ -67,7 +79,7 @@ a:hover {
   font-size: 12px;
   background: hsl(0deg 100% 90%);
   position: absolute;
-  top: 44px;
+  top: 65px;
   border: 1px solid hsla(0, 100%, 50%, 0.5);
   border-radius: 8px;
   z-index: 1;
@@ -100,21 +112,29 @@ a:hover {
   color: #333;
   background: hsl(0deg 100% 90%);
 }
+.inp-error .inp {
+  border-color: hsla(0, 100%, 50%, 0.2);
+  background: hsl(0 100% 93% / 1);
+}
 
 .menu {
   width: 100%;
   height: 60px;
   max-width: 1180px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
   padding: 10px;
+  display: flex;
   flex-wrap: wrap;
 }
 @media only screen and (max-width: 767px) {
   .menu {
     height: 100px;
   }
+}
+.menu > ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
 }
 .menu-btn > a {
   color: hsla(0, 0%, 30%, 1);
@@ -139,6 +159,7 @@ a:hover {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  margin-left: 20px;
 }
 .menu-login,
 .menu-login > a {
@@ -304,16 +325,6 @@ footer {
   color: hsla(0, 0%, 30%, 1);
   margin-bottom: 6px;
   display: block;
-}
-.cnt-login-label--inp {
-  height: 34px;
-  background: hsla(200, 13%, 93%, 1);
-  padding: 10px 8px;
-  font-size: 13px;
-  outline: none;
-  line-height: 1;
-  border: 1px solid #eee;
-  width: 100%;
 }
 .cnt-login_ft {
   width: 100%;
