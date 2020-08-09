@@ -2,7 +2,7 @@
 
 class Validation {
     constructor() {
-        this.body = document.getElementById('body');
+        this.body = document.getElementsByTagName('body')[0];
     }
 
     /**
@@ -149,8 +149,7 @@ class Validation {
      * Устанавливает обработчики событий.
      */
     setHandlers() {
-        const inpWrappers = this.body.getElementsByClassName('js-inp-wrapper'),
-            inps = this.body.getElementsByClassName('js-inp');
+        const inpWrappers = this.body.getElementsByClassName('js-inp-wrapper');
 
         for (let inpWrapper of inpWrappers) {
             let inp = inpWrapper.getElementsByClassName('js-inp')[0];
@@ -170,20 +169,21 @@ class Validation {
                 inpWrapper.getElementsByClassName('js-inp')[0].addEventListener('input', () => this.passwordValidation(inpWrapper, inp));
             }
 
-            // Вешает обработчики событий на поля для ввода нового пароля и его повтора 
-            if (inp.name === 'password' || inp.name === 'passwordConfirm') {
-                let password = this.body.getElementsByClassName('js-password-inp')[0],
-                    passwordConfirm = this.body.getElementsByClassName('js-password-inp-confirm')[0],
-                    passInpConfirmWrapper = this.body.getElementsByClassName('js-password-inp-confirm-wrapper')[0];
+            // Вешает обработчики событий на поля для ввода нового пароля и его повтора,
+            // если страница регистрации
+            if (this.body.dataset.pageName === 'registration') {
+                if (inp.name === 'password' || inp.name === 'passwordConfirm') {
+                    let password = this.body.getElementsByClassName('js-password-inp')[0],
+                        passwordConfirm = this.body.getElementsByClassName('js-password-inp-confirm')[0],
+                        passInpConfirmWrapper = this.body.getElementsByClassName('js-password-inp-confirm-wrapper')[0];
 
-                inp.addEventListener('input', () => this.validatePasswordForConfritm(passInpConfirmWrapper, password, passwordConfirm));
+                    inp.addEventListener('input', () => this.validatePasswordForConfritm(passInpConfirmWrapper, password, passwordConfirm));
+                }
             }
         }
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const validationCl = new Validation();
-
-    validationCl.setHandlers();
+    new Validation().setHandlers();
 });

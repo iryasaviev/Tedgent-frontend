@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход в аккаунт</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/preview-styles.css">
 </head>
 
-<body>
+<body data-page-name="login">
     <header class="menu">
         <nav class="menu-logo">
             <a href="#">Tedgent</a>
@@ -17,13 +17,19 @@
 
     <main>
         <section class="cnt cnt-login">
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Email</span>
-                <input class="cnt-login-label--inp" name="email" type="text">
+                <input class="inp js-inp" name="email" type="text">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
-            <label class="cnt-login-label">
+            <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Пароль</span>
-                <input class="cnt-login-label--inp" name="password" type="password">
+                <input class="inp js-inp js-password-inp" name="password" type="password">
+                <div class="inp-error-mess">
+                    <div class="inp-error-mess--txt js-inp-error-txt"></div>
+                </div>
             </label>
             <div class="cnt-login_ft">
                 <a class="btn cnt-login--signup" href="#">Зарегистрироваться</a>
@@ -33,7 +39,7 @@
         </section>
     </main>
 
-    <script src="scripts.js"></script>
+    <script src="../js/preview-scripts.js"></script>
 </body>
 
 </html>
