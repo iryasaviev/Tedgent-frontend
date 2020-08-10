@@ -311,7 +311,7 @@ footer {
   flex-grow: 1;
 }
 
-/*Login and reistration pages*/
+/* Login and reistration pages */
 .cnt-login {
   margin-top: 0;
   max-width: 400px;
@@ -342,4 +342,40 @@ footer {
 }
 .cnt-login--signin:hover {
   background: hsla(207, 63%, 54%, 0.9);
+}
+
+/* FAQ page */
+.cnt-faq {
+  flex-direction: column;
+}
+.cnt-faq-menu {
+  /* margin-bottom: 40px; */
+}
+.faq-menu-list {
+  list-style: none;
+  padding-bottom: 10px;
+}
+.faq-menu-list--title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.faq-menu-li {
+  margin-bottom: 8px;
+}
+.faq-menu--link {
+  font-size: 15px;
+  color: hsl(207, 63%, 54%);
+}
+.cnt-faq-article {
+  margin-top: 30px;
+}
+.cnt-faq-article--h {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.cnt-faq-article--p {
+  padding-left: 15px;
+  padding-bottom: 10px;
 }

@@ -1,8 +1,23 @@
 'use strict';
 
-class Validation {
+class Page {
     constructor() {
-        this.body = document.getElementsByTagName('body')[0];
+        this.body = document.getElementById('body');
+
+        this.num = this.body.dataset.pageNum;
+    }
+
+    /**
+     * Устанавливает обработчики событий.
+     */
+    setHandlers() {
+        new Validation(this).setHandlers();
+    }
+}
+
+class Validation {
+    constructor(pageCl) {
+        this.pageCl = pageCl;
     }
 
     /**
@@ -149,7 +164,7 @@ class Validation {
      * Устанавливает обработчики событий.
      */
     setHandlers() {
-        const inpWrappers = this.body.getElementsByClassName('js-inp-wrapper');
+        const inpWrappers = this.pageCl.body.getElementsByClassName('js-inp-wrapper');
 
         for (let inpWrapper of inpWrappers) {
             let inp = inpWrapper.getElementsByClassName('js-inp')[0];
@@ -171,11 +186,11 @@ class Validation {
 
             // Вешает обработчики событий на поля для ввода нового пароля и его повтора,
             // если страница регистрации
-            if (this.body.dataset.pageName === 'registration') {
+            if (this.pageCl.body.dataset.pageName === 'registration') {
                 if (inp.name === 'password' || inp.name === 'passwordConfirm') {
-                    let password = this.body.getElementsByClassName('js-password-inp')[0],
-                        passwordConfirm = this.body.getElementsByClassName('js-password-inp-confirm')[0],
-                        passInpConfirmWrapper = this.body.getElementsByClassName('js-password-inp-confirm-wrapper')[0];
+                    let password = this.pageCl.body.getElementsByClassName('js-password-inp')[0],
+                        passwordConfirm = this.pageCl.body.getElementsByClassName('js-password-inp-confirm')[0],
+                        passInpConfirmWrapper = this.pageCl.body.getElementsByClassName('js-password-inp-confirm-wrapper')[0];
 
                     inp.addEventListener('input', () => this.validatePasswordForConfritm(passInpConfirmWrapper, password, passwordConfirm));
                 }
@@ -185,5 +200,7 @@ class Validation {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new Validation().setHandlers();
+    const pageCl = new Page();
+
+    pageCl.setHandlers();
 });
