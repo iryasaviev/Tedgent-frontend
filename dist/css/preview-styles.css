@@ -53,7 +53,7 @@ a:hover {
 @media only screen and (max-width: 767px) {
   .btn {
     height: 32px;
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
@@ -348,17 +348,13 @@ footer {
 .cnt-faq {
   flex-direction: column;
 }
-.cnt-faq-menu {
-  /* margin-bottom: 40px; */
-}
 .faq-menu-list {
   list-style: none;
   padding-bottom: 10px;
 }
 .faq-menu-list--title {
   font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .faq-menu-li {
   margin-bottom: 8px;
@@ -367,15 +363,31 @@ footer {
   font-size: 15px;
   color: hsl(207, 63%, 54%);
 }
-.cnt-faq-article {
+@media only screen and (max-width: 767px) {
+  .faq-menu--link {
+    font-size: 13px;
+  }
+}
+.faq-article {
   margin-top: 30px;
 }
-.cnt-faq-article--h {
+@media only screen and (max-width: 767px) {
+  .faq-article {
+    margin-top: 20px;
+  }
+}
+.faq-article--h {
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 8px;
 }
-.cnt-faq-article--p {
+@media only screen and (max-width: 767px) {
+  .faq-menu-list--title,
+  .faq-article--h {
+    font-size: 14px;
+  }
+}
+.faq-article--p {
   padding-left: 15px;
   padding-bottom: 10px;
 }
