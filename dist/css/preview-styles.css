@@ -15,12 +15,18 @@
   src: url(../fonts/preview/Ubuntu-MediumItalic.ttf) format("truetype");
   src: url(../fonts/preview/Ubuntu-Regular.ttf) format("truetype");
 }
-
+html {
+  height: 100%;
+}
 body {
+  height: 100%;
   color: hsla(0, 0%, 20%, 1);
   font-size: 14px;
   font-family: "Ubuntu", sans-serif;
   background: hsla(220, 100%, 99%, 1);
+
+  display: flex;
+  flex-direction: column;
 }
 @media only screen and (max-width: 767px) {
   body {
@@ -115,6 +121,10 @@ a:hover {
 .inp-error .inp {
   border-color: hsla(0, 100%, 50%, 0.2);
   background: hsl(0 100% 93% / 1);
+}
+
+.content { 
+  flex: 1 0 auto;
 }
 
 .menu {
@@ -265,6 +275,7 @@ main {
 }
 
 footer {
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
   padding: 20px 10px;
@@ -273,6 +284,7 @@ footer {
   overflow: hidden;
   justify-content: space-between;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 .ft-about {
   max-width: 350px;
@@ -393,6 +405,6 @@ footer {
 }
 
 /* Support page */
-.cnt-faq {
-  flex-direction: column;
+.support--link {
+  color: hsl(207, 63%, 54%);
 }
