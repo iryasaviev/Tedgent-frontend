@@ -988,6 +988,31 @@ Body content
   padding-top: 20px;
 }
 
+/*
+----------
+Page error 
+----------
+*/
+.page-error .cnt {
+  left: 0;
+  top: 0;
+}
+.cnt_bd-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+.cnt_bd-error > h2 {
+  font-size: 28px;
+}
+.cnt_bd-error > p {
+  margin-top: 15px;
+}
+.cnt_bd-error > p > a {
+  color: hsl(207, 63%, 54%);
+}
+
 @font-face {
   font-family: "tedgent";
   src: url(../fonts/tedgent.eot);
