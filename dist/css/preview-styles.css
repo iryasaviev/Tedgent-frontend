@@ -241,11 +241,15 @@ main {
   }
 }
 .main-section-txt--btn {
-  color: #fff;
-  background: hsl(207, 63%, 54%);
+  color: hsl(207, 63%, 54%);
+  background: #fff;
+  border: 1px solid hsl(207, 63%, 54%);
   padding: 0 12px;
   display: inline-block;
   line-height: 34px;
+}
+.main-section-txt--btn:hover {
+  color: #fff;
 }
 @media only screen and (max-width: 767px) {
   .main-section-txt--btn {
@@ -425,6 +429,9 @@ footer {
   font-size: 15px;
   margin-bottom: 10px;
 }
+.faq-menu-list--title > a {
+  color: hsla(0, 0%, 20%, 1);
+}
 .faq-menu-li {
   margin-bottom: 8px;
 }
@@ -437,12 +444,15 @@ footer {
     font-size: 13px;
   }
 }
+.faq-h {
+  padding: 20px 0 15px 0;
+}
 .faq-article {
-  margin-top: 30px;
+  margin-bottom: 30px;
 }
 @media only screen and (max-width: 767px) {
   .faq-article {
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 .faq-article--h {
