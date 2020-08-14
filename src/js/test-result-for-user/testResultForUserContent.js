@@ -24,12 +24,11 @@ export class TestResultForUserContent {
             </div>
             <div class="raiting">
               <div class="raiting-stars">
-                <div class="raiting-stars--scale"></div>
-                <div class="raiting-star star-1"><span class="i-star2"></span></div>
-                <div class="raiting-star star-2"><span class="i-star2"></span></div>
-                <div class="raiting-star star-3"><span class="i-star2"></span></div>
-                <div class="raiting-star star-4"><span class="i-star2"></span></div>
-                <div class="raiting-star star-5"><span class="i-star2"></span></div>
+                <div class="raiting-star star-1"><span class="i-star1"></span></div>
+                <div class="raiting-star star-2"><span class="i-star1"></span></div>
+                <div class="raiting-star star-3"><span class="i-star1"></span></div>
+                <div class="raiting-star star-4"><span class="i-star1"></span></div>
+                <div class="raiting-star star-5"><span class="i-star1"></span></div>
               </div>
               <div class="raiting-star--voted js-test-raiting-voted"></div>
             </div>

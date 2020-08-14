@@ -1160,20 +1160,13 @@ Page error
   height: 15px;
   width: 15px;
   cursor: pointer;
-  background: #ddd;
+  background: #fff;
   position: relative;
-  color: #fff;
+  color: #ddd;
   overflow: hidden;
 }
 .raiting-star-active {
-  background: hsla(54, 100%, 50%, 1);
-}
-.raiting-stars--scale {
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  background: hsla(54, 100%, 50%, 1);
+  color: hsla(54, 100%, 50%, 1);
 }
 .raiting--voted {
   font-size: 14px;
@@ -1181,7 +1174,7 @@ Page error
 }
 .raiting-star:hover,
 .raiting-star:hover ~ .raiting-star {
-  background: hsla(54, 100%, 50%, 1);
+  color: hsla(54, 100%, 50%, 1);
 }
 .raiting-star--voted {
   font-size: 14px;
