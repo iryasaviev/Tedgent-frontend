@@ -4,11 +4,11 @@ Test
 ----------
 */
 .cnt_bd-test {
-  max-width: 950px;
+  max-width: 1000px;
   margin: 0 auto;
   background: #fff;
   border-radius: 4px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.132),
     0 1.2px 3.6px 0 rgba(0, 0, 0, 0.108);
 }
@@ -341,7 +341,7 @@ Test
 .test_ft {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .test_ft--btn {
   padding: 0 12px;
