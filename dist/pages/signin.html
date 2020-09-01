@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="../css/preview-styles.css">
 </head>
 
-<body data-page-name="login" id="body">
+<body data-page-name="signin" id="body">
     <header class="menu">
         <nav class="menu-logo">
-            <a href="index.html">Tedgent</a>
+            <a href="preview-index.html">Tedgent</a>
         </nav>
     </header>
 
     <main>
-        <section class="cnt cnt-login">
+        <section class="cnt cnt-login" id="form">
             <label class="cnt-login-label inp_wr js-inp-wrapper">
                 <span class="cnt-login-label--txt">Email</span>
                 <input class="inp js-inp" name="email" type="text">
@@ -32,9 +32,9 @@
                 </div>
             </label>
             <div class="cnt-login_ft">
-                <a class="btn cnt-login--signup" href="registration.html">Зарегистрироваться</a>
+                <a class="btn cnt-login--signup" href="signup.html">Зарегистрироваться</a>
                 <span>или</span>
-                <button class="btn cnt-login--signin">Войти</button>
+                <button class="btn cnt-login--signin" id="formSubmitBtn">Войти</button>
             </div>
         </section>
     </main>

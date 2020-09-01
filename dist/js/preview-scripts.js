@@ -1,17 +1,49 @@
 'use strict';
 
+class Ajax {
+    async send(data = {}, url = '') {
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                "Accept": "application/json",
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        return await response.json();
+    }
+}
+
 class Page {
     constructor() {
+        this.ajaxCl = new Ajax();
+        this.validationCl = new Validation(this);
+
         this.body = document.getElementById('body');
 
-        this.num = this.body.dataset.pageNum;
+        this.name = this.body.dataset.pageName;
     }
 
     /**
      * Устанавливает обработчики событий.
      */
     setHandlers() {
-        new Validation(this).setHandlers();
+        this.validationCl.setHandlers();
+
+        switch (this.name) {
+            case "signin":
+                break;
+
+            case "signup":
+                break;
+        }
+
+        if (this.name === 'signin') {
+            let formSubmitBtn = document.getElementById('formSubmitBtn');
+            formSubmitBtn.onclick = () => new Signin(this).toComeIn();
+        }
     }
 }
 
@@ -186,7 +218,7 @@ class Validation {
 
             // Вешает обработчики событий на поля для ввода нового пароля и его повтора,
             // если страница регистрации
-            if (this.pageCl.body.dataset.pageName === 'registration') {
+            if (this.pageCl.name === 'signup') {
                 if (inp.name === 'password' || inp.name === 'passwordConfirm') {
                     let password = this.pageCl.body.getElementsByClassName('js-password-inp')[0],
                         passwordConfirm = this.pageCl.body.getElementsByClassName('js-password-inp-confirm')[0],
@@ -196,6 +228,159 @@ class Validation {
                 }
             }
         }
+    }
+}
+
+class Signin {
+    constructor(page) {
+        this.pageCl = page;
+
+        this.form = document.getElementById('form');
+    }
+
+    /**
+     * Валидирует, собирает и отправляет данные с формы. 
+     */
+    toComeIn() {
+        if (this.validateForm()) {
+            const data = this.collectData();
+
+            this.pageCl.ajaxCl.send(data, '/api/user/signin')
+                .then((result) => {
+                    console.log(result);
+                });
+        }
+    }
+
+    /**
+     * Проверяет данные формы после нажатия на кнопку Войти.
+     */
+    validateForm() {
+        let inpWrappers = this.form.getElementsByClassName('js-inp-wrapper'),
+            result = true,
+            event = new Event('input');
+
+        for (let inpWrapper of inpWrappers) {
+            let inp = inpWrapper.getElementsByClassName('js-inp')[0];
+            inp.dispatchEvent(event);
+
+            if (inpWrapper.classList.contains('inp-error')) {
+                if (result) {
+                    result = false;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Собирает данные с формы.
+     */
+    collectData() {
+        const inps = this.form.getElementsByClassName('js-inp');
+
+        let data = {
+            email: '',
+            password: ''
+        };
+        for (let inp of inps) {
+            switch (inp.name) {
+                case 'email':
+                    data.email = inp.value;
+                    break;
+
+                case 'password':
+                    data.password = inp.value;
+                    break;
+            }
+        }
+
+        return data;
+    }
+}
+
+class Signup {
+    constructor(page) {
+        this.pageCl = page;
+
+        this.form = document.getElementById('form');
+    }
+
+    /**
+     * Валидирует, собирает и отправляет данные с формы. 
+     */
+    toComeIn() {
+        if (this.validateForm()) {
+            const data = this.collectData();
+
+            this.pageCl.ajaxCl.send(data, '/api/user/signup')
+                .then((result) => {
+                    console.log(result);
+                });
+        }
+    }
+
+    /**
+     * Проверяет данные формы после нажатия на кнопку Войти.
+     */
+    validateForm() {
+        let inpWrappers = this.form.getElementsByClassName('js-inp-wrapper'),
+            result = true,
+            event = new Event('input');
+
+        for (let inpWrapper of inpWrappers) {
+            let inp = inpWrapper.getElementsByClassName('js-inp')[0];
+            inp.dispatchEvent(event);
+
+            if (inpWrapper.classList.contains('inp-error')) {
+                if (result) {
+                    result = false;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Собирает данные с формы.
+     */
+    collectData() {
+        const inps = this.form.getElementsByClassName('js-inp');
+
+        let data = {
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            passwordConfirm: ''
+        };
+        for (let inp of inps) {
+            switch (inp.name) {
+                case 'firstName':
+                    data.firstName = inp.value;
+                    break;
+
+                case 'lastName':
+                    data.lastName = inp.value;
+                    break;
+
+                case 'email':
+                    data.email = inp.value;
+                    break;
+
+                case 'password':
+                    data.password = inp.value;
+                    break;
+
+                case 'passwordConfirm':
+                    data.passwordConfirm = inp.value;
+                    break;
+            }
+        }
+
+        return data;
     }
 }
 
